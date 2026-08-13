@@ -171,6 +171,33 @@ Where ponytail and the rules above collide, the rules above win. In particular
 the comment budget: a `ponytail:` marker comment is allowed only when it names a
 real ceiling and its upgrade path, and it gets one line.
 
+## My Claude Code config lives in git, push it after every change
+
+`~/.claude` is a git repo pushed to `curiousyuvi/claude-config` (private). It
+tracks a whitelist: this file, `settings.json`, `settings.local.json`,
+`toolboxes.json`, `skill-system-config.json`, `agents/`, `commands/`, `hooks/`,
+`skills/`, and `projects/*/memory/`. Everything else in `~/.claude` (transcripts,
+sessions, caches, plugin checkouts, logs) is gitignored and stays local.
+
+The rule: any change to those files gets committed and pushed. Do not leave my
+config dirty.
+
+- A Stop hook runs `hooks/sync-config.sh` at the end of every turn, so routine
+  edits sync themselves. You do not need to push by hand.
+- When you edit one of those files deliberately, still verify it landed:
+  `git -C ~/.claude log --oneline -1` and `git -C ~/.claude status --short`. If
+  the tree is dirty, commit and push it yourself with a real message rather than
+  waiting for the hook's dated one.
+- The permission I gave for this push is standing, and it is scoped to this repo
+  only. It never extends to project repos: those still follow "never commit,
+  push, or merge without asking".
+- The script aborts and warns instead of pushing if the staged diff looks like it
+  contains a secret. If you see that warning, tell me. Never work around it, and
+  never put a literal key, token, or password in a `~/.claude` file: this repo is
+  private but it is still off my machine.
+- Adding a new tracked path means editing `~/.claude/.gitignore`, since the
+  ignore file is a whitelist and a new top-level file is invisible by default.
+
 <!-- lean-ctx -->
 <!-- lean-ctx-claude-v8 -->
 ## lean-ctx — Replace Mode (native Grep/Glob denied by policy)
