@@ -1,0 +1,25 @@
+- [Developer profile](user_profile.md) — Yuvraj Singh, Tech Lead @ GrooveHQ, exited founder (Kroto acquired), AI & SaaS
+- [Freelancing goals](user_freelancing.md) — freelance-autopilot built, Telegram working, evaluating FreelanceMCP
+- [Lorekeeper SaaS](project_lorekeeper.md) — Chosen indie SaaS: AI story bible for serialized creators, plan exists, no code yet
+- [Memory style](feedback_memory_style.md) — Don't dump full resumes/profiles into memory, extract only specific facts needed
+- [Collaboration style](feedback_collaboration_style.md) — Stay in the loop on multi-phase work; plans should teach not just spec; surface CTO discussion points
+- [No AI attribution](feedback_no_ai_attribution.md) — All commits/PRs/GH artifacts must look fully human-authored, no Co-Authored-By Claude or "Generated with Claude" footers
+- [Screenshot agent project](project_screenshot_agent.md) — InstantDocs screenshot agent (Ferndesk-inspired); spike planning in progress
+- [Helply rebrand](project_helply_rebrand.md) — recorder extension+app rebranded to Helply design; productName intentionally still InstantDocs (updater)
+- [Screenshot agent workspace pinning](feedback_screenshot_agent_workspace.md) — pin browser-use to Yuvraj's Workspace + Test KB via TARGET_APP_LOGIN_INSTRUCTIONS or every capture lands wrong
+- [Test-doc prompts](feedback_test_doc_prompts.md) — don't bake test-article specifics into LLM-facing prompts; bias real customer-app runs
+- [KB in ticket sidebar](project_kb_in_sidebar.md) — Axis inbox browses/searches published InstantDocs KB via /api/axis (S2S, OIDC client creds); built + verified, not committed
+- [KB native in Axis](project_kb_native_in_axis.md) — rebuilding InstantDocs KB (P1) + video (P2) natively in Axis; editor=Plate.js; Phase 1 basic CRUD MERGED (PR #563 → master, 2026-06-26, after a thermo-nuclear audit + review pass); small publish-button polish carried to next task
+- [KB editor blocks](project_kb_editor_blocks.md) — in-progress 7 rich blocks on ys/feat/kb-editor-blocks (button/inline-image/callout-variants/accordion/card-group/updates/steps); add-a-block chain, decisions, katex vitest gotcha
+- [Axis verify commands](feedback_axis_verify_commands.md) — verify with tsgo typecheck + knip + openapi:generate (not tsc/vite build) before pushing Axis
+- [Comment style](feedback_comment_style.md) — minimal, short comments only; never comment everywhere or restate the obvious
+- [Ask on decisions](feedback_ask_decisions.md) — surface multi-option decisions and let Yuvraj choose; don't unilaterally pick
+- [Code quality review](feedback_code_quality_review.md) — periodically run /thermo-nuclear-code-quality-review (verify name/availability first) while writing code
+- [Always write tests](feedback_always_test.md) — add tests in the same slice (unit for pure logic, integration via forkEm for persistence); backfill if skipped
+- [Plate.js MCP](feedback_platejs_mcp.md) — always use the `plate` MCP (npx shadcn mcp) for any Plate.js work; don't guess the API or read node_modules
+- [Reader matches InstantDocs](feedback_reader_match_instantdocs.md) — published KB reader visual design must match the InstantDocs repo look, not a default skin
+- [KB Settings Figma](reference_kb_settings_figma.md) — fileKey msmcrEnrKJuoECfgXMroVQ, node 61:3413; sidebar/section-page/layout-picker node IDs + token map
+- [Pull Figma from source](feedback_figma_pull_source.md) — when given a Figma, pull it via the Figma MCP and build to the source; don't eyeball screenshots
+- [Axis CI gates](reference_axis_ci_gates.md) — Sonar S2068 fires on `password:`-named props with literal values (even env names); React Doctor 49/100 comment is informational, not the gate
+- [KB reader + Preact island](project_kb_reader_preact.md) — reader is static-HTML SSR (renderToStaticMarkup); only client framework is the search island (React, separate vite.kb-search build) — Preact/compat candidate (~40KB/page); golden-HTML test pins reader output
+- [Notion MCP WAF](reference_notion_mcp_waf.md) — Notion MCP writes fail on security-signature tokens (`<tag>`, `javascript:`, `/etc/hosts`, `http://localhost`); reword + insert in ~1-2KB chunks

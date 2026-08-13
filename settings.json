@@ -1,0 +1,268 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"TASK_PROGRESS_EVENT\\\\|supabaseClient\\\\|subscribe\\\\|onSnapshot\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -n \"isGenerating\\\\|voiceGenLoading\\\\|blockAccess\\\\|generateVoiceOverState\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(dashboard-layout\\\\\\)/\\\\\\(doc-video\\\\\\)/\\\\\\(video-layout\\\\\\)/video/[documentId]/page.tsx)",
+      "Bash(grep -B 5 -A 15 \"successfullyRedirected\\\\|hasPageViewingAccess\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -B 10 -A 10 \"wait for 3 seconds before redirecting\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -n \"TaskStatus.SUCCESS\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(sed -n '1753,1810p' /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -n \"generatingVoiceOverLoadingInDocFromBackend\\\\|isBlockingWhileGenerating\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(dashboard-layout\\\\\\)/\\\\\\(doc-video\\\\\\)/\\\\\\(video-layout\\\\\\)/video/[documentId]/page.tsx)",
+      "Bash(grep -n \"genereatingVoiceOverLoading\\\\|generatingVoiceOverLoadingInDocFromBackend\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(dashboard-layout\\\\\\)/\\\\\\(doc-video\\\\\\)/\\\\\\(video-layout\\\\\\)/video/[documentId]/page.tsx)",
+      "Bash(grep -B 10 \"AUDIO_SYNCHING_PROGRESS\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -n \"AudioSynchingProgressDocPage\\\\|audio-synching-progress\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(dashboard-layout\\\\\\)/\\\\\\(doc-video\\\\\\)/doc/[documentId]/page.tsx)",
+      "Bash(grep -B 5 -A 10 \"AudioSynchingProgressDocPage\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(dashboard-layout\\\\\\)/\\\\\\(doc-video\\\\\\)/doc/[documentId]/page.tsx)",
+      "Bash(grep -rn \"taskId\\\\|generatedPageId\\\\|pageId\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
+      "Bash(grep -rn \"localStorage\\\\|sessionStorage\\\\|getItem\\\\|setItem\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId] --include=\"*.tsx\")",
+      "Bash(ls /Users/yuvrajsingh/Work/Repositories/instantdocs/src/components/enhance-transcript-progress*.tsx)",
+      "Bash(find \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)\" -type f -name \"*.tsx\" -o -name \"*.ts\")",
+      "Bash(ls -la \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)/\")",
+      "Bash(ls -la \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)/doc/\")",
+      "Bash(ls -la \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)/\\(video-layout\\)/doc/\")",
+      "Bash(cat \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)/doc/layout.tsx\")",
+      "WebFetch(domain:www.remotion.dev)",
+      "Bash(__NEW_LINE_7719738d011f31bc__ echo \"\")",
+      "Bash(node -e \"const s = require\\(''@supabase/supabase-js''\\); console.log\\(Object.keys\\(s\\).filter\\(k => k.includes\\(''REALTIME''\\) || k.includes\\(''SUBSCRIBE''\\)\\)\\)\")",
+      "Bash(yarn)",
+      "Bash(grep -oE \"\\\\.channel\\\\\\(\\\\`[^\\)]*\")",
+      "Bash(grep -n \"Doc Creation\\\\|Article creation\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(kb-settings-layout\\\\\\)/customize/[kbId]/presets/page.tsx)",
+      "Bash(grep -n \"const initialArticlePresetState\\\\|const initialVideoPresetState\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/\\\\\\(helply-chat-layout\\\\\\)/\\\\\\(kb-settings-layout\\\\\\)/customize/[kbId]/presets/page.tsx)",
+      "Bash(ls -la /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\))",
+      "Bash(ls -la /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/workspace)",
+      "Bash(ls -la \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/workspace/[workspaceId]\")",
+      "Bash(find \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(kb-settings-layout\\)/customize\" -type f -name \"*.tsx\" -o -name \"*.ts\")",
+      "Bash(find \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(kb-settings-layout\\)\" -type d)",
+      "Bash(find \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)\" -type d)",
+      "Bash(find \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/knowledge-hub\" -type f)",
+      "Bash(find /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/api -name \"route.ts\" -exec head -30 {} +)",
+      "Bash(head -200 \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/knowledge-hub/page.tsx\")",
+      "Bash(wc -l \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/knowledge-hub/page.tsx\")",
+      "Bash(wc -l \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(kb-settings-layout\\)/customize/[kbId]/localization/page.tsx\")",
+      "Bash(head -300 \"/Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(kb-settings-layout\\)/customize/[kbId]/localization/page.tsx\")",
+      "Bash(yarn prisma generate)",
+      "Bash(yarn tsc --noEmit --pretty)",
+      "Bash(find /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/api/bulk-actions -type f -name *.ts -o -name *.tsx -o -name *.js -o -name *.json)",
+      "Bash(npx tsc:*)",
+      "Bash(wc -l /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/'\\(internal-app-layout\\)'/'\\(helply-chat-layout\\)'/'\\(kb-settings-layout\\)'/customize/'[kbId]'/localization/page.tsx)",
+      "Bash(wc -l /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/'\\(internal-app-layout\\)'/'\\(helply-chat-layout\\)'/'\\(dashboard-layout\\)'/'\\(doc-video\\)'/doc/'[documentId]'/page.tsx)",
+      "Bash(wc -l src/components/translations/doc-translations.tsx src/components/sidebars/document-menu.tsx \"src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(kb-settings-layout\\)/customize/[kbId]/localization/page.tsx\" \"src/app/\\(internal-app-layout\\)/\\(helply-chat-layout\\)/\\(dashboard-layout\\)/\\(doc-video\\)/doc/[documentId]/page.tsx\" src/hooks/use-article-translation.ts src/components/translations/translate-article-dialog.tsx)",
+      "Bash(grep -n \"\\\\.isDefault\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/components/translations/*.tsx)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:awslabs.github.io)",
+      "WebFetch(domain:pypi.org)"
+    ],
+    "deny": [
+      "Grep",
+      "Glob"
+    ],
+    "defaultMode": "plan"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
+            "timeout": 10,
+            "statusMessage": "Checking GitNexus index freshness..."
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.context_monitor --from-stdin"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m skill_add_detector --from-stdin"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.bundle_orchestrator"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks backup-on-change"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook read-dedup"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Grep|Glob|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
+            "timeout": 10,
+            "statusMessage": "Enriching with GitNexus graph context..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/comment-budget-guard.cjs\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook rewrite"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|read|ReadFile|read_file|View|view|Grep|grep|Search|search|ListFiles|list_files|ListDirectory|list_directory|Glob|glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook redirect"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m usage_tracker --sync"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks quality-on-session-end"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": true,
+    "planetscale@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "planetscale": {
+      "source": {
+        "source": "github",
+        "repo": "planetscale/claude-plugin"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "autoDreamEnabled": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "autoCompactEnabled": false,
+  "remoteControlAtStartup": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
+}

@@ -1,0 +1,4 @@
+- [No AI attribution](no-ai-attribution.md) — never credit AI in commits/PRs; all prose must read as human-written
+- [Confirm before git actions](confirm-before-git-actions.md) — ask before any commit/push/merge
+- [Minimal comments](minimal-comments.md) — only necessary comments, short and to the point
+- [Review before commit](review-before-commit.md) — run /thermo-nuclear-code-quality-review before committing

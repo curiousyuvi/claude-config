@@ -1,0 +1,9 @@
+{
+  "_comment": "User-level overrides for ctx (claude-ctx) defaults. Edit me.",
+  "_config_path": "~/.claude/skill-system-config.json",
+  "knowledge": {
+    "mode": "enriched",
+    "use_shipped_graph": true,
+    "allow_user_enrichment": true
+  }
+}

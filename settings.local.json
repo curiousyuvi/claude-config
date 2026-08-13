@@ -1,0 +1,92 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(sentry-cli projects:*)",
+      "Bash(sentry-cli issues:*)",
+      "Bash(grep:*)",
+      "WebSearch",
+      "WebFetch(domain:blaze.today)",
+      "WebFetch(domain:www.reclaimsaturday.com)",
+      "Bash(uv --version)",
+      "Bash(gh auth *)",
+      "mcp__github__create_repository",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(supabase --version)",
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(wc -l supabase/migrations/*.sql)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/config.py src/loreweaver_agents/models/schemas.py src/loreweaver_agents/models/entity_types.py src/loreweaver_agents/db/pool.py src/loreweaver_agents/routing/model_router.py src/loreweaver_agents/observability/langfuse_client.py src/loreweaver_agents/observability/cost_tracker.py src/loreweaver_agents/tools/sql.py src/loreweaver_agents/agents/base.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/agents/preprocessor.py src/loreweaver_agents/agents/entity_extractor.py src/loreweaver_agents/pipeline/runner.py src/loreweaver_agents/api/main.py tests/conftest.py tests/smoke/test_foundation.py tests/integration/test_first_slice.py)",
+      "Bash(uv sync *)",
+      "Bash(uv run *)",
+      "Bash(git checkout *)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/agents/disambiguator.py src/loreweaver_agents/pipeline/runner.py tests/smoke/test_disambiguator.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/agents/_passage_context.py src/loreweaver_agents/agents/attribute_relationship.py src/loreweaver_agents/agents/event_extractor.py src/loreweaver_agents/pipeline/runner.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/agents/contradiction_detector.py src/loreweaver_agents/agents/validator.py src/loreweaver_agents/pipeline/runner.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/agents/embedding_builder.py src/loreweaver_agents/agents/wiki_generator.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/pipeline/commit.py src/loreweaver_agents/pipeline/runner.py)",
+      "Bash(python3 -m py_compile src/loreweaver_agents/api/worker.py src/loreweaver_agents/api/__main__.py)",
+      "mcp__github__create_pull_request",
+      "mcp__github__merge_pull_request",
+      "Bash(git pull *)",
+      "Bash(nslookup db.cdtxmaliaqlebfropmte.supabase.co)",
+      "Bash(nslookup db.cdtxmaliaqlebfropmte.supabase.co 8.8.8.8)",
+      "Bash(nslookup cdtxmaliaqlebfropmte.supabase.co 8.8.8.8)",
+      "Bash(nslookup aws-0-us-east-1.pooler.supabase.com 8.8.8.8)",
+      "Bash(python3 *)",
+      "Bash(uv add *)",
+      "WebFetch(domain:www.nobroker.in)",
+      "WebFetch(domain:www.99acres.com)",
+      "WebFetch(domain:www.commonfloor.com)",
+      "WebFetch(domain:housing.com)",
+      "WebFetch(domain:www.magicbricks.com)",
+      "WebFetch(domain:www.squareyards.com)",
+      "WebFetch(domain:property.waa2.in)",
+      "WebFetch(domain:www.nestoria.in)",
+      "WebFetch(domain:www.vfxer.com)",
+      "mcp__claude_ai_Google_Calendar__create_event",
+      "mcp__claude_ai_Google_Calendar__update_event",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents checkout -b salience-layer)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web checkout -b salience-layer)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web add -A)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web commit -q -m ' *)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents push -u origin salience-layer)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web push -u origin salience-layer)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents checkout main -q)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents pull --ff-only -q)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents branch -D salience-layer)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web checkout main -q)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web pull --ff-only -q)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web branch -D salience-layer)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents log --oneline -1)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web log --oneline -1)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents checkout -b cascade-default-on -q)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents branch -D cascade-default-on)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-agents branch -D character-closeup-portraits)",
+      "Bash(git -C /Users/yuvrajsingh/Work/Repositories/LoreEngineProject/loreengine-web checkout -b dashboard-sidebar-and-graph -q)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm exec *)",
+      "Bash(pnpm build *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/yuvrajsingh/.local/bin/headroom wrap selfheal --marker headroom-wrap-selfheal",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

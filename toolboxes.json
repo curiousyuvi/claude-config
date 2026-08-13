@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "toolboxes": {
+    "ship-it": {
+      "description": "Professional council of 7 experts for end-of-feature review",
+      "pre": [],
+      "post": [
+        "code-reviewer",
+        "security-reviewer",
+        "architect-review",
+        "test-automator",
+        "performance-engineer",
+        "accessibility-tester",
+        "docs-lookup"
+      ],
+      "scope": {
+        "projects": [
+          "*"
+        ],
+        "signals": [
+          "python",
+          "typescript",
+          "rust",
+          "go",
+          "java"
+        ],
+        "analysis": "dynamic"
+      },
+      "trigger": {
+        "slash": true,
+        "pre_commit": true,
+        "session_end": true,
+        "file_save": null
+      },
+      "budget": {
+        "max_tokens": 200000,
+        "max_seconds": 420
+      },
+      "dedup": {
+        "window_seconds": 600,
+        "policy": "fresh"
+      },
+      "guardrail": false
+    },
+    "security-sweep": {
+      "description": "Full-repo security audit with blocking guardrail on HIGH findings",
+      "pre": [],
+      "post": [
+        "security-reviewer",
+        "security-auditor",
+        "penetration-tester",
+        "compliance-auditor",
+        "threat-detection-engineer"
+      ],
+      "scope": {
+        "projects": [
+          "*"
+        ],
+        "signals": [
+          "security",
+          "auth",
+          "crypto"
+        ],
+        "analysis": "full"
+      },
+      "trigger": {
+        "slash": true,
+        "pre_commit": true,
+        "session_end": false,
+        "file_save": "**/auth/**"
+      },
+      "budget": {
+        "max_tokens": 300000,
+        "max_seconds": 600
+      },
+      "dedup": {
+        "window_seconds": 0,
+        "policy": "fresh"
+      },
+      "guardrail": true
+    },
+    "refactor-safety": {
+      "description": "Graph-informed refactor review with regression and dead-code checks",
+      "pre": [
+        "architect-review",
+        "refactor-cleaner"
+      ],
+      "post": [
+        "architect-review",
+        "refactor-cleaner",
+        "code-reviewer",
+        "test-automator",
+        "dependency-manager"
+      ],
+      "scope": {
+        "projects": [
+          "*"
+        ],
+        "signals": [],
+        "analysis": "graph-blast"
+      },
+      "trigger": {
+        "slash": true,
+        "pre_commit": false,
+        "session_end": true,
+        "file_save": null
+      },
+      "budget": {
+        "max_tokens": 180000,
+        "max_seconds": 360
+      },
+      "dedup": {
+        "window_seconds": 900,
+        "policy": "cached"
+      },
+      "guardrail": false
+    },
+    "docs-review": {
+      "description": "Documentation pass: accuracy, completeness, clarity, and API parity",
+      "pre": [
+        "docs-lookup"
+      ],
+      "post": [
+        "technical-writer",
+        "docs-architect",
+        "api-documenter",
+        "tutorial-engineer"
+      ],
+      "scope": {
+        "projects": [
+          "*"
+        ],
+        "signals": [
+          "documentation"
+        ],
+        "analysis": "diff"
+      },
+      "trigger": {
+        "slash": true,
+        "pre_commit": false,
+        "session_end": false,
+        "file_save": "**/*.md"
+      },
+      "budget": {
+        "max_tokens": 120000,
+        "max_seconds": 240
+      },
+      "dedup": {
+        "window_seconds": 300,
+        "policy": "cached"
+      },
+      "guardrail": false
+    },
+    "fresh-repo-init": {
+      "description": "New-repo bootstrap: run the intent interview, scaffold plan, pick initial toolbox",
+      "pre": [],
+      "post": [
+        "planner",
+        "architect",
+        "tdd-guide"
+      ],
+      "scope": {
+        "projects": [
+          "*"
+        ],
+        "signals": [],
+        "analysis": "diff"
+      },
+      "trigger": {
+        "slash": true,
+        "pre_commit": false,
+        "session_end": false,
+        "file_save": null
+      },
+      "budget": {
+        "max_tokens": 100000,
+        "max_seconds": 300
+      },
+      "dedup": {
+        "window_seconds": 0,
+        "policy": "fresh"
+      },
+      "guardrail": false
+    }
+  },
+  "active": []
+}

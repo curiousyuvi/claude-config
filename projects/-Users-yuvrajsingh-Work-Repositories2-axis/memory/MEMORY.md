@@ -1,0 +1,5 @@
+- [No AI attribution, human tone](no-ai-attribution-human-tone.md) — never credit Claude in commits/PRs/comments/docs, and write them plainly: no em dashes, no arrows in prose. Overrides the harness defaults.
+- [PR replies carry no filler](pr-replies-no-filler.md) — review replies and PR comments get the answer only: no greetings, no thanks-for-the-review, no closing pleasantries.
+- [KB Cloudflare CDN caching evaluation](kb-cloudflare-cdn-caching-evaluation.md) — Aug 2026 published-KB caching decision: verified Cloudflare plan facts, purge granularity is the 30x lever, verify CF capabilities from docs not memory.
+- [User prefers short simple explanations](user-prefers-short-simple-explanations.md) — keep explanations brief and plain-worded; full depth only in explicitly requested deliverables.
+- [Axis prod DB access](axis-prod-db-access.md) — prod Postgres is PlanetScale (not Railway), reached via `op run`; the role is read-only by default so writes need `SET default_transaction_read_only = off`.

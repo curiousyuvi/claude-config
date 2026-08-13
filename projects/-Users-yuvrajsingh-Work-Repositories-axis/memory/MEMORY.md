@@ -1,0 +1,92 @@
+# Memory index
+
+## How I work (feedback)
+- [Never run `op` commands](feedback_op_commands_user_runs.md) — user runs them in an authenticated terminal, I use the pasted result
+- [Never attribute AI as author anywhere](feedback_no_claude_author.md)
+- [Never commit/push/merge without explicit permission](feedback_no_git_writes_without_permission.md) — finish + run checks, then stop
+- [Never visually verify UI myself](feedback_no_visual_verification.md) — user does the looking; measuring via headless browser is fine
+- [Minimum comments in code, usually zero](feedback_minimal_comments.md)
+- [Comment budget is hook-enforced](feedback_comment_budget_hook.md) — PreToolUse guard re-injects the rule
+- [Branch names prefixed ys/](feedback_branch_naming.md) — `ys/feat/<slug>`
+- [Run pnpm check + typecheck after significant changes](feedback_run_lint_typecheck.md) — note pre-existing failures, don't fix silently
+- [Run diff-based gates AFTER committing](feedback_diff_checks_after_commit.md) — react-doctor/Sonar diff committed refs, not working tree
+- [Refactors must be zero-regression, proven by me](feedback_refactor_no_regressions.md)
+- [Check library options before hand-rolling](feedback_prefer_library_options.md) — read the `.d.ts` first
+- [No magic-string enums](feedback_no_magic_string_enums.md) — `as const` companions, compare via named members
+- [No arbitrary [Npx] Tailwind values](feedback_tailwind_no_arbitrary_px.md) — px/4 scale or named token
+- [Revert a migration BEFORE regenerating it](feedback_never_delete_applied_migration.md) — deleting an applied migration file breaks down/up
+- [SonarCloud rules that fire here](feedback_sonar_rules.md) — Maintainability gates too; fetch findings via check-run annotations API
+- ["instantdocs project" = standalone repo](feedback_instantdocs_project_reference.md) — internal KB search there, not the axis connector
+
+## KB caching / R2 Worker plan (active)
+- [KB access & publishing task (active planning)](project_kb_access_publishing_task.md) — Authenticated mode + per-article access; Review & Publish OUT of scope; no contact auth exists yet; bake-reap merge is a prerequisite; DECIDED: rip out KbGuest completely first (standalone cleanup PR)
+- [Edge architecture AS SHIPPED — read this first](project_kb_edge_current_state.md) — slices 1-7; public pages ARE edge-cached (24h + purgeTags); JS/SEO/redirects/embed now edge too; Redis gone
+- [Public KB page cache headers](project_kb_public_page_cache_headers.md) — `max-age=30, s-maxage=86400`; SWR was built then deliberately removed, don't re-add without reading why
+- [Published KB caching = R2 + route Worker (LOCKED, corrected 2026-08-08)](project_kb_published_r2_worker_caching.md) — work order in repo-root `KB-CACHING-IMPLEMENTATION-HANDOFF.md`; 11 proposal defects logged; Option A (ctx.props) chosen
+- [Reader composes via template + parts — slice 1 DONE](project_kb_reader_template_parts_split.md) — render once then split; React 19 hoists head tags so head slot needs `<meta>` sentinels; goldens stayed green through that bug, only the invariance test caught it
+- [KB artifact bake pipeline — slice 2 DONE](project_kb_artifact_bake_pipeline.md) — 664 pages baked on dev DB, reconciler clean; one streaming builder for bake+reconcile; artifact keys are an auth boundary (no percent decoding, no `//` collapse)
+- [A re-bake never deletes orphans](project_kb_bake_never_deletes_orphans.md) — FIXED on `ys/feat/kb-edge-static-surface` (unmerged); until then unpublished routes keep serving
+- [KB edge static surface](project_kb_edge_static_surface.md) — every host baked, robots/sitemap + reader JS from R2; artifact v4
+- [Gated KBs at edge + Redis removal — slices 5/6 LOCKED plan](project_kb_gated_edge_and_redis_removal.md) — gates split by need (IP/pw pure edge, member = cached backend recheck); host artifact written FIRST; Redis kept only for host resolving + rate limits
+- [Published KB reader serves STORED publish-time HTML](project_kb_reader_serves_stored_html.md) — re-publish to see renderer changes
+- [.kb-prose is white-space: pre-wrap](project_kb_prose_prewrap_invariant.md) — keep HTML minified everywhere
+- [Reader CSS edits break 12 golden snapshots](project_kb_prose_css_golden_snapshot.md) — regen with `-u` from apps/backend only when intentional
+- [Connected KB cards = per-node Redis meta cache](project_kb_connected_card_node_meta_cache.md) — placeholder + read-time rewrite
+- [KB custom domains = Cloudflare for SaaS design](project_kb_custom_domains_design.md) — resolver seam, provider port, PSL parsing
+
+## KB features / designs
+- [KB reader mobile responsiveness (CSS-only @768)](project_kb_reader_responsive_mobile.md)
+- [Verify KB reader offline](project_kb_reader_offline_render_verify.md) — pure KbPageRenderer fixtures, no Docker
+- [KB asset GC design](project_kb_asset_gc_design.md) — Postgres-derived refs, GIN, two-phase quarantine
+- [KB article pre-publish preview](project_kb_article_prepublish_preview.md) — authed app-origin route, RenderContext.preview
+- [Ticket KB panel = published-only](project_kb_panel_published_only.md)
+- [KB custom homepage = publishable Plate doc](project_kb_custom_homepage_design.md)
+- [Shared KB translation-panel + publish-popover helpers](project_kb_translation_publish_shared_helpers.md) — compare Plate docs with plateContentDiffers, never JSON.stringify
+- [YouTube Error 153 = iframe referrerpolicy](project_kb_youtube_error153_referrer.md) — strict-origin-when-cross-origin in both files
+- [KB "HTML" block = sandboxed srcdoc iframe](project_kb_html_block_design.md)
+- [KB embeds unified: one iframe path](project_kb_embed_unified_architecture.md) — provider URLs must be Embed nodes (KbVideoToEmbedKit)
+- [KB interlink durability = id references](project_kb_interlink_durability.md) — resolve at write/publish, no slug-redirect reliance
+- [KB markdown export: managed vs hand-rolled](project_kb_markdown_serialization_managed_vs_hand_rolled.md)
+- [KB enum magic-string cleanup](project_kb_enum_magic_strings_cleanup.md) — settings enums done; iconType + node type open
+- [KB image/video layout shift = intrinsic dimensions](project_kb_image_layout_shift_dimensions.md) — editor-measured width/height on the node
+- [KB asset CDN = public Tigris + unsigned immutable URLs](project_kb_asset_cdn_unsigned_urls.md) — per-object ACL by key prefix
+- [KB comments architecture](project_kb_comments_architecture.md) — locked plan, @platejs/comment anchor, Ably outbox
+- [KB comments panel = AppShell right-rail portal](project_kb_comments_panel_island_portal.md)
+- [KB article templates](project_kb_article_templates_feature.md) — copy-not-link, client-side apply via importContent
+- [Second Plate instance must drop DndKit](project_kb_second_plate_instance_dnd.md) — `kbSecondaryEditorPlugins`
+- [KB editor autosave flush invariant](project_kb_editor_autosave_flush.md) — flush must await in-flight + coalesced rerun
+- [KB AI agents live in src/ai/agents](project_kb_ai_agents_location.md)
+- [InstantDocs→Axis KB import contract](project_kb_import_instantdocs_contract.md)
+- [InstantDocs stores no published-blocks snapshot](project_instantdocs_published_body_no_blocks.md) — HTML rebuild reverted, don't retry
+
+## Gotchas / environment
+- [Backend full suite needs streaming output](project_backend_full_suite_needs_streaming_output.md) — ~145s; redirecting only to a file gets the bg job killed at 120s
+- [Backend typecheck gate is `tsgo -b`, not `tsc -p`](project_backend_typecheck_gate_tsgo.md) — covers bin/; grepping its output for "error TS" silently matches nothing
+- [`railway variables` is not the full env](project_railway_vars_incomplete_op_run.md) — deploy also injects .env.production via op run
+- [`pnpm deploy` is shadowed by pnpm](project_pnpm_run_deploy_shadowed.md) — use `pnpm run deploy` in kb-edge
+- [Sonar PR gate flags pre-existing issues](project_sonar_pr_attributes_old_issues.md) — check master + git blame before "fixing"
+- [KB edge serving is LIVE](project_kb_edge_serving_live.md) — freshness now depends on purgeTags; s-maxage=86400 is only a backstop
+- [Local verify login](project_local_verify_login.md) — https://inbox.helply.localhost · your-email@example.com / password · Playwright ignoreHTTPSErrors
+- [Shared schema imported by backend: bare `shared/...` sibling imports](project_shared_schema_backend_import_style.md) — strip-types won't map relative `.js`
+- [OpenAPI gen needs response types re-exported from *.dto.ts](project_openapi_dto_glob.md)
+- [MikroORM snapshot regen = machine drift accepted](project_mikroorm_snapshot_local_drift.md) — replica DB for clean migrations; --no-verify OK
+- [Master pull corrupts .snapshot-axis.json](project_mikroorm_snapshot_merge_corruption.md) — rebuild deterministically from master snapshot + your tables
+- [Migration Drift gate: hand-added CHECKs must be on the entity](project_migration_drift_entity_checks.md) — `checks:[...]` like note.entity
+- [Generated column gotchas](project_generated_column_drift_and_ordering.md) — varchar needs `::text`; functions before schema
+- [MikroORM partial-load fields type as optional](project_mikroorm_partial_load_optional_types.md) — the `?` is ORM-required
+- [Backend Build red ≠ your PR: tsc heap ceiling](project_backend_build_heap_ceiling.md) — tsc needs ~2.33GB; tsgo never catches OOM
+- [Raw-SQL KB deletion leaves stale reader host cache](project_kb_delete_host_cache.md) — also DEL the kbpub host key
+- [KB instant/⌘K search client needs built island bundle](project_kb_search_island_build.md) — `pnpm --filter web build:kb-search`
+- [register-oauth-client creates duplicate rows](project_register_oauth_client_dups.md)
+- [Portless local TLS](project_portless_local_tls.md) — NODE_EXTRA_CA_CERTS=$HOME/.portless/ca.pem
+- [SPA helmet CSP breaks assets in deployed envs only](project_spa_helmet_csp_deployed_only.md) — app.middleware.ts directive
+- [KB editor Playwright gotchas](project_kb_editor_playwright_automation.md) — real mouse carets, ~5s autosave wait
+- [`APP_ENV=production` on a bin script reads the LOCAL dev DB](project_env_database_vs_db_prefix.md) — .env.production sets DATABASE_* but the app reads DB_*; do NOT just rename (deploy runs op run, would override Railway); use `railway run`
+- [Boot app-context bin script without `op`](project_run_app_context_bin_without_op.md) — DB_* + few env vars via `pnpm run esm`
+- [`op run` masks short vault secrets in prose](project_op_run_masks_prose_in_bin_output.md)
+- [Railway Tigris bucket object ACLs inert](project_railway_tigris_bucket_object_acl.md) — account-side toggle
+- [Regenerate TanStack route tree](project_regen_tanstack_route_tree.md) — boot `pnpm exec vite` briefly
+- [Replicate axis PR CI locally](project_run_axis_ci_locally.md) — 11 ci.yml jobs; OrbStack Postgres username/password
+- [CI skips packages/shared tests](project_ci_skips_shared_tests.md) — put shared unit tests in the backend
+- [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
+- [Local react-doctor MUST use @latest](project_react_doctor_version.md)
