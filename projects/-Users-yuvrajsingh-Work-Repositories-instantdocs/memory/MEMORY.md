@@ -15,3 +15,4 @@
 - [project_data_residency.md](project_data_residency.md) — Data residency map: PlanetScale us-east-1, S3 us-east-1 + ap-south-1, SES us-east-1, US-routed LLMs
 - [reference_ccfind_ccresume.md](reference_ccfind_ccresume.md) — ccfind/ccresume zsh helpers in ~/.zshrc find old Claude Code chats the /resume picker doesn't display
 - [project_planetscale_cascade_index_gotcha.md](project_planetscale_cascade_index_gotcha.md) — Vitess 3024 on page/KB delete has two causes: unindexed inbound FK full scan, and large SetNull/Cascade writes needing pre-drain in deletePageSubtree
+- [project_railway_long_runner_port.md](project_railway_long_runner_port.md) — Railway long-runner boots via `yarn start` with PORT=3000; pinning a port in package.json 502s the whole service
