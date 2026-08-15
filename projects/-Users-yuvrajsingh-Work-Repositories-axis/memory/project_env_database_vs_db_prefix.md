@@ -1,14 +1,16 @@
 ---
 name: env-database-vs-db-prefix
-description: "`APP_ENV=production` on a bin script silently reads the LOCAL dev DB — .env.production sets DATABASE_* but the app reads DB_*"
+description: "RESOLVED 2026-08-08: .env.production now sets DB_* (was DATABASE_*), so `APP_ENV=production` + op run IS the way to run a bin script against production. 1Password is authoritative; Railway's DB_* are dead."
 metadata: 
   node_type: memory
   type: project
   originSessionId: ea441c8c-9d1f-4fc1-9ef3-73ac33678184
-  modified: 2026-08-08T07:23:34.175Z
+  modified: 2026-08-15T07:29:02.932Z
 ---
 
-**`APP_ENV=production pnpm --filter backend <bin script>` runs against your LOCAL dev database while injecting real production buckets/credentials.** Discovered 2026-08-08 when a "production" artifact bake wrote dev KB content into the production R2 bucket.
+**READ THE RESOLUTION BELOW BEFORE ACTING ON THIS.** The headline hazard was fixed on 2026-08-08 and the fix is verified still in place as of 2026-08-15 (`grep -c '^DATABASE_' apps/backend/.env.production` → 0; `DB_HOST`/`DB_PORT`/`DB_USER`/`DB_PASSWORD`/`DB_NAME` are lines 8-12). Quoting the original hazard as current guidance cost a wasted debugging round on 2026-08-15, where `railway run` was recommended over `op run` on the belief that `.env.production` had no `DB_*`. It does.
+
+**Original hazard (HISTORICAL):** `APP_ENV=production pnpm --filter backend <bin script>` ran against your LOCAL dev database while injecting real production buckets/credentials. Discovered 2026-08-08 when a "production" artifact bake wrote dev KB content into the production R2 bucket.
 
 Mechanism: `apps/backend/.env.production` defines `DATABASE_HOST/PORT/USER/PASSWORD/NAME` (→ `op://Axis Production/Database/*`), but the app reads **`DB_HOST/PORT/USER/PASSWORD/NAME`** (`configuration.ts:79`, `mikro-orm.config.ts`, `outbox-listener.service.ts`). So `DATABASE_*` is **dead config, read by nothing**. `op run` only overrides a parent env var when that key is present in the file, so `DB_*` falls through to `_load-env-local.js` → `.env.local` → `postgres.axis.orb.local`. Everything else (buckets, OpenSearch host) IS production.
 
