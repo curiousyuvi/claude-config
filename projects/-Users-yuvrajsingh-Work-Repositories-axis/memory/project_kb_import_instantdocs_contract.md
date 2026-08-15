@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: d6e19c6d-7d2e-40f2-b9b2-b73e2d2d05ac
-  modified: 2026-07-30T12:30:48.092Z
+  modified: 2026-08-15T05:45:40.622Z
 ---
 
 Facts about the InstantDocs side that are NOT discoverable from the Prisma schema and that the Axis KB
@@ -56,6 +56,13 @@ Axis-side gotchas hit while building this:
   it off the returned envelope.
 - `<video poster>` was already in the sanitizer allowlist but the renderer never emitted it; `poster` is
   now a real `KbMediaNode` prop.
+
+**The import persists NO link back to its source (verified 2026-08-15).** No `externalId` on the Axis
+node, no source-kbId column, no "was imported" flag, nothing in KB settings. The only record was the
+import summary in BullMQ job state, which retention trims. So any later backfill against an imported KB
+must take the InstantDocs kbId + workspaceId as arguments and re-fetch the export, matching nodes by
+`slug_norm`. Yuvraj holds the source ids out-of-band; as of 2026-08-15 only 3 KBs were imported, so
+per-KB invocation is the right shape — don't build KB discovery for this.
 
 See [[project_kb_custom_homepage_design]], [[project_kb_interlink_durability]],
 [[project_kb_reader_serves_stored_html]].
