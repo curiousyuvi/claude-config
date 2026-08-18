@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 54cc5d59-d550-4f7b-9295-f3495adbdfcb
-  modified: 2026-08-15T05:39:38.417Z
+  modified: 2026-08-18T14:01:59.186Z
 ---
 
 When merging/pulling master into a branch that ADDS entities, git's line-based 3-way merge of `apps/backend/src/database/migrations/.snapshot-axis.json` can auto-resolve **without conflict markers but semantically wrong**: your new table objects insert alphabetically adjacent to an existing table master also edited, so git takes YOUR (stale-base) copy of that neighbor table wholesale and drops master's column change. Seen with the KB-comments branch: `kb_comment*` tables sit right before `kb_custom_domains`, so the merge kept our stale `is_apex` and dropped master's `status_changed_at`.
@@ -13,6 +13,12 @@ When merging/pulling master into a branch that ADDS entities, git's line-based 3
 **Why:** the snapshot is one big JSON blob; a textual merge has no notion of table objects. `entities.generated.ts` line-merges fine (append-only imports), but the snapshot does not.
 
 **Subtractive case (REMOVING a table), learned 2026-08-11 dropping `kb_guests`:** the same "rebuild from master's snapshot" rule applies, mirrored. Restore master's snapshot with `git checkout --`, then parse it in node, `tables.filter((t) => t.name !== '<table>')`, and write back with `JSON.stringify(snapshot, null, 2)` and NO trailing newline (assert the input round-trips byte-identically first, and assert exactly 1 table was removed and no `<table>` substring survives). Result was a 222-line pure deletion, 0 insertions.
+
+**Corrections measured 2026-08-18 (version-history slice), both cheaper than the recipe below:**
+
+- **`migration:create` is SNAPSHOT-derived, not DB-derived.** The local `axis` DB had *all 198* migrations pending (i.e. effectively no schema), and `migration:create` still emitted a correct, minimal `create table` for just the new entity — no spurious drops. So trap 1 below ("a stale local DB folds other people's migrations into your `up()`") is not universal: it bites when the DB *has* a schema that disagrees, not when the CLI can diff entities against the committed snapshot. Read the generated file before assuming it drifted.
+- **It does NOT need `op run`.** `DB_HOST=localhost DB_NAME=axis DB_USER=… DB_PASSWORD=… pnpm run esm ./node_modules/@mikro-orm/cli/cli.js migration:create` works, so a migration can be generated without touching 1Password (see [[feedback_op_commands_user_runs]], [[project_run_app_context_bin_without_op]]). Same for `migration:pending`. The snapshot it rewrites is still local-drift-damaged, so still graft rather than commit the regen.
+- **Trailing newline genuinely varies — the "as of 2026-08-15 it ends with `\n`" note below was already stale.** On 2026-08-18 the committed `.snapshot-axis.json` had NO trailing newline. Detect it (`raw.endsWith('\n')`) and preserve it; asserting either way hard-fails the canonical round-trip check. With that fixed, the graft was 271 insertions / 0 deletions.
 
 **Two traps that cost a full redo that day, both worth checking BEFORE `migration:create`:**
 1. **Run `migration:pending` (and `migration:up`) first.** A local DB even 3 migrations behind makes MikroORM diff entities against a stale schema, so *other people's* pending migrations get folded into your `up()` (here: five `contact_notes` columns, six `company_notes` columns, an index swap).
