@@ -11,6 +11,10 @@ notes) is recoverable with:
 
 | Idea | Killer |
 |---|---|
+| Inbox placement / deliverability testing API (was the top candidate) | Position and free-anchor tests failed 2026-08-19. Unspam already sells a per-provider inbox placement API (async, Bearer token). MailerCheck sells placement tests pay-as-you-go at 200 credits = ~$2/test, no subscription. "Inbox Placement Test" (check.live-direct-marketing.online, on Capterra) holds the dev-first slot: free tier 3 tests/day no signup, paid REST API, even an MCP server. Free anchors inside the market: EmailWarmup.com (unlimited free tests, 15+ providers), MailReach (3 free/day), Unspam (10 free/mo), MailGenius. Inbox Radar took the flat-unlimited slot at $23/mo. The seed-mailbox estate turned out to be widely reproduced, not a moat — the old ledger's "zero entrants" read was stale (SpamCipher and Hello Inbox were already the warning) |
+| Peppol / e-invoicing API | Position taken several times over: e-invoice.be (€0.18/invoice pay-per-use, "no sales call"), getpeppr (built exactly for embedded multi-tenant SaaS: one key, N legal entities), peppol.sh, Storecove (API-first from €495/mo). Owning the estate also fails the access test: certified AP needs mandatory ISO 27001, ~€1,025 sign-up + €1,800/yr candidate then €4,150/yr certified OpenPeppol fees, 3-stage accreditation, 24/7 AS4 uptime. France Sept 2026 wedge needs separate PA (ex-PDP) certification and 101 PAs are already approved |
+| EU Digital Product Passport (battery, deadline 2027-02-18) | Position test failed: DPP-Tool owns the self-serve SME slot at €9/mo, no implementation fee, no sales call. PicoNext and Tappr at ~€520/mo mid-market, Substantio/ProductPass/DPP Automate/Circularise/Siemens above. OSS-anchor test passed (biggest active repo open-dpp, 28 stars AGPL; reference impl archived) but the €9 floor caps pricing and the deadline demand is already being served |
+| 3D / CAD thumbnail rendering API | Giant + OSS + position all failed: Autodesk Model Derivative renders 70+ formats incl. STEP/STL thumbnails at ~$0.30/simple job with a free monthly tier arriving under the new APS model; `fpurchess/preview-service` is an MIT docker-run HTTP thumbnail service (stl/obj/ply), stl-thumb + FreeCAD/OpenCascade cover the conversion path free; 3DCompare CAD.ai already holds the niche hosted slot |
 
 ## Alive, small incumbents, correct shape
 
@@ -21,3 +25,19 @@ notes) is recoverable with:
 
 | Idea | What is there | Blocking test |
 |---|---|---|
+| Scraping / crawl API, Firecrawl AGPL wedge | Old ledger: WebcrawlerAPI, Jina, Tavily, Exa, ScrapingBee, Apify, Spider — "most crowded field found". The AGPL licensing blocker is the taxonomy's most durable gap type | Position test across the 7+ rivals: does any already sell "MIT-licensed / no-copyleft Firecrawl-compatible"? Not run |
+| Walkthrough video rendering API | Old ledger: Videate at app layer only; Shotstack/Creatomate/JSON2Video do not drive browsers | COGS test on browser-driven video rendering. Only-software, so also needs a reason to live beyond the gap |
+
+## Session 2026-08-19c notes
+
+Sources this session: harness WebSearch and WebFetch both work (server-side, unaffected by the
+machine-level blocks recorded earlier), plus GitHub API by stars. Not checked: G2/Capterra 1-3 star
+review bodies, Reddit threads directly, keyword volumes. All four kills above rest on position/free-anchor/
+giant evidence from vendor pages and search snippets, which is first-hand enough; complaint mining was not
+the deciding factor for any of them.
+
+Recurring killer, now 6 of the last 7 screens: the flat-priced or self-serve slot was already taken by a
+small incumbent (GlitchTip, Bugsink, Unipile, Skribby, DPP-Tool, e-invoice.be, Inbox Radar, Unspam). The
+gap between "big players leave a pricing/DX gap" and "someone small already filled it" is closing in
+roughly every market reachable by search. Next round should weight displacement events and licensing
+blockers over pricing gaps, and screen the position test FIRST since it is what kills.
