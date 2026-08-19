@@ -27,12 +27,12 @@ Last updated 2026-08-19.
 | EDI / X12 translation API (Stedi, Orderful) | Translation is a commodity: omniparser (1,085 stars, MIT), stupidedi (292), staedi (150), plus a free X12-JSON converter posted to HN 2026-04-07. The real asset is AS2/VAN connectivity and per-retailer certification, a capability wall against a solo founder. Stedi took $70M and pivoted to healthcare clearinghouse |
 | 1099 / W-9 e-filing API | Stripe Connect ships 1099-NEC/MISC/K filing, state filing and recipient delivery natively for the exact platform segment an API would sell to. Avalara (Track1099) holds the direct-payer side at 195,000+ customers on pay-as-you-go pricing and already markets the FIRE-to-IRIS shift. Stage 2 produced zero user complaints, only a rival founder |
 | Webhook delivery infrastructure (Svix, Hookdeck) | Svix ships an open-source core with a free tier, and "webhook delivery service" is the most-cloned portfolio project on GitHub (105+ repos of the exact shape). Upstash QStash, Inngest and Cloudflare sell it as a commodity primitive |
+| Error tracking, Sentry-SDK-compatible | GlitchTip already sells the exact proposed product: hosted, flat, no credits, free 1,000 events/mo then $15/100k, $50/500k, $250/3M, US and EU hosting, BAA on request. Bugsink now sells hosted too (free 15K, EUR 16/75k, EUR 158/3M) and markets it as "predictable pricing". Three free self-host anchors (getsentry/self-hosted 9,504 stars, Bugsink 2,019, GlitchTip) plus Telebugs, Faultline, Errorpush, Decipher. The Highlight.io displacement was over by 2025-12-02 and its site now just points at LaunchDarkly. COGS passed; SEO on "sentry alternative" is unwinnable |
 
 ## Alive, small incumbents, correct shape
 
 | Idea | Who is there | Note |
 |---|---|---|
-| Error tracking, Sentry-SDK-compatible | GlitchTip, Bugsink, both self-host-first | **Current top candidate.** Live displacement: Highlight.io shutting down after the LaunchDarkly acquisition, public migration guides already exist. Opening is hosted, flat-priced, zero-ops. Risk: storage-heavy COGS, and two free OSS anchors |
 | Media / image transformation API | ImageKit, imgix, Uploadcare, plus OSS imgproxy and Thumbor | Cloudinary is the most-complained-about tool found in the whole sweep, and the complaint is specific ($99 floor, credit opacity). Risk: bandwidth COGS, crowded |
 | Scraping / crawl API | WebcrawlerAPI, Jina, Tavily, Exa, ScrapingBee, Apify, Spider | Firecrawl's three gaps are already published: protected sites, AGPL-3.0, unpredictable credits. AGPL is a non-pricing gap and more defensible. Risk: most crowded field found |
 | E-signature API | firma.dev ($0.049/envelope), eSign.AI, Documenso | Undercut already underway without us. Trust and legal weight high |

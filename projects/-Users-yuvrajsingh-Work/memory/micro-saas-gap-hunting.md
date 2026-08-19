@@ -11,7 +11,7 @@ players, then fill gaps left by those players *and their most-used alternatives*
 treated as proof of demand, not as a reason to drop an idea.
 
 The full procedure, the six kill tests, and a **verdict ledger of ~26 ideas already screened**
-(18 dead with the specific killer named, 9 alive) are written up in
+(19 dead with the specific killer named, 8 alive) are written up in
 `~/Desktop/SaaS-Idea-Finding-Research/01-METHOD-gap-hunting-for-micro-saas.md`, indexed from that
 folder's README. Read the ledger before proposing any idea, to avoid re-running dead searches.
 
@@ -21,8 +21,10 @@ absence: confirm with direct site fetches plus a GitHub-by-stars search before c
 
 **How to apply:** when he asks for ideas, check the ledger first, apply the micro-SaaS filter
 (competitors are good) rather than the venture-scale filter (needs a novel insight), and label every
-"nothing found" as *not found in the sources I checked*. Current top candidate is a
-Sentry-SDK-compatible hosted error tracker, unblocked pending a COGS model and search-volume check.
+"nothing found" as *not found in the sources I checked*. The Sentry-SDK-compatible hosted error tracker was the top candidate until 2026-08-19, when it was killed:
+GlitchTip and Bugsink both already sell hosted flat-priced plans, and the Highlight.io displacement had closed
+months earlier. Its COGS test passed, so storage was never the blocker; the blocker was that the position was
+already taken. No live candidate right now.
 Related: [[yuvraj-profile]].
 
 **Working research sources (checked 2026-08-19):** Reddit JSON (403), Google, Bing, DuckDuckGo, Startpage
