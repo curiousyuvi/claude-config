@@ -29,6 +29,7 @@ Last updated 2026-08-19.
 | Webhook delivery infrastructure (Svix, Hookdeck) | Svix ships an open-source core with a free tier, and "webhook delivery service" is the most-cloned portfolio project on GitHub (105+ repos of the exact shape). Upstash QStash, Inngest and Cloudflare sell it as a commodity primitive |
 | YouTube thumbnail generator, editable PSD/Canva variant | Same killer as the flat-raster version, and the differentiator is the part that is free: Canva Magic Layers since 2026-03-11, plus Layerize/GenPsd/Image2Layer/imagetolayers. Writing a layered PSD is one npm install: ag-psd (701 stars, reads and writes, maintained 2026-07) and psd-tools (1,443 stars, MIT) |
 | Story bible / lore consistency tool for web novels (LoreEngine) | Novelcrafter ships all four bullets by name at $4/$8/$14/$20: "The Codex: Story Bible & World Builder, organize characters, locations and more with automatic tracking", Workshop Chat, Basic and Advanced Review features, AI character extraction. It is BYOK so it carries zero inference COGS, which you cannot undercut while eating long-context queries over a whole novel. NotebookLM ships "ingest corpus, ask anything" free, and OSS repos self-describe as "local alternative to NotebookLM". SillyTavern (32,359 stars, AGPL-3.0) is the free lorebook anchor and "chat with your documents" returns 327 repos. At $14/mo the goal needs ~1,000 hobbyist subscribers |
+| Voice AI agent testing API | Hamming (YC S24) and Vocera (YC F24) both launched on HN, plus voice-lab (174 stars, Apache-2.0), Rehearse, and 10+ OSS eval frameworks. An HN commenter: "I know a lot of YC money going into voice testing companies" |
 | Error tracking, Sentry-SDK-compatible | GlitchTip already sells the exact proposed product: hosted, flat, no credits, free 1,000 events/mo then $15/100k, $50/500k, $250/3M, US and EU hosting, BAA on request. Bugsink now sells hosted too (free 15K, EUR 16/75k, EUR 158/3M) and markets it as "predictable pricing". Three free self-host anchors (getsentry/self-hosted 9,504 stars, Bugsink 2,019, GlitchTip) plus Telebugs, Faultline, Errorpush, Decipher. The Highlight.io displacement was over by 2025-12-02 and its site now just points at LaunchDarkly. COGS passed; SEO on "sentry alternative" is unwinnable |
 
 ## Alive, small incumbents, correct shape
@@ -89,3 +90,21 @@ confirm the sales motion before spending real time.
 | NMFC freight classification API | NMFTA licenses the codes. The 2025 restructure to a 13-tier density scale is a real displacement event | Whether the licence is available to an individual, and whether brokers buy an API or get it bundled with their TMS |
 | DSCSA pharma serialisation / EPCIS exchange API | TraceLink, Antares. Enforcement deadlines already bit small dispensers in 2025 | Whether the small-dispenser tail buys software or just uses its wholesaler's portal |
 | Packaging EPR reporting API (UK and EU) | Mostly consultancies, few product companies | Whether the submission format is stable enough to build against per country |
+| US court e-filing API (Tyler Odyssey EFSP) | Zero OSS anchors, and One Legal charges $17.95 per filing, so unit economics are excellent | Blocked on access, not competition: EFSP approval needs a US entity, the flow disburses court fees on clients' behalf (money movement, trust accounting), and rejections need human handling. A service business, not a two-week API |
+| Remote online notarization API | Zero mature OSS anchors; GitHub shows only small vendor repos (BlueNotary, Notaron, Vaulture) | Notary commissions require state residency and per-state RON approval, so not reachable from India. The vendor swarm also suggests a lower barrier than it looks |
+| UCC / lien search and filing API | Zero OSS anchors. Incumbents are CSC and Wolters Kluwer, both legacy and expensive | Whether state filing offices permit programmatic submission at all |
+| SMS delivery / A2P route testing API | Zero OSS anchors, and a physical SIM estate across countries genuinely cannot be self-hosted | Blocked on capex and logistics rather than competition |
+| IVR / voice quality testing API | Zero OSS anchors. Cyara (acquired Spearline in 2023) and Hammer are enterprise-sold | Geography-neutral via SIP, but the fast-growing adjacent segment is already taken, see voice AI agent testing in Dead |
+
+## Round 4 finding: the moat filter collides with jurisdiction
+
+Added 2026-08-19. Requiring a moat that cannot be self-hosted works: all five round-4 targets returned zero
+OSS anchors, versus 8 of 21 dead entries killed by an anchor. But most non-self-hostable moats turn out to be
+either a jurisdiction-bound legal credential (court e-filing, notarisation, lien filing all need US presence,
+residency, or bonding) or physical capex (a SIM estate). Neither is reachable by a solo founder in India on a
+two-week timeline.
+
+So the viable moat class is narrower than the filter suggests: a **digital, geography-neutral operational
+estate**. A seed-mailbox network qualifies, which is why the deliverability idea survives. Physical SIMs and
+notary commissions do not. Before proposing any further estate-moat idea, check that the estate is digital and
+jurisdiction-free, or it will stall here like these five.
