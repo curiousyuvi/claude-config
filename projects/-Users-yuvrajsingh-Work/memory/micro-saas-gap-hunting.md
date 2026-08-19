@@ -10,10 +10,10 @@ preference for **API-shaped products**. The agreed method: enter markets already
 players, then fill gaps left by those players *and their most-used alternatives*. Competitors are
 treated as proof of demand, not as a reason to drop an idea.
 
-The full procedure, the six kill tests, and a **verdict ledger of ~26 ideas already screened**
-(19 dead with the specific killer named, 8 alive) are written up in
-`~/Desktop/SaaS-Idea-Finding-Research/01-METHOD-gap-hunting-for-micro-saas.md`, indexed from that
-folder's README. Read the ledger before proposing any idea, to avoid re-running dead searches.
+The verdict ledger was cleared at his request on 2026-08-19; prior verdicts (22 dead, 9 alive,
+9 pending) are recoverable via `git -C ~/.claude show 3e9cc16:skills/micro-saas-gap-hunting/references/verdict-ledger.md`.
+The method itself, including the moat requirement, access test, and buyer-arithmetic test learned from
+those screenings, now lives in the skill's SKILL.md, so clearing the ledger did not lose the lessons.
 
 **Why:** the ledger cost a full session of research, and two ideas were wrongly declared "empty
 market" because rate-limited searches returned nothing. Absence of evidence is not evidence of
