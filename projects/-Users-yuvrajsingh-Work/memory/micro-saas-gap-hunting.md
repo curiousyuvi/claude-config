@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: beae5e59-ca52-435b-9c4b-95c244dfe26e
-  modified: 2026-08-19T14:38:13.460Z
+  modified: 2026-08-19T14:53:34.093Z
 ---
 
 As of 2026-08-19 Yuvraj is hunting a solo micro-SaaS at roughly $10-15K MRR, with a stated
@@ -31,6 +31,26 @@ unlimited free tests, and a free-tier tool with paid REST API + MCP server holds
 seed-mailbox estate is widely reproduced, not a moat. Peppol e-invoicing, EU battery DPP, and CAD
 thumbnail rendering were also screened and killed that session (killers in the ledger). Two pendings
 remain: the Firecrawl AGPL wedge (position test not run) and walkthrough video rendering (COGS test).
+**Round 2026-08-19e, the first run under the corrected gate: five more screened, five dead, 35 total, still
+zero alive.** Targets picked by founder-market fit as the corrected method demands (help-centre content-gap
+detection, answer-engine citation tracking for docs, per-customer AI cost attribution), plus both pendings
+resolved to dead (COI endorsement verification lost both blocking tests: Billy and COISoftware already sell
+endorsement-to-contract matching, and mid-term cancellation needs agency-management-system feeds that
+Certificial holds across 25,000 agencies; ground-only 49 CFR dangerous goods stays open). Four of the five
+died to a platform owner or free tier giving the capability away, which is a legitimate killer.
+
+**Conclusion to act on: removing the moat gate was necessary but not sufficient, and screening
+search-found ideas cannot produce a candidate at all.** The same search yields the same shortlist for
+everyone, and platform owners reach every adjacent feature first (Intercom ships content-gap detection with
+drafted articles inside Fin; Helicone ships per-user cost attribution in one line; Google Search Console and
+Cloudflare both shipped free AI-citation reporting in 2026). **Do not run another round of five targets.**
+The recommendation made to Yuvraj on 2026-08-19: stop screening and switch to buyer conversations in one
+occupied market he knows, accepting competitors, since micro-SaaS markets support many profitable vendors
+(a dozen in COI tracking, thirty in AI visibility). SKILL.md kill test 1 now carries the corrected reading
+of an occupied position: fatal only when the thing is free from a platform owner, regulator or mature OSS,
+or buildable by the buyer's engineer in a day, or the incumbent is loved at under $20/mo with zero marginal
+cost.
+
 **Round 2026-08-19d (parallel screening, 8 agents): 29 total ideas screened, ZERO alive.** Screened and
 killed: support/KB domain (AI-agent QA in all modalities — Intercom and Zendesk ship testing natively —
 plus KB migration/sync and docs-as-code publishing), licensing blockers (n8n embed, Metabase, Documenso),

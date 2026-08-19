@@ -139,10 +139,24 @@ Treat "flat, predictable pricing" as a pairing, never the sole wedge.
 ### 4. Run the kill tests, in this order
 Cheapest first. Each has killed a real candidate.
 
-1. **Position test. Run this first.** Fetch the pricing pages of the two or three smaller rivals. If one
-   already owns the flat-priced, self-serve, developer-first slot, the wedge is gone even when the giant
-   is complacent. It is cheap (two or three fetches), and it is what actually kills: it accounts for the
-   large majority of the ledger's dead entries, so running it sixth wasted whole screenings.
+1. **Position test. Run this first.** Fetch the pricing pages of the two or three smaller rivals. It is
+   cheap (two or three fetches) and it accounts for the large majority of the ledger's dead entries, so
+   running it sixth wasted whole screenings.
+
+   **But read the result correctly, because using it as an absolute gate is the next version of the same
+   mistake.** "The slot is occupied" is a venture-scale objection: real micro-SaaS markets support many
+   profitable vendors at once (COI tracking has a dozen, AI visibility has thirty, and they all bill).
+   After 35 screenings, treating any occupied position as fatal produced zero survivors, which says more
+   about the test than about the markets. What is actually fatal is narrower:
+   - the capability is given away free by a platform owner, the regulator, or a mature OSS project, so
+     price cannot go anywhere (Intercom shipping content-gap detection, Helicone shipping per-user cost
+     attribution, Tremendous sending gift cards free on rebates);
+   - the buyer's own engineer can build it in a day (see the contract test);
+   - or the incumbent's marginal cost is zero and it is loved at under $20/mo.
+
+   A well-funded rival at $399/mo with bad onboarding is a *competitor*, not a killer. In that case the
+   question moves to whether you can win a segment and its search term, which is stage 2 and stage 6
+   work, not a desk-check.
 2. **Access test.** Can this founder legally and physically operate it: credentials, jurisdiction,
    capex, data licences? A desk-check, costs nothing, and killed five round-4 ideas before any search.
    Watch for the two patterns that recur: an accreditation regime (ISO 27001, notified bodies,
