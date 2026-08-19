@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: beae5e59-ca52-435b-9c4b-95c244dfe26e
-  modified: 2026-08-19T11:54:16.299Z
+  modified: 2026-08-19T14:17:11.537Z
 ---
 
 As of 2026-08-19 Yuvraj is hunting a solo micro-SaaS at roughly $10-15K MRR, with a stated
@@ -31,6 +31,25 @@ unlimited free tests, and a free-tier tool with paid REST API + MCP server holds
 seed-mailbox estate is widely reproduced, not a moat. Peppol e-invoicing, EU battery DPP, and CAD
 thumbnail rendering were also screened and killed that session (killers in the ledger). Two pendings
 remain: the Firecrawl AGPL wedge (position test not run) and walkthrough video rendering (COGS test).
+**Round 2026-08-19d (parallel screening, 8 agents): 29 total ideas screened, ZERO alive.** Screened and
+killed: support/KB domain (AI-agent QA in all modalities — Intercom and Zendesk ship testing natively —
+plus KB migration/sync and docs-as-code publishing), licensing blockers (n8n embed, Metabase, Documenso),
+regulatory deadlines (EU AI Act, CRA/SBOM, PCI 6.4.3, EUDR), accruing datasets (SaaS pricing history, API
+deprecation history, GDPR subprocessor history), a nine-event displacement sweep, India regulated rails,
+age assurance, rewards fulfilment, vet/dental unified APIs, hazmat DG, NMFC. Killers are in the ledger.
+
+**The load-bearing conclusion: the moat requirement was causing the deaths, and it has been corrected in
+SKILL.md.** Reachable moats get occupied within months (four entrants in the API-deprecation niche inside a
+year); durable moats are gated (IATA DGR quote-only, NMFTA sells its own API, ezyVet demands named
+sponsoring clinics). A moat is a venture-scale requirement, not a $10-15K/mo one — at 200 customers the
+binding constraint is distribution, and the ledger's own proof is DPAFlow selling pure public-page polling
+at EUR 99-999/mo. The gate is now "can I win the search term and will the buyer pay $50+/mo", with the moat
+table demoted to a tiebreaker.
+
+Also worth Yuvraj's attention professionally, not as a solo product: Salesforce is acquiring Fin/Intercom
+($3.6B, announced 2026-06-15, ~30,000 customers, closes early calendar 2027), which puts Helply/Groove
+squarely in the migration-target profile for SMB support teams fearing Agentforce absorption.
+
 Both remaining pendings were then also killed the same day: the Firecrawl AGPL wedge (using the hosted
 API or running it internally never triggers AGPL, so the blocked-buyer segment is tiny, and Crawl4AI is a
 68K-star Apache-2.0 anchor) and walkthrough video rendering (Shotstack retails flat $0.20/min, Remotion is

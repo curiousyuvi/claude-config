@@ -45,6 +45,31 @@ self-host:
 If the idea has no moat beyond code, it needs a different reason to live (a live displacement event,
 a licensing blocker in the incumbent) or it goes straight to the dead table.
 
+### Correction, 2026-08-19: this gate is miscalibrated and it was causing the deaths
+
+After 29 screenings the moat requirement had produced zero survivors. The failure mode is now legible:
+requiring a non-software moat forces every candidate into one of two doomed shapes.
+
+- **Reachable moats are already occupied.** Anything a solo founder can build by polling public pages or
+  wrapping public data gets claimed within *months*, not years. Four entrants appeared in the
+  API-deprecation-history niche inside a year; six Apify actors cover SaaS pricing diffs; DPAFlow and
+  Sub-Processors.com had already accrued the subprocessor dataset.
+- **Durable moats are gated against you.** Licensed data is quote-only and negotiated (IATA DGR), sold
+  by the licensor itself (NMFTA ClassIT+ at $2,967-9,809/yr), or needs sponsors (ezyVet's partner gate
+  wants named clinics vouching for you before issuing a credential).
+
+The reachable-and-unoccupied moat set is therefore close to empty, and the filter meant to prevent
+deaths became the cause of them.
+
+**The fix: a moat is a venture-scale requirement, not a $10-15K/month requirement.** At this target the
+binding constraint is distribution, not defensibility: a cloner still has to win the search term, and
+200 customers is too small a prize to attract a funded attacker. The ledger contains its own proof —
+subprocessor monitoring is pure software polling public pages, and DPAFlow sells it at EUR 99-999/mo to
+buyers who pay.
+
+Use the moat table as a tiebreaker between otherwise-equal candidates, never as a gate. The gate becomes:
+**can I win the search term, and will the buyer pay $50+/mo?** Then run the position test.
+
 ## The funnel
 
 ### 1. Pick 5 targets
