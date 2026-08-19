@@ -41,6 +41,7 @@ Last updated 2026-08-19.
 | Walkthrough video rendering API | Videate at app layer only. Shotstack, Creatomate, JSON2Video do not drive browsers | Real gap. Video COGS is the open question and probably the deciding factor |
 | EU Digital Product Passport | eudigitalpassportprocessor.com, dppmcp.com | Very early. Hard deadline: 2027-02-18 for EV, industrial and LMT batteries |
 | Peppol / e-invoicing API | Peppox, ClearTax, Complyance, competing openly on developer experience | France mandate Sept 2026. Regulatory deadlines force adoption |
+| Inbox placement / deliverability testing API | GlockApps ($59/$99/$129 a month, sold as "Spam Test Credits"), MailReach ($19.5/mailbox/mo), Folderly, Warmy, InboxAlly. Free anchors mail-tester.com and Google Postmaster Tools cover the technical score but not per-campaign placement | Best structural profile screened so far: zero OSS anchors on GitHub, and it is structurally unhostable since nobody can self-host a seed-mailbox network at Gmail/Outlook/Yahoo. Credit-based pricing is the classic ownable opacity gap, and incumbents are dashboard-first so API-first is a second gap. Organic demand on HN 2017-2026 with unaffiliated recommendations. Risks: two new entrants shipped in the last two months (SpamCipher 2026-07-11, Hello Inbox 2026-06), the seed estate is a ToS-grey continuously-breaking operation rather than a zero-ops product, and the buyer base skews cold outbound |
 
 ## Checked and too crowded to recommend
 
@@ -71,3 +72,18 @@ first-hand and solid.
 The recurring pattern across all five: the flat, predictable, per-unit pricing position was already taken by
 a small incumbent (Unipile, Skribby, Svix free tier) or by the giant itself (Recall.ai publishes $0.50/hr
 prorated to the second). Pricing legibility is getting harder to own than the ledger's earlier entries assume.
+
+## Passed the OSS-anchor test, cannot be screened with available sources
+
+Added 2026-08-19. All four returned zero mature OSS anchors on GitHub, which is the rarest thing on this page.
+None can be taken further right now: their buyers are compliance and logistics staff who are not on Hacker News, and
+Reddit, G2 and every general search engine are blocked from this machine. Absence of complaints here is trap 1, not a
+verdict. Each also looks enterprise-sold rather than self-serve, which is the wrong shape for a solo product, so
+confirm the sales motion before spending real time.
+
+| Idea | What is there | What is still unknown |
+|---|---|---|
+| Hazmat / dangerous goods classification and docs API | Labelmaster, DGOffice, Dangerous Goods International. IATA DGR data is licensed | Whether it sells self-serve at all, and whether the DGR licence is obtainable solo |
+| NMFC freight classification API | NMFTA licenses the codes. The 2025 restructure to a 13-tier density scale is a real displacement event | Whether the licence is available to an individual, and whether brokers buy an API or get it bundled with their TMS |
+| DSCSA pharma serialisation / EPCIS exchange API | TraceLink, Antares. Enforcement deadlines already bit small dispensers in 2025 | Whether the small-dispenser tail buys software or just uses its wholesaler's portal |
+| Packaging EPR reporting API (UK and EU) | Mostly consultancies, few product companies | Whether the submission format is stable enough to build against per country |

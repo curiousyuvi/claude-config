@@ -24,7 +24,15 @@ absence: confirm with direct site fetches plus a GitHub-by-stars search before c
 "nothing found" as *not found in the sources I checked*. The Sentry-SDK-compatible hosted error tracker was the top candidate until 2026-08-19, when it was killed:
 GlitchTip and Bugsink both already sell hosted flat-priced plans, and the Highlight.io displacement had closed
 months earlier. Its COGS test passed, so storage was never the blocker; the blocker was that the position was
-already taken. No live candidate right now.
+already taken. Current top candidate is an inbox-placement / deliverability testing API: it is the only idea
+screened so far with zero OSS anchors AND a moat that cannot be self-hosted (a seed-mailbox network at
+Gmail/Outlook/Yahoo), and GlockApps sells it as credits at $59-$129/mo. Open questions before building: seed
+mailbox COGS and ToS exposure, and whether he wants a cold-outbound-adjacent customer base.
+
+**The filter that now does the work:** 8 of 19 dead entries died to a mature OSS anchor and 4 to a small
+incumbent already holding the flat-pricing slot. Every one died because the product was only software, so
+`docker run` or a rival free tier beat it. So require a moat that cannot be self-hosted (licensed data, a
+registered credential, or an operational estate) before running any other test.
 Related: [[yuvraj-profile]].
 
 **Working research sources (checked 2026-08-19):** Reddit JSON (403), Google, Bing, DuckDuckGo, Startpage
