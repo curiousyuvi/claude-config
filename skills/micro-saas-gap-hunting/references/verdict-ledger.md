@@ -15,6 +15,7 @@ notes) is recoverable with:
 | Peppol / e-invoicing API | Position taken several times over: e-invoice.be (€0.18/invoice pay-per-use, "no sales call"), getpeppr (built exactly for embedded multi-tenant SaaS: one key, N legal entities), peppol.sh, Storecove (API-first from €495/mo). Owning the estate also fails the access test: certified AP needs mandatory ISO 27001, ~€1,025 sign-up + €1,800/yr candidate then €4,150/yr certified OpenPeppol fees, 3-stage accreditation, 24/7 AS4 uptime. France Sept 2026 wedge needs separate PA (ex-PDP) certification and 101 PAs are already approved |
 | EU Digital Product Passport (battery, deadline 2027-02-18) | Position test failed: DPP-Tool owns the self-serve SME slot at €9/mo, no implementation fee, no sales call. PicoNext and Tappr at ~€520/mo mid-market, Substantio/ProductPass/DPP Automate/Circularise/Siemens above. OSS-anchor test passed (biggest active repo open-dpp, 28 stars AGPL; reference impl archived) but the €9 floor caps pricing and the deadline demand is already being served |
 | 3D / CAD thumbnail rendering API | Giant + OSS + position all failed: Autodesk Model Derivative renders 70+ formats incl. STEP/STL thumbnails at ~$0.30/simple job with a free monthly tier arriving under the new APS model; `fpurchess/preview-service` is an MIT docker-run HTTP thumbnail service (stl/obj/ply), stl-thumb + FreeCAD/OpenCascade cover the conversion path free; 3DCompare CAD.ai already holds the niche hosted slot |
+| Scraping / crawl API, Firecrawl AGPL wedge | The AGPL gap barely exists: using Firecrawl's hosted API or running it internally never triggers AGPL, only distributing modifications does, so the blocked-buyer segment is tiny. Free permissive anchor: Crawl4AI, Apache-2.0, ~68K stars, docker self-host with FastAPI server — "the cleanest architectural replacement, commercial-friendly license". Position also taken: `us/crw` already ships a drop-in Firecrawl-compatible REST API, vakra-dev/reader (Apache-2.0) self-tags "firecrawl-alternative", Spider.cloud owns the speed/transparent-billing slot. Screened 2026-08-19 |
 
 ## Alive, small incumbents, correct shape
 
@@ -25,8 +26,7 @@ notes) is recoverable with:
 
 | Idea | What is there | Blocking test |
 |---|---|---|
-| Scraping / crawl API, Firecrawl AGPL wedge | Old ledger: WebcrawlerAPI, Jina, Tavily, Exa, ScrapingBee, Apify, Spider — "most crowded field found". The AGPL licensing blocker is the taxonomy's most durable gap type | Position test across the 7+ rivals: does any already sell "MIT-licensed / no-copyleft Firecrawl-compatible"? Not run |
-| Walkthrough video rendering API | Old ledger: Videate at app layer only; Shotstack/Creatomate/JSON2Video do not drive browsers | COGS test on browser-driven video rendering. Only-software, so also needs a reason to live beyond the gap |
+| Walkthrough video rendering API | Old ledger: Videate at app layer only; Shotstack/Creatomate/JSON2Video do not drive browsers | COGS test on browser-driven video rendering. Only-software, so also needs a reason to live beyond the gap. **The last open item on this page** |
 
 ## Session 2026-08-19c notes
 
