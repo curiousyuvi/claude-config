@@ -22,6 +22,11 @@ Last updated 2026-08-19.
 | AI YouTube thumbnail generator | Pikzels (~819K users), Canva shipping Magic Layers free from 2026-03-11, plus a swarm of free image-to-layers tools (Layerize, GenPsd, Image2Layer, Unlayer, imagetolayers) |
 | Docs screenshot / visual freshness tool | AppRefresher, EmbedBlock, Promptless Capture, Scrnify, Heroshot. Video layer taken by Videate |
 | Canny alternative | Featurebase ($19/mo vs Canny $29/mo), Frill, FeatureOS, plus an r/SaaS founder who already shipped one. Tip was stale by the time it was checked |
+| Meeting-bot recording API (Recall.ai) | Two OSS anchors, Vexa (2,693 stars, Apache-2.0) and Attendee (707 stars), plus Recall's own public flat $0.50/hr so there is no legibility gap, a $38M Series B, and a browser-per-meeting-hour COGS. Undercut already underway via Skribby and MeetingBaaS |
+| Email / calendar sync API (Nylas, Cronofy) | Unipile already owns the flat-per-account position (EUR 5/account/mo, EUR 49 minimum, no usage fees, 3,000+ clients) and Nylas now publishes per-connected-account pricing, so the opacity gap is closed. Self-hosted anchors: EmailEngine, rustmailer (493 stars). Only complaint found dated 2018 |
+| EDI / X12 translation API (Stedi, Orderful) | Translation is a commodity: omniparser (1,085 stars, MIT), stupidedi (292), staedi (150), plus a free X12-JSON converter posted to HN 2026-04-07. The real asset is AS2/VAN connectivity and per-retailer certification, a capability wall against a solo founder. Stedi took $70M and pivoted to healthcare clearinghouse |
+| 1099 / W-9 e-filing API | Stripe Connect ships 1099-NEC/MISC/K filing, state filing and recipient delivery natively for the exact platform segment an API would sell to. Avalara (Track1099) holds the direct-payer side at 195,000+ customers on pay-as-you-go pricing and already markets the FIRE-to-IRIS shift. Stage 2 produced zero user complaints, only a rival founder |
+| Webhook delivery infrastructure (Svix, Hookdeck) | Svix ships an open-source core with a free tier, and "webhook delivery service" is the most-cloned portfolio project on GitHub (105+ repos of the exact shape). Upstash QStash, Inngest and Cloudflare sell it as a commodity primitive |
 
 ## Alive, small incumbents, correct shape
 
@@ -53,3 +58,16 @@ the numbers that actually decide it. Do them before writing code.
 Two entries were initially and wrongly declared "empty market" because rate-limited searches returned
 nothing. Direct site fetches later found several established competitors. Treat a zero-result search
 as a broken tool, not as a finding.
+
+
+## Session 2026-08-19b: five fresh targets, all dead
+
+Sources reachable that session: HN Algolia full-text, the GitHub search API sorted by stars, and direct
+fetches of vendor pricing pages. Reddit (403), Google, Bing, DuckDuckGo and every searx instance tried were
+blocked, so no Reddit or G2 sentiment and no keyword-volume numbers back any of the five verdicts below.
+Treat them as *not found in the sources checked* on the complaint side; the OSS-anchor and pricing kills are
+first-hand and solid.
+
+The recurring pattern across all five: the flat, predictable, per-unit pricing position was already taken by
+a small incumbent (Unipile, Skribby, Svix free tier) or by the giant itself (Recall.ai publishes $0.50/hr
+prorated to the second). Pricing legibility is getting harder to own than the ledger's earlier entries assume.
