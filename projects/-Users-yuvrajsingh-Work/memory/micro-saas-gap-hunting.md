@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: beae5e59-ca52-435b-9c4b-95c244dfe26e
-  modified: 2026-08-19T14:17:11.537Z
+  modified: 2026-08-19T14:38:13.460Z
 ---
 
 As of 2026-08-19 Yuvraj is hunting a solo micro-SaaS at roughly $10-15K MRR, with a stated
@@ -38,8 +38,15 @@ regulatory deadlines (EU AI Act, CRA/SBOM, PCI 6.4.3, EUDR), accruing datasets (
 deprecation history, GDPR subprocessor history), a nine-event displacement sweep, India regulated rails,
 age assurance, rewards fulfilment, vet/dental unified APIs, hazmat DG, NMFC. Killers are in the ledger.
 
-**The load-bearing conclusion: the moat requirement was causing the deaths, and it has been corrected in
-SKILL.md.** Reachable moats get occupied within months (four entrants in the API-deprecation niche inside a
+**The load-bearing conclusion: the moat requirement was the venture filter in disguise, and it has been
+removed as a gate in SKILL.md (demoted to a tiebreaker; the gate is now search-term winnability plus a
+$50+/mo buyer). Position test is now kill test 1. Two new traps: the search-discoverable niche is
+saturated so expect the position test to fail and select targets by founder-market fit, and never delete
+a dead ledger entry to make room for optimism.** A full audit of the dead table found that **only one
+entry** (ground-only 49 CFR dangerous goods) had the moat rule as its sole killer, so only that one was
+re-opened; the rest died at position, access, free anchors, giants or COGS, independently. The bad rule's
+real cost was distorting target *selection* toward licensed data and gated estates, not producing false
+kills. Reachable moats get occupied within months (four entrants in the API-deprecation niche inside a
 year); durable moats are gated (IATA DGR quote-only, NMFTA sells its own API, ezyVet demands named
 sponsoring clinics). A moat is a venture-scale requirement, not a $10-15K/mo one — at 200 customers the
 binding constraint is distribution, and the ledger's own proof is DPAFlow selling pure public-page polling

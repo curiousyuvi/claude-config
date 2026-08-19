@@ -28,53 +28,62 @@ they are far more attackable.
    - Micro-SaaS filter (this skill): competitors mean people are paying, so enter.
    Applying the venture filter to a $10K/month goal kills good ideas. Ask which one applies if unclear.
 
-## The moat requirement
+   The venture filter does not arrive labelled. It sneaks in as a reasonable-sounding rule about
+   defensibility: "name what the buyer cannot self-host", "what stops someone cloning this". That is how
+   a moat gate got into this file and produced 29 straight kills. When a new rule asks what a competitor
+   might do to you rather than whether a buyer will pay you, it is the venture filter wearing a disguise.
 
-Learned from the ledger's dead table: most deaths were a mature OSS anchor or a small incumbent
-already holding the flat-pricing slot, and every one of those products was **only software**, so
-`docker run` or a rival's free tier beat it. Before mining a market, name what the buyer cannot
-self-host:
+## Defensibility is a tiebreaker, not a gate
 
-| Moat class | Verdict for a solo founder |
+**The gate is: can I win the search term, and will the buyer pay $50+/mo?** Nothing else. Run the
+position test immediately after.
+
+This replaces an earlier rule that required every idea to name something the buyer could not
+self-host. That rule was wrong and it is worth knowing why, because it looked sensible and it wasted a
+full round of research. It was the venture-scale filter smuggled back in: "what stops a competitor
+copying you" is a defensibility question, which matters when the prize is a category and does not
+matter when the prize is 200 customers paying $50 a month. Nobody funded is coming for that, and a
+cloner still has to win the search term you already own.
+
+Held as a gate it also had an almost empty solution set, in two directions:
+
+- **Reachable moats are already occupied.** Anything a solo founder can build by polling public pages
+  or wrapping public data gets claimed in *months*. Four entrants appeared in the API-deprecation-history
+  niche inside a year; six Apify actors cover SaaS pricing diffs; Sub-Processors.com had already accrued
+  3,901 companies of subprocessor history in public.
+- **Durable moats are gated against the founder.** Licensed data is quote-only and negotiated (IATA DGR),
+  or sold by the licensor itself (NMFTA ClassIT+ at $2,967-9,809/yr), or needs sponsors (ezyVet's partner
+  gate wants named clinics vouching for you before it issues a credential).
+
+The ledger carries its own counterexample: subprocessor monitoring is pure software polling public web
+pages, with no moat of any kind, and DPAFlow sells it at EUR 99-999/mo to buyers who pay.
+
+The damage this rule did was in **target selection**, not screening. It steered every round toward
+licensed data, regulated rails and gated integration estates, which is exactly where a solo founder
+without local presence gets refused at the door, and steered away from ordinary software niches that
+work fine at this revenue level. Almost none of the ledger's dead entries actually died of it; they
+died at the position test, which is a real kill either way.
+
+So keep the classes below only to break a tie between two candidates that both pass the gate:
+
+| Moat class | Note |
 |---|---|
-| Only software | Dead by default. Assume an OSS anchor exists until proven otherwise |
-| Licensed data or a legal credential | Durable, but run the access test first: most are jurisdiction-bound (court e-filing, notary commissions, NMFC licences) |
-| Physical estate (SIM farms, hardware) | Durable but capex-bound. Usually out of reach |
-| **Digital, geography-neutral operational estate** | The reachable class. A seed-mailbox network qualifies; a notary commission does not |
-
-If the idea has no moat beyond code, it needs a different reason to live (a live displacement event,
-a licensing blocker in the incumbent) or it goes straight to the dead table.
-
-### Correction, 2026-08-19: this gate is miscalibrated and it was causing the deaths
-
-After 29 screenings the moat requirement had produced zero survivors. The failure mode is now legible:
-requiring a non-software moat forces every candidate into one of two doomed shapes.
-
-- **Reachable moats are already occupied.** Anything a solo founder can build by polling public pages or
-  wrapping public data gets claimed within *months*, not years. Four entrants appeared in the
-  API-deprecation-history niche inside a year; six Apify actors cover SaaS pricing diffs; DPAFlow and
-  Sub-Processors.com had already accrued the subprocessor dataset.
-- **Durable moats are gated against you.** Licensed data is quote-only and negotiated (IATA DGR), sold
-  by the licensor itself (NMFTA ClassIT+ at $2,967-9,809/yr), or needs sponsors (ezyVet's partner gate
-  wants named clinics vouching for you before issuing a credential).
-
-The reachable-and-unoccupied moat set is therefore close to empty, and the filter meant to prevent
-deaths became the cause of them.
-
-**The fix: a moat is a venture-scale requirement, not a $10-15K/month requirement.** At this target the
-binding constraint is distribution, not defensibility: a cloner still has to win the search term, and
-200 customers is too small a prize to attract a funded attacker. The ledger contains its own proof —
-subprocessor monitoring is pure software polling public pages, and DPAFlow sells it at EUR 99-999/mo to
-buyers who pay.
-
-Use the moat table as a tiebreaker between otherwise-equal candidates, never as a gate. The gate becomes:
-**can I win the search term, and will the buyer pay $50+/mo?** Then run the position test.
+| Only software | Fine at this scale. Distribution is the defence |
+| Licensed data or a legal credential | Nice if you already have it; run the access test before valuing it, most are jurisdiction-bound or sold by the licensor |
+| Physical estate (SIM farms, hardware) | Capex-bound, usually out of reach |
+| Digital, geography-neutral operational estate | Genuinely useful when unoccupied, but verify it is unoccupied, this is where the last round kept guessing wrong |
 
 ## The funnel
 
 ### 1. Pick 5 targets
 Tools with public per-unit pricing, a simple request contract, and a large user base. Prefer ones the
-user would personally buy. Founder-market fit is a bonus, not a requirement.
+user would personally buy.
+
+**Founder-market fit is now the primary selector, not a bonus.** See trap 9: anything a search engine
+describes well is already crowded, so the edge is knowing a market from the inside, where you can judge
+whether a complaint is severe without inferring it from a listicle. Prefer targets whose buyers the
+founder has actually worked with, and treat a round of targets nobody in the room knows first-hand as
+the low-probability path it now is.
 
 **Buyer arithmetic is part of target selection.** Price point times customers needed is a two-minute
 check that outranks any feature comparison. If the incumbent charges hobbyists under $20/mo, the goal
@@ -130,23 +139,33 @@ Treat "flat, predictable pricing" as a pairing, never the sole wedge.
 ### 4. Run the kill tests, in this order
 Cheapest first. Each has killed a real candidate.
 
-1. **Access test.** Can this founder legally and physically operate it: credentials, jurisdiction,
+1. **Position test. Run this first.** Fetch the pricing pages of the two or three smaller rivals. If one
+   already owns the flat-priced, self-serve, developer-first slot, the wedge is gone even when the giant
+   is complacent. It is cheap (two or three fetches), and it is what actually kills: it accounts for the
+   large majority of the ledger's dead entries, so running it sixth wasted whole screenings.
+2. **Access test.** Can this founder legally and physically operate it: credentials, jurisdiction,
    capex, data licences? A desk-check, costs nothing, and killed five round-4 ideas before any search.
-2. **Buyer arithmetic.** Price point times customers needed, and the incumbent's marginal cost. A
+   Watch for the two patterns that recur: an accreditation regime (ISO 27001, notified bodies,
+   OpenPeppol fees) and discretionary partner gates that want a local sponsor or referral.
+3. **Buyer arithmetic.** Price point times customers needed, and the incumbent's marginal cost. A
    loved incumbent under $20/mo with zero COGS ends the screening.
-3. **Free OSS anchor.** Search GitHub by stars *first*. A mature library kills the API business.
-4. **Giant incumbent.** If AWS, Google, Azure, Stripe, or the platform owner ships it as a commodity,
-   walk away.
-5. **Free anchor inside the market.** A free hosted competitor caps your price at zero.
-6. **Position test.** Fetch the pricing pages of the two or three smaller rivals. If one already owns
-   the flat-priced, developer-first slot, the wedge is gone even when the giant is complacent.
+4. **Free anchor inside the market.** A free hosted competitor caps your price at zero. Include the
+   case where the incumbent gives the product away and monetises elsewhere (Tremendous sends gift cards
+   free on brand rebates), which no price can undercut.
+5. **Free OSS anchor.** Search GitHub by stars. A mature library kills the API business. Check the
+   *licence* as well as the stars: a permissive peer (Apache or MIT) beside a restrictive leader closes
+   any licensing-blocker wedge, which is what killed the n8n embed idea.
+6. **Giant incumbent.** If AWS, Google, Azure, Stripe, the platform owner, or the regulator ships it as
+   a commodity, walk away. Platform owners treat adjacent tooling as free retention (Intercom and Zendesk
+   both ship AI-agent testing and help-centre importers free), and regulators ship free portals.
 7. **Contract test.** Can you clone the request and response shape in a weekend? If yes, stage 5 is
-   free. If yes, so can everyone else, so this cuts both ways: a trivially clonable contract with no
-   moat is a warning, not a win.
+   free. If yes, so can everyone else, so this cuts both ways: if the buyer's own engineer can build it
+   in a day, there is no product, only a snippet.
 8. **COGS test.** Compute cost per unit against your price, in both directions: your unit cost too
    high (media, video, TTS), or the incumbent's at zero (BYOK, free tiers), which no price can get under.
 9. **SEO test.** Can you rank for "X alternative"? If volume tools are unavailable, count who is
-   already buying the term; five funded bidders means unwinnable regardless of volume.
+   already buying the term; five funded bidders means unwinnable regardless of volume. Since owning the
+   term is now the whole defence, a failure here is fatal rather than a warning.
 
 A high score on any scorecard does not survive a failed kill test. When a test cannot be run with
 available sources, the idea is **pending, not alive**: park it with the blocker named.
@@ -197,6 +216,20 @@ One endpoint or one screen. No auth, no dashboard, no billing, no integrations, 
 8. **Endless screening is a failure mode.** The ledger caps open work: one live candidate at a time,
    kill-tested to completion before the next round of targets. Nine alive entries nobody has
    finished testing is a to-do list, not a pipeline.
+9. **The search-discoverable niche is saturated, so this method's core premise is decaying.** Mining an
+   incumbent's complaints to find an unclaimed position assumes you are the only one mining. You are
+   not: every competitor runs the same play with the same tools, and the window between "a niche is
+   identifiable by search" and "four self-serve competitors exist" has compressed from years to months
+   (four entrants in API-deprecation history inside a year). Two consequences. First, expect the
+   position test to fail and treat that as normal rather than as evidence you picked badly. Second,
+   weight targets the search engine describes *poorly*: buyers who do not post online, workflows only
+   visible from inside a job, and niches whose vocabulary you know from experience rather than from a
+   listicle. Founder-market fit stops being a bonus here and becomes the main way to find anything
+   before the crowd does.
+10. **Do not delete a dead ledger entry to make room for optimism.** Re-screening under a corrected rule
+   is legitimate; erasing a kill that rested on independent evidence is not, because the next round then
+   repeats the search. When a rule changes, audit each entry for whether the *changed* rule was its only
+   killer, re-open just those, and say plainly how few qualified.
 
 ## Output discipline
 
