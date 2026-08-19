@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: beae5e59-ca52-435b-9c4b-95c244dfe26e
-  modified: 2026-08-19T14:53:34.093Z
+  modified: 2026-08-19T15:14:32.796Z
 ---
 
 As of 2026-08-19 Yuvraj is hunting a solo micro-SaaS at roughly $10-15K MRR, with a stated
@@ -31,6 +31,18 @@ unlimited free tests, and a free-tier tool with paid REST API + MCP server holds
 seed-mailbox estate is widely reproduced, not a moat. Peppol e-invoicing, EU battery DPP, and CAD
 thumbnail rendering were also screened and killed that session (killers in the ledger). Two pendings
 remain: the Firecrawl AGPL wedge (position test not run) and walkthrough video rendering (COGS test).
+**FIRST LIVE CANDIDATE (2026-08-19, after 35 screenings): content-gap detection and article drafting for
+the non-Intercom/Zendesk helpdesk tail (Freshdesk, Help Scout, Gorgias, Front).** It survives because of the
+corrected reading of kill test 1: occupied by small competitors (My AskAI $199/mo, eesel $0.40/ticket, both
+selling a ticket-answering agent with gap analysis as a side feature) rather than given away by a platform
+owner. Freshdesk's Freddy has no gap detection and only trains on past tickets on the Business plan; Help
+Scout's AI Answers has no gap reporting. Intercom and Zendesk DO ship it natively, which is both why the
+general case is dead and the main risk to this one. Validation runbook with the exact outreach email and the
+disqualifying answers: `~/Desktop/SaaS-Idea-Finding-Research/02-VALIDATION-content-gap-for-helpdesk-tail.md`.
+**Next step is 20 emails to support leads outside his network, not code.** Ground-only 49 CFR dangerous goods
+was closed as dead the same day (ShipWave add-on at $19/mo plus ShipHazmat self-serve, and misclassification
+liability), so the ledger now has one alive and zero pending.
+
 **Round 2026-08-19e, the first run under the corrected gate: five more screened, five dead, 35 total, still
 zero alive.** Targets picked by founder-market fit as the corrected method demands (help-centre content-gap
 detection, answer-engine citation tracking for docs, per-customer AI cost attribution), plus both pendings
