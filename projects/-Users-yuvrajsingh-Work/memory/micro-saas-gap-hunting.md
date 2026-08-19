@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: beae5e59-ca52-435b-9c4b-95c244dfe26e
-  modified: 2026-08-19T11:48:54.964Z
+  modified: 2026-08-19T11:54:16.299Z
 ---
 
 As of 2026-08-19 Yuvraj is hunting a solo micro-SaaS at roughly $10-15K MRR, with a stated
@@ -31,8 +31,13 @@ unlimited free tests, and a free-tier tool with paid REST API + MCP server holds
 seed-mailbox estate is widely reproduced, not a moat. Peppol e-invoicing, EU battery DPP, and CAD
 thumbnail rendering were also screened and killed that session (killers in the ledger). Two pendings
 remain: the Firecrawl AGPL wedge (position test not run) and walkthrough video rendering (COGS test).
-Dominant killer across recent screens: a small incumbent already holding the flat/self-serve slot — run
-the position test FIRST in future rounds, and weight licensing blockers and live displacement events
+Both remaining pendings were then also killed the same day: the Firecrawl AGPL wedge (using the hosted
+API or running it internally never triggers AGPL, so the blocked-buyer segment is tiny, and Crawl4AI is a
+68K-star Apache-2.0 anchor) and walkthrough video rendering (Shotstack retails flat $0.20/min, Remotion is
+free, app layer saturated at $18-27/mo). **The ledger now has zero alive and zero pending entries: the
+pipeline is empty and the next request needs a fresh round of stage-1 targets, not more screening of old
+ones.** Dominant killer across recent screens: a small incumbent already holding the flat/self-serve slot —
+run the position test FIRST in future rounds, and weight licensing blockers and live displacement events
 over pricing gaps.
 
 **The filter that now does the work:** 8 of 19 dead entries died to a mature OSS anchor and 4 to a small
