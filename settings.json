@@ -241,7 +241,8 @@
     "frontend-design@claude-code-plugins": true,
     "planetscale@claude-plugins-official": true,
     "vercel@claude-plugins-official": true,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "watch@claude-video": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -260,6 +261,12 @@
       "source": {
         "source": "github",
         "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "claude-video": {
+      "source": {
+        "source": "github",
+        "repo": "bradautomates/claude-video"
       }
     }
   },
