@@ -112,3 +112,9 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 25 | Tenant offboarding data deletion certificate proof | contract test; audit-log class; buyer's engineer builds
 20 | Shadow schema drift staging vs production databases | Atlas/migra/Bytebase; schema diff commodity
 52 | Per-tenant query performance attribution pooled Postgres | PROMISING-UNVERIFIED: FaultWall 2pt ShowHN occupies weakly; DIY tagging recipe cheap
+15 | Confluence copy/clone entire space app | CONFCLOUD-3191 883 votes but Appfire ac-copy-space 1303 installs
+15 | Confluence space templates app | CONFCLOUD-4538 656 votes; Litew8 641 installs; Appfire Copy Page Tree 2184
+12 | Jira customizable email notification templates app | JRACLOUD-7266 1594 votes; Email This Issue 5556 installs
+10 | Confluence personal-space creation governance | CONFCLOUD-71300 942 votes; core admin setting, app cannot enforce
+10 | Confluence page-permission inheritance app | CONFCLOUD-5095 969 votes; core permission model, apps cannot alter
+20 | Confluence Databases REST API wrapper app | CONFCLOUD-77328 712 votes 2024; unstable private API dependency

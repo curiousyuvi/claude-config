@@ -596,3 +596,44 @@ Base rate across rounds f+g+h: 54 candidates, 3 above 40 (5.6%), still under the
 the killers remain named free/OSS/platform-owner anchors rather than filter artifacts. Unchecked this
 round: FaultWall's actual site and pricing (not indexed; not fetched directly), Reddit, G2 bodies,
 Datadog per-tenant tagging pricing at cardinality, pganalyze current tenant features beyond docs.
+
+## Round 2026-08-20i: the Atlassian tracker seam, sourced demand-first. Structural dead end found.
+
+Fourth sourcing method tried, this one demand-first from a MEASURED seam rather than brainstormed:
+pull the highest-voted unresolved requests from the public tracker (dated, vote-counted, tier-4
+evidence), then check the Marketplace for install counts (tier-1 money-already-spent). CONFCLOUD has
+112 unresolved issues above 180 votes; JRACLOUD has 128 above 400.
+
+The seam works beautifully as evidence and produced nothing investable, for a structural reason worth
+recording so no future round repeats it. Every high-vote item partitions into exactly two buckets:
+
+1. **Platform-owner-only changes** — an app physically cannot deliver them. Page-permission
+   inheritance (CONFCLOUD-5095, 969 votes, open since 2006), disabling personal-space creation
+   (CONFCLOUD-71300, 942 votes), font size (CONFCLOUD-46077, 1273 votes), fields on team-managed
+   cards (JRACLOUD-85694, 2460 votes), Basic Roadmap milestones (JRACLOUD-91595, 2425 votes). These
+   need core product changes; several are already "In Progress" at Atlassian (JRACLOUD-3156, 1769
+   votes), which is gate 1 firing prospectively.
+2. **App-shaped and already occupied by established vendors.** Copy a whole space (CONFCLOUD-3191,
+   883 votes, open since 2005!) is Appfire's ac-copy-space at 1,303 installs. Space/content templates
+   (CONFCLOUD-4538, 656 votes) has Litew8 at 641 installs plus Appfire Copy Page Tree at 2,184.
+   Customizable email notification templates (JRACLOUD-7266, 1,594 votes, open since 2005) has
+   META-INF's Email This Issue at 5,556 installs, Modus Create's Notification Assistant at 1,169, and
+   Raley at 352. Vote counts persist for twenty years not because nobody solved it but because
+   Atlassian never absorbed it while paid apps did.
+
+Combined with founder fit near 0 on Atlassian (already logged for D1 at 35), nothing from this seam
+can reach 70 for this founder even when demand evidence is the best in the entire ledger. **Do not
+re-run the Atlassian tracker seam for sourcing.** It remains excellent for VERIFYING a candidate
+already sourced elsewhere, which is what it was originally used for.
+
+Base rate across f+g+h+i: 60 candidates, 3 above 40 (5%). Four distinct sourcing methods have now
+been tried and documented as exhausted: axis brainstorming (round f), guessed buyer access (round c,
+trap 8), complaint-first mining (pre-existing skill note), and measured-tracker demand-first (this
+round). The three surviving candidates all came from the founder's own working domain. That is the
+whole finding: desk research can rank and kill, but it cannot manufacture the tier-1-to-3 evidence
+that lifts a candidate past 69. The next input has to be human — the 20-email Mom Test on per-tenant
+restore (designed in round g), or the founder naming specific pain and reachable operators.
+
+Unchecked: Marketplace listing bodies (API returns empty, SPA pages), Appfire's actual copy-space
+limitations vs the 883-vote request, whether any 180+ vote CONFCLOUD item has NO app (sampled top 25
+only, not all 112).
