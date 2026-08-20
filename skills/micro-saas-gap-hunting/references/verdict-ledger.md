@@ -546,3 +546,53 @@ pricing, GitHub code search (repo search only, found nothing starred — absence
 scripts/hn.py (HN Algolia, python3 -c is shell-blocked). Ten of twelve kills again named a free/OSS/
 platform-owner anchor; the two-round pattern holds — ideas survive only where the pain is too
 bespoke for a platform owner to productize (per-tenant restore) or a buyer is contractually barred.
+
+## Round 2026-08-20h: same sourcing, second survivor in the same product family
+
+Twelve more candidates from multi-tenant engineering pain plus transplants of the change-history and
+custom-domain shapes. Nine dead, one weak, two promising-unverified (one being round g's 58).
+
+**5 | Cross-tenant leak detection / RLS policy testing in CI.** Gate 1 fired hard: pgrls
+(github.com/pgrls/pgrls) is free OSS with 67 lint rules, 20 auto-fixable, a semantic policy-diff for
+CI gating, a pytest plugin for isolation tests, and a `verify` mode using the Z3 SMT solver that
+"never reports PROVEN unless Z3 proves it". Atlas covers the drift half (`atlas schema lint/test`
+blocks PRs that disable RLS or grant BYPASSRLS). Fetched 2026-08-20. Notable: CVE-2025-48757 (170+
+Lovable-generated Supabase apps shipped with RLS off) is real demand, but it is already served free.
+
+**10 | Migration safety review / lock analysis in CI.** Squawk free OSS (sbdchd), MigrationPilot MIT
+with 80 rules, pgfence source-available doing full lock-matrix classification. One genuine
+displacement event found and logged for the anti-portfolio: Atlas v0.38 (2025-10-30) moved
+`atlas migrate lint` out of the free tier to $9/dev/mo + $59/CI-project/mo, and third parties wrote
+"Atlas Paywalled Their Migration Linter — Here Are Your Free Alternatives". Displacement is real but
+the vacated slot was filled by free OSS within weeks, so there is no paid slot to enter.
+
+**5 | Feature flag cleanup.** FlagShark ships a free-forever GitHub Action (13 languages detected,
+AST-based, auto-removal PRs for 8 languages and 8 flag providers); LaunchDarkly includes Code
+References in Pro. Dead on arrival.
+
+**52 | Per-tenant query performance attribution for pooled Postgres.** Second-highest this round and
+the SAME buyer and shape as round g's 58: retrofit tenant-awareness onto an existing pooled database.
+Position is genuinely gapped — pg_stat_statements normalizes the tenant_id away by design, pganalyze
+exposes no tenant dimension (its own docs route you to auto_explain log samples), citus_stat_tenants
+requires being on Citus, and RDS Performance Insights is not tenant-aware. Demand is live and dated
+this year: HN 2026-07-16 "I am more worried about the noisy neighbor problem", HN 2026-04-09 "with a
+huge multi-tenant database, how do you deal with noisy neighbors?", plus Cloudflare's own engineering
+blog describing manual per-tenant limits as "toil that can page an SRE at any hour" (they built
+gateway-level per-tenant query queuing in-house). What holds it to 52 rather than higher: (a) a weak
+occupant already exists — "Show HN: FaultWall – Which tenant is killing your Postgres?" posted
+2026-03-27, which took 2 points and is still not indexed by search engines five months later, which
+is negative demand evidence as much as it is competition; (b) the DIY path is a well-documented cheap
+recipe (tag queries with a /* tenant:1234 */ comment or per-tenant application_name, then facet in
+Datadog/New Relic), so the contract test is weak. Not worth a round of its own.
+
+**Strategic note for the next round.** Rounds g and h independently produced the two highest live
+scores (58 per-tenant restore, 52 per-tenant attribution) and they are one product family:
+tenant-aware operations retrofitted onto pooled Postgres. Platform owners (Neon, Nile, Citus, Azure)
+serve only the migrate-to-us path; the retrofit slot for teams who cannot restructure a production
+database is where both gaps sit. If any candidate gets a cheap test, run restore as the wedge and
+treat attribution as the second feature, not as a separate product.
+
+Base rate across rounds f+g+h: 54 candidates, 3 above 40 (5.6%), still under the 10-30% target, but
+the killers remain named free/OSS/platform-owner anchors rather than filter artifacts. Unchecked this
+round: FaultWall's actual site and pricing (not indexed; not fetched directly), Reddit, G2 bodies,
+Datadog per-tenant tagging pricing at cardinality, pganalyze current tenant features beyond docs.

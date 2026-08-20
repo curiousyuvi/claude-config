@@ -105,3 +105,10 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 25 | Usage entitlement sync Stripe billing feature gating | Stigg free tier; Schematic
 15 | Right-to-be-forgotten across vector stores embeddings LLM logs | native delete-by-metadata APIs free
 58 | Per-tenant restore for existing shared-schema Postgres SaaS | PROMISING-UNVERIFIED: slot empty, demand tier-5 stale
+5 | Cross-tenant data leak detection RLS policy testing CI | pgrls OSS 67 rules + Z3 prover; Atlas schema lint
+10 | Database migration safety review blocking locks CI | Squawk free OSS; MigrationPilot MIT; pgfence
+5 | Feature flag cleanup stale flags technical debt | FlagShark free GitHub Action forever; LaunchDarkly code refs included
+15 | Background job queue failure alerting Sidekiq Celery | Sentry Crons/Honeybadger/Judoscale self-serve
+25 | Tenant offboarding data deletion certificate proof | contract test; audit-log class; buyer's engineer builds
+20 | Shadow schema drift staging vs production databases | Atlas/migra/Bytebase; schema diff commodity
+52 | Per-tenant query performance attribution pooled Postgres | PROMISING-UNVERIFIED: FaultWall 2pt ShowHN occupies weakly; DIY tagging recipe cheap
