@@ -26,7 +26,10 @@ Machine-dependent, probe each session before relying on either answer:
 
 Blocked (do not burn time re-probing unless a round needs them):
 - Reddit: JSON 403 AND harness WebSearch refuses allowed_domains=["reddit.com"] at the user-agent
-  level (probed 2026-08-20). No path to Reddit from this machine.
+  level (probed 2026-08-20). Redlib mirrors also fail: catsarch/perennialte.ch 403, privacydev dead,
+  safereddit.com returns 200 but it is an Anubis proof-of-work challenge page, not content.
+  ONLY path is an OAuth app credential -> scripts/rd.py (token endpoint returns 401 not a block, so
+  the network reaches Reddit fine and a real credential works).
 - Google/DuckDuckGo/Startpage/searx direct, Bing (200 but JS-gated, no organic links), Mojeek
   (captcha), Ecosia (403), r.jina.ai (403), G2/Capterra review bodies, keyword-volume tools,
   zendesk.com/marketplace (403)
