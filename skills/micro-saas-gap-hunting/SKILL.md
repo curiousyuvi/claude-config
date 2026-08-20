@@ -1,6 +1,6 @@
 ---
 name: micro-saas-gap-hunting
-description: Use when finding, screening, or validating a micro-SaaS or indie product idea, especially API-shaped ones. Enter markets big players already validated, then attack documented gaps in those players and their most-used alternatives. Examples: "find me a SaaS idea", "is this idea any good", "who else is doing this", "X alternative opportunity", "should I build this", "validate this idea", "competitor gap analysis", "micro SaaS ideas".
+description: Use when finding, screening, scoring, or validating micro-SaaS or indie product ideas, when comparing an idea against competitors, or when the user asks for SaaS ideas, "is this idea any good", "who else is doing this", "should I build this", "X alternative opportunity", or a competitor gap analysis.
 ---
 
 # Gap hunting for micro-SaaS
@@ -18,8 +18,9 @@ not a deal breaker — except the three hard gates, which cap the score near zer
 
 ## Before anything else
 
-1. **Read `references/verdict-ledger.md`.** Every idea ever screened, with score/killer. Never re-run a
-   dead search. A variant inherits the score unless the twist defeats the named killer.
+1. **Read `references/screened-index.md`** — one line per idea ever screened (score + killer). Never
+   re-run a dead search; a variant inherits the score unless the twist defeats the named killer. Open
+   `references/verdict-ledger.md` only on an index hit (full evidence) or to append. Append to BOTH.
 2. **Founder constraints** from project memory: solo, jurisdiction, capital, sales motion, time to
    first ship, no SOC 2 / ISO 27001.
    **Excluded domain, contractual, non-negotiable: customer support.** Helpdesks and ticketing, help
@@ -69,6 +70,24 @@ Bands: **0-15 dead** (gate fired — never revisit without defeating the named k
 
 Old-ledger mapping: KILL ≤ 15, WEAK = 16-39, WORTH A CHEAP TEST = 70+.
 
+## Round checklist
+
+Copy into the response and check off as the round progresses:
+
+```
+Round progress:
+- [ ] Index read (screened-index.md), batch deduped against it
+- [ ] Founder constraints + support exclusion applied
+- [ ] Tooling probed (WebSearch/WebFetch, then scripts/ seams); pipeline sanity-checked
+      against one known-dead idea (webhook infra must score <=15)
+- [ ] Tier 0: whole batch triaged, <30 dropped and index-lined
+- [ ] Tier 1: survivors probed in parallel, <40 dropped
+- [ ] Tier 2: full screen on top scorers, evidence verbatim+dated
+- [ ] Tier 3: verification (refutation framing) on any candidate near 70
+- [ ] Ledger AND index appended for every candidate; unchecked sources named
+- [ ] If 70+: cheap test designed (cost + threshold) and the round ENDED
+```
+
 ## Throughput: the tiered pipeline
 
 Built to score hundreds of candidates. Spend is proportional to score: cheap checks first, expensive
@@ -97,12 +116,20 @@ listings — not pricing pages. (2) Platform-owner releases, current year, by na
 dated complaint against the incumbent's current docs or drop it. Passing verification lifts the
 69 cap.
 
-**Seams (`scripts/`, python3, curl-based, ~20 lines each — fix in place when a site changes):**
-`bs.py` Brave search HTML · `f.py` any-URL to text · `jac.py` Atlassian public tracker with vote
-counts · `mp.py` Atlassian Marketplace search with installs · `price.py` Marketplace live cloud
-pricing · `cql.py`/`space.py`/`page.py` any public Confluence wiki (vendor docs, defeats JS sites).
-Also working: HN Algolia (`hn.algolia.com/api/v1/search`), GitHub search API by stars+licence, direct
-vendor fetches. Write research output to files and read with native Read when exact wording matters.
+**Seams (`scripts/`, python3+curl, ~20 lines each — fix in place when a site changes):**
+```
+python3 scripts/bs.py "query" [n]              # Brave search (captchas ~8/session)
+python3 scripts/f.py URL out.txt               # any URL -> stripped text
+python3 scripts/jac.py 'JQL' [n]               # jira.atlassian.com requests + votes
+python3 scripts/mp.py "query" [n]              # Atlassian Marketplace apps + installs
+python3 scripts/price.py addonKey              # Marketplace live cloud pricing
+python3 scripts/cql.py BASE 'CQL' [n]          # public Confluence wiki search
+python3 scripts/space.py BASE KEY              # wiki space page list
+python3 scripts/page.py BASE KEY "Title" out   # wiki page body (defeats JS sites)
+```
+Also working: HN Algolia (`hn.algolia.com/api/v1/search?query=`), GitHub search API by stars+licence,
+direct vendor fetches. Write research output to files and read with native Read when exact wording
+matters (shell output can be compressed).
 
 ## Stage 1: pick targets
 

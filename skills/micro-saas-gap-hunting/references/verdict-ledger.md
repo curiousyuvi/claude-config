@@ -1,5 +1,9 @@
 # Verdict ledger
 
+Contents: contractual exclusion note · Dead table (round 1) · Alive table · Pending · per-round
+sections in date order (2026-08-19c/d/e, 2026-08-20 a-e) · method-change notes · source availability
+per round. For dedupe use references/screened-index.md; this file holds the full evidence.
+
 Ideas already screened. **Read before proposing anything. Append after every screening, dead or alive,
 with the specific killer named.** Each dead entry is a search nobody has to run again.
 
