@@ -139,3 +139,25 @@ agents wrongly concluded they were unavailable and produced rounds with no SERP 
 richest seams this round were the Zendesk Gather community API, the Zendesk Help Center article-search API,
 the Atlassian Marketplace REST API and HN Algolia. Still blocked: Reddit JSON, all search engines by curl,
 G2/Capterra bodies, keyword volumes, zendesk.com/marketplace (403) and growthdot's help-center API (401).
+
+**2026-08-20 later: E1 CONFIRMED ALIVE — the first survivor in 50 screenings — and SKILL.md rewritten.**
+E1 = one DSAR/erasure request fanned out across Zendesk Support + Chat + Talk + Guide + community + AI
+agents with an audit trail. Verification hunted both session killers and neither fired: Sparkly is real
+($99/$249 flat, 100+ installs) but delete-only and Support-only; GrowthDot ($50/$65) also never leaves
+Support; Zendesk's own current docs document the fragmentation. Next step is NOT more screening: half a
+day in Zendesk developer docs checking whether a ZAF in-Zendesk app can reach Chat visitor profiles,
+Guide revisions, Talk recordings and the AI agents API without an external server (losing "no data
+leaves Zendesk" loses the only answer to having no SOC 2), then 20 outreach emails.
+
+The skill was audited (Yuvraj suspected it was flawed/too strict) and rewritten from scratch, commit
+9e7c99f in ~/.claude. Diagnosis: kills were individually sound, but the kill-test chain compressed the
+whole funnel into its cheapest stage (0/50 pass rate vs the ~10-30% a desk stage should pass), the
+verification pass wasn't structural (4/4 first-pass survivors flipped), demand evidence had no quality
+rubric (three candidates died carrying only pricing-page inference), and three layers of accumulated
+rule-corrections biased every reading toward KILL. New shape: 3 hard gates + 6-dimension scorecard,
+verdicts KILL / WEAK / WORTH A CHEAP TEST (desk research can never emit "validated"), mandatory
+refutation-framed verification (competitor product docs not pricing pages; current-year platform
+releases), Mom Test evidence hierarchy with vendor content as inverted signal, distribution scored as a
+whole (SEO failure alone not fatal — Sparkly built 100+ installs purely on the marketplace category),
+one survivor ends the round, zero-survivor batches flag the filter, 6-12 month anti-portfolio review of
+kills. The Desktop copy 01-METHOD-gap-hunting-for-micro-saas.md still reflects the OLD method.
