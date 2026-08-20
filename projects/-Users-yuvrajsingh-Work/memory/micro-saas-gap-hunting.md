@@ -113,3 +113,29 @@ full-text API (`hn.algolia.com/api/v1/search?query=`, plus `/items/<id>` for exa
 search API sorted by stars for the OSS-anchor kill test, and plain fetches of vendor pricing pages. Note
 that Bash stdout gets compressed by lean-ctx, which mangles verbatim quotes: write research output to a file
 and read it with the native Read tool when the exact wording matters.
+
+**Round 2026-08-20 (parallel, 6 agents, 15 ideas): 14 dead, 5 unverified candidates, still ZERO confirmed
+live.** The methodological finding outranks any idea: **a verification pass flipped the first two survivors
+from ALIVE to DEAD, 2 for 2**, both times on evidence the first pass could not reach — a sales-gated
+competitor whose capability hides in its marketing detail (Pageloop sells exactly the docs-screenshot-drift
+wedge, text-level, on help centres it did not author), and a 2026 platform-owner release (Intercom Fin
+Operator; Zendesk's 2026-05-18 resolution tiers, which LLM-verify silent conversations and made the
+AI-billing-reconciliation idea moot). **So: run first passes cheap and in parallel, then verify every
+survivor against those two patterns specifically. A first-pass ALIVE means "not yet killed".**
+
+Five candidates ended the session unverified because all three verification agents died on an account
+spend-limit error: E1 DSAR/erasure execution across support tooling (strongest), E2 PII redaction with the
+attachments wedge, B1 Zendesk macro hygiene, B3 conversation QA for 3-20 agent teams, F1 cross-client SLA
+reporting for support agencies. Details and the single deciding test for each are in the ledger.
+
+Hand-verification of E1/E2 that did complete: **GrowthDot now sells "The Complete GDPR Compliance Platform
+for Zendesk" at a flat $50/$65 per subdomain per month with a self-serve trial, and its Premium tier
+includes "Redact Attachments by Type"** — which occupies E2's claimed primary wedge. Also **sparkly.app is
+a parked domain for sale**, so the "Sparkly $99/mo, 100+ installs" existence proof underpinning E1 is
+UNCONFIRMED and needs checking before it is relied on.
+
+Two tooling facts worth keeping: agents must load WebSearch/WebFetch schemas via ToolSearch before use (two
+agents wrongly concluded they were unavailable and produced rounds with no SERP evidence at all), and the
+richest seams this round were the Zendesk Gather community API, the Zendesk Help Center article-search API,
+the Atlassian Marketplace REST API and HN Algolia. Still blocked: Reddit JSON, all search engines by curl,
+G2/Capterra bodies, keyword volumes, zendesk.com/marketplace (403) and growthdot's help-center API (401).

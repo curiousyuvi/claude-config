@@ -164,3 +164,44 @@ this round**, so every SEO judgement is a count of who is visibly farming the te
 | Idea | Killer |
 |---|---|
 | AI-agent conversation data governance (what the agent sent to which model provider, auditable record for security questionnaires) | The AI support vendor is the platform owner and gives the whole answer packet away free. trust.intercom.com supplies SOC 2 Type II, ISO 27001/27701/27018/42001, HIPAA, HDS, AIUC-1 with quarterly adversarial testing, CSA CAIQ, pen-test summaries, the DPA, an EU AI Act overview and the subprocessor list naming OpenAI, Anthropic and Google, and states LLM providers do not train on customer data plus "detailed logging of all LLM interactions". The SMB forwards the link; the questionnaire is answered in minutes by the vendor whose name is on it. Self-built agents are covered free by OSS: langfuse 33,426 stars (self-hostable tracing, prompt management, evals) and BerriAI/litellm 56,795 (gateway with cost tracking, guardrails, logging across 100+ providers), plus Presidio 10,549 MIT for prompt-side PII — which also trips the contract test, since the buyer's engineer puts LiteLLM in front of the agent in an afternoon and has the log. Compounding and specific to this founder: the deliverable IS compliance evidence, so an unaudited solo vendor with no SOC 2 cannot sell it — this is the one idea in the cluster where structural unsellability genuinely bites. **Zero verbatim buyer complaints found in any source checked; every page ranking on the topic is vendor content, so the demand signal is vendor-manufactured** |
+
+## Round 2026-08-20: five candidates left UNVERIFIED — read this before acting on any of them
+
+Three verification agents (E1+E2, B1+B3, F1) were launched and **all three died on an account spend-limit
+error, not on findings**. The five candidates below therefore carry only a first-pass verdict. Given that
+verification flipped the first two survivors of this round from ALIVE to DEAD (2 for 2), **a first-pass
+ALIVE here means "not yet killed", and none of these should be treated as live until verified.**
+
+Partial verification WAS completed by hand on E1/E2 via direct vendor fetches (WebSearch/WebFetch were not
+in the session tool registry by this point; curl to vendor pages works, Zendesk help-center APIs return 401,
+zendesk.com/marketplace 403s). What it found, and it matters:
+
+**GrowthDot has grown well beyond how the screening described it.** Fetched 2026-08-20 from
+growthdot.com/gdpr-compliance-for-zendesk: it now markets "The Complete GDPR Compliance Platform for
+Zendesk — Retrieve personal data, anonymize sensitive information, redact attachments, delete records,
+automate recurring compliance tasks, and maintain a complete audit trail—all without leaving Zendesk."
+Pricing is flat per tenant, not per agent: **Standard $50 and Premium $65 per Subdomain per month**
+($41.70/$54.20 annual), self-serve trial, "No credit card required · Free forever on Sandbox accounts".
+Premium's comparison table includes **"Redact Attachments by Type"**, "Export tickets with attachments",
+Automations, scheduling, bulk anonymization, organization-level deletion, agent permission control and
+reports. **This directly occupies E2's claimed primary wedge (attachments) at $65 flat**, and covers much
+of E1's audit-trail and automation story too. Unresolved: whether "by Type" means content-aware redaction
+or delete-by-filetype, and whether GrowthDot or Sparkly reach Chat, Talk, Guide, side conversations and AI
+agent logs — no mention of any of those was found on the page, which is the one thread E1 still hangs on.
+Note also that **sparkly.app is a parked domain for sale**, so the Sparkly vendor identity, install count
+and $99/$249 pricing in the E1 screening are UNCONFIRMED and were never verified against a live vendor site.
+
+| Candidate | First-pass verdict | The single test that decides it |
+|---|---|---|
+| E1 DSAR / right-to-erasure execution across support tooling | ALIVE, narrowed to Zendesk-only and in-platform | Does GrowthDot ($50/$65 flat) or Sparkly already fan out across Support + Guide + Chat + Talk + side conversations + AI agent logs with an audit trail? If yes, dead. Also: verify Sparkly exists as described |
+| E2 PII redaction / retention in support conversations | ALIVE, wedge = attachments, retroactive backfill, audit dashboard | **Already dented by hand-verification**: GrowthDot Premium sells "Redact Attachments by Type" at $65/subdomain/mo flat. Remaining wedge is content-aware OCR redaction and retroactive backfill over closed tickets. Also unchecked: Strac's real price (sales-gated), Help Scout's native Comprehend masking GA status |
+| B1 Zendesk macro / canned-response hygiene | ALIVE | Pythia Advanced Macros' actual scope and price (never read, Cloudflare-blocked); whether Zendesk shipped macro analytics or AI macro consolidation in 2025-26; whether the 30-day usage-history cap still holds |
+| B3 Conversation QA for small support teams (3-20 agents) | ALIVE, strongest of its cluster | Whether ANY self-serve sub-$50/agent QA vendor exists (the whole thesis is that none does), and whether Intercom/Front/Help Scout/Freshdesk ship native QA. Demand side has NO verbatim complaint and no SEO data at all |
+| F1 Cross-client SLA reporting for outsourced support agencies | ALIVE, weakest | Buyer pool is unmeasured and ZERO verbatim agency-owner complaints were found. Needs 20 outbound conversations, not more desk research |
+
+**Method note for the next session.** This round's real lesson is not about any one idea: it is that the
+first-pass/verification split is worth institutionalising. Cheap parallel first passes generate candidates;
+a second pass hunting specifically for (a) sales-gated competitors whose capability hides in their docs and
+(b) 2026 platform-owner releases is what produces a trustworthy verdict, and it overturned two of two.
+A secondary lesson: two agents wrongly concluded WebSearch/WebFetch were unavailable and fell back to curl,
+producing screenings with no SERP evidence — always confirm the tools are loaded before trusting a round.
