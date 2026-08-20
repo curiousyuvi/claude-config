@@ -221,3 +221,95 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 12 | YouTube channel compliance rights management | platform-owner tooling (Content ID); creator ARPU
 18 | Creator brand deal contract payment tracking | creator ARPU floor; Notion template competition
 15 | Influencer campaign deliverable verification | Grin/Aspire occupy; agency implementation sale
+22 | AI agent action audit trail and approval gates | Exemplar/Govyn/Prefactor/Velt/StackAI occupy; Preloop OSS; MCP gateway layer
+25 | EU Accessibility Act EAA conformance audit for SaaS | axe-core OSS free; Deque/Level Access; inherits EU AI Act €39 floor
+20 | Accessibility conformance report VPAT generation | template commodity; Level Access/AudioEye bundle
+22 | WCAG regression testing in CI design systems | axe-core/pa11y/Lighthouse CI free OSS
+18 | Accessibility annotation handoff Figma to developers | Stark/A11y Annotation Kit free plugins
+25 | Cookie consent audit actual tag firing verification | OneTrust/Cookiebot scanners bundled; Fides Website Monitor
+22 | Tracking pixel inventory consent mismatch detection | same as above; Fides ships Website Monitor free OSS
+20 | CSP header management violation triage | report-uri.com $10; Sentry CSP free
+15 | Subresource integrity monitoring third party scripts | Feroot/Jscrambler occupy; CSP reporting free
+25 | SBOM diff and license drift alerting | Syft/Grype/Trivy OSS free; GitHub Dependency Review free
+22 | Dependency license compliance for enterprise questionnaires | FOSSA/Snyk occupy; Syft OSS
+25 | Security questionnaire answering from evidence | Vanta/Drata/SafeBase/Conveyor occupy; SOC2 access gate
+20 | Pentest finding remediation tracking startups | Jira does it; Cobalt/HackerOne bundle
+22 | Vulnerability triage deduplication across scanners | DefectDojo OSS free; Nucleus/ArmorCode
+20 | Secret leak detection CI logs build artifacts | gitleaks/trufflehog OSS; GitHub secret scanning free
+22 | IAM permission drift AWS least privilege | AWS IAM Access Analyzer free; Cloudsplaining OSS
+20 | Cloud cost anomaly attribution per team | AWS Cost Anomaly Detection free; Vantage/Infracost
+22 | Kubernetes resource rightsizing | VPA/Goldilocks/KRR OSS free; Cast.ai
+22 | Terraform plan review policy as code small teams | OPA/Conftest/tflint OSS; Spacelift/env0 free tiers
+25 | Infra drift detection Terraform state vs reality | driftctl OSS; Terraform Cloud native drift detection
+28 | Staging environment sprawl cleanup cost reclaim | cloud-nuke OSS; capex-free but thin wedge
+25 | Postgres schema documentation for data teams | SchemaSpy/dbdocs/Atlas free; commodity
+22 | dbt model documentation lineage small teams | dbt docs free; Elementary OSS
+28 | Data contract enforcement between services | Great Expectations/Soda OSS; buf for schemas
+25 | Analytics event schema registry validation | Avo/Iteratively occupy; Segment Protocols bundled
+25 | Tracking plan drift detection product analytics | Avo occupies; Segment Protocols; Amplitude Govern
+20 | Reverse ETL small SaaS to CRM | Hightouch/Census free tiers; Airbyte OSS
+25 | Customer usage scoring feed to HubSpot from events | Segment/Hightouch; HubSpot native
+25 | Churn signal detection from product usage SMB | Vitally/Churnzero occupy; barbell market
+22 | Onboarding checklist completion tracking B2B SaaS | Userflow/Appcues/Chameleon occupy
+20 | In app product tour builder self serve | Userflow $79/Appcues/Intro.js OSS; crowded
+18 | NPS CSAT survey embed product teams | Delighted/Refiner cheap; support-adjacent buyer risk
+20 | Status page incident communication automation | Statuspage/Instatus $20; incident.io bundles
+22 | Uptime SLA credit calculation reporting | thin; spreadsheet replaces; niche
+25 | Error budget SLO tracking alerting | Nobl9/OpenSLO OSS; Datadog SLO native
+22 | On call schedule fairness load reporting | PagerDuty/Opsgenie analytics native
+25 | Incident postmortem assembly from timeline | incident.io/Rootly/FireHydrant occupy exactly
+22 | Runbook execution tracking and audit | Rundeck OSS; incident.io workflows
+25 | Alert noise reduction grouping small teams | BigPanda/Moogsoft enterprise; Datadog/Grafana native grouping
+22 | Synthetic monitoring critical user journeys | Checkly $40/Datadog synthetics; Playwright free
+25 | Bundle size regression alerting per PR | bundlewatch/size-limit OSS free; Codecov bundle analysis
+20 | Image optimization pipeline as a service | Cloudinary/imgix/Vercel native; COGS
+18 | Edge A B testing without flicker | Vercel/Cloudflare native; GrowthBook OSS
+20 | Personalization at edge without client JS | platform-owner territory (Vercel/Cloudflare middleware)
+22 | Geo compliance content blocking at edge | Cloudflare geo rules free; platform owner
+20 | Bot traffic classification small sites | Cloudflare Bot Management free tier; platform owner
+22 | Scraper detection API abuse pricing tiers | Cloudflare/DataDome; inherits rate-limit killer
+22 | GraphQL query cost analysis rate limiting | graphql-cost-analysis OSS; Apollo native
+25 | API versioning deprecation gateway middleware | Kong/Tyk/Zuplo native; inherits APIDrift killer
+15 | gRPC to REST gateway hosted | grpc-gateway OSS free; Envoy
+22 | Event schema evolution Kafka small teams | Confluent Schema Registry free; buf
+28 | Message queue dead letter triage replay UI | inherits svix MIT; SQS/Sidekiq consoles native
+20 | Cron job monitoring missed run alerting | Healthchecks.io OSS self-host free; Cronitor $10
+25 | Long running job progress visibility for customers | thin wedge; contract test one day
+25 | LLM prompt version control rollback production | Langfuse OSS free; PromptLayer/Braintrust
+22 | LLM output caching semantic dedupe | GPTCache OSS; provider prompt caching native free
+25 | LLM guardrail policy enforcement regulated | Guardrails AI OSS; NeMo Guardrails; Bedrock Guardrails native
+25 | Model fallback provider outage failover routing | OpenRouter/LiteLLM OSS free; Vercel AI Gateway native
+25 | Embedding index freshness reindex orchestration | pgvector/Pinecone native; thin
+22 | Vector store cost optimization tiering | provider-native tiering; Turbopuffer pricing
+25 | Synthetic test data generation for LLM evals | Ragas/DeepEval OSS; inherits RAG eval killer
+25 | Human review queue for AI output sampling | Label Studio OSS; support-adjacent buyer risk
+20 | AI disclosure provenance labeling compliance | C2PA free open standard; platform owners implementing
+20 | Shopify theme performance audit merchants | Shopify native Web Performance dashboard; Lighthouse free
+22 | Shopify bulk metafield editing migration | Matrixify occupies; Shopify bulk editor native
+25 | HubSpot custom object data hygiene dedup | Insycle/Dedupely occupy; HubSpot native dedup
+22 | HubSpot workflow audit orphan detection | HubSpot native ops hub; thin
+25 | Salesforce metadata diff deployment safety | Gearset/Copado occupy; SFDX free
+20 | Slack workflow analytics channel hygiene | Slack Analytics native; admin API free
+22 | Slack app approval routing with audit | Slack Workflow Builder free; inherits agent-approval killer
+25 | Notion database schema versioning backup | Notion API + cron = day; NotionBackups $8
+22 | Airtable base backup schema diff | Airtable snapshots native; On2Air $10
+20 | Monday board template governance | monday native templates; marketplace pricing race
+25 | QuickBooks Xero reconciliation exception queue | Xero/QBO native bank rules; Ledgersync
+22 | Stripe revenue recognition schedule export | Stripe Revenue Recognition native product
+20 | Stripe tax nexus threshold monitoring | Stripe Tax native; Anrok/Numeral/Kintsugi occupy
+28 | Subscription pricing migration grandfathering tooling | Stripe migrations native; Schematic/Stigg
+22 | Dunning email sequence optimization | Churn Buster/Gravy occupy; Stripe Smart Retries free
+20 | Refund chargeback evidence assembly | Chargeflow/Justt occupy; Stripe evidence templates free
+22 | Sales tax exemption certificate collection validation | Avalara CertCapture/Anrok occupy
+20 | W9 W8BEN collection for marketplaces | Stripe Connect native tax forms; Trolley
+22 | Contractor onboarding document collection global | Deel/Remote/Papaya bundle free
+18 | Background check orchestration staffing firms | Checkr/Certn APIs; FCRA licence access gate
+22 | Recruiting interview scheduling load balancing | Greenhouse/Ashby native; Calendly
+20 | Candidate scorecard consistency bias audit | ATS-native scorecards; EEOC legal exposure gate
+18 | Job posting distribution expiry management | Indeed/LinkedIn APIs; ATS native multiposting
+25 | Employee offboarding access revocation checklist | inherits Patronum $2/user/YEAR killer; Rippling/BetterCloud
+22 | Device inventory MDM compliance small teams | Fleet OSS free; Kandji/Rippling bundle
+20 | Security awareness training completion tracking | KnowBe4/Curricula bundle; LMS commodity
+22 | Policy acknowledgement tracking compliance audits | Vanta/Drata bundle free with platform
+25 | Evidence collection automation SOC 2 readiness | Vanta/Drata/Sprinto occupy; own-SOC2 access gate
+25 | Access review campaign orchestration quarterly | Vanta/Drata/Zluri/Lumos occupy

@@ -726,3 +726,60 @@ transplant and ships FK-aware connectors to disparate databases. Fides targets s
 orchestration rather than scheduled retention enforcement, but that boundary was NOT verified against
 its current docs. If Fides has grown a retention/legal-hold scheduler, this candidate dies on gate 1
 exactly as the DSAR one did. That single check is the first thing to run before anything else here.
+
+## Round 2026-08-20k: second 100-candidate sweep. Zero above 30. The clearest filter signal yet.
+
+Batch deliberately aimed at axes NOT yet swept: accessibility/EAA, appsec and supply chain, cloud and
+IaC operations, data engineering, product analytics, incident and reliability ops, edge and
+performance, LLM application infrastructure, five SaaS marketplaces (Shopify, HubSpot, Salesforce,
+Slack, Notion/Airtable/monday), billing and tax ops, and HR/compliance ops. Dedupe cost stayed flat:
+89 of 100 hit or near-hit existing entries, only 11 were wholly new — the ledger is now dense enough
+that most new brainstorming lands on already-killed ground, which is itself the finding.
+
+**Nothing scored above 28.** Not one candidate in a hundred reached even the tier-1 probe threshold of
+40, and the two that earned a network probe both died on it. That is the strongest filter signal in
+the project so far and it is not a filter fault: every line in the index names a specific free tool,
+an OSS project, a platform-owner native feature, or a licence gate. The dominant killer across this
+batch was not competition but PLATFORM-OWNER NATIVE FEATURE — AWS Cost Anomaly Detection, AWS IAM
+Access Analyzer, Terraform Cloud drift detection, Stripe Revenue Recognition and Smart Retries,
+Stripe Tax, Shopify's Web Performance dashboard, HubSpot native dedup, Slack Analytics, Notion
+snapshots, Cloudflare bot management and geo rules, provider-native prompt caching, Bedrock
+Guardrails. The second was permissive OSS: axe-core, pa11y, Lighthouse CI, Syft, Grype, Trivy,
+gitleaks, trufflehog, DefectDojo, Goldilocks, KRR, OPA, Conftest, tflint, driftctl, cloud-nuke,
+SchemaSpy, Great Expectations, Soda, LiteLLM, Langfuse, GPTCache, Guardrails AI, Label Studio, Fleet,
+Healthchecks.io, graphql-cost-analysis, grpc-gateway, size-limit, bundlewatch.
+
+**22 | AI agent action audit trail and approval gates.** Probed because it is current, compliance-
+shaped, and sits on the permitted LLM-application axis where the founder works. Died on position with
+seven named occupants already selling the exact wedge: Exemplar (policy gates allow/block/
+require-approval per agent call, immutable audit trail, across MCP/LangGraph/CrewAI), Govyn
+(network-layer approval proxy), Prefactor (risk-based approval policy engine), Velt, StackAI, Cordum
+Edge, plus Preloop as an open-source agent control plane doing MCP firewall + policy-as-code + human
+approvals + audit trails. The regulatory driver is real (EU AI Act Article 12 log-retention duty,
+Annex III enforcement dated 2026-08-02 in these sources, which conflicts with this ledger's earlier
+"slipped to 2027-12" note and is worth re-basing if anyone revisits the AI Act axis), but a real
+deadline plus seven funded occupants plus an OSS control plane is the textbook shape of a market that
+is already served.
+
+**The 54's residual threat is CLOSED, and the candidate survives.** Ethyca Fides was the named risk to
+the retention/purge engine. Its CURRENT docs (ethyca.com/docs, fetched 2026-08-20 after following two
+redirects; the ethyca.github.io copy is stale and self-labels as outdated) enumerate eight capability
+areas: Consent Management, Privacy Requests, Data Mapping, Privacy Assessments, Integrations, Privacy
+Center/FidesJS, Platform/Configuration, and CLI/API. Erasure and masking live under Privacy Requests
+and act per subject request; there is NO scheduled retention enforcement, no retention period
+configuration, and no legal hold anywhere in the navigation tree. Gate 1 does not fire. Worth noting
+Fides ships a Website Monitor and an MCP Gateway, which is what killed two cookie/tag-audit
+candidates in this batch — a useful reminder that a tool cleared as harmless on one axis can be the
+killer on another.
+
+**Cumulative: 260 candidates across rounds f-k, 5 above 40 (1.9%).** The hit rate has fallen with every
+round of added volume (round f 0%, g 8%, h 8%, j 2%, k 0%), which is what a saturating search space
+looks like. The three-member Postgres retrofit family (58 restore, 54 retention, 52 attribution) has
+survived two further rounds of attempted displacement without a challenger appearing, and no sixth
+axis has produced anything above 40. Volume is no longer the constraint and should not be the next
+move: the pipeline has now screened 307 indexed candidates and the binding limit is demand evidence
+that only human contact produces. Next input should be the round-g cheap test, not round L.
+
+Unchecked this round: every tier-0 kill was on named prior rather than fetch (by design at tier 0);
+Preloop's licence and star count; the EU AI Act Annex III date conflict; whether Fides' Action Center
+(Helios) touches retention, which is the one Fides surface whose name gives no clue.
