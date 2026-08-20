@@ -496,3 +496,53 @@ Unchecked sources this round: G2/Capterra bodies, HN Algolia, Reddit, keyword vo
 pricing, AI-DocGen licence. Tooling: harness WebSearch/WebFetch LOADED successfully this session via
 ToolSearch exact-name select ("select:WebSearch,WebFetch") after regex-pattern searches returned
 nothing — the earlier "unloadable" note was a query-syntax artifact, not availability.
+
+## Round 2026-08-20g: insider-pain + proven-shape sourcing; first 40+ since the score rewrite
+
+Sourcing changed per round-f audit: candidates came from multi-tenant SaaS engineering pain (the
+founder's daily domain) and transplants of ledger shapes (E1 DSAR fan-out, 78 verified but
+Zendesk-barred; change-history class arithmetic). Twelve candidates, ten dead at tier 0/1, one
+promising-unverified at 58.
+
+**5 | DSAR/erasure orchestration for B2B SaaS engineering (E1 transplant).** Gate 1 fired: Ethyca
+Fides, Apache-2.0, is the exact product — "fulfills any privacy request by connecting directly to
+your disparate databases", prebuilt connectors, free self-host, first DSR in under five minutes
+(github.com/ethyca/fides, ethyca.com/open-source-dsr, fetched 2026-08-20). Osano and Ketch (from
+~$499/mo) hold the downmarket paid slot. The E1 shape only verified alive INSIDE Zendesk, where the
+buyer is barred; outside it the OSS anchor kills it.
+
+**25 | SOFTEX/EDPMS/e-BRC reconciliation for Indian exporters.** NIRYAT (theniryat.com) sells the
+exact "Compliance OS" (DGFT+ICEGATE+EDPMS+AD-bank reconciliation, eBRC automation) to Rs 5-500cr
+exporters; NiryatBox gives a free readiness checker for the SaaS/services segment; payment platforms
+(Skydo, Xflow, Karbon) bundle compliance docs free with FX margin; RBI's October 2025 circular lets
+entries under Rs 10 lakh close on simple declaration. Position and COGS both collapse. Dated
+2026-08-20, WebSearch snippets.
+
+**58 | Per-tenant restore for existing shared-schema Postgres SaaS.** The one survivor. Position
+(20x0.7): verification found NO off-the-shelf product in the retrofit slot — 2025 ecosystem consensus
+is "choose schema/db-per-tenant so PITR works, or build a logical snapshot + WAL-decoding pipeline
+yourself" (ClickHouse multi-tenant architecture guide 2025; AWS Database Blog selective-restore
+recipe; SAP was granted US 12,242,359 B2 "tenant-level database recovery" March 2025 — enterprises
+build this in-house). Platform owners occupy only the migrate-away path: Neon markets per-tenant
+PITR for database-per-tenant fleets, Nile virtualizes tenants with per-tenant backups, Azure SQL
+documents it for db-per-tenant. None retrofits an existing pooled RDS database, so gate 1 does not
+fire. Demand (25x0.3): tier 5 and stale — HN comments 2022-2023 ("Not having per tenant backups is
+sensible? Seems like a bit of an oversight", 2022-04-13; "How do you implement per tenant backups?
+Not every db system cleanly separates...", 2022-04-14, both from the Atlassian outage threads —
+that outage WAS a weeks-long per-tenant restore failure), refreshed only by 2025 architecture
+content naming the problem unsolved. No tier 1-3 evidence found in sources checked. Founder fit
+(15x0.8): the founder is the buyer persona. Distribution (15x0.6): long-tail queries unfarmed.
+Arithmetic (15x0.5): eng teams pay $100+/mo but production-data trust demands a runs-in-your-VPC /
+BYO-S3 design given no SOC 2. Contract (10x0.8): FK-graph slicing + WAL decoding is weeks (patents
+exist on it). Total 58. CHEAP TEST DESIGNED (run only if Yuvraj wants it despite <70): 20 Mom Test
+outreach emails to eng leads of shared-schema B2B SaaS (Rails/Django companies from HN hiring
+threads), asking how they last handled "restore this customer's data" — pass if 4+ describe an
+internal script, an incident that ate engineer-days, or ask price. Cost: hours, $0. What would lift
+the score past 70: any two dated tier 1-3 items, e.g. named teams that built this internally
+post-2024 or paid Neon/Nile specifically to get per-tenant restore.
+
+Unchecked this round: Reddit, G2 bodies, keyword volumes, Nile pricing/traction, Fingerprint current
+pricing, GitHub code search (repo search only, found nothing starred — absence not proof). New seam:
+scripts/hn.py (HN Algolia, python3 -c is shell-blocked). Ten of twelve kills again named a free/OSS/
+platform-owner anchor; the two-round pattern holds — ideas survive only where the pain is too
+bespoke for a platform owner to productize (per-tenant restore) or a buyer is contractually barred.

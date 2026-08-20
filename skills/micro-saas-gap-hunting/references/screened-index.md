@@ -95,3 +95,13 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 10 | API deprecation breaking-change notification to API consumers | inherits APIDrift $10 / oasdiff killer
 20 | Screen recording to demo video AI voiceover | inherits video COGS; Arcade/Storylane self-serve
 5 | LLM prompt regression testing CI variant | inherits AI QA/evals OSS killer (promptfoo)
+5 | GDPR DSAR erasure orchestration API for B2B SaaS engineering | Ethyca Fides Apache-2.0 exact product; Osano/Ketch downmarket
+25 | SOFTEX EDPMS e-BRC reconciliation for Indian exporters | NIRYAT compliance OS; NiryatBox free checker; RBI Oct 2025 easing
+25 | Audit log as a service enterprise feature B2B SaaS | WorkOS audit logs self-serve; Retraced OSS
+28 | Login-as-customer impersonation with audit trail SaaS | contract test, engineer builds in days
+28 | Trial abuse duplicate account detection PLG SaaS | Fingerprint self-serve $99; Castle/Verisoul
+25 | Per-tenant data export takeout feature as a service | contract test, pg_dump to S3 in a day
+20 | Vendor DPA contract terms change monitoring procurement | change-history class; DPAFlow/SaaS Price Pulse arithmetic
+25 | Usage entitlement sync Stripe billing feature gating | Stigg free tier; Schematic
+15 | Right-to-be-forgotten across vector stores embeddings LLM logs | native delete-by-metadata APIs free
+58 | Per-tenant restore for existing shared-schema Postgres SaaS | PROMISING-UNVERIFIED: slot empty, demand tier-5 stale
