@@ -315,3 +315,5 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 25 | Access review campaign orchestration quarterly | Vanta/Drata/Zluri/Lumos occupy
 47 | Safe feature flag removal with runtime dead-flag proof | PROMISING-UNVERIFIED: FlagShark free reads code only, no runtime signal; dated pay-intent quote
 35 | GitHub Actions CI management merge queue workflow debugging | dated pay-intent quote BUT GitHub-owned territory, gate 1 risk
+25 | AEC submittal and transmittal tracking for architects | Centerline sells A/E-specific wedge; Procore/Monograph/Knack; vendor-content-only evidence
+12 | MSP PSA billing reconciliation and contract-to-invoice | inherits billable-time reconciliation killer; ConnectWise/Datto/HaloPSA/Syncro/SuperOps

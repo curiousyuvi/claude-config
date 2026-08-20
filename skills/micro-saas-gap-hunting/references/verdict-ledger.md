@@ -837,3 +837,47 @@ run. Cumulative: 309 indexed candidates, 6 above 40.
 Unchecked: the 2026-05-27 commenter's identity and employer, whether FlagShark has since added
 runtime telemetry (vendor page not re-fetched this round), Preloop licence, and the
 ten-more-like-them search that the cheap test requires.
+
+## Round 2026-08-20m: sector expansion attempted and found TOOLING-BLOCKED, not opportunity-blocked
+
+Goal was breadth into sectors the ledger has never touched (MSP/IT services, AEC, insurance broking,
+property management, recruiting agencies, trades, veterinary/dental, print, maritime), keeping the
+evidence-first method from round L. The round stopped early on a hard tooling wall that is worth
+recording precisely, because it changes what this skill can and cannot conclude about non-technical
+verticals.
+
+**Every non-developer sector search returns vendor content marketing, which is tier 6, an INVERTED
+signal.** Two sectors were probed properly. MSP tooling: every source was a vendor blog (Kaseya,
+Teamwork, Syncro, NinjaOne, SuperOps, Rev.io) with a commercial interest in framing manual work as a
+problem their product solves; the sole vendor-neutral comparison explicitly sources its own cells to
+"public r/msp threads" and G2 review bodies, i.e. exactly the two places this machine cannot reach.
+AEC submittals: identical picture (Knack, Monograph, Centerline, Pelles, Helonic, Varseno), with no
+independent survey data found on how many A/E firms actually still track submittals in spreadsheets.
+Both searches independently volunteered that caveat unprompted.
+
+**The blocking probe, dated 2026-08-20:** WebSearch with allowed_domains=["reddit.com"] fails at the
+user-agent level, not with a captcha or a rate limit: "The following domains are not accessible to our
+user agent: ['reddit.com']". Combined with the already-known Reddit JSON 403 and blocked G2/Capterra
+review bodies, there is NO path from this machine to first-person, dated, non-vendor pain reports in
+any sector that is not represented on Hacker News. HN is developer-heavy, the Atlassian tracker covers
+Atlassian only (and round i marked it a sourcing dead end), and GitHub covers developers only.
+
+**Therefore, and this is the reusable rule: do not score non-developer verticals from desk research on
+this machine.** Any score assigned to an MSP, AEC, insurance, property, trades or clinical vertical
+would rest on vendor content, which is the same inverted-signal evidence that flipped 4 of 4
+first-pass survivors to dead in the early rounds and caused the unverified-69 cap to be introduced.
+Enumerating those sectors is cheap and worthless; the honest output is that they are unscreenable
+until an access seam exists. The two probed this round are indexed at 25 (AEC submittals, where
+Centerline already sells the A/E-specific wedge that the gap hypothesis proposed, plus Procore,
+Monograph and Knack) and 12 (MSP billing reconciliation, which simply inherits the existing
+billable-time reconciliation kill against HaloPSA/Autotask).
+
+**What would unblock sector work, in order of cost:** (1) a Reddit API credential, which would open
+r/msp, r/sysadmin, r/architecture, r/Insurance and hundreds more subreddits where the missing tier
+3-4 evidence actually lives; (2) a G2 or Capterra account for 1-3 star review bodies; (3) the founder
+naming operators he can email in a target sector, which is the method that produced every survivor in
+this ledger anyway. Until one of those exists, rounds should stay on developer/infrastructure axes
+where HN and GitHub give real evidence, and effort is better spent on the cheap tests already
+designed for the 58 and the 47 than on new sectors.
+
+Cumulative: 311 indexed candidates, 6 above 40. No change to the top of the ledger this round.

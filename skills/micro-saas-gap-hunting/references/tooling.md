@@ -20,6 +20,11 @@ Machine-dependent, probe each session before relying on either answer:
   "unloadable" reports)
 
 Blocked (do not burn time re-probing unless a round needs them):
-- Reddit JSON (403), Google/DuckDuckGo/Startpage/searx direct, Bing (200 but JS-gated, no organic
-  links), Mojeek (captcha), Ecosia (403), r.jina.ai (403), G2/Capterra review bodies, keyword-volume
-  tools, zendesk.com/marketplace (403)
+- Reddit: JSON 403 AND harness WebSearch refuses allowed_domains=["reddit.com"] at the user-agent
+  level (probed 2026-08-20). No path to Reddit from this machine.
+- Google/DuckDuckGo/Startpage/searx direct, Bing (200 but JS-gated, no organic links), Mojeek
+  (captcha), Ecosia (403), r.jina.ai (403), G2/Capterra review bodies, keyword-volume tools,
+  zendesk.com/marketplace (403)
+
+Consequence for sourcing: no first-person dated pain evidence is reachable for any sector not present
+on Hacker News. Non-developer verticals are unscreenable here, not merely unscreened — see round m.
