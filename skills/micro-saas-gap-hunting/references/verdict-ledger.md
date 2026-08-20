@@ -437,3 +437,20 @@ Brave Search HTML works but **captchas after roughly eight queries per session**
 discovery and use direct fetches for verification. WebSearch/WebFetch still unloadable. Unchecked this
 round: Atlassian Community threads (Khoros, not fetched), G2 bodies, keyword volumes, Guard Detect's actual
 redaction scope, and whether any Actonic customer complains about the per-product split.
+
+## Method change 2026-08-20e: verdicts became 1-100 scores; tiered pipeline for volume
+
+At Yuvraj's request SKILL.md was rewritten: every candidate now gets a 1-100 composite score (weights:
+demand 25, position 20, founder fit 15, distribution 15, arithmetic 15, contract 10) instead of a
+categorical verdict. The hard gates survive as score caps, not as averaged-in dimensions: a fired gate
+caps at 5, and no candidate may score 70+ before the verification pass (the 4/4 flip base rate).
+Bands: 0-15 dead, 16-39 weak, 40-69 promising-unverified, 70+ verified = design the cheap test.
+Mapping for every entry above: KILL ≤ 15, WEAK 16-39, WORTH A CHEAP TEST 70+. No old verdict changes.
+
+For throughput, screening is now a four-tier pipeline (tier 0 no-network triage at ~1 min/idea, drop
+<30; tier 1 position probe at 2-5 fetches, drop <40; tier 2 full screen for top scorers; tier 3
+mandatory verification before 70+), so a round can open with 20-100 raw candidates. The working
+research seams were moved from session scratchpads into the skill at `scripts/` (bs.py Brave search,
+f.py URL-to-text, jac.py Atlassian tracker votes, mp.py Marketplace installs, price.py Marketplace
+pricing, cql.py/space.py/page.py public Confluence wikis). Prior SKILL.md text is in ~/.claude git
+history.

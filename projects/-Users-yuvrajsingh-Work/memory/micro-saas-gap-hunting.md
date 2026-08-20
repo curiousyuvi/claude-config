@@ -197,3 +197,13 @@ Named people or a specific trade, not a market category.
 `<div class="result-wrapper`. Parsers live in the session scratchpad (`bs.py` search, `f.py` page-to-text);
 rewrite them when needed, they are ~20 lines each. Bing returns 200 with no extractable organic links,
 Mojeek now captchas, ecosia/r.jina.ai 403, DuckDuckGo html serves a challenge.
+
+**Method change 2026-08-20e, at Yuvraj's request: 1-100 scores replace KILL/WEAK/WORTH-A-CHEAP-TEST.**
+Composite score (demand 25, position 20, founder fit 15, distribution 15, arithmetic 15, contract 10);
+hard gates are caps not averages (gate fired = capped at 5; unverified = capped at 69). Bands: 0-15 dead,
+16-39 weak, 40-69 promising-unverified, 70+ verified worth a cheap test. Screening is now a 4-tier
+pipeline built for hundreds of candidates: tier 0 no-network triage (~1 min, drop <30), tier 1 position
+probe (2-5 fetches, drop <40), tier 2 full screen, tier 3 mandatory verification before 70+. Research
+seam scripts persist in the skill's `scripts/` dir (Brave search, Atlassian Marketplace + tracker,
+public Confluence wikis, URL-to-text). Old ledger verdicts map KILL≤15 / WEAK 16-39 / alive 70+ and were
+not changed.
