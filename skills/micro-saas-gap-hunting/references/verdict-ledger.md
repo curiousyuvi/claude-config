@@ -401,3 +401,39 @@ no deferred tool of any kind was retrievable (scrapling included). Second sessio
 200 but no extractable organic links (JS-gated); Mojeek now serves a captcha; ecosia 403; r.jina.ai 403;
 DuckDuckGo html returns 202 with a challenge. Unchecked this round: Reddit, G2/Capterra bodies, keyword
 volumes, and any primary buyer conversation.
+
+## Round 2026-08-20d: E1's shape transplanted to non-support platforms. Two dead, one WEAK
+
+Reasoning behind target selection: the only candidate that ever survived verification (E1) had a specific
+shape — a compliance action that must fan out across a fragmented product suite, with an audit trail, sold
+through a marketplace category rather than SEO, flat-priced at $50-250/mo. That shape is not support-specific.
+Three platforms with marketplaces and business (non-support) buyers were screened in it.
+
+| Idea | Verdict and evidence |
+|---|---|
+| **D1 GDPR erasure / PII fan-out across Atlassian Cloud (Jira Software + Confluence)** | **WEAK — no hard gate fired, poor scorecard.** Gate 1 does NOT fire: Atlassian's own current GDPR doc still says free-form-text personal data must be found with "the product's global search feature and delete it on a case-by-case basis"; the native Cloud anonymization request **JRACLOUD-76571 has 105 votes, was opened 2021-05-06 and is still "Gathering Interest"**; CONFCLOUD-79383 (anonymize user references in Confluence pages, 2024-08-23) and ROVO-354 (masking/redaction in Rovo Chat, 11 votes, 2025-10-10) are also open. Atlassian Guard Premium ships content-scanning detection but is **sold, not given away, at $8.18/user/month** and only covers Jira and Confluence Cloud, so it is a trajectory risk rather than a fired gate. What sinks the scorecard is position plus founder fit. **Actonic (Actonic Products GmbH) already occupies most of the wedge**, cheaper: "Data Protection Toolkit: GDPR, PII & DLP" for Jira (305 cloud installs) and Confluence (158), priced per-user and tiered — free to 10 users, then $180/yr at 15 users, $600/yr at 50, $1,200/yr at 100, i.e. ~$50/mo at 50 users. Their Cloud docs (actonic.atlassian.net, space GDPRCLOUD) show the Data Cleaner module scoping by JQL/CQL, searching by selected user or regex across Comment, History, Reporter and Attachment name, with rules, event triggers and a clean/status history — that is the fan-out plus audit trail. They separately ship an **Attachment Scanner OCR for Jira** that reads images, scanned PDFs, screenshots, Office files and CSVs and deletes matching attachments on a credit model, which occupies the attachment-content wedge that survived on the Zendesk side. miniOrange sells PII Scanner (DLP) apps too (21 and 18 installs). Genuine residual: cross-product single-subject orchestration, Confluence page version history, attachment content on Confluence, and the new AI surfaces (Rovo). Thin. **Two things make this a WEAK rather than something to test: founder fit is near zero (he has no inside knowledge of Atlassian admin or compliance buyers — the GDPR-fanout expertise he has is Zendesk-specific), and the largest PII surface on Atlassian is Jira Service Management, which is customer support, so the contractual exclusion forces him to sell the weaker half of the market.** Scores: demand 1, position 1, founder fit 0, contract test 2, distribution 2, arithmetic 1 |
+| D2 Google Workspace offboarding / user data lifecycle for IT admins | **KILL, gate 2 in the zero-marginal-cost direction, plus arithmetic.** Patronum's public pricing page (fetched 2026-08-20) sells Automated Onboarding and Offboarding, Drive management and Drive compliance at **$2.00 per user per YEAR** (Business tier $8.00/user/year), self-serve with a 30-day no-card trial. That is $0.17-$0.67 per user per month. At 100 seats a whole tenant pays $67-800 per year, so no price undercuts it and reaching $12K MRR would need thousands of tenants. GAT Labs sits alongside |
+| D3 HubSpot data-subject erasure fan-out | **KILL, gate 1.** HubSpot ships the capability free in its core API: the CRM contacts reference documents a dedicated `gdpr-delete` endpoint (`/crm/v3/objects/contacts/gdpr-delete`) plus in-app permanent deletion, on the platform every buyer already pays for |
+
+**What this round adds to the method.** Transplanting a proven shape onto a new platform is a legitimate
+sourcing move and it did produce the first non-support candidate in twelve screenings where no hard gate
+fired. But it also exposes the limit: the shape travels, the founder's inside knowledge does not. D1 fails
+on exactly the dimension the skill calls the primary selector, and its best market segment is the one his
+contract forbids. **Do not build D1. It is recorded so nobody re-runs the search, and so that if he ever
+acquires an Atlassian-admin buyer channel it can be re-opened against one test: whether Actonic's Cloud
+Data Cleaner reaches Confluence page version history and attachment content.**
+
+### Sources for this round, with two new seams worth keeping
+
+New and rich: the **Atlassian Marketplace REST API** for install counts and live cloud pricing
+(`/rest/2/addons?text=`, `/rest/2/addons/{key}/pricing/cloud/live`), the **public Atlassian issue tracker**
+`jira.atlassian.com/rest/api/2/search` with vote counts (the best measurable demand seam found since Zendesk
+Gather, and it works for any Atlassian product), and **any vendor's public Confluence Cloud wiki** via
+`/wiki/rest/api/content?spaceKey=&expand=body.storage`, which returns full documentation text and defeated
+Actonic's JS-rendered marketing site. Marketplace listing descriptions are NOT available via the API
+(returns empty) and the listing pages are a SPA, so use the vendor's own docs wiki instead.
+
+Brave Search HTML works but **captchas after roughly eight queries per session**, so spend them on
+discovery and use direct fetches for verification. WebSearch/WebFetch still unloadable. Unchecked this
+round: Atlassian Community threads (Khoros, not fetched), G2 bodies, keyword volumes, Guard Detect's actual
+redaction scope, and whether any Actonic customer complains about the per-product split.
