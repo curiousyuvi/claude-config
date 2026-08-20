@@ -18,9 +18,12 @@ not a deal breaker — except the three hard gates, which cap the score near zer
 
 ## Before anything else
 
-1. **Read `references/screened-index.md`** — one line per idea ever screened (score + killer). Never
-   re-run a dead search; a variant inherits the score unless the twist defeats the named killer. Open
-   `references/verdict-ledger.md` only on an index hit (full evidence) or to append. Append to BOTH.
+1. **Dedupe by lookup, never by reading.** Run `python3 scripts/check.py "idea" ["idea"...]` (or
+   `--file list.txt` for a batch; `-v` adds the ledger evidence rows for hits). It prints only
+   matches, so the cost per round is constant no matter how large the ledger grows. Never read
+   screened-index.md or verdict-ledger.md in full during a round — the only whole-file reads are the
+   occasional anti-portfolio review and filter audits. A variant inherits a hit's score unless the
+   twist defeats the named killer.
 2. **Founder constraints** from project memory: solo, jurisdiction, capital, sales motion, time to
    first ship, no SOC 2 / ISO 27001.
    **Excluded domain, contractual, non-negotiable: customer support.** Helpdesks and ticketing, help
@@ -30,10 +33,9 @@ not a deal breaker — except the three hard gates, which cap the score near zer
    docs and product teams is IN SCOPE (confirmed 2026-08-20). Permitted axes: developer/API docs,
    edge/CDN and multi-tenant web infrastructure, document and video generation, LLM application
    engineering, India-side operations.
-3. **Tooling check.** Try to load WebSearch/WebFetch via ToolSearch; they are machine-dependent and
-   have been unloadable for whole sessions. The fallback seams live in `scripts/` (see Throughput
-   below) and machine-specific availability is recorded at the bottom of the ledger. Name unchecked
-   sources in every verdict.
+3. **Tooling check.** Read `references/tooling.md` (small, current-state-only — overwrite it in
+   place when availability changes). Try WebSearch/WebFetch via ToolSearch; the fallback seams live
+   in `scripts/`. Name unchecked sources in every verdict.
 4. **Micro-SaaS filter, not venture filter.** Competitors mean people pay. Any rule asking what a
    competitor might do to you rather than whether a buyer will pay you is the venture filter in
    disguise. Defensibility is a tiebreaker, never a gate.
@@ -76,15 +78,16 @@ Copy into the response and check off as the round progresses:
 
 ```
 Round progress:
-- [ ] Index read (screened-index.md), batch deduped against it
+- [ ] Batch deduped via scripts/check.py (no whole-file index/ledger reads)
 - [ ] Founder constraints + support exclusion applied
-- [ ] Tooling probed (WebSearch/WebFetch, then scripts/ seams); pipeline sanity-checked
-      against one known-dead idea (webhook infra must score <=15)
+- [ ] tooling.md read; WebSearch/WebFetch probed; check.py sanity-checked ("outbound
+      webhook delivery" must HIT)
 - [ ] Tier 0: whole batch triaged, <30 dropped and index-lined
 - [ ] Tier 1: survivors probed in parallel, <40 dropped
 - [ ] Tier 2: full screen on top scorers, evidence verbatim+dated
 - [ ] Tier 3: verification (refutation framing) on any candidate near 70
-- [ ] Ledger AND index appended for every candidate; unchecked sources named
+- [ ] Index + ledger appended (cat >>) for every candidate; unchecked sources named;
+      tooling.md overwritten if availability changed
 - [ ] If 70+: cheap test designed (cost + threshold) and the round ENDED
 ```
 
@@ -118,6 +121,7 @@ dated complaint against the incumbent's current docs or drop it. Passing verific
 
 **Seams (`scripts/`, python3+curl, ~20 lines each — fix in place when a site changes):**
 ```
+python3 scripts/check.py "idea"... [-v]        # ledger dedupe lookup (constant cost)
 python3 scripts/bs.py "query" [n]              # Brave search (captchas ~8/session)
 python3 scripts/f.py URL out.txt               # any URL -> stripped text
 python3 scripts/jac.py 'JQL' [n]               # jira.atlassian.com requests + votes
@@ -162,9 +166,16 @@ evidence; complaints go stale — verify against current docs.
 
 ## Ledger discipline
 
-Append every scored candidate: `| idea | score | tier reached | decisive evidence |`. Tier-0 drops
-get one line. 40+ candidates get the full evidence paragraph. Never delete a dead entry; re-scoring
-under a corrected rule re-opens only entries whose sole killer was the changed rule.
+Record every scored candidate in BOTH files, by shell append (`cat >>`) — appending never requires
+reading either file, which is what keeps run cost flat as they grow:
+
+- `references/screened-index.md`: one line, `score | idea | killer keyword` — this is what check.py
+  matches against, so make the idea phrasing literal and keyword-rich.
+- `references/verdict-ledger.md`: tier-0 drops get one table line; 40+ candidates get the full
+  evidence paragraph.
+
+Never delete a dead entry; re-scoring under a corrected rule re-opens only entries whose sole killer
+was the changed rule. If tooling availability changed, overwrite `references/tooling.md`.
 
 **Base-rate check.** A rigorous screen should still put ~10-30% of a batch above 40. A 10+ batch with
 nothing above 40 flags the filter, not the ideas — audit which rule did the killing. **Anti-portfolio:**

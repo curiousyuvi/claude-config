@@ -1,4 +1,4 @@
-# Screened index — one line per idea. Read THIS for tier-0 dedupe; open verdict-ledger.md only on a hit or to append.
+# Screened index — matched by scripts/check.py; never read in full during a round. Append one line per idea.
 
 Format: `score | idea | killer keyword`. Scores map old verdicts: KILL ≤15, WEAK 16-39, verified-alive 70+.
 E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILABLE (support exclusion).
