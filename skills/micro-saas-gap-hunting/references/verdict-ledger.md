@@ -224,3 +224,39 @@ pricing pages ("nobody sells self-serve, therefore small teams are shut out") is
 Three candidates have now died where the only support was that inference. Demand evidence means a dated
 complaint from a named non-vendor, like B1's 125-vote Zendesk request or the 489-point HN screenshot
 thread. Where the only artifacts are vendor lead magnets, the signal is inverted.
+
+### 2026-08-20 final: E1 verified — the FIRST CONFIRMED ALIVE in 50 screenings
+
+**DSAR / right-to-erasure execution across Zendesk products (one erasure request, fanned out across
+Support + Chat + Talk + Guide + community + AI agents, with an audit trail).** Verification hunted
+specifically for both session killers and neither fired.
+
+- Sparkly is real (Amsterdam, apps.sparkly.dev; Marketplace app 206749 "GDPR Search & Destroy", 100+
+  installs, 36 reviews, updated 2025-11-12, $99/$249 flat/mo) but is a **delete-only bulk engine driven by
+  Support search queries — "Works with: Support"**. No redaction, no retrieval, no other products. Its
+  architecture quote is the model to copy: "The app installs inside your Zendesk, and none of the data
+  will actually leave Zendesk at any point."
+- GrowthDot ($50/$65 flat) also never leaves Support: its April 2026 changelog (54 features) touches Chat
+  only as ticket-attached transcripts; Talk, Guide, community, side conversations, AI agents all absent.
+- Zendesk's native fan-out covers only the identity row ("Deleting the user in Support also deletes the
+  user in Guide, Chat (for agents), Message, Talk, and Explore") while its CURRENT docs state: "deleting
+  an end user in Support doesn't delete the end user's visitor profile in Chat"; Guide needs manual
+  archive-then-delete ("Simply editing the article to remove the personal data is not enough" — revision
+  history); "There's no way to redact information in conversations of closed tickets"; six per-product
+  compliance articles; a separate AI agents Delete User Data API that does not remove trained expressions.
+  ADPP is Enterprise-gated retention, not per-subject fan-out.
+
+Corrections: Explore caches 24h not 90d; the 2020 side-conversation quote is STALE (Zendesk shipped
+side-conversation redaction for email/child ticket/Teams) — the gap rests on current docs now, do not
+reuse the old quotes. Buyers pay $50-249 flat, twice proven. Distribution is the Zendesk Marketplace
+category, not SEO (head terms owned by support.zendesk.com, long tail farmed by eesel AI; Sparkly built
+100+ installs with no content operation).
+
+**Open risks:** (1) technical, decisive, half-a-day to check: can a ZAF in-Zendesk app reach Chat visitor
+profiles, Guide revision history, community comments, Talk recordings and the AI agents API without an
+external server? Losing "no data leaves Zendesk" loses the only answer to having no SOC 2. (2) Both
+incumbents stayed in Support; possibly because Support holds ~95% of the personal data — only buyer
+conversations resolve that. Unchecked: Slack side-conversation coverage, knots.io, G2 bodies, Sunshine
+Conversations, the June/July 2026 Service Data Deletion Policy revision.
+
+**Next step: the ZAF feasibility check, then 20 outreach emails. Not more screening.**
