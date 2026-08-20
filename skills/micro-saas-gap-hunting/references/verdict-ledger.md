@@ -7,6 +7,28 @@ Cleared 2026-08-19 at Yuvraj's request. The prior ledger (22 dead, 9 alive, 9 pe
 notes) is recoverable with:
 `git -C ~/.claude show 3e9cc16:skills/micro-saas-gap-hunting/references/verdict-ledger.md`
 
+## CONTRACTUAL EXCLUSION 2026-08-20: the entire support/helpdesk domain is off limits
+
+Yuvraj's employment contract bars him from building customer-support tooling. Nothing in that market
+may be screened again: helpdesks, ticketing, help centres and knowledge bases, support AI agents,
+conversation QA, support analytics, and any app or add-on sold to Zendesk / Intercom / Freshdesk /
+Help Scout / Gorgias / Front.
+
+Consequences, which are severe and must not be quietly forgotten:
+
+- **E1 (Zendesk DSAR / right-to-erasure fan-out) is unavailable.** It remains the only candidate that
+  ever passed verification in 50+ screenings and its research still stands as the method's best
+  worked example, but it cannot be built. Do not revive it, and do not treat its ZAF feasibility
+  check or the 20 outreach emails as pending work.
+- The "content-gap detection for the non-Intercom/Zendesk helpdesk tail" entry in the alive table is
+  likewise unavailable.
+- Roughly 30 of the dead entries below are support-domain screenings. They stay in the ledger as
+  history, but the anti-portfolio review should skip them: a false negative there is unactionable.
+- Target selection must move to the founder's other axes: edge/CDN and multi-tenant web
+  infrastructure, document and video generation, LLM application engineering, India-side operations.
+  These have thinner evidence than support, and that is the cost of the constraint, not a reason to
+  drift back.
+
 ## Dead
 
 | Idea | Killer |
@@ -280,3 +302,40 @@ Sparkly's 100+ installs came from the marketplace category with no content opera
 the round; a 10+ batch with zero survivors flags the filter; kills get a 6-12 month anti-portfolio review.
 The old file's full text is in ~/.claude git history. Verdicts in this ledger stand unchanged — the audit
 found the kills individually sound; the flaws were sourcing, gate structure, and accumulated contradictions.
+
+## Round 2026-08-20b: first round under the contractual support exclusion. Three screened, three dead
+
+The round opened on support-domain targets (helpdesk backup/restore, Zendesk community-request mining) and
+those were abandoned mid-research when the exclusion was stated, so they carry no verdict. Three
+non-support targets were screened.
+
+| Idea | Killer |
+|---|---|
+| Custom-domain / vanity-domain onboarding for multi-tenant SaaS (cert issuance, DNS verification, per-tenant routing) | Gate 1 twice plus buyer arithmetic. Platform owner: Cloudflare for SaaS sells custom hostnames with hostname validation, delegated-TXT/HTTP DCV, zero-downtime migration, apex proxying and WAF for SaaS, documented at developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas (last updated 2026-04-29) with per-hostname pricing an order of magnitude under any app-layer price. Mature permissive OSS: caddyserver/caddy 75,041 stars Apache-2.0 does on-demand TLS in a few lines of config, traefik/traefik 64,505 MIT the same. Position and arithmetic: Approximated's own public pricing page (reviewed 2026-08-05) is **$0.20 per custom domain per month with a $20/month minimum below 100 domains**, self-serve, with a published facts.json and comparison pages against Cloudflare SSL for SaaS, the Vercel Platforms starter kit and "Building it yourself". A $20/mo incumbent floor means ~600 customers to reach $12K MRR. Self-hosted tiers exist at $199/mo and $4,999/mo but those buyers are enterprises with procurement, not a solo vendor's market |
+| OAuth / hosted-auth layer for SaaS vendors exposing an MCP server to their customers | Gate 1, platform owners give it away and keep it current. cloudflare/workers-oauth-provider is MIT, 1,860 stars, last pushed 2026-08-19 (a day before screening) and implements the provider side for remote MCP servers; vercel/mcp-handler covers the same ground for Next.js; modelcontextprotocol/typescript-sdk (13,209 stars) ships the transport and auth plumbing in the reference SDK. agentic-community/mcp-gateway-registry (869, Apache-2.0) and tailscale/tsidp (652, BSD-3) cover the gateway and IdP variants. The paid field above that (Stytch, WorkOS, Descope, Auth0) is funded and sales-led, so the down-market slot is not empty, it is free |
+| Outbound webhook delivery infrastructure for SaaS (retries, signing, per-tenant endpoints, replay) | Gate 1. svix/svix-webhooks is **MIT, 3,360 stars, pushed 2026-08-19** — the category incumbent is itself permissively licensed and self-hostable, and standard-webhooks (1,730, Apache-2.0) standardises the signing scheme it competes on. No price undercuts `docker run` |
+
+**The structural finding of this round, which outranks the three verdicts.** Removing support removes the
+only market the founder knows from the inside, and every axis left to him — edge/CDN and multi-tenant web
+infrastructure, document and video generation, LLM application engineering — is *developer
+infrastructure*. Developer infrastructure is the worst possible shape for this method's gates: it is where
+mature permissive OSS is thickest, where the platform owners (Cloudflare, Vercel, AWS) ship the primitive
+free, and where the buyer's engineer genuinely can build it in a day. All three kills above are the same
+kill. Selecting more dev-infra targets will keep producing it.
+
+**So the next round must select by BUYER ACCESS, not by technology.** The question to put to Yuvraj is not
+"what can you build" but "whose business operations can you interview" — a vertical reachable through
+people he knows in India, a trade he has proprietary sight of, an operation whose workflow the search
+engine describes badly. Until that answer exists, further desk rounds on the permitted axes are predicted
+to be wasted, and this prediction is recorded here so the next session can check it rather than repeat it.
+
+**Sources for this round.** Working: direct vendor and docs page fetches, GitHub search API by stars with
+licence and last-push, HN Algolia, the Zendesk Gather community API and Help Center article-search API
+(both rich, both now unusable under the exclusion). **WebSearch and WebFetch could not be loaded at all
+this session** — four different ToolSearch patterns returned nothing, and no deferred tool was
+retrievable; treat the tooling check in SKILL.md as machine-dependent. Bing HTML via curl now returns
+parseable results (a seam the ledger previously recorded as blocked) but is geo-localised to India and
+returned dictionary and Indian-government noise for product queries, so it was not relied on. Unchecked:
+Reddit, G2/Capterra bodies, keyword volumes, Approximated's actual customer count, whether any
+non-dev-infra axis exists for this founder.
+

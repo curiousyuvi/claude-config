@@ -25,6 +25,14 @@ Only three checks are hard gates; everything else scores.
 2. **Load the founder constraints** from project memory: solo, jurisdiction, capital, sales motion,
    time to first ship, no SOC 2 / ISO 27001. An idea the founder cannot legally or physically operate
    is dead at zero research cost.
+   **Excluded domain, contractual, non-negotiable: customer support and its tooling.** Yuvraj's
+   employment contract bars him from building in it, so helpdesks, ticketing, help centres and
+   knowledge bases, support AI agents, conversation QA, support analytics, and anything sold as an app
+   or add-on to Zendesk / Intercom / Freshdesk / Help Scout / Gorgias / Front are all out, however
+   good the gap looks. Screen nothing here. His deepest domain knowledge sits in exactly this market,
+   which makes it the standing temptation of every round: target selection must go to his *other*
+   axes (edge/CDN and multi-tenant web infrastructure, document and video generation, LLM application
+   engineering, India-side operations) even though the evidence there is thinner.
 3. **Tooling check.** Load WebSearch and WebFetch schemas via ToolSearch before concluding anything —
    agents have twice wrongly decided they were unavailable and produced rounds with no search evidence.
    Machine-specific source availability (what is blocked, what works) is recorded at the bottom of the
@@ -103,8 +111,9 @@ Only these produce an immediate KILL. Each needs specific evidence, not vibes.
    pays (media, video, OCR at volume), or the incumbent's marginal cost is zero (BYOK, free tier,
    monetised elsewhere — e.g. free gift cards funded by brand rebates) so no price can undercut it.
 3. **Access: the founder cannot legally or physically operate it.** Licences, credentials,
-   accreditation regimes, discretionary partner gates wanting local sponsors, capex, float, or a
-   product whose deliverable is compliance evidence sold by an unaudited vendor.
+   accreditation regimes, discretionary partner gates wanting local sponsors, capex, float, a product
+   whose deliverable is compliance evidence sold by an unaudited vendor, or anything inside the
+   contractually excluded support/helpdesk domain named above.
 
 ## Stage 4: the scorecard
 

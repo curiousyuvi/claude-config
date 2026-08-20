@@ -161,3 +161,20 @@ releases), Mom Test evidence hierarchy with vendor content as inverted signal, d
 whole (SEO failure alone not fatal — Sparkly built 100+ installs purely on the marketplace category),
 one survivor ends the round, zero-survivor batches flag the filter, 6-12 month anti-portfolio review of
 kills. The Desktop copy 01-METHOD-gap-hunting-for-micro-saas.md still reflects the OLD method.
+
+**HARD CONSTRAINT added 2026-08-20: the customer-support domain is contractually off limits.** Yuvraj's
+employment contract does not allow him to work on support tooling, so helpdesks, ticketing, help centres
+and knowledge bases, support AI agents, conversation QA, support analytics, and anything sold as an app or
+add-on to Zendesk / Intercom / Freshdesk / Help Scout / Gorgias / Front must never be screened again.
+
+**Why:** it is a legal bar, not a preference, and it is invisible from the code and the ledger. It also
+invalidates the pipeline: E1 (Zendesk DSAR fan-out), the only candidate to survive verification in 50+
+screenings, cannot be built, and neither can the helpdesk-tail content-gap candidate. About 30 dead ledger
+entries are support-domain and are now history only.
+
+**How to apply:** select targets from his other axes only — edge/CDN and multi-tenant web infrastructure
+(he built kb-edge on Cloudflare Workers), document and video generation (Kroto, InstantDocs, Remotion),
+LLM application engineering, India-side operations. Support is where his domain knowledge is deepest, so
+it is the standing temptation of every round; the thinner evidence elsewhere is the price of the
+constraint. The exclusion is written into SKILL.md ("Before anything else" item 2 and hard gate 3) and at
+the top of the verdict ledger.
