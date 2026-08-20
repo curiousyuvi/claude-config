@@ -260,3 +260,23 @@ conversations resolve that. Unchecked: Slack side-conversation coverage, knots.i
 Conversations, the June/July 2026 Service Data Deletion Policy revision.
 
 **Next step: the ZAF feasibility check, then 20 outreach emails. Not more screening.**
+
+## Method change 2026-08-20: SKILL.md rewritten from scratch
+
+The old skill (kill-test chain, ~2,900 words, three layers of rule corrections) was audited against its
+own record — 50 screenings, 1 survivor, 4/4 first-pass survivors flipped on verification — plus outside
+references (Rob Walling's "data points, not deal breakers" framing; Strebulaev's funnel base rates showing
+a cheapest-stage filter should pass ~30%, and "if the successful deals in your space never survive your
+funnel, something serious is off"; the Mom Test evidence hierarchy; Anthropic's skill-authoring guidance
+that layered rule-corrections bias a model toward the most conservative reading, i.e. toward KILL).
+
+What changed: kill tests became three hard gates (platform-owner shipped-and-adequate, structural COGS,
+access) plus a six-dimension scorecard; verdicts are now KILL / WEAK / WORTH A CHEAP TEST and desk research
+can no longer emit "confirmed live"; the verification pass (competitor product docs not pricing pages,
+current-year platform releases, refutation framing, evidence re-basing) is a mandatory stage before any
+survivor is named; demand evidence is graded on the Mom Test hierarchy with vendor content as inverted
+signal and pricing-page inference banned; SEO failure is no longer fatal (distribution scored as a whole —
+Sparkly's 100+ installs came from the marketplace category with no content operation); one survivor ends
+the round; a 10+ batch with zero survivors flags the filter; kills get a 6-12 month anti-portfolio review.
+The old file's full text is in ~/.claude git history. Verdicts in this ledger stand unchanged — the audit
+found the kills individually sound; the flaws were sourcing, gate structure, and accumulated contradictions.

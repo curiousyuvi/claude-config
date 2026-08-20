@@ -5,98 +5,58 @@ description: "Use when finding, screening, or validating a micro-SaaS or indie p
 
 # Gap hunting for micro-SaaS
 
-Target outcome: a solo-built product at roughly $10-15K MRR. Do not invent. Enter a market big
-players have already validated, then fill the gaps left by those players **and their most-used
-alternatives**. The alternatives matter as much as the giants: they prove people switch and pay, and
-they are far more attackable.
+Target outcome: a solo-built product at roughly $10-15K MRR, i.e. 100-300 business customers at
+$50+/mo. Do not invent. Enter a market big players have already validated, then fill the gaps left by
+those players and their most-used alternatives. Competitors are the prerequisite, not the disqualifier:
+they prove people switch and pay.
 
-**Competitors are the prerequisite, not the disqualifier.**
+**What desk research can and cannot conclude.** It can kill an idea on hard evidence, and it can
+promote an idea to WORTH A CHEAP TEST. It can never conclude an idea is validated. The terminal output
+of this skill is always a designed cheap live test (outreach emails, a landing page with traffic, five
+Mom Test conversations), never a build decision. Rob Walling's framing governs the whole method: each
+check below is "another data point to gather when evaluating the idea", not an absolute deal breaker.
+Only three checks are hard gates; everything else scores.
 
 ## Before anything else
 
-1. **Read `references/verdict-ledger.md`.** It records every idea screened, with the specific killer
-   named. Never re-run a dead search or re-propose a dead idea. A *variant* of a dead idea inherits
-   the verdict unless the twist defeats the named killer; check the dead table for the general shape,
-   not just the exact phrasing. (The killer for "AI thumbnail generator" also killed "thumbnail
-   generator with editable PSD export": the twist was the free part.)
-2. **Load the founder constraint set** and hold every idea against it: solo or team, jurisdiction,
-   capital, sales motion the founder will actually do, time to first ship. An idea the founder cannot
-   legally or physically operate is dead at zero research cost. Constraints live in project memory,
-   not in this file.
-3. **Confirm the goal.** These two filters conflict and both are correct in context:
-   - Venture-scale filter (YC): name the novel insight incumbents lack, or drop it.
-   - Micro-SaaS filter (this skill): competitors mean people are paying, so enter.
-   Applying the venture filter to a $10K/month goal kills good ideas. Ask which one applies if unclear.
+1. **Read `references/verdict-ledger.md`.** Every idea ever screened, with the specific killer named.
+   Never re-run a dead search. A variant of a dead idea inherits the verdict unless the twist defeats
+   the named killer — check the dead table for the general shape, not the exact phrasing.
+2. **Load the founder constraints** from project memory: solo, jurisdiction, capital, sales motion,
+   time to first ship, no SOC 2 / ISO 27001. An idea the founder cannot legally or physically operate
+   is dead at zero research cost.
+3. **Tooling check.** Load WebSearch and WebFetch schemas via ToolSearch before concluding anything —
+   agents have twice wrongly decided they were unavailable and produced rounds with no search evidence.
+   Machine-specific source availability (what is blocked, what works) is recorded at the bottom of the
+   ledger; verify against it and name unchecked sources in every verdict.
+4. **Confirm the goal.** Micro-SaaS filter: competitors mean people pay, so enter. Venture filter:
+   name the novel insight or drop it. Applying the venture filter to a $10-15K/mo goal kills good
+   ideas. It rarely arrives labelled — it sneaks in as a defensibility rule ("what stops a cloner",
+   "name the moat"). When a rule asks what a competitor might do to you rather than whether a buyer
+   will pay you, it is the venture filter in disguise. Defensibility is a tiebreaker between two
+   candidates, never a gate; at this scale distribution is the defence.
 
-   The venture filter does not arrive labelled. It sneaks in as a reasonable-sounding rule about
-   defensibility: "name what the buyer cannot self-host", "what stops someone cloning this". That is how
-   a moat gate got into this file and produced 29 straight kills. When a new rule asks what a competitor
-   might do to you rather than whether a buyer will pay you, it is the venture filter wearing a disguise.
+## Stage 1: pick targets
 
-## Defensibility is a tiebreaker, not a gate
-
-**The gate is: can I win the search term, and will the buyer pay $50+/mo?** Nothing else. Run the
-position test immediately after.
-
-This replaces an earlier rule that required every idea to name something the buyer could not
-self-host. That rule was wrong and it is worth knowing why, because it looked sensible and it wasted a
-full round of research. It was the venture-scale filter smuggled back in: "what stops a competitor
-copying you" is a defensibility question, which matters when the prize is a category and does not
-matter when the prize is 200 customers paying $50 a month. Nobody funded is coming for that, and a
-cloner still has to win the search term you already own.
-
-Held as a gate it also had an almost empty solution set, in two directions:
-
-- **Reachable moats are already occupied.** Anything a solo founder can build by polling public pages
-  or wrapping public data gets claimed in *months*. Four entrants appeared in the API-deprecation-history
-  niche inside a year; six Apify actors cover SaaS pricing diffs; Sub-Processors.com had already accrued
-  3,901 companies of subprocessor history in public.
-- **Durable moats are gated against the founder.** Licensed data is quote-only and negotiated (IATA DGR),
-  or sold by the licensor itself (NMFTA ClassIT+ at $2,967-9,809/yr), or needs sponsors (ezyVet's partner
-  gate wants named clinics vouching for you before it issues a credential).
-
-The ledger carries its own counterexample: subprocessor monitoring is pure software polling public web
-pages, with no moat of any kind, and DPAFlow sells it at EUR 99-999/mo to buyers who pay.
-
-The damage this rule did was in **target selection**, not screening. It steered every round toward
-licensed data, regulated rails and gated integration estates, which is exactly where a solo founder
-without local presence gets refused at the door, and steered away from ordinary software niches that
-work fine at this revenue level. Almost none of the ledger's dead entries actually died of it; they
-died at the position test, which is a real kill either way.
-
-So keep the classes below only to break a tie between two candidates that both pass the gate:
-
-| Moat class | Note |
-|---|---|
-| Only software | Fine at this scale. Distribution is the defence |
-| Licensed data or a legal credential | Nice if you already have it; run the access test before valuing it, most are jurisdiction-bound or sold by the licensor |
-| Physical estate (SIM farms, hardware) | Capex-bound, usually out of reach |
-| Digital, geography-neutral operational estate | Genuinely useful when unoccupied, but verify it is unoccupied, this is where the last round kept guessing wrong |
-
-## The funnel
-
-### 1. Pick 5 targets
-Tools with public per-unit pricing, a simple request contract, and a large user base. Prefer ones the
-user would personally buy.
-
-**Founder-market fit is now the primary selector, not a bonus.** See trap 9: anything a search engine
-describes well is already crowded, so the edge is knowing a market from the inside, where you can judge
-whether a complaint is severe without inferring it from a listicle. Prefer targets whose buyers the
-founder has actually worked with, and treat a round of targets nobody in the room knows first-hand as
-the low-probability path it now is.
+**Founder-market fit and proprietary access are the primary selectors.** Public complaint mining is
+the most arbitraged sourcing channel in existence: every competitor runs the same searches with the
+same tools, and the window between "niche identifiable by search" and "four self-serve competitors
+exist" is now months. The edge is knowing a market from the inside — the day job, communities the
+founder is embedded in, workflows only visible from within — where complaint severity can be judged
+directly instead of inferred from a listicle. Weight targets the search engine describes poorly.
 
 **Buyer arithmetic is part of target selection.** Price point times customers needed is a two-minute
-check that outranks any feature comparison. If the incumbent charges hobbyists under $20/mo, the goal
-needs ~1,000 subscribers in a churny consumer market; if the incumbent is BYOK or otherwise carries
-zero marginal cost, it cannot be undercut at all. Want business buyers and incumbent price points of
-$50+/mo, where the goal is 100-300 customers.
+check that outranks any feature comparison. Want business buyers and incumbent price points of
+$50+/mo. An incumbent loved at under $20/mo in a churny consumer market means ~1,000 subscribers to
+goal; skip.
 
-Complaint-first mining (search pain phrases, derive targets) sounds better and does not work: generic
-phrases like "priced us out" return politics, and exact phrases return too few hits to steer by.
-Pick targets, then mine them.
+Pick 3-5 targets per round, no more. Complaint-first mining (search pain phrases, derive targets)
+does not work: generic phrases return noise, exact phrases return too few hits to steer by. Pick
+targets, then mine them.
 
-### 2. Mine the gap
-The highest-leverage stage. Search each target for:
+## Stage 2: mine the gap and grade the evidence
+
+Search each target for:
 
 ```
 "<tool> alternative"        "<tool> too expensive"     "<tool> limitations"
@@ -104,158 +64,145 @@ The highest-leverage stage. Search each target for:
 "cheaper than <tool>"
 ```
 
-Sources ranked by signal quality:
-1. The incumbent's own forum, changelog, and GitHub issues. Richest and least-worked seam.
-2. Reddit and X. Search snippets surface Reddit threads even when its API is blocked.
-3. G2 and Capterra 1-3 star reviews.
-4. Comparison listicles. Low trust, but they enumerate the competitive set fast.
-5. Displacement events: an acquisition, shutdown, licence change, or price rise creates a cohort
-   migrating right now. Highest-value signal when present, **and the fastest to go stale**: windows
-   close within months. Date-check every displacement tip against a fresh fetch of the incumbent's
-   site before treating it as live. (Highlight.io was recorded as a live displacement eight months
-   after the migration ended; the Canny tip was stale on arrival.)
+Sources by signal quality: (1) the incumbent's own forum, changelog, and GitHub issues — richest and
+least-worked seam; (2) Reddit and X via search snippets; (3) G2/Capterra 1-3 star reviews; (4)
+comparison listicles — low trust, but they enumerate the competitive set fast; (5) displacement
+events (acquisition, shutdown, licence change, price rise) — highest value when present and fastest
+to go stale; date-check against a fresh fetch of the incumbent's site before treating as live.
 
-Source availability is machine-specific and recorded in project memory. Verify which sources actually
-return results before concluding anything, and name the unchecked ones in the verdict. Record
-complaints **verbatim**; the exact phrasing becomes landing-page copy.
+Record complaints **verbatim with source and date** — the exact phrasing becomes landing-page copy.
 
-### 3. Classify the gap
-Ranked by durability:
+**Grade every piece of demand evidence on the Mom Test hierarchy.** From strongest to worthless:
 
-| Gap type | Durability |
-|---|---|
-| Licensing blocker (AGPL etc.) | High. Hard enterprise no |
-| Capability wall | High, but check it does not also wall *you* out (EDI's AS2 certification killed the founder, not the incumbent) |
-| Displacement event | High but time-boxed. Date-check it |
-| Complexity / bad DX | Medium-high |
-| Upmarket drift | Medium |
-| Pricing opacity (credits) | Medium. Common, but the flat-pricing slot is often already taken by a small incumbent (see position test below) |
-| Raw price alone | Low. A race to the bottom |
+1. Money already spent on this problem (a paid tool, a consultant, an internal build)
+2. Commitment or migration language ("we switched", "we built it ourselves, wish we hadn't", a named budget)
+3. Specific past-tense pain from a named non-vendor, dated ("we had to delete the whole ticket")
+4. Feature requests and upvotes
+5. Complaint volume, compliments, survey yeses
+6. Vendor-authored content (blogs, templates, lead magnets) — **inverted signal**: wide circulation
+   of vendor "pain" content is evidence of content marketing, not unmet demand
 
-Pricing legibility used to be the ownable default. Ledger evidence now shows it usually taken by the
-time you arrive (Unipile, GlitchTip, Skribby, or the giant itself publishing clean per-unit rates).
-Treat "flat, predictable pricing" as a pairing, never the sole wedge.
+Two rules learned at cost: **inferring an unserved buyer from vendor pricing pages ("nobody sells
+this self-serve, so small teams must be shut out") is not demand evidence** — three candidates died
+carrying only that inference. And **complaints go stale like displacement events do**: verify every
+load-bearing complaint against the incumbent's current docs before relying on it; a 2020 limitation
+the vendor has since fixed is a kill for that evidence, though the gap may survive on current
+documentation (which is stronger evidence than old forum threads anyway).
 
-### 4. Run the kill tests, in this order
-Cheapest first. Each has killed a real candidate.
+## Stage 3: the three hard gates
 
-1. **Position test. Run this first.** Fetch the pricing pages of the two or three smaller rivals. It is
-   cheap (two or three fetches) and it accounts for the large majority of the ledger's dead entries, so
-   running it sixth wasted whole screenings.
+Only these produce an immediate KILL. Each needs specific evidence, not vibes.
 
-   **But read the result correctly, because using it as an absolute gate is the next version of the same
-   mistake.** "The slot is occupied" is a venture-scale objection: real micro-SaaS markets support many
-   profitable vendors at once (COI tracking has a dozen, AI visibility has thirty, and they all bill).
-   After 35 screenings, treating any occupied position as fatal produced zero survivors, which says more
-   about the test than about the markets. What is actually fatal is narrower:
-   - the capability is given away free by a platform owner, the regulator, or a mature OSS project, so
-     price cannot go anywhere (Intercom shipping content-gap detection, Helicone shipping per-user cost
-     attribution, Tremendous sending gift cards free on rebates);
-   - the buyer's own engineer can build it in a day (see the contract test);
-   - or the incumbent's marginal cost is zero and it is loved at under $20/mo.
+1. **Given away, adequately, by a platform owner / regulator / mature permissive-licence OSS.**
+   "Shipped and adequate" — a roadmap item or a half-feature scores as risk in stage 4 instead.
+   Check the platform owner's releases from the CURRENT and PREVIOUS year by name: this killed 6 of
+   the last 8 dead candidates (Intercom Fin Operator, Intercom Monitors at $99 flat, Zendesk macro
+   suggestions, Zendesk resolution tiers). For OSS, search GitHub by stars AND check the licence — a
+   permissive peer beside a restrictive leader closes a licensing wedge.
+2. **COGS structurally above price**, in either direction: your unit cost exceeds what the market
+   pays (media, video, OCR at volume), or the incumbent's marginal cost is zero (BYOK, free tier,
+   monetised elsewhere — e.g. free gift cards funded by brand rebates) so no price can undercut it.
+3. **Access: the founder cannot legally or physically operate it.** Licences, credentials,
+   accreditation regimes, discretionary partner gates wanting local sponsors, capex, float, or a
+   product whose deliverable is compliance evidence sold by an unaudited vendor.
 
-   A well-funded rival at $399/mo with bad onboarding is a *competitor*, not a killer. In that case the
-   question moves to whether you can win a segment and its search term, which is stage 2 and stage 6
-   work, not a desk-check.
-2. **Access test.** Can this founder legally and physically operate it: credentials, jurisdiction,
-   capex, data licences? A desk-check, costs nothing, and killed five round-4 ideas before any search.
-   Watch for the two patterns that recur: an accreditation regime (ISO 27001, notified bodies,
-   OpenPeppol fees) and discretionary partner gates that want a local sponsor or referral.
-3. **Buyer arithmetic.** Price point times customers needed, and the incumbent's marginal cost. A
-   loved incumbent under $20/mo with zero COGS ends the screening.
-4. **Free anchor inside the market.** A free hosted competitor caps your price at zero. Include the
-   case where the incumbent gives the product away and monetises elsewhere (Tremendous sends gift cards
-   free on brand rebates), which no price can undercut.
-5. **Free OSS anchor.** Search GitHub by stars. A mature library kills the API business. Check the
-   *licence* as well as the stars: a permissive peer (Apache or MIT) beside a restrictive leader closes
-   any licensing-blocker wedge, which is what killed the n8n embed idea.
-6. **Giant incumbent.** If AWS, Google, Azure, Stripe, the platform owner, or the regulator ships it as
-   a commodity, walk away. Platform owners treat adjacent tooling as free retention (Intercom and Zendesk
-   both ship AI-agent testing and help-centre importers free), and regulators ship free portals.
-7. **Contract test.** Can you clone the request and response shape in a weekend? If yes, stage 5 is
-   free. If yes, so can everyone else, so this cuts both ways: if the buyer's own engineer can build it
-   in a day, there is no product, only a snippet.
-8. **COGS test.** Compute cost per unit against your price, in both directions: your unit cost too
-   high (media, video, TTS), or the incumbent's at zero (BYOK, free tiers), which no price can get under.
-9. **SEO test.** Can you rank for "X alternative"? If volume tools are unavailable, count who is
-   already buying the term; five funded bidders means unwinnable regardless of volume. Since owning the
-   term is now the whole defence, a failure here is fatal rather than a warning.
+## Stage 4: the scorecard
 
-A high score on any scorecard does not survive a failed kill test. When a test cannot be run with
-available sources, the idea is **pending, not alive**: park it with the blocker named.
+Everything else is a score, not a gate. Rate each 0-2 and record the evidence:
 
-### 5. Build the migration path, not the product
-For an API this means **be drop-in compatible with the incumbent's contract**, so migration is one
-line of the customer's code. For an app, build the one-click importer. Verified precedents are in
-`references/sources-and-benchmarks.md`.
+| Dimension | 2 | 0 |
+|---|---|---|
+| Demand evidence | Tier 1-2 on the hierarchy, dated, current | Only tier 5-6, or inference from pricing pages |
+| Position | Occupied by expensive/sales-led vendors leaving a self-serve or down-market slot | A loved, cheap, self-serve incumbent already in the exact slot |
+| Founder fit | Buyer/domain known from the inside | Learned from a listicle this week |
+| Contract test | Weeks of integration/domain work | Buyer's engineer builds it in a day (then it is a snippet, not a product) |
+| Distribution | A winnable channel exists: marketplace category, unfarmed long-tail terms, an owned audience | Head terms owned by funded content machines AND no marketplace/audience alternative |
+| Buyer arithmetic | 100-300 buyers at $50+ plausible | Needs 1,000+ churny consumers |
 
-### 6. Validate before building
-Landing page plus direct outreach to the people found complaining in stage 2. No product yet.
+Notes that correct past mistakes:
+- **An occupied position is normal and usually good.** Real micro-SaaS markets support many
+  profitable vendors (a dozen in COI tracking; GrowthDot and Sparkly both selling GDPR deletion at
+  $50-249/mo in one marketplace). A sales-gated incumbent with no public pricing is evidence of a
+  self-serve gap as much as a threat — score it, don't flinch.
+- **SEO failure is not fatal on its own.** Marketplace categories, integrations directories, and an
+  owned audience are distribution channels too; Sparkly built 100+ installs with no content
+  operation. Score distribution as a whole.
+- Moat class breaks ties between two candidates that both score well. Nothing more.
 
-The bar: **10 paying customers from outside the user's network who actually use it.** Payment alone
-is not validation. For an API, watch for the second call, not the first.
+## Stage 5: verify before calling anything alive
 
-An alternative stage-6 shape that beats the landing page when the buyer is a platform: one emailed
-question to 30 companies who need the capability as a feature ("do you run X today, and did you
-build it yourselves?"). Three "built it ourselves, wish we hadn't" answers outweigh any waitlist.
+First-pass survivors flipped to dead 4 out of 4 times until verification became structural. A
+screening without this stage produces "not yet killed", never "worth testing". Hunt specifically for:
 
-### 7. Ship in two weeks
-One endpoint or one screen. No auth, no dashboard, no billing, no integrations, no logo.
+1. **Sales-gated competitors' real capability.** Their pricing page hides it; read their product
+   docs, changelogs, marketplace listings, demo videos, and customer quotes. (Pageloop's homepage
+   detail killed a candidate the pricing-page pass had cleared.)
+2. **Platform-owner releases, current year, by name.** Release notes and community announcements,
+   not just the marketing site.
+3. **Refutation framing.** The verifier's job is to refute the candidate and fail. A candidate
+   confirmed by a refutation attempt that found both killers absent (Sparkly delete-only, GrowthDot
+   Support-only, Zendesk's own docs stating the fragmentation) is the strongest desk result this
+   method can produce.
+4. **Re-base the evidence.** Replace every dated complaint with the incumbent's current
+   documentation of the same limitation, or drop it.
 
-## After launch
-- **Distribution order:** SEO on "X alternative", then Zapier and Make listings, then YouTube
-  tutorials, then Product Hunt for backlinks, then answering the threads from stage 2.
-- **Pricing:** start higher than instinct. Raising prices improves customer quality.
-- **Churn:** cancellation dropdowns produce nothing. Research the account, guess the reason, email one
-  yes/no question.
-- **Churn is often a marketing bug.** Wrong-expectation arrivals churn. Fix copy before building.
+## Verdicts and the funnel discipline
+
+Three verdicts, appended to the ledger every time with evidence and unchecked sources named:
+
+- **KILL** — a hard gate fired, with the killer named and cited. A high scorecard never survives a
+  fired gate.
+- **WEAK** — no gate fired but the scorecard is poor. Record and rank; do not iterate on it.
+- **WORTH A CHEAP TEST** — verified survivor. Name the designed test, its cost, and its threshold
+  (e.g. "20 outreach emails to non-network buyers; 3 replies saying 'we built this ourselves' or
+  'what would it cost' passes").
+
+**One WORTH A CHEAP TEST candidate ends the screening round.** Run the test before screening anything
+else. Endless screening is the failure mode this skill has actually exhibited, not a hypothetical.
+
+**Base-rate check.** A rigorous screen should still pass roughly 10-30% of a batch to WORTH A CHEAP
+TEST. A batch of 10+ ideas with zero survivors flags the filter, not the ideas — stop and audit which
+rule did the killing before running another batch. (The ledger's own history: 49 straight kills, then
+an audit found the verdicts individually sound but the sourcing and gate structure at fault.)
+
+**Anti-portfolio.** Every 6-12 months, revisit the dead table: which kills turned out false (someone
+built it and it worked)? Log which rule produced the false negative. Before killing any idea, spend
+one paragraph on "why WILL this work" — domain experts find it easy to list reasons something fails.
+
+## Validation (the cheap test) and after
+
+The bar: **10 paying customers from outside the founder's network who actually use it** (for an API,
+the second call, not the first). Payment alone is not validation. When the buyer is a platform's
+customers, one emailed question to 30 companies ("do you run X today, and did you build it
+yourselves?") beats a waitlist: three "built it ourselves, wish we hadn't" outweigh any signup count.
+
+Ship in two weeks: one endpoint or one screen. For an API, be drop-in compatible with the incumbent's
+contract; for an app, build the one-click importer. Distribution order after launch: the winnable
+channel found in stage 4 first (marketplace listing, "X alternative" SEO, Zapier/Make, YouTube,
+answering the stage-2 threads). Start pricing higher than instinct. Churn is often a marketing bug:
+wrong-expectation arrivals churn, so fix copy before building.
 
 ## Traps
 
 1. **Absence of evidence is not evidence of absence.** Rate-limited or badly worded searches return
-   nothing and you conclude the market is empty. Always confirm with direct fetches of named candidate
-   sites plus a GitHub-by-stars search. Label every "nothing found" as *not found in the sources I
-   checked*, and say which sources went unchecked.
-2. **Do not invent a differentiator to rescue an idea.** If stage 2 produced no verbatim complaints,
-   there is no gap. Go back to stage 1.
-3. **SEO is the hidden prerequisite.** ~$11K MRR rides on ~35,000 visitors a month at reference
-   conversion rates. Owning the search term is the moat, not undercutting.
-4. **Document parsing and extraction are commodities.** Anything shaped like "API that extracts
-   structured data from documents" competes with AWS, Google, and Azure on price.
-5. **Avoid social networks and marketplaces.** Cold-start problems are not solo-founder problems.
-6. **Stale displacement.** A displacement event found in a note or an old thread has usually already
-   closed. Verify against the incumbent's live site, today.
-7. **The variant is not a new idea.** Adding "but with X export" or "but for Y niche" to a dead idea
-   only revives it if X or Y defeats the named killer. Usually X is the free part.
-8. **Endless screening is a failure mode.** The ledger caps open work: one live candidate at a time,
-   kill-tested to completion before the next round of targets. Nine alive entries nobody has
-   finished testing is a to-do list, not a pipeline.
-9. **The search-discoverable niche is saturated, so this method's core premise is decaying.** Mining an
-   incumbent's complaints to find an unclaimed position assumes you are the only one mining. You are
-   not: every competitor runs the same play with the same tools, and the window between "a niche is
-   identifiable by search" and "four self-serve competitors exist" has compressed from years to months
-   (four entrants in API-deprecation history inside a year). Two consequences. First, expect the
-   position test to fail and treat that as normal rather than as evidence you picked badly. Second,
-   weight targets the search engine describes *poorly*: buyers who do not post online, workflows only
-   visible from inside a job, and niches whose vocabulary you know from experience rather than from a
-   listicle. Founder-market fit stops being a bonus here and becomes the main way to find anything
-   before the crowd does.
-10. **Do not delete a dead ledger entry to make room for optimism.** Re-screening under a corrected rule
-   is legitimate; erasing a kill that rested on independent evidence is not, because the next round then
-   repeats the search. When a rule changes, audit each entry for whether the *changed* rule was its only
-   killer, re-open just those, and say plainly how few qualified.
-
-## Output discipline
-
-When screening an idea, always report:
-- the verbatim complaints found, with source
-- which kill tests it passed and failed, including the access and arithmetic tests
-- **what was not checked**, and which sources were unavailable
-
-Then append the verdict to `references/verdict-ledger.md`: dead with the killer named, alive with the
-open risks named, or pending with the blocking test named.
+   nothing and the market looks empty. Confirm with direct fetches of named candidate sites plus a
+   GitHub-by-stars search, and label every "nothing found" as *not found in the sources I checked*.
+2. **Do not invent a differentiator to rescue an idea.** No graded demand evidence means no gap.
+3. **The variant is not a new idea.** "But with X export" or "but for Y niche" revives a dead idea
+   only if X or Y defeats the named killer. Usually X is the free part.
+4. **Document parsing/extraction is a commodity** (AWS, Google, Azure price floor).
+5. **Avoid social networks and marketplaces you'd have to bootstrap** — cold starts are not
+   solo-founder problems. (Selling INTO an existing marketplace is fine and often the channel.)
+6. **Do not delete dead ledger entries to make room for optimism.** Re-screening under a corrected
+   rule is legitimate; erasing a kill that rested on independent evidence guarantees the search gets
+   re-run. When a rule changes, audit which entries died ONLY to the changed rule and re-open just
+   those.
+7. **Skill drift.** When this file needs correcting, rewrite the rule in place and move the history
+   to the ledger. Layered rules-about-rules push every future reading toward the most conservative
+   interpretation, which biases toward KILL. Keep this file under 250 lines.
 
 ## References
-- `references/verdict-ledger.md`: ideas already screened (dead, alive, pending). Read first, append after.
-- `references/sources-and-benchmarks.md`: founder case studies with real numbers, drop-in-compatibility
-  precedents, and the evidence behind the gap taxonomy.
+- `references/verdict-ledger.md`: every idea screened (read first, append after), plus
+  machine-specific source availability and the method's change history.
+- `references/sources-and-benchmarks.md`: founder case studies with real numbers,
+  drop-in-compatibility precedents, and the evidence behind the gap taxonomy.
