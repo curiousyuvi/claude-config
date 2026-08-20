@@ -122,6 +122,8 @@ dated complaint against the incumbent's current docs or drop it. Passing verific
 **Seams (`scripts/`, python3+curl, ~20 lines each — fix in place when a site changes):**
 ```
 python3 scripts/check.py "idea"... [-v]        # ledger dedupe lookup (constant cost)
+python3 scripts/hnsweep.py out.txt YEAR "phrase"...  # batch HN phrase sweep -> file (sourcing seam)
+python3 scripts/hn.py "query" [n] [min_year]   # single HN search
 python3 scripts/bs.py "query" [n]              # Brave search (captchas ~8/session)
 python3 scripts/f.py URL out.txt               # any URL -> stripped text
 python3 scripts/jac.py 'JQL' [n]               # jira.atlassian.com requests + votes
@@ -145,8 +147,25 @@ of a candidate that survived gates (e.g. compliance fan-out across a fragmented 
 distribution, flat price) and run it on another platform — but score founder fit honestly there.
 Complaint-first mining (search pain phrases, derive targets) does not work.
 
-With the tiered pipeline, a round can open with 20-100 raw candidates instead of 3-5, because tier 0
-costs a minute each. Generate wide at tier 0, narrow hard at tier 1.
+**Sourcing methods, ranked by measured yield (rounds f-m, 311 candidates).** Four are exhausted; use
+the fifth.
+
+| Method | Yield above 40 | Verdict |
+|---|---|---|
+| Evidence-first phrase mining (below) | ~1 per 300 comments | **USE THIS** |
+| Founder names insider pain / reachable operators | 3 of ~12 | Use, needs the founder |
+| Proven-shape transplant onto another platform | 0 of ~20 | Weak; score founder fit honestly |
+| Axis/category brainstorming at volume | 0 of 200 | **Do not run** (rounds j, k) |
+| Guessed buyer access; complaint-first mining | 0 | **Do not run** (trap 8) |
+
+**Evidence-first phrase mining.** Invert the order: find the dated complaint first, derive the
+candidate from it, so demand evidence is attached before scoring instead of hunted afterwards. Sweep
+HN with `hnsweep.py` for Mom-Test commitment language. Phrases that work: "I would happily pay for",
+"we ended up building our own", "we had to write a script to", "there is no good tool for". Phrases
+that return pure noise because they are idioms, not pain reports: "someone should build this", "this
+should be a product", "shut up and take my money". This is not a volume method — expect a handful of
+well-evidenced entries per round, not hundreds of tier-0 guesses, and prefer 5 evidenced candidates
+to 100 invented ones.
 
 ## Stage 2: evidence and grading
 
@@ -177,8 +196,11 @@ reading either file, which is what keeps run cost flat as they grow:
 Never delete a dead entry; re-scoring under a corrected rule re-opens only entries whose sole killer
 was the changed rule. If tooling availability changed, overwrite `references/tooling.md`.
 
-**Base-rate check.** A rigorous screen should still put ~10-30% of a batch above 40. A 10+ batch with
-nothing above 40 flags the filter, not the ideas — audit which rule did the killing. **Anti-portfolio:**
+**Base-rate check.** ~10-30% above 40 applies to an EVIDENCE-SOURCED batch. A zero-survivor batch
+flags the filter only if the kills are vague; if every kill names a specific free tool, an OSS project
+with its licence, a platform-owner feature, or a licence gate, the filter is sound and the SOURCING is
+wrong — fix the input, not the rules. Measured: brainstormed batches run at 0-2%, and the filter was
+audited three times across rounds f-k before this was written down. **Anti-portfolio:**
 every 6-12 months, revisit kills for false negatives; before any kill, one paragraph on "why WILL this
 work".
 
@@ -203,6 +225,17 @@ channel from the scorecard first. Price higher than instinct. Churn is often a m
 8. **Guessed buyer access is still search-derived sourcing.** Round 2026-08-20c proved it: four
    plausible-buyer targets, zero dated non-vendor complaints. Buyer-access targets must come from the
    founder naming real reachable operators.
+9. **Non-developer verticals are unscreenable here, not unscreened.** No Reddit (JSON 403 *and*
+   WebSearch refuses the domain at user-agent level) and no G2/Capterra bodies means every source for
+   MSP, AEC, insurance, property, trades and clinical markets is vendor content, i.e. inverted signal.
+   Do not assign them scores from desk research; say they need an access seam (round m).
+10. **Indian regulated verticals are access-gated as a class.** GST/e-way needs a GSP licence, ROC and
+   80G/12A/FCRA need a practising CS or CA, lending needs an NBFC, payment rails need a PA licence,
+   title work is licensed practice. The rest hit an ARPU floor (MyGate, Teachmint, Classplus, free
+   government portals). Kill the class, don't re-screen it idea by idea (round j).
+11. **A vote count that is twenty years old means paid apps absorbed the demand, not that the slot is
+   open.** The Atlassian tracker is excellent for verifying a candidate and useless for sourcing one
+   (round i).
 
 ## References
 - `references/verdict-ledger.md`: every idea screened (read first, append after), source availability,
