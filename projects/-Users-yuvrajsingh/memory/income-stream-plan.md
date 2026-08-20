@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 51fa6e52-2d66-426c-9f65-84f8ac264cb8
-  modified: 2026-08-20T15:35:49.173Z
+  modified: 2026-08-20T15:49:30.791Z
 ---
 
 Decided Aug 2026: target **remote US roles only**. Onsite and the visa question
@@ -20,12 +20,18 @@ Skill baseline they stated honestly:
   (MediaConvert, Remotion, transcription, TTS, a custom audio-video sync
   algorithm), full-stack plus AWS.
 
-Agreed plan: five weeks building three portfolio projects **in TypeScript**
-(agent with real tool calling, RAG with an eval harness, one multimodal project
-leaning on the media-pipeline edge), applying to the $3-5k tier from week 3 for
-interview reps, then the $6-10k tier from roughly week 8.
+Constraint: they cannot leave Groove for ~6 months (until roughly Feb 2027) due
+to the contract and outstanding acquisition payouts. So the plan is a 6-month
+preparation runway, not a 5-week sprint.
 
-Positioning is "product engineer who ships AI features end to end", not "AI
-engineer". Skip LangChain. Interview in TypeScript, never Python.
+Revised plan (supersedes an earlier 5-week TypeScript-only version): learn
+**Python** and do the prep in it, since the advanced retrieval and agent
+ecosystem they want (GraphRAG, RAPTOR, DSPy, LlamaIndex, Ragas) is Python-first
+and 6 months is enough runway to become fluent. Three workstreams in parallel:
+DSA (NeetCode 150, in Python), system design, and one substantial evolving
+retrieval/agent system rather than many shallow demos.
+
+Positioning: "AI Engineer" / "Applied AI Engineer" / "Forward Deployed
+Engineer", not ML Engineer. Skip LangChain, but LangGraph is worth it.
 
 Related: [[financial-situation-and-goals]], [[groove-consulting-arrangement]]
