@@ -118,3 +118,106 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 10 | Confluence personal-space creation governance | CONFCLOUD-71300 942 votes; core admin setting, app cannot enforce
 10 | Confluence page-permission inheritance app | CONFCLOUD-5095 969 votes; core permission model, apps cannot alter
 20 | Confluence Databases REST API wrapper app | CONFCLOUD-77328 712 votes 2024; unstable private API dependency
+54 | Data retention purge policy engine for live Postgres rows | PROMISING-UNVERIFIED: pg_partman/pg_cron OSS primitives; Purview/Veeam file-oriented
+38 | Postgres major version upgrade rehearsal workload replay | no capture-replay tool exists BUT episodic one-time demand; Heroku pg:upgrade:dryrun
+28 | Third party API uptime attribution for your own SLA | statuspage/Datadog synthetics; niche
+25 | Integration error triage inbox for iPaaS builders | Zapier/Make native error handling; support-adjacent buyer risk
+25 | Slow query budget CI gate performance regression | pganalyze/Datadog DB monitoring; k6/pgbench free
+22 | N+1 query detection from production traces | Scout/Skylight/AppSignal/bullet gem free
+20 | Index recommendation service for ORM queries | pganalyze index advisor; Dexter OSS; AWS/Azure native advisors
+20 | Connection pool exhaustion diagnosis Postgres | pgbouncer/RDS Proxy free; APM covers
+18 | Read replica lag monitoring application aware | native pg_stat_replication + APM free
+18 | Postgres bloat vacuum tuning advisory | pgstattuple/pg_repack OSS; pganalyze VACUUM advisor
+15 | Foreign key integrity audit legacy schemas | one-time audit demand; SQL query does it
+15 | Event sourcing audit trail retrofit CRUD apps | architecture consulting not product; contract test
+12 | Outbox pattern as a service | inherits svix MIT killer; library not SaaS
+12 | Idempotency key middleware payment APIs | Stripe SDK native; library
+10 | Webhook signature verification hosted | inherits svix MIT; 20 lines of code
+15 | API key rotation secret expiry alerting | Vault/Doppler/AWS Secrets Manager native rotation
+15 | Service account credential inventory SaaS | Nudge/Torii/Zluri SaaS management; SSPM crowded
+18 | OAuth token refresh failure monitoring integrations | Nango/Merge handle; iPaaS native
+12 | PII anonymization staging database refresh | inherits Snaplet-died/Supabase-gives-away killer
+12 | Database seeding from anonymized production data | inherits Demo/sandbox seeding killer
+20 | Soft delete cleanup enforcement Postgres | folded into retention policy engine entry above
+15 | Zapier alternative embedded integrations white label | Nango/Paragon/Merge funded; barbell
+20 | CSV import pipeline as a service B2B onboarding | Flatfile/OneSchema/Osmos occupy; csvbox $19
+18 | Data mapping UI for customer file imports | same as CSV import; Flatfile free tier
+12 | EDI to JSON translation logistics SMEs | Stedi occupies; EDI licence/AS2 access gate
+10 | Bank statement reconciliation API Indian SMEs | trap 4 parsing commodity; account aggregator licence gate
+8 | Invoice OCR to accounting ledger India Tally | trap 4 parsing commodity; ARPU floor
+12 | Tally ERP integration API bridge | Tally connector market entrenched; India ARPU floor
+15 | Zoho Books marketplace addon | Zoho ARPU floor; marketplace app pricing race
+12 | Razorpay subscription dunning recovery | Razorpay native retries; Churn Buster class; India ARPU
+10 | UPI mandate failure recovery subscriptions | NPCI/PA licence access gate; Razorpay native
+8 | India payroll compliance PF ESI filing | RazorpayX/Keka/Zoho Payroll; CA-licence access gate
+10 | Contractor compliance verification India gig | KYC licence gate; Deepvue/Surepass inherit
+15 | Freelancer invoice FIRA collection Indian devs | inherits SOFTEX killer; Skydo/Xflow free bundling
+12 | Equity ESOP tracking Indian startups | Carta/Qapita/Trica occupy; ROC filing needs CS licence
+8 | Cap table to ROC filing India | CS professional licence access gate
+8 | Board minutes resolution generation India | CS licence gate; template commodity
+20 | Vendor onboarding KYC document collection workflow | doc-collection commodity; Anvil/Formstack
+18 | Purchase order approval workflow SMEs | Zoho/Odoo bundle free; ERP module
+10 | GST input credit mismatch reconciliation | GSP licence gate; ClearTax/Zoho occupy
+10 | TDS filing reconciliation Indian SaaS | CA licence gate; ClearTax
+10 | E-way bill automation logistics SMEs | GSP licence gate; inherits India regulated rails
+15 | Freight rate quoting Indian exporters | inherits NMFC/freight class killer; rate data access gate
+12 | Container tracking aggregation API India ports | project44/Vizion occupy; carrier API access cost
+10 | Customs HS code classification assistant | trap 4 + licensor-sells-it (inherits NMFC ClassIT+)
+15 | Export documentation package generation India | inherits SOFTEX/NIRYAT; template commodity
+12 | Letter of credit document checking automation | trap 4 parsing; bank-side access gate
+12 | Trade finance document discrepancy detection | same as LC; bank buyer inaccessible solo
+18 | Supplier quality audit checklist digitization | inherits digital work instructions killer; SafetyCulture free tier
+15 | Manufacturing downtime logging India MSME | inherits Tulip-free + implementation-sale access gate
+18 | Preventive maintenance scheduling small plants | UpKeep/Fiix/Limble self-serve; India ARPU
+15 | Calibration certificate tracking labs | Qualer/GageList occupy; NABL implementation sale
+12 | NABL lab compliance document management | accreditation-consultant access gate; QMS crowded
+10 | Clinical trial site binder management | GxP validation + QMS evidence access gate (no SOC2/CSV)
+10 | Medical device UDI registration data | regulatory consultant access gate; GUDID free portal
+8 | Pharmacovigilance case intake triage | GxP/QPPV access gate; Oracle Argus/Veeva
+8 | Drug recall notification distribution | regulator-owned channel; access gate
+12 | FSSAI compliance record keeping India | consultant access gate; ARPU floor
+20 | Restaurant menu costing margin tracking | Petpooja/Posist bundle; MarketMan/Apicbase occupy
+18 | Kitchen inventory variance detection | same as above; POS-bundled free
+15 | Franchise compliance audit reporting | SafetyCulture/Zenput occupy; implementation sale
+15 | Retail planogram photo verification | Trax/ParallelDots occupy; per-image COGS
+15 | Field sales beat plan adherence India | Bizom/FieldAssist/Delta entrenched; India ARPU floor
+15 | Distributor secondary sales data collection | Bizom/Botree occupy; implementation sale gate
+12 | Retailer credit scoring distributor ledgers | NBFC/lending licence access gate
+15 | Route optimization last mile India small fleets | Locus/Shipsy/Google Routes API; COGS
+12 | Driver document expiry compliance fleet India | Vahan/Parivahan free portals; ARPU floor
+10 | Vehicle fitness certificate renewal tracking | government portal free; ARPU floor
+12 | Toll fuel expense reconciliation fleet | FASTag/fuel card native statements; ARPU
+18 | Construction site daily progress report automation | Procore/Powerplay/Onsite occupy India
+15 | BOQ to invoice reconciliation construction | Powerplay occupies; trap 4 parsing
+15 | Subcontractor payment certification workflow | Procore/Powerplay module; implementation sale
+12 | RERA compliance reporting developers India | CA/legal consultant access gate; state portal variance
+10 | Property document title search assistance | legal opinion = licensed practice access gate
+12 | Rent agreement generation registration India | NoBroker/Housing free; e-stamp vendor licence gate
+15 | Society maintenance billing collection | MyGate/ADDA/NoBrokerHood free-to-society; ARPU floor
+15 | Gated community visitor staff management | MyGate dominant free tier; hardware capex
+18 | School fee collection reconciliation India | Eduvanz/Jodo/Teachmint bundle; payment licence gate
+12 | Student transport tracking parent notification | hardware capex (GPS); Teachmint bundles
+15 | Teacher substitution scheduling schools | timetable module in every school ERP free
+12 | NEP curriculum mapping documentation schools | consultant/board access gate; grant-funded buyer
+18 | Coaching institute batch test analytics | Classplus/Teachmint bundle free; India ARPU
+15 | Question paper generation from blueprint | LLM commodity; board licence for authenticity
+12 | OMR sheet scanning result publication | trap 4 parsing commodity; hardware/scanner dependency
+12 | University affiliation compliance documentation | UGC/AICTE consultant access gate
+12 | NAAC accreditation evidence collection | accreditation consultant access gate; episodic 5yr cycle
+12 | Research grant compliance reporting India | funder-portal owned; institutional procurement gate
+15 | Lab consumable procurement tracking universities | GeM portal free; institutional procurement gate
+15 | Hostel room allocation mess management | school/college ERP module free; ARPU floor
+15 | Alumni donation receipt management 80G | Danamojo/Give India occupy; 80G filing needs CA
+10 | NGO FCRA compliance reporting India | FCRA CA-certification access gate; penalty-driven episodic
+15 | CSR spend documentation impact reporting | Goodera/Samhita occupy; enterprise sales motion
+10 | Darpan NGO registration renewal tracking | government portal free; ARPU near zero
+10 | Trust audit 12A 80G renewal workflow | CA licence access gate
+12 | Temple donation receipt management | cash-heavy offline buyer; ARPU floor
+18 | Event ticketing entry management small venues | trap 5 marketplace bootstrap; Zoho Backstage/Eventbrite
+15 | Wedding vendor coordination payment escrow | trap 5 marketplace + payment escrow licence gate
+20 | Photography studio client proofing delivery | Pixieset/Pic-Time/SmugMug self-serve $10-30; storage COGS
+20 | Video editor client review approval workflow | Frame.io free tier (Adobe); trap COGS
+15 | Podcast publishing distribution automation | Buzzsprout/Transistor $19; RSS commodity
+12 | YouTube channel compliance rights management | platform-owner tooling (Content ID); creator ARPU
+18 | Creator brand deal contract payment tracking | creator ARPU floor; Notion template competition
+15 | Influencer campaign deliverable verification | Grin/Aspire occupy; agency implementation sale
