@@ -637,3 +637,92 @@ restore (designed in round g), or the founder naming specific pain and reachable
 Unchecked: Marketplace listing bodies (API returns empty, SPA pages), Appfire's actual copy-space
 limitations vs the 883-vote request, whether any 180+ vote CONFCLOUD item has NO app (sampled top 25
 only, not all 112).
+
+## Round 2026-08-20j: 100-candidate tier-0 sweep. Two survivors; one joins the Postgres family.
+
+Deliberately wide batch (100) to exercise the tiered pipeline at volume: 30 developer/database-infra
+sub-problems, 40 India-side vertical operations and compliance, 30 vertical SMB/creator ops. Dedupe
+was one constant-cost lookup: 53 hit or near-hit existing entries and inherited their killers, 47
+were wholly new. Tier 0 dropped 98 with a named killer each (all indexed). Two went to tier 1.
+
+**The India vertical block (40 candidates) failed as a bloc, for one reason worth naming.** Almost
+every Indian regulated-vertical idea fires gate 3 (access) rather than gate 1: filing GST/e-way needs
+a GSP licence, ROC/cap-table filings and 80G/12A/FCRA need a practising CS or CA, lending-adjacent
+scoring needs an NBFC, payment rails need a PA/PSP licence, title search is licensed legal practice,
+and pharma/device/clinical work needs GxP or CSV evidence this founder cannot produce unaudited. The
+ones that clear the licence gate instead hit an ARPU floor: MyGate, Teachmint, Classplus, Petpooja
+and the state government portals are free or bundled to the exact SMB buyer. This confirms and
+generalises the earlier "India regulated rails" kill (8) — treat the whole Indian
+compliance-as-a-service space as access-gated for a solo unlicensed founder, and stop re-screening it
+idea by idea.
+
+**38 | Postgres major-version upgrade rehearsal (workload capture and replay).** The position finding
+is genuinely good and the demand evidence is the best-graded of the round: Retool published that their
+"biggest lesson" from a 4 TB upgrade was not testing with a representative workload, after their
+staging database being smaller than production led to an outage of their cloud service (tier 3,
+named non-vendor, specific past-tense pain); GitLab's public PG14 plan issue provisioned a shadow
+PG14 standby purely to compare plans under live traffic (tier 3). And no general-purpose
+capture-and-replay tool for Postgres upgrade validation surfaced — the Oracle Real Application Testing
+analog does not appear to exist, with Heroku's `pg:upgrade:dryrun` the closest platform-owner partial.
+What holds it to 38 is tier-0 trap "one-time migration demand": a team rehearses a major upgrade once
+every two to three years, so they rent for one month and leave. Churn here is structural, not a
+marketing bug, and 100-300 concurrent subscribers cannot be assembled from an episodic event. Kept in
+the ledger rather than killed because the shape would work as a consulting-attached tool or as a
+feature of a broader Postgres-operations product.
+
+**54 | Data-retention and purge policy engine for live Postgres rows.** Third member of the
+tenant-aware-Postgres-retrofit family (with 58 restore and 52 attribution) and scored on the same
+logic. The Postgres-native mechanisms are all free OSS primitives — pg_partman's background worker
+drops or archives old partitions, pg_cron batch deletes benchmarked fine at 100M writes/day on PG17,
+TimescaleDB's add_retention_policy/drop_chunks — so no gate fires but position is only partly open.
+What the primitives do NOT provide is the compliance wrapper the same sources describe as the
+"advanced" tier: policy versioning, legal-hold integration, dependency-graph-aware cascading purge
+across foreign keys, idempotent purge APIs, and an immutable who/what/when/why audit trail. The
+established commercial retention tools (Microsoft Purview, Veeam, IBM Spectrum Protect) are
+backup/file/document-oriented, not live-row-oriented. Buyer arithmetic is the strongest of the three
+family members because the class is proven in this ledger (DPAFlow at EUR 99-999 established that
+compliance buyers pay real money for fan-out work). Founder fit is high for the same reason as the
+other two. IMPORTANT EVIDENCE CAVEAT, per trap 1: "no productized engine on live Postgres rows" is
+NOT FOUND IN THE SOURCES CHECKED, and part of it came from a search engine's own gap summary, which
+is inference and not evidence. Before this moves anywhere it needs a direct-fetch sweep for entrants
+and a GitHub-by-stars check on retention/purge orchestrators. Demand is currently the weak leg again:
+zero dated non-vendor complaints found, only vendor and blog maturity-model content (tier 5-6).
+
+**Running base rate: 160 candidates across rounds f-j, 5 above 40 (3.1%).** The rate is falling as
+volume rises, which is the expected signature of a sound filter meeting a picked-over search space
+rather than of a broken filter. The family finding is now three-for-three: every candidate above 50
+that this founder can legally build is a retrofit onto an existing pooled Postgres database that
+platform owners only serve via migrate-to-us. That is a positioned product thesis, not three ideas.
+
+Unchecked this round: direct fetches for retention/purge entrants and GitHub-by-stars (the caveat
+above), pg_partman's actual audit/legal-hold surface, whether any Postgres-upgrade consultancy already
+sells replay as a service, and every India vertical was killed on prior rather than fetch.
+
+### Round j addendum: the 54's evidence caveat, closed same-round
+
+The flagged caveat was chased rather than left open. GitHub search by stars for retention/purge
+orchestrators ("data retention purge policy postgres", "gdpr retention deletion orchestration")
+returned nothing starred with a permissive licence — no OSS anchor found, so gate 1 still does not
+fire. A direct vendor sweep found the named entrants and confirmed the axis: Archon does retention,
+defensible disposition and legal holds but over archives; Cloudficient targets M365 and legacy
+archive estates (and argues Purview itself falls short); Druva is backup-centric. No vendor was found
+marketing an enforcement engine for live OLTP rows with FK-graph traversal and per-row legal hold —
+that capability is built in-house today. The absence is now checked in three independent ways
+(search, vendor sweep, GitHub by stars) instead of inferred, which is what trap 1 requires, so the
+position score stands.
+
+Two additions from the sweep. A useful design constraint: legal hold must be a first-class interrupt,
+and because a hold on a child row has to block the cascading delete of its parent, cascading-hold
+management mirrors cascading delete — that is the genuinely hard part and it is what makes the
+contract test weeks rather than days. And the sharpest demand signal yet for this idea, though still
+tier 5 because the source is a vendor-adjacent blog with no named company: auditors ask for proof the
+engine ran, the common finding is a policy existing with no evidence the rules execute and no
+legal-hold pause, and one reported case had audit prep for "show us deletion evidence" fall from
+three weeks to two days after deletion jobs wrote immutable logs. Score stays 54: position and
+arithmetic are now verified, demand is still the missing leg.
+
+**Named residual threat, unresolved.** Ethyca Fides (Apache-2.0) already killed the round-g DSAR
+transplant and ships FK-aware connectors to disparate databases. Fides targets subject-request
+orchestration rather than scheduled retention enforcement, but that boundary was NOT verified against
+its current docs. If Fides has grown a retention/legal-hold scheduler, this candidate dies on gate 1
+exactly as the DSAR one did. That single check is the first thing to run before anything else here.
