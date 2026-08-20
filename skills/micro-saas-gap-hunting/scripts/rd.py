@@ -1,5 +1,6 @@
 # usage: python3 rd.py out.txt SUBREDDIT "phrase" ["phrase"...]  — Reddit search via OAuth
 # Creds from ~/.config/gaphunt/reddit.env (never committed): REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET
+# Untested: Reddit ended self-service app creation 2025-11-11, so no credential exists to run this.
 import base64, json, os, pathlib, sys, time, urllib.parse, urllib.request
 
 env = {}

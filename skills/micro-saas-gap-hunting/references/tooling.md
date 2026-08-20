@@ -28,8 +28,13 @@ Blocked (do not burn time re-probing unless a round needs them):
 - Reddit: JSON 403 AND harness WebSearch refuses allowed_domains=["reddit.com"] at the user-agent
   level (probed 2026-08-20). Redlib mirrors also fail: catsarch/perennialte.ch 403, privacydev dead,
   safereddit.com returns 200 but it is an Anubis proof-of-work challenge page, not content.
-  ONLY path is an OAuth app credential -> scripts/rd.py (token endpoint returns 401 not a block, so
-  the network reaches Reddit fine and a real credential works).
+  An OAuth credential would work technically (token endpoint 401 = network fine, scripts/rd.py is
+  written and ready) but **self-service app creation ENDED 2025-11-11**: the create-app form returns
+  success:true and silently substitutes a pointer to Reddit's Responsible Builder Policy. Every new
+  OAuth app now needs manual approval, one app per account, and solo-developer requests are widely
+  reported rejected. **Treat Reddit as permanently closed** — do not suggest it as an unblock, and do
+  not spend founder time on the approval form. Reddit's intended path is Devvit apps hosted on Reddit,
+  which is not a research seam.
 - Google/DuckDuckGo/Startpage/searx direct, Bing (200 but JS-gated, no organic links), Mojeek
   (captcha), Ecosia (403), r.jina.ai (403), G2/Capterra review bodies, keyword-volume tools,
   zendesk.com/marketplace (403)
