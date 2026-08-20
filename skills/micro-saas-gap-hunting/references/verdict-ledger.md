@@ -783,3 +783,57 @@ that only human contact produces. Next input should be the round-g cheap test, n
 Unchecked this round: every tier-0 kill was on named prior rather than fetch (by design at tier 0);
 Preloop's licence and star count; the EU AI Act Annex III date conflict; whether Fides' Action Center
 (Helios) touches retention, which is the one Fides surface whose name gives no clue.
+
+## Round 2026-08-20L: sourcing switched to evidence-first HN commitment-language mining
+
+At Yuvraj's instruction the thematic-category sourcing was abandoned mid-round ("no dont go with your
+categories") in favour of mining real external data. Method: sweep HN Algolia (2024+ and 2025+) for
+Mom-Test commitment phrases so each candidate arrives WITH dated non-vendor evidence attached instead
+of being invented and then evidence-hunted. This directly attacks the constraint every prior round
+hit (position verifiable, demand unobtainable). New seam: scripts/hnsweep.py (batch phrase sweep to
+file; hn.py gained an optional min-year arg). Output written to files and read verbatim, since shell
+compression mangles quotes.
+
+**Yield: roughly 300 real comments mined across 11 phrases, ONE tier-2 find, one tier-4.** Honest
+accounting of the method rather than of a candidate count: high-intent phrases work, generic ones do
+not. "I would happily pay for", "we ended up building our own" and "we had to write a script to"
+returned usable first-person material. "someone should build this", "this should be a product",
+"shut up and take my money" and "take my money" returned almost pure conversational noise: they are
+idioms, not pain reports. Anyone repeating this should use only the specific-intent phrasings.
+
+**47 | Safe feature-flag removal with runtime dead-flag proof.** This RE-OPENS a round-k kill, which
+is only legitimate because the twist defeats the named killer (traps, rule 3). The killer was
+FlagShark's free-forever GitHub Action. The verbatim evidence: HN comment 48290961, dated 2026-05-27,
+non-vendor, first person, "I would happily pay for
+safely-remove-old-feature-flags-from-the-code-as-a-service." That is tier 2 commitment language, the
+first such item found in this entire project, and the operative word is *safely*. Round k's own notes
+already recorded FlagShark's limitation from its vendor page: it "reads code only, not production
+traffic or usage telemetry, that means no runtime 'this flag is never evaluated' signal." So
+detection-in-source is free and served, while PROOF a flag is dead in production plus verified
+behaviour-preserving removal is neither. LaunchDarkly's Code References produces "extinction events"
+but leaves the code removal manual, and its cleanup framing is explicitly two-stage. Scored: demand
+11/25 (one dated tier-2 quote is real but is not volume), position 7/20 (the adjacent slot is
+occupied by free, which caps price), founder fit 9/15, distribution 7.5/15 (GitHub Marketplace plus
+the eight flag-provider ecosystems), arithmetic 6/15 (competing against free forever), contract 7/10
+(runtime telemetry plus AST removal plus verification is weeks). Total 47. Cheap test if pursued:
+reply to that commenter and find ten more like them; search "flag" with "removal" and "safe", and the
+pass bar is three teams describing a flag-removal incident.
+
+**35 | GitHub Actions CI management, merge queues, workflow debugging.** HN 47943874, dated
+2026-04-29, first person and explicitly commercial: "as a business I would happily pay GitHub for
+many many features that I pay others for... faster more configureable action runtimes... usable merge
+queues because the github one is a joke... some reasonable CI management and workflow debugging."
+Genuine pay-intent, but the buyer wants to pay GITHUB, and every named gap is squarely inside the
+platform owner's roadmap, so gate 1 risk is severe rather than theoretical. Logged for the
+anti-portfolio, not pursued.
+
+**Method verdict.** Evidence-first sourcing produced a 40+ candidate at roughly 1 per 300 mined
+comments, versus 0 per 200 for the last two brainstormed rounds. It is the better method and it is
+the only one that has ever surfaced tier-2 commitment language here, but it is not a volume method:
+the ledger should grow by a handful of well-evidenced entries per round, not by hundreds of tier-0
+guesses. Two hundred more brainstormed candidates would predictably return zero and should not be
+run. Cumulative: 309 indexed candidates, 6 above 40.
+
+Unchecked: the 2026-05-27 commenter's identity and employer, whether FlagShark has since added
+runtime telemetry (vendor page not re-fetched this round), Preloop licence, and the
+ten-more-like-them search that the cheap test requires.

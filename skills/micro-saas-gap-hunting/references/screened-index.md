@@ -313,3 +313,5 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 22 | Policy acknowledgement tracking compliance audits | Vanta/Drata bundle free with platform
 25 | Evidence collection automation SOC 2 readiness | Vanta/Drata/Sprinto occupy; own-SOC2 access gate
 25 | Access review campaign orchestration quarterly | Vanta/Drata/Zluri/Lumos occupy
+47 | Safe feature flag removal with runtime dead-flag proof | PROMISING-UNVERIFIED: FlagShark free reads code only, no runtime signal; dated pay-intent quote
+35 | GitHub Actions CI management merge queue workflow debugging | dated pay-intent quote BUT GitHub-owned territory, gate 1 risk
