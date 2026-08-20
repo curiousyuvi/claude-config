@@ -5,12 +5,15 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 51fa6e52-2d66-426c-9f65-84f8ac264cb8
-  modified: 2026-08-11T04:25:23.444Z
+  modified: 2026-08-20T17:23:26.382Z
 ---
 
 Groove Networks LLC (Delaware) acqui-hired Kroto Kreator Labs Pvt Ltd via an
 Asset Purchase Agreement dated Jan 27 2025. Yuvraj was CTO/co-founder of Kroto
 alongside Rose Kamal Love. Contract PDF: `~/Downloads/AcquisitionAgreement.pdf`.
+
+Note: the purchased assets include a React Native POC, but that was not Yuvraj's
+work. He has no React Native experience. Don't pitch him on it.
 
 Key terms that shape what side income is possible:
 
