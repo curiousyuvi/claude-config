@@ -15,7 +15,9 @@ Working:
 - Zendesk Gather community API and Help Center article-search API (support domain — excluded)
 
 Machine-dependent, probe each session before relying on either answer:
-- Harness WebSearch / WebFetch (worked 2026-08-19; unloadable via ToolSearch on 2026-08-20 twice)
+- Harness WebSearch / WebFetch (worked 2026-08-20; load via ToolSearch exact-name query
+  "select:WebSearch,WebFetch" — regex-pattern queries return nothing and had caused false
+  "unloadable" reports)
 
 Blocked (do not burn time re-probing unless a round needs them):
 - Reddit JSON (403), Google/DuckDuckGo/Startpage/searx direct, Bing (200 but JS-gated, no organic

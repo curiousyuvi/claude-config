@@ -458,3 +458,41 @@ research seams were moved from session scratchpads into the skill at `scripts/` 
 f.py URL-to-text, jac.py Atlassian tracker votes, mp.py Marketplace installs, price.py Marketplace
 pricing, cql.py/space.py/page.py public Confluence wikis). Prior SKILL.md text is in ~/.claude git
 history.
+
+## Round 2026-08-20f: 30-candidate sweep of the permitted axes, zero above 40
+
+Batch of 30 across developer/API docs, edge/multi-tenant infra, document/video generation, and LLM
+app engineering. check.py sanity check passed ("outbound webhook delivery" HIT). Eight were straight
+ledger hits or inherited variants; sixteen died at tier 0 on platform-owner giveaways and OSS anchors
+(Cloudflare Bulk Redirects, GitHub auto release notes, Mintlify llms.txt/translations, Scalar,
+Stoplight Prism MIT, Ragas Apache, instructor MIT, OpenAI native structured outputs, Postman mocks).
+Two reached tier 1 and both died on position, evidence dated 2026-08-20:
+
+**22 | Contract/proposal document assembly API for vertical SaaS.** Self-serve slot occupied at
+commodity prices: PDFMonkey free 20 docs/mo then EUR 5/mo (pdfmonkey.io/pricing); Anvil $0.10/PDF
+pay-per-use with 2,500 free credits and free template UI (useanvil.com); Carbone Community edition
+free AGPL with cloud from EUR 50/mo; Api2Pdf ~$0.005/PDF usage-based. Demand is real (people pay)
+but the position dimension scores zero and the price floor is near the COGS gate. Sources: vendor
+pricing pages via WebSearch snippets; not re-fetched directly.
+
+**25 | Screen recording to written developer tutorial / docs article.** Loved cheap self-serve
+incumbents in the exact slot: Scribe Pro Team $13/seat/mo, Guidde Pro $23/creator/mo, plus Tango,
+Trails, iorad, Tutorial AI, Loom SOP drafts; open-source AI-DocGen (CactusQuill, GitHub) does
+recording-to-docs free. Founder fit was the highest in the batch (Kroto/Helply video-to-article
+pipeline) but the "developer tutorial" twist does not defeat the incumbents — their output embeds in
+any docs tool. Noted but not pursued: comparison content says Guidde/Scribe cannot convert EXISTING
+video libraries, only new captures; that is one-time migration-shaped demand (trap 4). Licence of
+AI-DocGen unchecked.
+
+**Filter audit (base-rate check fired: 0/30 above 40).** The killers were hard evidence — named
+free or sub-$25 incumbents, OSS by name with licence, platform-owner releases — not venture-filter
+rules, so the filter looks honest. The real finding is sourcing: all 30 were brainstormed from the
+permitted axes, which are the most arbitraged spaces in indie hacking. Trap 8 applies beyond
+buyer-access ideas: axis-brainstormed batches keep converging on ideas the market already priced at
+zero. Next round should start from Yuvraj naming concrete insider pain or reachable operators, not
+from another axis sweep.
+
+Unchecked sources this round: G2/Capterra bodies, HN Algolia, Reddit, keyword volumes, Documint
+pricing, AI-DocGen licence. Tooling: harness WebSearch/WebFetch LOADED successfully this session via
+ToolSearch exact-name select ("select:WebSearch,WebFetch") after regex-pattern searches returned
+nothing — the earlier "unloadable" note was a query-syntax artifact, not availability.

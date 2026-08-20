@@ -69,3 +69,29 @@ E1 (70+) and the helpdesk-tail content-gap candidate are CONTRACTUALLY UNAVAILAB
 35 | D1 Atlassian GDPR/PII fan-out (Jira+Confluence) | no gate fired; Actonic occupies; founder fit 0; JSM barred
 5 | D2 Google Workspace offboarding lifecycle | Patronum $2/user/YEAR
 5 | D3 HubSpot data-subject erasure | native gdpr-delete endpoint free
+25 | Self-serve API reference hosting ReadMe alternative | Scalar OSS free; Mintlify occupies self-serve slot
+10 | Postman collection OpenAPI sync lint | Postman native import/export; portman OSS
+10 | Embeddable interactive API try-it console widget | Scalar/Swagger UI/RapiDoc OSS free
+5 | llms.txt generation LLM-ready docs feed for AI crawlers | Mintlify ships /llms.txt free; Firecrawl generator free
+25 | Per-PR multi-tenant preview environments | Vercel previews free; Neon branching; capex-heavy for solo
+5 | Edge bulk redirect manager with analytics | Cloudflare Bulk Redirects free tier; platform owner
+25 | Per-tenant API rate limiting usage metering service | Unkey OSS; Kong/Tyk; crowded
+20 | Changelog to product-update video generator | inherits Walkthrough video rendering COGS killer
+25 | API changelog generation from OpenAPI spec diffs | oasdiff Apache OSS; Bump.sh exact self-serve slot
+25 | Developer docs localization pipeline LLM glossary | Crowdin/Lokalise self-serve; Mintlify ships translations
+5 | HTML to PDF generation API | commodity; Api2Pdf $0.005/PDF; Playwright free
+15 | OpenAPI mock server hosted service | Stoplight Prism MIT; Postman mocks free
+15 | RAG evaluation service | Ragas Apache OSS; Braintrust/LangSmith free tiers
+5 | Structured output validation repair middleware | OpenAI native structured outputs; instructor MIT
+20 | SDK generation from OpenAPI spec | Speakeasy/Fern/Stainless funded, self-serve exists
+10 | Release notes changelog automation from git PRs | GitHub auto release notes; release-please/git-cliff OSS
+28 | Developer onboarding interactive tutorial builder for API companies | vague wedge; demo builders adjacent
+20 | Proposal quote generation software for agencies | PandaDoc/Qwilr/Better Proposals self-serve slot
+22 | Contract proposal document assembly API for vertical SaaS | PDFMonkey EUR5; Anvil $0.10/doc; Carbone AGPL free
+25 | Screen recording to written developer tutorial docs article | Scribe $13, Guidde $23, Tango, Trails; AI-DocGen OSS
+5 | Docs freshness drift detection stale snippets CI | inherits Code-sample verification killer
+5 | Docs search-miss analytics for developer documentation | inherits Docs-to-integration funnel killer (ReadMe free)
+5 | Versioned docs diff preview docs-as-code | inherits docs-as-code contract-test killer
+10 | API deprecation breaking-change notification to API consumers | inherits APIDrift $10 / oasdiff killer
+20 | Screen recording to demo video AI voiceover | inherits video COGS; Arcade/Storylane self-serve
+5 | LLM prompt regression testing CI variant | inherits AI QA/evals OSS killer (promptfoo)
