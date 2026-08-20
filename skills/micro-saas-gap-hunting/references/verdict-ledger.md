@@ -359,3 +359,45 @@ That is not yet the 10+ zero-survivor batch that should trigger a filter audit, 
 identical every time, which is the more useful signal: the gates are working, the target selection is
 wrong. Select by buyer access next round, per the note above.
 
+
+## Round 2026-08-20c: four screened on non-dev-infra buyer-access targets, four dead
+
+Deliberate response to round 2026-08-20b's recorded prediction (dev-infra and docs targets keep dying to
+gate 1, so select by buyer access instead). Targets were chosen so the buyer is a business operator, not a
+developer, while staying on the permitted axes: India-side operations, document generation, video
+generation. It did not help. Same gates fired, plus a new dominant one: no graded demand evidence at all.
+
+| Idea | Killer |
+|---|---|
+| GeM / government-tender bid-document assembly for Indian MSME sellers | Position and buyer arithmetic. The niche is already thick with self-serve AI entrants (Minaions, incl. a dedicated "GeM Portal Automation" page; QuickBid; BidIndia; ClearBid; SwishX for pharma tenders) and, below them, a large services layer that is the real incumbent — Tender18, TenderDekho, TendersPlus, skillcouncils all sell done-for-you GeM bidding as a service, which is what MSMEs actually buy. Indian MSME ARPU makes the $50+/mo buyer arithmetic worse than any USD market (the same kill as the India regulated-rails entry), and the deliverable shades into acting as a bidding agent, which is service capacity, not software. Zero verbatim buyer complaints found; every artifact on the topic is a vendor or agency blog, i.e. tier 6 inverted signal |
+| Investor-update / portfolio-MIS report generation for startups and their VCs | Position taken at both ends and heavily funded. Founder side: Visible.vc, Paperstreet, Cabal, DocSend, Ellty all sell investor updates self-serve, with at least four comparison listicles enumerating 8-9 vendors. VC side: Standard Metrics, Affinity, PortfolioIQ, ChatFin all sell portfolio monitoring. Nothing between a funded founder-side tool and a funded VC-side tool for a solo vendor to charge $50/mo for. The only argument for this target was proprietary access via the 100X.VC network, which is access to a buyer pool, not a gap |
+| Vernacular (Indian-language) dubbing and on-screen-text localization for edtech/coaching video libraries | Gate 2 plus position. Sarvam Dub sells AI dubbing across 11 Indian languages as a first-party Indian model provider, i.e. your supplier is also your competitor and sets the price floor. Above it the generic layer is saturated and cheap: Rask.ai, Fliki, Checksub, plus a listicle tail of 10+ tools. Per-minute media cost with a per-minute retail price set by model providers is the dead walkthrough-video-rendering COGS shape exactly |
+| Digital work instructions / SOP + audit evidence for manufacturing SMEs | Gate 3 (access) is decisive, with position as backup. The top of the market is a field-implementation sale a solo founder in India cannot run: Dozuki ~$850/mo with a 50-user minimum (~$10,200/yr), VKS reportedly ~$350/user/mo, L2L $150/user/mo, Operations1 from EUR 10,000/yr plus EUR 3,000-50,000 implementation, Poka/Augmentir/Proceedix quote-only — and the same comparison puts typical implementation at $5,000-$100,000, which is the demo-data entry's killer restated (implementation services, the worst access profile available to him). The self-serve floor is simultaneously taken by funded vendors giving it away: Manual.to generates a free AI manual with no account and has no user minimum, Tulip ($120M Series D) ships a free plan covering work instructions via its no-code builder. Demand evidence is tier 6 throughout: the richest source found was manual.to's own pricing-comparison page, i.e. a vendor lead magnet, which inverts the signal |
+
+**The finding that matters, and it is not about these four ideas.** Round 2026-08-20b predicted that further
+desk rounds on the permitted axes would be wasted until a buyer-access answer exists, and asked for it. This
+round tested whether *guessing* the buyer-access axis works instead. It does not: the four targets above were
+selected by plausible buyer type rather than by a market Yuvraj can actually interview, and the tell is that
+**not one of the four produced a single dated complaint from a named non-vendor.** Nine consecutive kills
+now across 2026-08-20b and 2026-08-20c. That is at the base-rate threshold where SKILL.md says to audit the
+filter, and the audit answer is already on record and unchanged: the gates are firing correctly, the target
+selection is unsourced. Guessed buyer access is still search-derived sourcing wearing a different label.
+
+**What has to happen before another round is worth running.** One question to Yuvraj, and it is not "what can
+you build": *whose business operations can you get on a call this week?* Named people, a trade, a WhatsApp
+group, ex-colleagues at Kroto customers, 100X.VC portfolio operators, anyone in Bareilly whose workflow he
+has seen from the inside. Targets derived from that answer are the only kind this method has not tried.
+
+### Sources for this round, and a recovered seam worth keeping
+
+**Brave Search HTML via curl now works and returns parseable organic results** (`https://search.brave.com/search?q=`,
+desktop UA, results inside `<div class="result-wrapper`). This is the first working general web-search seam
+recorded on this machine and it replaces WebSearch for position tests. Parser kept at
+`scratchpad/bs.py`; a tag-stripping page fetcher at `scratchpad/f.py`.
+
+Also working: direct vendor page fetches, HN Algolia, GitHub search API by stars.
+**Still broken: WebSearch and WebFetch could not be loaded — six ToolSearch patterns returned nothing, and
+no deferred tool of any kind was retrievable (scrapling included). Second session in a row.** Bing returns
+200 but no extractable organic links (JS-gated); Mojeek now serves a captcha; ecosia 403; r.jina.ai 403;
+DuckDuckGo html returns 202 with a challenge. Unchecked this round: Reddit, G2/Capterra bodies, keyword
+volumes, and any primary buyer conversation.

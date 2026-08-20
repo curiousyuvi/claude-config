@@ -182,3 +182,18 @@ LLM application engineering, India-side operations. Support is where his domain 
 it is the standing temptation of every round; the thinner evidence elsewhere is the price of the
 constraint. The exclusion is written into SKILL.md ("Before anything else" item 2 and hard gate 3) and at
 the top of the verdict ledger.
+
+**Round 2026-08-20c: four screened, four dead. Nine consecutive kills since the support exclusion.**
+Targets were picked by guessed buyer type rather than dev-infra (GeM tender bid assembly for Indian MSMEs;
+investor-update/portfolio-MIS reporting; Indian-language dubbing for edtech video; digital work
+instructions for manufacturing SMEs). Killers in the ledger. **The finding: guessing the buyer-access axis
+does not work — none of the four produced one dated complaint from a named non-vendor.** Do not run another
+desk round until Yuvraj answers one question: *whose business operations can he get on a call this week?*
+Named people or a specific trade, not a market category.
+
+**Tooling, checked 2026-08-20c:** WebSearch and WebFetch could NOT be loaded for the second session running
+(six ToolSearch patterns, no deferred tool retrievable at all). Recovered seam that replaces them:
+**Brave Search HTML via curl works** — `https://search.brave.com/search?q=` with a desktop UA, results in
+`<div class="result-wrapper`. Parsers live in the session scratchpad (`bs.py` search, `f.py` page-to-text);
+rewrite them when needed, they are ~20 lines each. Bing returns 200 with no extractable organic links,
+Mojeek now captchas, ecosia/r.jina.ai 403, DuckDuckGo html serves a challenge.
