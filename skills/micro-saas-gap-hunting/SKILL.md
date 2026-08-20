@@ -25,14 +25,17 @@ Only three checks are hard gates; everything else scores.
 2. **Load the founder constraints** from project memory: solo, jurisdiction, capital, sales motion,
    time to first ship, no SOC 2 / ISO 27001. An idea the founder cannot legally or physically operate
    is dead at zero research cost.
-   **Excluded domain, contractual, non-negotiable: customer support and its tooling.** Yuvraj's
-   employment contract bars him from building in it, so helpdesks, ticketing, help centres and
-   knowledge bases, support AI agents, conversation QA, support analytics, and anything sold as an app
-   or add-on to Zendesk / Intercom / Freshdesk / Help Scout / Gorgias / Front are all out, however
-   good the gap looks. Screen nothing here. His deepest domain knowledge sits in exactly this market,
-   which makes it the standing temptation of every round: target selection must go to his *other*
-   axes (edge/CDN and multi-tenant web infrastructure, document and video generation, LLM application
-   engineering, India-side operations) even though the evidence there is thinner.
+   **Excluded domain, contractual, non-negotiable: customer support.** Yuvraj's employment contract
+   bars him from building it, so helpdesks and ticketing, help centres and support knowledge bases,
+   support AI agents, conversation QA, support analytics, and anything sold as an app or add-on to
+   Zendesk / Intercom / Freshdesk / Help Scout / Gorgias / Front are out, however good the gap looks.
+   Screen nothing there. The line is the **buyer**, and it is customer support only: developer and
+   API documentation tooling sold to DevRel, docs and product teams is IN SCOPE and confirmed so by
+   him on 2026-08-20. Do not over-read the exclusion into every adjacent market — that cost a target
+   in the first round run under it. His deepest domain knowledge sits in the excluded market, which
+   makes it the standing temptation of every round; the permitted axes are developer/API
+   documentation, edge/CDN and multi-tenant web infrastructure, document and video generation, LLM
+   application engineering, and India-side operations.
 3. **Tooling check.** Load WebSearch and WebFetch schemas via ToolSearch before concluding anything —
    agents have twice wrongly decided they were unavailable and produced rounds with no search evidence.
    Machine-specific source availability (what is blocked, what works) is recorded at the bottom of the

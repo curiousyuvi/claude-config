@@ -10,9 +10,13 @@ notes) is recoverable with:
 ## CONTRACTUAL EXCLUSION 2026-08-20: the entire support/helpdesk domain is off limits
 
 Yuvraj's employment contract bars him from building customer-support tooling. Nothing in that market
-may be screened again: helpdesks, ticketing, help centres and knowledge bases, support AI agents,
+may be screened again: helpdesks, ticketing, help centres and support knowledge bases, support AI agents,
 conversation QA, support analytics, and any app or add-on sold to Zendesk / Intercom / Freshdesk /
 Help Scout / Gorgias / Front.
+
+**Scope, confirmed by him 2026-08-20: "only customer support".** The test is who the buyer is. Developer
+and API documentation tooling sold to DevRel, docs and product teams is NOT excluded and may be screened.
+The first round under this constraint over-read it and dropped the docs axis for nothing.
 
 Consequences, which are severe and must not be quietly forgotten:
 
@@ -338,4 +342,20 @@ parseable results (a seam the ledger previously recorded as blocked) but is geo-
 returned dictionary and Indian-government noise for product queries, so it was not relied on. Unchecked:
 Reddit, G2/Capterra bodies, keyword volumes, Approximated's actual customer count, whether any
 non-dev-infra axis exists for this founder.
+
+### Round 2026-08-20b continued: docs axis reopened once the exclusion was narrowed, two more dead
+
+| Idea | Killer |
+|---|---|
+| OpenAPI spec-versus-runtime drift detection (does the published API reference still match the live API) | Gate 1, mature permissive OSS, shipped and adequate, and the contract test fails alongside it. schemathesis/schemathesis is MIT, 3,540 stars, **pushed 2026-08-20, the day of screening**, and property-tests a live API against its OpenAPI spec; stoplightio/prism 5,010 Apache-2.0 does validation-proxy conformance; apiaryio/dredd 4,222 MIT does spec-versus-implementation testing (unmaintained since 2024-05 but the job is covered twice over without it). Tufin/oasdiff and the OpenAPI spec repo (31,163) cover the diffing half. The buyer's engineer adds schemathesis to CI in an afternoon, which makes this a CI step rather than a product. Note in passing: opticdev/optic, the venture-funded commercial attempt at exactly this, is MIT and has not been pushed since 2026-01-08 — the one piece of evidence in the round that the market may not pay for it at all |
+| Docs-to-integration funnel analytics (which documentation pages precede a successful versus failed first API call) | Position: the docs platform owners already join the two halves and put it on the free tier. **ReadMe's pricing page (fetched 2026-08-20) lists "Documentation metrics", a "Developer Dashboard", "Request History" with detailed logs and "Export request history" — on Starter at $0/month**, with extended history as a $100/mo add-on and Pro at $250/mo. The same free tier also carries Custom LLMs.txt, an MCP Server, a Broken Link Checker and Docs Audit, which independently closes the "make your docs AI-consumable" and "docs link rot" variants. Mintlify's Starter is likewise $0/mo with 5 editor seats, the full platform and analytics. Nothing is left for a third party to sell between a free docs platform that owns the pageview data and the customer's own API telemetry |
+
+**What the docs axis adds to the round's structural finding.** Developer documentation turns out to have
+the same shape as developer infrastructure, for a different reason: not one platform owner but five
+well-funded ones (ReadMe, Mintlify, GitBook, Redocly, Fern) each shipping a broad free tier to win the
+seat. Between generous free tiers above and MIT-licensed tooling below, the middle where a solo vendor
+would charge $50/mo is thin by construction. Five ideas screened in this round, five dead, all to gate 1.
+That is not yet the 10+ zero-survivor batch that should trigger a filter audit, but the *reason* is
+identical every time, which is the more useful signal: the gates are working, the target selection is
+wrong. Select by buyer access next round, per the note above.
 

@@ -172,6 +172,10 @@ invalidates the pipeline: E1 (Zendesk DSAR fan-out), the only candidate to survi
 screenings, cannot be built, and neither can the helpdesk-tail content-gap candidate. About 30 dead ledger
 entries are support-domain and are now history only.
 
+He confirmed on 2026-08-20 that the bar is **"only customer support"** — the test is who the buyer is,
+so developer and API documentation tooling sold to DevRel, docs and product teams is in scope. Do not
+over-read the exclusion into adjacent markets.
+
 **How to apply:** select targets from his other axes only — edge/CDN and multi-tenant web infrastructure
 (he built kb-edge on Cloudflare Workers), document and video generation (Kroto, InstantDocs, Remotion),
 LLM application engineering, India-side operations. Support is where his domain knowledge is deepest, so
