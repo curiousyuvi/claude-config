@@ -20,13 +20,13 @@ Run the thermo-nuclear review on a pull request, then submit it as a real GitHub
    - Any presumptive blocker present, or any actionable structural finding: **request changes**.
    - Bar met, nothing beyond cosmetic notes: **approve**.
 4. Write the review body as markdown, in this shape:
-   - One short paragraph verdict up top: what the PR does and why it passes or does not.
+   - One short paragraph verdict up top: the verdict first, then the structural reason for it.
    - Then the severity legend on its own line: `Severity: 🔴 blocker · 🟠 should fix before merge · 🟡 minor`.
    - One numbered finding per issue, each opening a heading: `### N. <emoji> <headline>`. The headline states the problem in a sentence; it is not the file name.
    - Under the heading, the `file:line` references on their own line in backticks, then the prose: what is wrong, then the concrete restructuring. Reach for a short bullet list only when a single finding has several distinct consequences.
    - Order findings by severity, 🔴 first, which normally matches the parent skill's Output Expectations.
    - High-conviction findings only. No nit floods. No severity table either, the emoji in each heading carries it.
-   - Prose rules from `~/.claude/CLAUDE.md` apply: no AI attribution of any kind, no em dashes, no greetings or sign-offs, no "great work" padding. The severity emoji are the one authorized exception to the no-decorative-unicode rule; keep them.
+   - Obey the Body Prose section below on every line of it.
 5. Submit:
    ```
    gh pr review <target> --request-changes --body-file <file>
@@ -34,6 +34,19 @@ Run the thermo-nuclear review on a pull request, then submit it as a real GitHub
    ```
    Write the body to the scratchpad first; never inline a long body on the command line.
 6. Report the verdict and the review URL back to the user.
+
+## Body Prose
+
+Every sentence in the review body is a verdict, a finding, or a fix. Delete anything that is none of those. Reread the drafted body against this list before submitting.
+
+- No greeting, no sign-off, no thanks, no "great work", no "nice catch".
+- No complimenting the PR on the way into a criticism. Not "the dialog work is solid, but", not "good instinct here, however". If part of the diff is fine, say nothing about it. Praise is not information.
+- No closers: "let me know if you have questions", "happy to discuss", "hope this helps", "feel free to push back".
+- No announcing the review: "I reviewed this", "here are my findings", "a few notes below". The first sentence is the verdict.
+- No hedging: "I think", "maybe", "perhaps", "it might be worth", "just a thought", "consider possibly". A finding you cannot state flatly is a finding to cut.
+- No softening ritual around a blocker. State it, name the cost, give the restructuring. Direct and serious, never rude, per the parent skill's Review Tone.
+- Imperative for remedies: "move this to X", not "we could maybe look at moving this".
+- Prose rules from `~/.claude/CLAUDE.md` apply on top: no AI attribution of any kind, no em dashes, plain formatting. The severity emoji are the one authorized exception to the no-decorative-unicode rule; keep them.
 
 ## Gotchas
 
