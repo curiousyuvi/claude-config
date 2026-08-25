@@ -58,7 +58,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -282,8 +282,12 @@
   "autoCompactEnabled": false,
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
   "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(railway:down)",
+      "Bash(railway:remove)"
+    ],
     "environment": [
       "### Org-wide",
       "**Organization**: GrooveHQ (github.com/GrooveHQ) — scoped to the axis repo",
@@ -309,11 +313,7 @@
       "**Trusted repo**: /Users/yuvrajsingh/Work/Repositories/axis (GrooveHQ/axis, private) and its origin remote",
       "**Org-specific CLIs**: railway, rtk, lean-ctx, op",
       "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Bash(railway:down)",
-      "Bash(railway:remove)"
     ]
-  }
+  },
+  "voiceEnabled": true
 }
