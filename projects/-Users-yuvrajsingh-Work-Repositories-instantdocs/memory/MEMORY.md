@@ -7,6 +7,7 @@
 - [feedback_confirm_before_commit.md](feedback_confirm_before_commit.md) — Always confirm with the user before any git commit or push
 - [feedback_axis_migrations_and_op.md](feedback_axis_migrations_and_op.md) — Axis: never hand-write migrations (use migration:create); hand op-gated commands to the user
 - [feedback_refetch_editors.md](feedback_refetch_editors.md) — Keep refetchOnMount "always" only in article-editing-provider.tsx; editor must wait for fresh data
+- [feedback_verify_tested_build_has_fix.md](feedback_verify_tested_build_has_fix.md) — On "fix didn't work", first prove the tested build contained it (compare chunk content hashes)
 - [user_db_knowledge.md](user_db_knowledge.md) — User not deeply familiar with DB indexing — explain DB decisions clearly
 - [project_clerk_idp_migration.md](project_clerk_idp_migration.md) — Auth migration: Clerk SSO POC done, better-auth also being evaluated as alternative
 - [project_remotion_sync_migration.md](project_remotion_sync_migration.md) — Exploring replacing FFmpeg-on-Fargate video sync with Remotion Lambda
