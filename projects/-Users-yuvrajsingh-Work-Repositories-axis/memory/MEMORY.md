@@ -3,6 +3,7 @@
 ## How I work (feedback)
 - [Never run `op` commands](feedback_op_commands_user_runs.md) — user runs them in an authenticated terminal, I use the pasted result
 - [Never attribute AI as author anywhere](feedback_no_claude_author.md)
+- [Always run prose through the humanizer skill](feedback_always_use_humanizer_skill.md) — PRs, reviews, docs, PDFs; draft then humanize
 - [Never commit/push/merge without explicit permission](feedback_no_git_writes_without_permission.md) — finish + run checks, then stop
 - [Never visually verify UI myself](feedback_no_visual_verification.md) — user does the looking; measuring via headless browser is fine
 - [Minimum comments in code, usually zero](feedback_minimal_comments.md)

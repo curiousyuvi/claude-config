@@ -47,6 +47,22 @@ description with sections.
 The same style applies to other durable prose written for people: design docs,
 RFCs, runbooks, and messages drafted for someone else to send.
 
+## Always run prose through the humanizer skill
+
+Any prose a person will read gets the `humanizer` skill applied before I hand it
+over. Not optional, not only when I suspect it reads badly.
+
+Covers: PR titles and descriptions, review comments and replies, issue text,
+commit message bodies, docs, changelogs, READMEs, design docs, RFCs, runbooks,
+wiki pages, drafted emails and Slack messages, and generated documents (PDF,
+slides, reports).
+
+Does not cover: code, comments, config, test names, shell output, or short
+factual answers to me in chat.
+
+Workflow: draft it, invoke the skill on the draft, ship the humanized version.
+It layers on top of "Write like a person" above; where they overlap, both apply.
+
 ## Comments in code
 
 Write the minimum number of comments the code actually needs, which is usually
