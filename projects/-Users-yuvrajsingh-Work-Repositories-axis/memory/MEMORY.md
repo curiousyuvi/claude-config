@@ -17,6 +17,7 @@
 - [No arbitrary [Npx] Tailwind values](feedback_tailwind_no_arbitrary_px.md) — px/4 scale or named token
 - [Revert a migration BEFORE regenerating it](feedback_never_delete_applied_migration.md) — deleting an applied migration file breaks down/up
 - [SonarCloud rules that fire here](feedback_sonar_rules.md) — Maintainability gates too; fetch findings via check-run annotations API
+- [Sonar API token lives in ~/.claude.json](project_sonar_api_token_and_duplication.md) — use it when MCP tools won't load; duplication needs the measures API, not annotations
 - ["instantdocs project" = standalone repo](feedback_instantdocs_project_reference.md) — internal KB search there, not the axis connector
 
 ## KB caching / R2 Worker plan (active)
