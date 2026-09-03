@@ -18,3 +18,4 @@
 - [project_planetscale_cascade_index_gotcha.md](project_planetscale_cascade_index_gotcha.md) — Vitess 3024 on page/KB delete has two causes: unindexed inbound FK full scan, and large SetNull/Cascade writes needing pre-drain in deletePageSubtree
 - [project_railway_long_runner_port.md](project_railway_long_runner_port.md) — Railway long-runner boots via `yarn start` with PORT=3000; pinning a port in package.json 502s the whole service
 - [project_voiceover_requeue_recovery.md](project_voiceover_requeue_recovery.md) — Re-dispatching stuck AI_AUDIO_GENERATE tasks; stale PENDING rows block the user's own retries
+- [feedback_vendor_language_codes_explicit.md](feedback_vendor_language_codes_explicit.md) — Vendor language codes (AssemblyAI/ElevenLabs) are explicit per-entry overrides, never generic region stripping
