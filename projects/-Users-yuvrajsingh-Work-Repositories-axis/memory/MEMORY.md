@@ -64,6 +64,7 @@
 - [InstantDocs stores no published-blocks snapshot](project_instantdocs_published_body_no_blocks.md) — HTML rebuild reverted, don't retry
 
 ## Gotchas / environment
+- [/watch skill ready with Groq key; Loom needs Whisper](project_watch_skill_loom_transcripts.md) — yt-dlp Loom subs 400; re-run on downloaded mp4 with `--detail transcript`
 - [claude-config repo misses symlinked skills](project_claude_config_repo_symlinked_skills.md) — ~/.claude/skills/* mostly point into ~/.agents/skills, git stores only the link
 - [Backend full suite needs streaming output](project_backend_full_suite_needs_streaming_output.md) — ~145s; redirecting only to a file gets the bg job killed at 120s
 - [Backend typecheck gate is `tsgo -b`, not `tsc -p`](project_backend_typecheck_gate_tsgo.md) — covers bin/; grepping its output for "error TS" silently matches nothing
