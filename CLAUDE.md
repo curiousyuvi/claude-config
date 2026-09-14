@@ -215,22 +215,29 @@ config dirty.
   ignore file is a whitelist and a new top-level file is invisible by default.
 
 <!-- lean-ctx -->
-<!-- lean-ctx-claude-v8 -->
+<!-- lean-ctx-claude-v9 -->
 ## lean-ctx — Replace Mode (native Grep/Glob denied by policy)
 
 Native Grep/Glob are denied by policy. Prefer `ctx_*` MCP tools for project work:
-- `ctx_read` for exploration reads (cached, 10 modes, re-reads ~13 tokens)
+- `ctx_read` for exploration reads (cached, 10 modes, unchanged full/auto re-reads ~13 tokens)
 - `ctx_shell` for shell commands (95+ compression patterns)
 - `ctx_search` instead of Grep/rg (compact results)
 - `ctx_tree` instead of ls/find (compact directory maps)
 - `ctx_glob` instead of Glob (file pattern matching)
 - Project edits: `ctx_read(mode="anchored")` → `ctx_patch` (line+hash anchors; `op=create` for new files).
 
-Native `Read` stays available for the edit gate and for Claude auto memory
-(`~/.claude/projects/<slug>/memory/` — MEMORY.md and topic files). Use native
-Read/Edit there; do NOT call MCP `resources/read` with file:// URIs (lean-ctx
-resources are `lean-ctx://context/*` only). Native Delete is fine.
+Native `Read` is reserved for the edit gate (read-before-write) only.
+For exploration, orientation, and code understanding: ALWAYS use `ctx_read`.
+Claude auto memory (`~/.claude/projects/<slug>/memory/` — MEMORY.md and topic
+files) uses native Read/Edit internally; do NOT call MCP `resources/read` with
+file:// URIs (lean-ctx resources are `lean-ctx://context/*` only). Native Delete is fine.
 
 Read modes: anchored (edit), full (verbatim), map (overview), signatures (API), diff (post-edit), lines:N-M (range), auto.
 Details live in the `lean-ctx` skill (loads on demand — keep this file lean).
 <!-- /lean-ctx -->
+
+<!-- lean-ctx-solution -->
+SOLUTION EFFICIENCY: stop at first level that applies:
+skip (YAGNI) → reuse codebase → stdlib → native platform → installed dep → one-line → minimum code.
+Never skip: validation, security, error handling.
+<!-- /lean-ctx-solution -->
