@@ -1,5 +1,8 @@
 # Memory index
 
+## Recorder apps (active)
+- [Helply recorder repos + axis API contract](project_helply_recorder_repos.md) — GrooveHQ/helply-recorder-{extension,app}, R2 update bucket, /recorder/* endpoints pending in axis
+
 ## How I work (feedback)
 - [Never run `op` commands](feedback_op_commands_user_runs.md) — user runs them in an authenticated terminal, I use the pasted result
 - [Never attribute AI as author anywhere](feedback_no_claude_author.md)
