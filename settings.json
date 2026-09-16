@@ -1,257 +1,4 @@
 {
-  "autoCompactEnabled": false,
-  "autoDreamEnabled": true,
-  "autoMode": {
-    "environment": [
-      "### Org-wide",
-      "**Organization**: GrooveHQ (github.com/GrooveHQ) — scoped to the axis repo",
-      "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: Private (GrooveHQ/axis, confirmed via gh)",
-      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: 1Password (op CLI observed in usage and shell history); CI secrets referenced by name only: DOCKERHUB_TOKEN, DOCKERHUB_USERNAME, NPM_TASKFORCESH_TOKEN, RAILWAY_API_TOKEN, RAILWAY_PROJECT_ID, RAILWAY_SOURCE_ENV_NAME",
-      "**Default / protected branches**: master (default branch; protected via ruleset `master-protection`, active)",
-      "**CI/CD deploy targets**: Railway (railway CLI used heavily in this project and in shell history)",
-      "**Network posture**: None configured",
-      "**Source control**: GrooveHQ/axis (github.com/GrooveHQ/axis) and its configured remote(s) only",
-      "**Trusted internal domains**: instantdocs.helplydocs.com, groove.helplydocs.com, helply.helplydocs.com, helply-kb.localhost, inbox.helply.localhost, api.helply.localhost, next.helply.com",
-      "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: None configured",
-      "**Internal package registry**: npm.taskforce.sh (Package registry hosts, config scan)",
-      "**Sensitive data locations & audiences**: .env.test, apps/backend/.env, apps/backend/.env.build.production, apps/backend/.env.build.staging, apps/backend/.env.local, apps/backend/.env.local.sample, apps/backend/.env.production, apps/backend/.env.staging, apps/background/.env.local, apps/web/.env, apps/web/.env.local, apps/web/.env.local.sample, docs/secrets.md, packages/shared/src/ip-allowlist.ts — share only with audiences cleared at the [named+specifics] bar",
-      "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (e.g. apps/backend/.env.production, apps/backend/.env.build.production)",
-      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
-      "### User-specific",
-      "**Primary use of Claude Code**: software development (Axis, an omni-channel helpdesk customer support platform monorepo)",
-      "**Trusted repo**: /Users/yuvrajsingh/Work/Repositories/axis (GrooveHQ/axis, private) and its origin remote",
-      "**Org-specific CLIs**: railway, rtk, lean-ctx, op",
-      "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Bash(railway:down)",
-      "Bash(railway:remove)"
-    ]
-  },
-  "effortLevel": "medium",
-  "enabledPlugins": {
-    "frontend-design@claude-code-plugins": true,
-    "planetscale@claude-plugins-official": true,
-    "ponytail@ponytail": true,
-    "vercel@claude-plugins-official": true,
-    "watch@claude-video": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-plugins": {
-      "source": {
-        "repo": "anthropics/claude-code",
-        "source": "github"
-      }
-    },
-    "claude-video": {
-      "source": {
-        "repo": "bradautomates/claude-video",
-        "source": "github"
-      }
-    },
-    "planetscale": {
-      "source": {
-        "repo": "planetscale/claude-plugin",
-        "source": "github"
-      }
-    },
-    "ponytail": {
-      "source": {
-        "repo": "DietrichGebert/ponytail",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
-            "statusMessage": "Checking GitNexus index freshness...",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "Bash"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.context_monitor --from-stdin",
-            "type": "command"
-          },
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m skill_add_detector --from-stdin",
-            "type": "command"
-          },
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.bundle_orchestrator",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks backup-on-change",
-            "type": "command"
-          }
-        ],
-        "matcher": "Edit|Write|MultiEdit"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook read-dedup",
-            "type": "command"
-          }
-        ],
-        "matcher": "Read"
-      }
-    ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      }
-    ],
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
-            "statusMessage": "Enriching with GitNexus graph context...",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "Grep|Glob|Bash"
-      },
-      {
-        "hooks": [
-          {
-            "command": "node \"/Users/yuvrajsingh/.claude/hooks/comment-budget-guard.cjs\"",
-            "timeout": 5,
-            "type": "command"
-          }
-        ],
-        "matcher": "Write|Edit|MultiEdit"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook rewrite",
-            "type": "command"
-          }
-        ],
-        "matcher": "Bash|bash"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook redirect",
-            "type": "command"
-          }
-        ],
-        "matcher": "Read|read|ReadFile|read_file|View|view|Grep|grep|Search|search|ListFiles|list_files|ListDirectory|list_directory|Glob|glob"
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "/bin/sh \"/Users/yuvrajsingh/.claude/hooks/sync-config.sh\"",
-            "statusMessage": "Syncing Claude config to GitHub...",
-            "timeout": 30,
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      },
-      {
-        "hooks": [
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m usage_tracker --sync",
-            "type": "command"
-          },
-          {
-            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks quality-on-session-end",
-            "type": "command"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/lean-ctx hook observe",
-            "type": "command"
-          }
-        ],
-        "matcher": ".*"
-      }
-    ]
-  },
-  "model": "claude-fable-5-1[1m]",
-  "modelSettings": {
-    "claude-fable-5-1": {
-      "effortLevel": "medium"
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(grep -n \"TASK_PROGRESS_EVENT\\\\|supabaseClient\\\\|subscribe\\\\|onSnapshot\" /Users/yuvrajsingh/Work/Repositories/instantdocs/src/app/\\\\\\(internal-app-layout\\\\\\)/create/[taskId]/page.tsx)",
@@ -373,20 +120,273 @@
       "mcp__lean-ctx__ctx_load_tools",
       "mcp__lean-ctx__ctx"
     ],
-    "defaultMode": "auto",
     "deny": [
       "Grep",
       "Glob"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
+            "timeout": 10,
+            "statusMessage": "Checking GitNexus index freshness..."
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.context_monitor --from-stdin"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m skill_add_detector --from-stdin"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.bundle_orchestrator"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks backup-on-change"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook read-dedup"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Grep|Glob|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/gitnexus/gitnexus-hook.cjs\"",
+            "timeout": 10,
+            "statusMessage": "Enriching with GitNexus graph context..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/yuvrajsingh/.claude/hooks/comment-budget-guard.cjs\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook rewrite"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|read|ReadFile|read_file|View|view|Grep|grep|Search|search|ListFiles|list_files|ListDirectory|list_directory|Glob|glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook redirect"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh \"/Users/yuvrajsingh/.claude/hooks/sync-config.sh\"",
+            "timeout": 30,
+            "statusMessage": "Syncing Claude config to GitHub..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m usage_tracker --sync"
+          },
+          {
+            "type": "command",
+            "command": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m ctx.adapters.claude_code.hooks.lifecycle_hooks quality-on-session-end"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/lean-ctx hook observe"
+          }
+        ]
+      }
     ]
   },
-  "remoteControlAtStartup": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "theme": "dark",
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": true,
+    "planetscale@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "vercel@claude-plugins-official": true,
+    "watch@claude-video": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "claude-video": {
+      "source": {
+        "source": "github",
+        "repo": "bradautomates/claude-video"
+      }
+    },
+    "planetscale": {
+      "source": {
+        "source": "github",
+        "repo": "planetscale/claude-plugin"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
-  "voiceEnabled": true
+  "autoDreamEnabled": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "autoCompactEnabled": false,
+  "remoteControlAtStartup": true,
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(railway:down)",
+      "Bash(railway:remove)"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: GrooveHQ (github.com/GrooveHQ) — scoped to the axis repo",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Private (GrooveHQ/axis, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password (op CLI observed in usage and shell history); CI secrets referenced by name only: DOCKERHUB_TOKEN, DOCKERHUB_USERNAME, NPM_TASKFORCESH_TOKEN, RAILWAY_API_TOKEN, RAILWAY_PROJECT_ID, RAILWAY_SOURCE_ENV_NAME",
+      "**Default / protected branches**: master (default branch; protected via ruleset `master-protection`, active)",
+      "**CI/CD deploy targets**: Railway (railway CLI used heavily in this project and in shell history)",
+      "**Network posture**: None configured",
+      "**Source control**: GrooveHQ/axis (github.com/GrooveHQ/axis) and its configured remote(s) only",
+      "**Trusted internal domains**: instantdocs.helplydocs.com, groove.helplydocs.com, helply.helplydocs.com, helply-kb.localhost, inbox.helply.localhost, api.helply.localhost, next.helply.com",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: npm.taskforce.sh (Package registry hosts, config scan)",
+      "**Sensitive data locations & audiences**: .env.test, apps/backend/.env, apps/backend/.env.build.production, apps/backend/.env.build.staging, apps/backend/.env.local, apps/backend/.env.local.sample, apps/backend/.env.production, apps/backend/.env.staging, apps/background/.env.local, apps/web/.env, apps/web/.env.local, apps/web/.env.local.sample, docs/secrets.md, packages/shared/src/ip-allowlist.ts — share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (e.g. apps/backend/.env.production, apps/backend/.env.build.production)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Axis, an omni-channel helpdesk customer support platform monorepo)",
+      "**Trusted repo**: /Users/yuvrajsingh/Work/Repositories/axis (GrooveHQ/axis, private) and its origin remote",
+      "**Org-specific CLIs**: railway, rtk, lean-ctx, op",
+      "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
+    ]
+  },
+  "voiceEnabled": true,
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    }
+  }
 }
