@@ -126,7 +126,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "fable[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -339,6 +339,11 @@
     }
   },
   "effortLevel": "medium",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    }
+  },
   "tui": "fullscreen",
   "voice": {
     "enabled": true,
@@ -383,10 +388,5 @@
       "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
     ]
   },
-  "voiceEnabled": true,
-  "modelSettings": {
-    "claude-fable-5-1": {
-      "effortLevel": "medium"
-    }
-  }
+  "voiceEnabled": true
 }
