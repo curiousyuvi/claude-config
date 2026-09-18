@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 887f294a-fcd7-4b6a-9b3a-6561b071b31d
-  modified: 2026-09-18T08:42:03.261Z
+  modified: 2026-09-18T10:15:52.514Z
 ---
 
 Recorder → KB article pipeline shipped 2026-09-18. All PRs merged:
@@ -22,10 +22,15 @@ Recorder → KB article pipeline shipped 2026-09-18. All PRs merged:
 - instantdocs-recorder-extension: helply branding commit d9c83b0 reverted (c95b449); repo is back
   to original InstantDocs dark UI.
 
-Current phase: testing recorders against prod (next.helply.com), extension first — its .env is
-pointed at prod and dist/ is built from merged master. Prod needs the deployed axis migration
-(recorder_recordings: article_status, article_id, title) and ASSEMBLYAI_API_KEY from the
-Production vault (item exists in all three vaults).
+Extension prod test passed 2026-09-18: full pipeline (upload, transcribe, generate, redirect)
+worked against next.helply.com. First run stalled because Railway prod runs separate `api` and
+`workers` services and `workers` never auto-deployed the pipeline commit — its old QueueName enum
+lacked recorder_article, so outbox dispatch failed 5x and archived the event. Fixed by deploying
+workers via `railway api` mutation serviceInstanceDeployV2 (MUST pass commitSha: without it Railway
+rebuilds the service's current commit, not latest master), then re-inserting the archived row from
+outbox_failed_archive into outbox_events as pending (pg script run under `op run`; no psql on this
+machine). Open question: why the workers service doesn't auto-deploy on master pushes when api does
+— check its GitHub trigger settings in the Railway dashboard. Desktop app prod test still pending.
 
 Deliberately deferred: real snapshot blocks (placeholders are [snapshot@hh:mm:ss] paragraphs),
 tests for the recorder repos beyond typecheck CI, any large refactor of the rough recorder-client
