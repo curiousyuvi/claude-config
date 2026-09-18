@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 887f294a-fcd7-4b6a-9b3a-6561b071b31d
-  modified: 2026-09-18T10:15:52.514Z
+  modified: 2026-09-18T10:35:42.320Z
 ---
 
 Recorder → KB article pipeline shipped 2026-09-18. All PRs merged:
@@ -30,7 +30,11 @@ workers via `railway api` mutation serviceInstanceDeployV2 (MUST pass commitSha:
 rebuilds the service's current commit, not latest master), then re-inserting the archived row from
 outbox_failed_archive into outbox_events as pending (pg script run under `op run`; no psql on this
 machine). Open question: why the workers service doesn't auto-deploy on master pushes when api does
-— check its GitHub trigger settings in the Railway dashboard. Desktop app prod test still pending.
+— check its GitHub trigger settings in the Railway dashboard. All three recorders (extension, mac
+app, windows exe via VM) passed prod testing 2026-09-18; the windows NSIS installer cross-builds
+fine from macOS with `npx electron-builder build --win --publish never` after `npm run build`.
+Follow-up PR #1457 (structured as the default articleStructure preset + loader header button
+tweaks) was open and unmerged at session end.
 
 Deliberately deferred: real snapshot blocks (placeholders are [snapshot@hh:mm:ss] paragraphs),
 tests for the recorder repos beyond typecheck CI, any large refactor of the rough recorder-client
