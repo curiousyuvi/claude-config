@@ -3,3 +3,4 @@
 - [KB Cloudflare CDN caching evaluation](kb-cloudflare-cdn-caching-evaluation.md) — Aug 2026 published-KB caching decision: verified Cloudflare plan facts, purge granularity is the 30x lever, verify CF capabilities from docs not memory.
 - [User prefers short simple explanations](user-prefers-short-simple-explanations.md) — keep explanations brief and plain-worded; full depth only in explicitly requested deliverables.
 - [Axis prod DB access](axis-prod-db-access.md) — prod Postgres is PlanetScale (not Railway), reached via `op run`; the role is read-only by default so writes need `SET default_transaction_read_only = off`.
+- [Recorder app macOS testing](recorder-app-macos-testing.md) — unsigned builds need re-sign + tccutil + lsregister after every package (full recipe in the repo's AGENTS.md); dev mode can't log in; release/app is source.
