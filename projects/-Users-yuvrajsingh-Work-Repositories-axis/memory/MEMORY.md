@@ -65,6 +65,7 @@
 - [InstantDocs stores no published-blocks snapshot](project_instantdocs_published_body_no_blocks.md) — HTML rebuild reverted, don't retry
 
 ## Gotchas / environment
+- [dns-cache broke IPv6 literal listen (EBADNAME)](project_dns_cache_ipv6_literal_listen.md) — reproduce app-only bugs with the instrumentation preload flags, not `pnpm run esm`
 - [/watch skill ready with Groq key; Loom needs Whisper](project_watch_skill_loom_transcripts.md) — yt-dlp Loom subs 400; re-run on downloaded mp4 with `--detail transcript`
 - [claude-config repo misses symlinked skills](project_claude_config_repo_symlinked_skills.md) — ~/.claude/skills/* mostly point into ~/.agents/skills, git stores only the link
 - [Backend full suite needs streaming output](project_backend_full_suite_needs_streaming_output.md) — ~145s; redirecting only to a file gets the bg job killed at 120s
