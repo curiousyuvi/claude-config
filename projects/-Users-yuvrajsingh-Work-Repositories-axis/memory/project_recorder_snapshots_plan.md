@@ -20,7 +20,10 @@ element selection via react-rnd overlay hit-test vs postMessage; output width (a
 
 **Build order:** 1 shared types + kb_snapshot Plate node + compiler swap (DONE 2026-09-21) → 2 ingest
 REMUX worker, `ffmpeg-static` + `-c copy -cues_to_front 1`, in-place overwrite of video.webm, queue RECORDER_REMUX
-(DONE 2026-09-21, user chose remux over re-encode) → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
+(DONE 2026-09-21, user chose remux over re-encode) → 3 render: `packages/snapshot-composition` (TSX, backend only resolves
+entry path for @remotion/bundler), `KbSnapshotRenderService` lazy bundle + one browser + serialized, WebP stills/GIF,
+inline in article worker via `renderDraftSnapshots` (DONE 2026-09-21; smoke render verified locally; elements/arrows
+deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub download for ffmpeg-static, unverified) → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
 
 **Why:** the plan says nothing was built; local master had to be pulled to even see the recorder module.
 **How to apply:** asset GC needs no registration (kb_extract_asset_ids regexes `kb-assets/{uuid}` in text).
