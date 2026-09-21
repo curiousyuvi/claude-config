@@ -37,6 +37,7 @@
 - [KB custom domains = Cloudflare for SaaS design](project_kb_custom_domains_design.md) — resolver seam, provider port, PSL parsing
 
 ## KB features / designs
+- [Recorder snapshots plan (ACTIVE, step 1 started 2026-09-21)](project_recorder_snapshots_plan.md) — Remotion local render at save; build order + open questions; PDF in ~/Downloads
 - [KB collaborative editing = own KbYjsPlugin (@slate-yjs/core) over custom Ably provider](project_kb_collab_editing_architecture.md) — collabState bytea, kbcollab:* publish-only channel, extendEditor is a config prop, peersMustRefetch rule, homepage version:null
 - [KB Review & Publish approval gate](project_kb_review_publish_feature.md) — approval invalidated by EDITS not consumed by publish; settings jsonb; one row per subject
 - [KB reader mobile responsiveness (CSS-only @768)](project_kb_reader_responsive_mobile.md)
