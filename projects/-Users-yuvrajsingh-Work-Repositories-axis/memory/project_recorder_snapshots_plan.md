@@ -23,7 +23,11 @@ REMUX worker, `ffmpeg-static` + `-c copy -cues_to_front 1`, in-place overwrite o
 (DONE 2026-09-21, user chose remux over re-encode) → 3 render: `packages/snapshot-composition` (TSX, backend only resolves
 entry path for @remotion/bundler), `KbSnapshotRenderService` lazy bundle + one browser + serialized, WebP stills/GIF,
 inline in article worker via `renderDraftSnapshots` (DONE 2026-09-21; smoke render verified locally; elements/arrows
-deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub download for ffmpeg-static, unverified) → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
+deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub download for ffmpeg-static, unverified) →
+4+5 dialog + elements + GIF (DONE 2026-09-21): SYNCHRONOUS render endpoint `POST /recorder/recordings/:id/snapshots/render`
+(no queue/node ids/Ably; dialog writes url into node), `sanitizeSnapshotConfig` rebuilds config (asset URLs must be our
+origin), web `components/snapshot/*` with @remotion/player + react-rnd, shared Slider at `src/shared/ui/slider.tsx`.
+UI never visually verified by me. Branch `ys/feat/recorder-snapshot-node`, UNCOMMITTED. → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
 
 **Why:** the plan says nothing was built; local master had to be pulled to even see the recorder module.
 **How to apply:** asset GC needs no registration (kb_extract_asset_ids regexes `kb-assets/{uuid}` in text).
