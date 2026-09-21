@@ -18,8 +18,9 @@ snapshot node references them (generated recording_ids column, mirrors asset GC)
 **Open:** confirm full re-encode vs remux (CORRECTION 2026-09-21: the plan's "Remotion slow VP9 extraction" rationale for a full re-encode is obsolete; Remotion's page says the slow path is gone since v4 and only ever hit VP8+PNG, so a `-c copy` remux adding Cues/Duration is the real requirement; re-encode is then only about MP4 compatibility/GOP); one asset across locales (leaning yes); GIF-only vs +WebP;
 element selection via react-rnd overlay hit-test vs postMessage; output width (assume 1280 capped).
 
-**Build order:** 1 shared types + kb_snapshot Plate node + compiler swap (STARTED 2026-09-21) → 2 ingest
-re-encode worker → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
+**Build order:** 1 shared types + kb_snapshot Plate node + compiler swap (DONE 2026-09-21) → 2 ingest
+REMUX worker, `ffmpeg-static` + `-c copy -cues_to_front 1`, in-place overwrite of video.webm, queue RECORDER_REMUX
+(DONE 2026-09-21, user chose remux over re-encode) → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
 
 **Why:** the plan says nothing was built; local master had to be pulled to even see the recorder module.
 **How to apply:** asset GC needs no registration (kb_extract_asset_ids regexes `kb-assets/{uuid}` in text).
