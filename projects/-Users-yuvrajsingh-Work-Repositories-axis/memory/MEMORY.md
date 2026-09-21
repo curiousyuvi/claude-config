@@ -65,6 +65,7 @@
 - [InstantDocs stores no published-blocks snapshot](project_instantdocs_published_body_no_blocks.md) — HTML rebuild reverted, don't retry
 
 ## Gotchas / environment
+- [Popover inside a Dialog must keep z-50](project_popover_zindex_under_dialog.md) — a lower z-* wins via tailwind-merge and hides it behind the dialog; count popper wrappers to tell "hidden" from "never opened"
 - [Radix Tooltip needs its own provider](project_radix_tooltip_needs_provider.md) — no global one in apps/web; missing it blanks the subtree and looks like dead buttons
 - [dns-cache broke IPv6 literal listen (EBADNAME)](project_dns_cache_ipv6_literal_listen.md) — reproduce app-only bugs with the instrumentation preload flags, not `pnpm run esm`
 - [/watch skill ready with Groq key; Loom needs Whisper](project_watch_skill_loom_transcripts.md) — yt-dlp Loom subs 400; re-run on downloaded mp4 with `--detail transcript`
