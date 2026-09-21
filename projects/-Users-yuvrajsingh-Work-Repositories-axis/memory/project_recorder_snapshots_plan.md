@@ -29,6 +29,11 @@ deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub down
 origin), web `components/snapshot/*` with @remotion/player + react-rnd, shared Slider at `src/shared/ui/slider.tsx`.
 Preset wallpapers: user chose R2 folder `kb_editor_preset_bgs` (+`thumbs/`) in the public KB asset bucket, populated by
 `bin/kb-editor-preset-bgs-publish.ts` from the instantdocs CloudFront (NOT run by me; needs op + a dedicated bucket).
+6 (2026-09-21) KB snapshot PRESET (`presets.snapshot`): zoom 1.5x default, zoom centres on the placing click, default background =
+first Mac wallpaper resolved by `resolveKbSnapshotBackground` (preset stores `{type:'image'}` with no url; CDN base only known
+server-side, also applied in the render sanitizer). `presetBackgroundsBaseUrl` rides the KB settings envelope. Dialog rebuilt as an
+inspector + two-thumb GIF range slider; `ColorPickerPopover` promoted to `shared/components` and now backs EVERY ColorField.
+Every save = NEW kb-assets uuid (no key reuse); old image orphaned for the asset GC.
 UI never visually verified by me. Branch `ys/feat/recorder-snapshot-node`, UNCOMMITTED. → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
 
 **Why:** the plan says nothing was built; local master had to be pulled to even see the recorder module.
