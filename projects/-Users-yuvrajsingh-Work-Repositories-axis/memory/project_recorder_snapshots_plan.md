@@ -29,7 +29,7 @@ deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub down
 origin), web `components/snapshot/*` with @remotion/player + react-rnd, shared Slider at `src/shared/ui/slider.tsx`.
 Preset wallpapers: user chose R2 folder `kb_editor_preset_bgs` (+`thumbs/`) in the public KB asset bucket, populated by
 `bin/kb-editor-preset-bgs-publish.ts` from the instantdocs CloudFront (NOT run by me; needs op + a dedicated bucket).
-6 (2026-09-21) KB snapshot PRESET (`presets.snapshot`): zoom 1.5x default, zoom centres on the placing click, default background =
+6 (2026-09-21) KB snapshot PRESET (`presets.snapshot`): zoom 2x default, zoom centres on the placing click, default background =
 first Mac wallpaper resolved by `resolveKbSnapshotBackground` (preset stores `{type:'image'}` with no url; CDN base only known
 server-side, also applied in the render sanitizer). `presetBackgroundsBaseUrl` rides the KB settings envelope. Dialog rebuilt as an
 inspector + two-thumb GIF range slider; `ColorPickerPopover` promoted to `shared/components` and now backs EVERY ColorField.
