@@ -15,7 +15,7 @@ publish machinery, do not port it). GIF in v1. Article generation pre-renders de
 Ingest re-encodes webm (VP9, no Cues) to H.264 MP4 once at upload. Recordings deleted 30 days after no
 snapshot node references them (generated recording_ids column, mirrors asset GC). No video/voiceover.
 
-**Open:** confirm full re-encode vs remux; one asset across locales (leaning yes); GIF-only vs +WebP;
+**Open:** confirm full re-encode vs remux (CORRECTION 2026-09-21: the plan's "Remotion slow VP9 extraction" rationale for a full re-encode is obsolete; Remotion's page says the slow path is gone since v4 and only ever hit VP8+PNG, so a `-c copy` remux adding Cues/Duration is the real requirement; re-encode is then only about MP4 compatibility/GOP); one asset across locales (leaning yes); GIF-only vs +WebP;
 element selection via react-rnd overlay hit-test vs postMessage; output width (assume 1280 capped).
 
 **Build order:** 1 shared types + kb_snapshot Plate node + compiler swap (STARTED 2026-09-21) → 2 ingest
