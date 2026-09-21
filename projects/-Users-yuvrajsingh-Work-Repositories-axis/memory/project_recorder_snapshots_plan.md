@@ -27,6 +27,8 @@ deferred to the dialog slice; Railway needs Chrome libs + build-time GitHub down
 4+5 dialog + elements + GIF (DONE 2026-09-21): SYNCHRONOUS render endpoint `POST /recorder/recordings/:id/snapshots/render`
 (no queue/node ids/Ably; dialog writes url into node), `sanitizeSnapshotConfig` rebuilds config (asset URLs must be our
 origin), web `components/snapshot/*` with @remotion/player + react-rnd, shared Slider at `src/shared/ui/slider.tsx`.
+Preset wallpapers: user chose R2 folder `kb_editor_preset_bgs` (+`thumbs/`) in the public KB asset bucket, populated by
+`bin/kb-editor-preset-bgs-publish.ts` from the instantdocs CloudFront (NOT run by me; needs op + a dedicated bucket).
 UI never visually verified by me. Branch `ys/feat/recorder-snapshot-node`, UNCOMMITTED. → 3 render worker + generation defaults → 4 dialog port (react-rnd) → 5 GIF.
 
 **Why:** the plan says nothing was built; local master had to be pulled to even see the recorder module.
