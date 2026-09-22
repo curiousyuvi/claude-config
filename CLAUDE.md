@@ -214,6 +214,21 @@ config dirty.
 - Adding a new tracked path means editing `~/.claude/.gitignore`, since the
   ignore file is a whitelist and a new top-level file is invisible by default.
 
+## The 1Password CLI only works in my own terminal
+
+`op signin` cannot run from a Claude Code session. There is no TTY for the prompt, and
+the session token it hands back lives only in the shell that created it, so it never
+reaches yours. Do not attempt it, and do not suggest `! op signin` either.
+
+When a task needs `op`, write out the exact commands and give them to me to paste into
+a separate terminal. That includes anything wrapped in `op run`, such as release and
+publish commands, because your shell has no session even after I have signed in to mine.
+Then ask me for the output you need rather than rerunning it yourself.
+
+Keep secrets out of the transcript while you are at it. Put `$(pbpaste)` in the command
+and have me copy the value to the clipboard, instead of asking me to paste a password,
+key, or token into chat.
+
 <!-- lean-ctx -->
 <!-- lean-ctx-claude-v8 -->
 ## lean-ctx — Replace Mode (native Grep/Glob denied by policy)
