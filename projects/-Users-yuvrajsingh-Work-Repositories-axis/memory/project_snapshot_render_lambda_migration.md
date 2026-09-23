@@ -36,16 +36,12 @@ The repo is `GrooveHQ/infrastructure`, cloned at `~/Work/Repositories/infrastruc
 - **The Remotion CLI owns the function and the site bundles**, because they are versioned artifacts. The function name encodes the Remotion version, so upgrading Remotion means deploying a new function, and the CLI handles that lifecycle. Terraform would fight it.
 - Remotion has **no official Terraform guide**. Its IaC examples are AWS CDK and the Serverless Framework. The policies come out of the CLI as JSON (`npx remotion lambda policies role|user`), which drops straight into Terraform.
 
-## Current state, 2026-09-22
+## Current state, 2026-09-23 evening
 
-Branch `ys/feat/remotion-render-user` in `~/Work/Repositories/infrastructure`, not yet pushed. Adds `src/iam/remotion-render-user/` plus four lines in `src/iam/main.tf` and one in `src/iam/sensative-outputs.tf`. `terraform fmt -check` is clean.
+**Everything the Remotion CLI created is deleted** (bucket `remotionlambda-useast1-1h87biwva3`, function, log groups; all regions checked clean). Jared raised compliance findings (public bucket, no TLS enforcement, no lifecycle) and said all changes must go through Terraform; Matt Beedle owns `GrooveHQ/infrastructure` and applies by hand (no CI). Only the PR #158 IAM pieces remain (role + two render users, applied).
 
-Three deliberate choices to mention when Jared reviews:
+**Kill switch is live in prod** (axis #1499, commit `aff1aa4a1`): `REMOTION_LAMBDA_FUNCTION_NAME` is commented out in all three backend env files, so the renderer refuses before any AWS call. Needed because every render and `sites create` calls `getOrCreateBucket`, which would recreate a public bucket while the render user still has `s3:CreateBucket`. `op run --env-file` beats Railway variables, so the switch had to be a commit, not a Railway var. Restore the key with the new function name after the Terraform apply.
 
-1. `remotion-lambda-role` has a name Remotion hardcodes, and both workspaces share one account, so it is created only when the workspace is `groove-production` (the same conditional style already used in `src/kms/elasticsearch`). Production must be applied before staging can render.
-2. Added `lambda:PutFunctionConcurrency` to Remotion's stock user policy, so we can cap our own share of the shared concurrency pool.
-3. Dropped Remotion's `HandleQuotas` statement, which would let a service user raise account quotas. We don't need it in a production account.
+**Blocker for Terraform owning the function:** main root pins AWS provider 4.45.0, whose Lambda runtime enum stops at `nodejs18.x`; Remotion needs `nodejs24.x`. Proposed to Matt: a separate `remotion/` root (like `github-actions-runner/`) with a modern provider and own state key. Alternative is his provider upgrade across 787 resources. Waiting on his answer before writing the PR.
 
-Still to do: push the PR, get it applied, collect the two key pairs into 1Password and Railway, then deploy the function and three site bundles (dev, staging, prod) with the render user's keys. Axis has three environments but Terraform only has two workspaces, so dev shares the staging user; separation between them is the site name, which is just a CLI argument.
-
-Related: [[project_recorder_snapshots_plan]]
+**Agreed plan (user decisions):** sites stay public via a bucket policy scoped to `sites/*` (Remotion requires a public URL for the headless browser); `renders/` private, backend switches to `presignUrl` from `@remotion/lambda-client`; TLS deny on `aws:SecureTransport`; lifecycle expires `renders/` after 1 day; no replication for now; concurrency cap 100 via `reserved_concurrent_executions`; function zip (`remotionlambda-arm64.zip` from the npm package, byte-identical to what the CLI deploys) uploaded to S3 under `lambda/` and referenced by key; sites stay CLI-owned (`sites create --privacy no-acl`); render user loses create/delete perms. Terraform can name the bucket anything starting with `remotionlambda-`; Remotion finds it by prefix.

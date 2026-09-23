@@ -42,7 +42,7 @@
 
 ## KB features / designs
 - [Recorder snapshots plan (ACTIVE, step 1 started 2026-09-21)](project_recorder_snapshots_plan.md) — Remotion local render at save; build order + open questions; PDF in ~/Downloads
-- [Snapshot rendering moves to Remotion Lambda (ACTIVE, 2026-09-22)](project_snapshot_render_lambda_migration.md) — Groove AWS 147889171041 vs instantdocs 786844223641; Terraform owns IAM, Remotion CLI owns function + sites
+- [Snapshot rendering on Remotion Lambda: CLI infra DELETED, kill switch live, Terraform rebuild pending Matt (2026-09-23)](project_snapshot_render_lambda_migration.md) — provider 4.45 blocks nodejs24.x; separate `remotion/` root proposed; agreed plan inside
 - [Remotion Lambda sizing: 2048MB kills the compositor](project_remotion_lambda_sizing.md) — prod is mem10240/disk10240/900s; the "disk space is low" hint is boilerplate; read CloudWatch
 - [Local snapshot rendering needs a real recordings bucket](project_local_snapshot_render_needs_public_bucket.md) — RECORDINGS_BUCKET_* in .env.local; tunnelling MinIO does not work; .env.local gets literals not op:// refs
 - [KB collaborative editing = own KbYjsPlugin (@slate-yjs/core) over custom Ably provider](project_kb_collab_editing_architecture.md) — collabState bytea, kbcollab:* publish-only channel, extendEditor is a config prop, peersMustRefetch rule, homepage version:null

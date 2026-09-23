@@ -8,9 +8,7 @@ metadata:
   modified: 2026-09-23T15:38:03.829Z
 ---
 
-Snapshot renders run on `remotion-render-4-0-526-mem10240mb-disk10240mb-900sec` in us-east-1
-(Groove AWS account 147889171041), deployed 2026-09-23. All three environments share one function;
-sites are per-environment (`axis-snapshots-{dev,staging,prod}`).
+**2026-09-23 evening: that function and the bucket were deleted** (see [[project_snapshot_render_lambda_migration]]); they come back via Terraform. The sizing lesson still holds: use mem10240/disk10240/900s in us-east-1 (Groove AWS account 147889171041). All three environments share one function; sites are per-environment (`axis-snapshots-{dev,staging,prod}`).
 
 The default 2048MB/2048MB function **silently kills the Rust compositor** on a 3456x1882 VP9
 recording. It surfaces as `Could not extract frame from compositor` with `ECONNRESET`/`ECANCELED`,
