@@ -42,7 +42,7 @@
 
 ## KB features / designs
 - [Recorder snapshots plan (ACTIVE, step 1 started 2026-09-21)](project_recorder_snapshots_plan.md) — Remotion local render at save; build order + open questions; PDF in ~/Downloads
-- [Snapshot rendering on Remotion Lambda: infra PR #160 open, waiting on Matt's apply; axis follow-up listed inside (2026-09-24)](project_snapshot_render_lambda_migration.md) — CLI infra deleted, kill switch live in prod, separate `remotion/` TF root
+- [Snapshot rendering on Remotion Lambda: Terraform rebuild DONE, axis #1507 open (2026-09-24)](project_snapshot_render_lambda_migration.md) — separate `remotion/` TF root; GIF path verified; replication deferred
 - [Remotion Lambda sizing: 2048MB kills the compositor](project_remotion_lambda_sizing.md) — prod is mem10240/disk10240/900s; the "disk space is low" hint is boilerplate; read CloudWatch
 - [Local snapshot rendering needs a real recordings bucket](project_local_snapshot_render_needs_public_bucket.md) — RECORDINGS_BUCKET_* in .env.local; tunnelling MinIO does not work; .env.local gets literals not op:// refs
 - [KB collaborative editing = own KbYjsPlugin (@slate-yjs/core) over custom Ably provider](project_kb_collab_editing_architecture.md) — collabState bytea, kbcollab:* publish-only channel, extendEditor is a config prop, peersMustRefetch rule, homepage version:null
