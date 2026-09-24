@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-Plan handoff PDF: ~/Downloads/recorder-snapshots-plan.pdf (written 2026-09-20). Reference impl is the
+Plan handoff PDF: ~/Downloads/recorder-snapshots-plan.pdf (written 2026-09-20). The plan cites instantdocs as reference impl, but the user said NOT to reference instantdocs code (see [[feedback_no_instantdocs_precedent]]). Old pointers into the
 instantdocs repo at ~/Work/Repositories/instantdocs (snapshot block src/blocknote/blocks/snapshot.tsx,
 element schema src/remotion-v2/helpers/schema.ts, dialog src/components/snapshot-*.tsx).
 

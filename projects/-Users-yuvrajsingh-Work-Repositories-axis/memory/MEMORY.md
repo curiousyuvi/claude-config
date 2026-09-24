@@ -15,6 +15,7 @@
 - [Branch names prefixed ys/](feedback_branch_naming.md) — `ys/feat/<slug>`
 - [Run pnpm check + typecheck after significant changes](feedback_run_lint_typecheck.md) — note pre-existing failures, don't fix silently
 - [Run diff-based gates AFTER committing](feedback_diff_checks_after_commit.md) — react-doctor/Sonar diff committed refs, not working tree
+- [Never reference instantdocs code as precedent](feedback_no_instantdocs_precedent.md) — "precedent" = GrooveHQ repos; report what I checked
 - [Refactors must be zero-regression, proven by me](feedback_refactor_no_regressions.md)
 - [Check library options before hand-rolling](feedback_prefer_library_options.md) — read the `.d.ts` first
 - [No magic-string enums](feedback_no_magic_string_enums.md) — `as const` companions, compare via named members
