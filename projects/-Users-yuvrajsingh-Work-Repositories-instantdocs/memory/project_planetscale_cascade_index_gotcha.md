@@ -5,14 +5,14 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 4f7562c3-c4bf-45b5-b43b-a9e716429127
-  modified: 2026-08-06T11:40:48.785Z
+  modified: 2026-09-25T07:54:14.064Z
 ---
 
 On InstantDocs (PlanetScale, `relationMode = "prisma"`), there are no DB foreign keys — Prisma emulates referential actions app-side. Deleting a Page/KB therefore issues a DELETE/UPDATE against **every model with a relation pointing at it**, including `onDelete: SetNull`. If that inbound FK column is **unindexed** on a large table, the statement does a full-table scan and trips the Vitess deadline (`code = 3024`, message "Canceled") — **even when it matches zero rows**.
 
 This caused the recurring `cron.deleteTrashItems` failures (the cron now runs on the Railway long-task worker via `/api/tasks/delete-trash-items`, dispatched from Vercel). The culprit both times was `PublishedSessionAnalytics.firstPageId` (an `onDelete: SetNull` relation to Page). A red herring along the way: `EditingSession.pageId` looked unindexed but is `@unique` (so already indexed).
 
-**Indexing it was necessary but NOT sufficient.** June 2026 added `@@index([firstPageId])`, which fixed the zero-row full scans. It kept failing for pages with real volume, because the emulated SetNull is still a single `UPDATE` over every matching row inside the page's delete transaction — seekable is not the same as small. Page `cmp3955wu000h1leutr8se4pd` had 6,962 session rows and failed every nightly run from June 23 to Aug 6 2026. Fixed Aug 2026 by adding a step 5 to `deletePageSubtree` in `src/server/helper/trash.ts` that nulls `firstPageId` in `ROW_DELETE_BATCH` chunks before deleting the page. After draining, the delete took 9.4s.
+**Indexing it was necessary but NOT sufficient.** June 2026 added `@@index([firstPageId])`, which fixed the zero-row full scans. It kept failing for pages with real volume, because the emulated SetNull is still a single `UPDATE` over every matching row inside the page's delete transaction — seekable is not the same as small. Page `cmp3955wu000h1leutr8se4pd` had 6,962 session rows and failed every nightly run from June 23 to Aug 6 2026. A step 5 in `deletePageSubtree` (`src/server/helper/trash.ts`) that nulls `firstPageId` in `ROW_DELETE_BATCH` chunks was prototyped in Aug 2026 (drained delete took 9.4s) but NEVER landed on main: as of 2026-09-25 `deletePageSubtree` stops at step 4 and `git log -S firstPageId` on trash.ts is empty. Sentry INSTANTDOCS-19Z (2026-09-25) is the same failure on KB `cmcg0st9300dkt0063yx8pmg7` (slug cprsupport, trashed 2026-08-25): 3,352 PublishedSessionAnalytics rows by firstPageId, 2,308 on one page, every other Page-related table 0-4 rows. The KB path also deletes publishedSessionAnalytics by kbId only AFTER the page loop, so the SetNull cascade runs over all of them.
 
 Second trap: `withVitessRetry` classifies 3024 as transient and retries 3x, then `deletePagesInBatches` falls back to per-id and retries 3x more. This failure is deterministic, so the retries only ever burn time and make one stuck row look like a flaky infra problem in Sentry.
 
