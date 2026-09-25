@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 887f294a-fcd7-4b6a-9b3a-6561b071b31d
-  modified: 2026-09-18T10:35:42.320Z
+  modified: 2026-09-25T08:37:43.332Z
 ---
 
 Recorder → KB article pipeline shipped 2026-09-18. All PRs merged:
@@ -36,7 +36,20 @@ fine from macOS with `npx electron-builder build --win --publish never` after `n
 Follow-up PR #1457 (structured as the default articleStructure preset + loader header button
 tweaks) was open and unmerged at session end.
 
-Deliberately deferred: real snapshot blocks (placeholders are [snapshot@hh:mm:ss] paragraphs),
+2026-09-25 update (PR #1523): snapshot blocks now render on Remotion Lambda. The H.264 render proxy
+from #1512 was measured and removed: source format is not the lever (webm 0.57s/frame, 1080p H.264
+0.8s, 2560 proxy 1.3s), and the encode held the article job so the loader stalled in "transcribing".
+GIFs use `framesPerLambda: 5, concurrencyPerLambda: 2` (8.6s vs 15s warm/29s cold); pinned values are
+safe here because GIF length is capped (`KB_SNAPSHOT_GIF_MAX_MS`, test-guarded against the 200-function
+cap) and the function is 10240 MB. InstantDocs' past failures with these options were the 200-function
+cap on long videos and OOM with 2 tabs on a 2048 MB function. The Remotion site bundle (holds
+SNAPSHOT_FPS) is now deployed by `.github/workflows/remotion-site.yml` (skips when the reproducible
+bundle matches the bucket); secrets REMOTION_{DEV,PROD}_AWS_* are set. GitHub does not run
+pull_request workflows on an unmergeable PR: no Actions check suite at all means rebase first.
+`pnpm --filter backend typecheck` fails locally with 7 duplicate @types/pg errors that CI does not hit;
+unresolved, commit with LEFTHOOK=0 when it bites.
+
+Deliberately deferred (as of 2026-09-18): real snapshot blocks (placeholders are [snapshot@hh:mm:ss] paragraphs),
 tests for the recorder repos beyond typecheck CI, any large refactor of the rough recorder-client
 code (fix-what-you-touch instead), word-level transcript is stored but unused. The mac app's
 local-testing recipe is in that repo's AGENTS.md (see [[recorder-app-macos-testing]]).
