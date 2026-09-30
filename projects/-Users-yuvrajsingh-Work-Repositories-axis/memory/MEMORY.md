@@ -4,6 +4,9 @@
 - [Helply recorder repos + axis API contract](project_helply_recorder_repos.md) — GrooveHQ/helply-recorder-{extension,app}, R2 update bucket, /recorder/* endpoints pending in axis
 - [Windows signing = `smctl sign --simple`](project_windows_signing_keylocker.md) — signtool/KSP path never works; cert expires 28 Jan 2027
 
+## Who I am
+- [Timezone is IST, UTC+5:30](user_timezone_ist.md) — report times in IST; logs/Railway/GitHub are UTC, convert first
+
 ## How I work (feedback)
 - [Never run `op` commands](feedback_op_commands_user_runs.md) — user runs them in an authenticated terminal, I use the pasted result
 - [Never attribute AI as author anywhere](feedback_no_claude_author.md)
@@ -84,6 +87,7 @@
 - [`railway variables` is not the full env](project_railway_vars_incomplete_op_run.md) — deploy also injects .env.production via op run
 - [`pnpm deploy` is shadowed by pnpm](project_pnpm_run_deploy_shadowed.md) — use `pnpm run deploy` in kb-edge
 - [Sonar PR gate flags pre-existing issues](project_sonar_pr_attributes_old_issues.md) — check master + git blame before "fixing"
+- [SigNoz OpenSearch metrics are EMPTY: ingester elasticsearch receiver 403s every minute](project_signoz_ingester_opensearch_403.md) — since ≥26 Aug 2026; likely missing cluster:monitor perms; unfixed
 - [KB edge serving is LIVE](project_kb_edge_serving_live.md) — freshness now depends on purgeTags; s-maxage=86400 is only a backstop
 - [Local verify login](project_local_verify_login.md) — https://inbox.helply.localhost · your-email@example.com / password · Playwright ignoreHTTPSErrors
 - [Shared schema imported by backend: bare `shared/...` sibling imports](project_shared_schema_backend_import_style.md) — strip-types won't map relative `.js`
