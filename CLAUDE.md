@@ -255,3 +255,12 @@ resources are `lean-ctx://context/*` only). Native Delete is fine.
 Read modes: anchored (edit), full (verbatim), map (overview), signatures (API), diff (post-edit), lines:N-M (range), auto.
 Details live in the `lean-ctx` skill (loads on demand — keep this file lean).
 <!-- /lean-ctx -->
+
+## Headroom hides ToolSearch
+
+When Claude runs through the Headroom proxy, its tool-search deferral can defer
+Claude Code's own `ToolSearch` tool. Symptom: deferred tools (WebSearch,
+WebFetch, MCP tools) are listed but `ToolSearch` is not callable and only
+`tool_search_tool_regex` exists. Fix: call `tool_search_tool_regex` with pattern
+`ToolSearch` first, then `ToolSearch` with `select:WebSearch,WebFetch`. Do this
+before concluding a tool is unavailable or falling back to curl.
