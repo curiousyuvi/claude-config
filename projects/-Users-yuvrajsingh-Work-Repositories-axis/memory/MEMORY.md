@@ -47,7 +47,7 @@
 
 ## KB features / designs
 - [Recorder snapshots plan (ACTIVE, step 1 started 2026-09-21)](project_recorder_snapshots_plan.md) — Remotion local render at save; build order + open questions; PDF in ~/Downloads
-- [Snapshot rendering on Remotion Lambda: DONE + observability merged 2026-09-30, Railway `signoz-cloudwatch` service still to create](project_snapshot_render_lambda_migration.md) — separate `remotion/` TF root incl. replication; sites CLI-deployed; replica backfill gotchas inside
+- [Snapshot rendering on Remotion Lambda + observability: DONE end to end, 6 SigNoz alert rules live (2026-09-30)](project_snapshot_render_lambda_migration.md) — separate `remotion/` TF root incl. replication; sites CLI-deployed; replica backfill gotchas inside
 - [SigNoz collector CANNOT read CloudWatch: its receiver is a stub](project_signoz_cloudwatch_receiver_stub.md) — poll from `ops/signoz/cloudwatch` (otel-contrib 0.153.0); prove emission with a fake key + 403; heartbeat on AWS/Usage CallCount
 - [Remotion Lambda sizing: 2048MB kills the compositor](project_remotion_lambda_sizing.md) — prod is mem10240/disk10240/900s; the "disk space is low" hint is boilerplate; read CloudWatch
 - [Local snapshot rendering needs a real recordings bucket](project_local_snapshot_render_needs_public_bucket.md) — RECORDINGS_BUCKET_* in .env.local; tunnelling MinIO does not work; .env.local gets literals not op:// refs
