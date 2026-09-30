@@ -25,6 +25,7 @@
 - [No arbitrary [Npx] Tailwind values](feedback_tailwind_no_arbitrary_px.md) — px/4 scale or named token
 - [Revert a migration BEFORE regenerating it](feedback_never_delete_applied_migration.md) — deleting an applied migration file breaks down/up
 - [SonarCloud rules that fire here](feedback_sonar_rules.md) — Maintainability gates too; fetch findings via check-run annotations API
+- [Query production SigNoz from a session](project_signoz_api_access.md) — key via `pbpaste > ~/.config/signoz/api-key` (Service Accounts, Viewer, 1 day); header SIGNOZ-API-KEY; v3 autocomplete + v4 query_range work, v1 dashboards/metrics do not
 - [Sonar API token lives in ~/.claude.json](project_sonar_api_token_and_duplication.md) — use it when MCP tools won't load; duplication needs the measures API, not annotations
 - ["instantdocs project" = standalone repo](feedback_instantdocs_project_reference.md) — internal KB search there, not the axis connector
 
