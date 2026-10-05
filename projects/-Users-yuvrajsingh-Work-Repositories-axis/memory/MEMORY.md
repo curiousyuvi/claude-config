@@ -1,5 +1,8 @@
 # Memory index
 
+## KB edge render redesign (ACTIVE, resume here)
+- [Bake data, render at the edge — full handoff](project_kb_edge_render_redesign.md) — spike passed (171 KB gzip, 0.4–53 ms/render); next: strict plan review, then ONE PR on ys/fix/kb-template-rebake-on-deploy
+
 ## Recorder apps (active)
 - [Helply recorder repos + axis API contract](project_helply_recorder_repos.md) — GrooveHQ/helply-recorder-{extension,app}, R2 update bucket, /recorder/* endpoints pending in axis
 - [Windows signing = `smctl sign --simple`](project_windows_signing_keylocker.md) — signtool/KSP path never works; cert expires 28 Jan 2027
