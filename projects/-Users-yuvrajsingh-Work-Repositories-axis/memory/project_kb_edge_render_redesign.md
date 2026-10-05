@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: efaafd2b-a848-443c-b46f-2adad8af023c
-  modified: 2026-10-05T21:17:28.965Z
+  modified: 2026-10-05T21:46:15.055Z
 ---
 
 Full handoff for the published-KB render redesign. Read this first when resuming. Related: [[kb-edge-current-state]], [[project_kb_reader_template_parts_split]], [[project_kb_bake_never_deletes_orphans]].
@@ -20,7 +20,8 @@ Full handoff for the published-KB render redesign. Read this first when resuming
 
 ## Implementation progress (2026-10-06, uncommitted on branch)
 DONE + tests green: renderer moved to `kb-public/reader/` (pure; `config/api-prefix.ts` split out); view JSON-safe (`publishedAt` epoch ms, `cards: Record<cardRefKey,CardMeta>` filled at render by `withCardsFilled`); template/parts/slots/`shared/kb-page-parts` DELETED, `renderPage(view, ctx)`; data service gained kbShell/articleByPublicId/collectionByPublicId/visibleArticleIds; `KbBakeReaderData` (bulk preload subclass) + `KbReaderService.forBake()`; artifacts v6 `site/{locale}.json` + `page/{path}.json` via `reader/kb-reader-artifacts.ts` (siteArtifact/pageArtifact/viewFromArtifacts — page = view minus kb/tree + availableLocales; NO composeView/resolveCards needed, bake runs real resolveView over bulk data); baker rewritten (diff writes via `store.listEtags` MD5, `bakeKb({write})` returns {put,deleted,unchanged}); reconciler + embed artifacts deleted; bin `--check` = dry run, writes purge via KbEdgePurgeClient. Parity spec `kb-bake-reader-data.spec.ts` (bulk == live, JSON round trip, query bound) + `kb-artifact-baker.diff.spec.ts`.
-TODO: coalesce 10s->2s + dirty comment; edge worker render (reader import by path, version build hash in props, purge with build, fall-through reasons, embed only if site.embeddable && doc, asset rewrite vars); CSS as `/_kb/reader.css?v=` (Head takes stylesheet href|css; preview inline; 404 inline in backend; goldens regen); kb-edge CI job + deploy workflow; Biome import ban on reader/; wiki/docs; full suite + pnpm check; delete `.spike-edge`.
+ALSO DONE: coalesce 2s; CSS as `/_kb/reader.css?v=` (RenderOptions.stylesheet href|css, preview inline, 404 moved to application/kb-not-found-page.tsx, goldens regenerated + verified identical apart from stylesheet via .spike-edge/snapdiff.mjs); site artifact carries origin/indexable/embeddable/assetCdnBaseUrl/apiOrigin; edge `src/render.ts` + index.ts render path (props {kbId, build: CF_VERSION_METADATA.id}, reasons no-site/no-embed/render-threw), worker serves own reader.css; wrangler minify + define NODE_ENV production (both envs) + Text rule for css; vitest `esbuild.jsxDev:false`; edge tests rewritten (106 pass); bundle 707KB/181KB gzip.
+TODO: kb-edge CI job + deploy workflow; Biome import ban on reader/; wiki/docs; full backend suite + pnpm check + tsgo; delete `.spike-edge`; update plan file; final thermo review.
 
 ## The problem being solved
 - Every artifact embeds presentation. `template/{locale}.html` inlines ALL of `kb-reader.css` + prose CSS (`READER_BASE_CSS`, `apps/backend/src/modules/kb-public/application/kb-reader-styles.ts`) plus header/footer chrome, so ANY reader CSS/markup deploy makes every KB stale. #1597 (2026-10-02, kb-reader.css) caused the 10-KB template drift found 2026-10-05.
