@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: efaafd2b-a848-443c-b46f-2adad8af023c
-  modified: 2026-10-05T20:10:52.179Z
+  modified: 2026-10-05T20:18:26.361Z
 ---
 
 Full handoff for the published-KB render redesign. Read this first when resuming. Related: [[kb-edge-current-state]], [[project_kb_reader_template_parts_split]], [[project_kb_bake_never_deletes_orphans]].
@@ -16,7 +16,7 @@ Full handoff for the published-KB render redesign. Read this first when resuming
 
 ## Update 2026-10-06 (after compaction)
 - Rebased branch onto master `b24d7b4c8` (#1611 touches no reader/edge code). Byte parity PASSED: workerd HTML identical to Node for 4 cases.
-- Full plan written to untracked repo-root `KB-EDGE-RENDER-PLAN.md` (site/page data artifacts, `packages/kb-reader` built package, shared `composeView` for edge + origin, drop template/parts split, worker build id in cache key, MD5/ETag diff-written bakes, `--repair` purges, kb-edge CI deploy). NEVER commit the plan file or the spike dir: both are in `.git/info/exclude`; re-check `git status` before any commit. Next: thermo-nuclear review of it, fix findings, then user sign-off before code.
+- Full plan written to untracked repo-root `KB-EDGE-RENDER-PLAN.md` (site/page data artifacts, `packages/kb-reader` built package, shared `composeView` for edge + origin, drop template/parts split, worker build id in cache key, MD5/ETag diff-written bakes, `--repair` purges, kb-edge CI deploy). NEVER commit the plan file or the spike dir: both are in `.git/info/exclude`; re-check `git status` before any commit. Thermo-nuclear review DONE; plan is now revision 2 with all findings folded in (renderer stays in backend under `kb-public/reader/` + Biome import ban, no new package; shared decideRoute/composeView/resolveCards; worker-first rollout; queue bakes always purge; reconciler folded into diff-writing bake; embeds at edge only for anonymous-audience KBs; publishedAt epoch ms; origin/indexable in site data; build = bundle hash; coalesce 10s to ~2s). WAITING on user sign-off + 2 open questions (Cloudflare CI secrets; why 10s coalesce) before any code.
 
 ## The problem being solved
 - Every artifact embeds presentation. `template/{locale}.html` inlines ALL of `kb-reader.css` + prose CSS (`READER_BASE_CSS`, `apps/backend/src/modules/kb-public/application/kb-reader-styles.ts`) plus header/footer chrome, so ANY reader CSS/markup deploy makes every KB stale. #1597 (2026-10-02, kb-reader.css) caused the 10-KB template drift found 2026-10-05.
