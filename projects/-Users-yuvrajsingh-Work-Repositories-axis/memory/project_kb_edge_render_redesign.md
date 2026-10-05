@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: efaafd2b-a848-443c-b46f-2adad8af023c
-  modified: 2026-10-05T19:44:59.246Z
+  modified: 2026-10-05T20:06:29.223Z
 ---
 
 Full handoff for the published-KB render redesign. Read this first when resuming. Related: [[kb-edge-current-state]], [[project_kb_reader_template_parts_split]], [[project_kb_bake_never_deletes_orphans]].
@@ -13,6 +13,10 @@ Full handoff for the published-KB render redesign. Read this first when resuming
 ## Where things stand (2026-10-06)
 - Branch `ys/fix/kb-template-rebake-on-deploy`, cut from master `a60d311cf`. Nothing committed. Only untracked change: throwaway spike dir `apps/backend/.spike-edge/` (worker.ts, build.mjs, node-bench.mjs, workerd-bench.mjs, wrangler.jsonc, dist/). DELETE IT before the real PR.
 - Background (done, merged, deployed): PR #1609 collapsed `slug`/`slug_norm` into one normalized `slug` and fixed the content-only republish bake (route now from `SitemapData.routeByNodeId`; failed edge purge now fails the KB_BAKE job). PR #1610 capped `tsgo --checkers 2` in CI (Backend Build was OOM-killing runners). Production repair done: `kb:artifact-bake --all --repair` rebaked 11 KBs, then manual purge per KB via `KB_EDGE_PURGE_URL`. User confirmed a real-world body-only republish now shows up.
+
+## Update 2026-10-06 (after compaction)
+- Rebased branch onto master `b24d7b4c8` (#1611 touches no reader/edge code). Byte parity PASSED: workerd HTML identical to Node for 4 cases.
+- Full plan written to untracked repo-root `KB-EDGE-RENDER-PLAN.md` (site/page data artifacts, `packages/kb-reader` built package, shared `composeView` for edge + origin, drop template/parts split, worker build id in cache key, MD5/ETag diff-written bakes, `--repair` purges, kb-edge CI deploy). Next: thermo-nuclear review of it, fix findings, then user sign-off before code.
 
 ## The problem being solved
 - Every artifact embeds presentation. `template/{locale}.html` inlines ALL of `kb-reader.css` + prose CSS (`READER_BASE_CSS`, `apps/backend/src/modules/kb-public/application/kb-reader-styles.ts`) plus header/footer chrome, so ANY reader CSS/markup deploy makes every KB stale. #1597 (2026-10-02, kb-reader.css) caused the 10-KB template drift found 2026-10-05.
