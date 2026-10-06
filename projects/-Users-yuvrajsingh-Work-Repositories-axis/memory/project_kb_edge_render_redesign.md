@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: efaafd2b-a848-443c-b46f-2adad8af023c
-  modified: 2026-10-06T09:40:12.783Z
+  modified: 2026-10-06T10:21:45.912Z
 ---
 
 Full handoff for the published-KB render redesign. Read this first when resuming. Related: [[kb-edge-current-state]], [[project_kb_reader_template_parts_split]], [[project_kb_bake_never_deletes_orphans]].
@@ -24,7 +24,7 @@ ALSO DONE: coalesce 2s; CSS as `/_kb/reader.css?v=` (RenderOptions.stylesheet hr
 ALL DONE (2026-10-06): CI job + deploy workflow (workflow_run after green `Pipeline`, squash-merge HEAD~1 path diff), Biome ban on reader/ (`../../**`, node, nest, orm), API_PREFIX -> shared/api-prefix, wiki + log, spike dir deleted, thermo review of implementation + all its fixes (bin always purges on write, --sweep flag for unknown-KB delete, origin serves versioned css immutable, bake data scope asserts, shape-hash guard spec `kb-artifact-shape.spec.ts` pinned 6:'07c1c4264a9ad4b6', edge/origin byte parity spec). Green: tsgo, 1844 KB tests (+ full suite earlier, 1 unrelated flaky), 106 edge tests, biome, knip, dry-run 707/181 KB.
 The 4 deferred items are now DONE in the same PR (user asked): batched card metas (KbNodeMetaService.getIdentities/getTexts; resolver resolveForPages/pageCards; application/kb-bake-cards.ts per content batch per locale; bake resolves all routes in <=4 queries incl. cards; tree reuses preloaded nodes via protected treeNodes()); targeted bakes unified into one diffed bakeKb({target}) path (not deleted: full bake per publish would read every body); page artifact nested {v, availableLocales, view} -> no cast; cache key RENDER_BUILD = bundle hash via apps/kb-edge/scripts/deploy.mjs (fallback CF version id). Shape hash now 6:'79799612a613b629'.
 ALSO (2026-10-06): homepage draft saves (KB_HOMEPAGE_UPDATED) bake nothing; deleteLocale of a live translation emits KB_HOMEPAGE_UNPUBLISHED. Comments/reviews never reached the bake (notifications queue) — no change needed. Cross-KB card staleness FIXED: migration `Migration20261006092551_KbCardTargetIds` (generated `card_target_ids` + GIN on article/homepage variants via fn 017_kb_extract_card_target_ids), `card-face.json` artifact per whole-KB bake, `report.cardsChanged`, events worker `rebakeCardHosts` via `kbsWithCardsInto` (also on retry + KB delete). Migration applied to local DB via `pnpm run esm ./node_modules/@mikro-orm/cli/cli.js` (config loads .env.local, no op). Prod needs migration + db:objects on deploy (normal pipeline). Pulled master (#1612, #1613) via rebase --autostash.
-NEXT: user review + permission to commit/PR; user adds CLOUDFLARE_API_TOKEN/ACCOUNT_ID secrets; rollout = worker first (falls through w/o v6 data), backend, then `kb:artifact-bake --all` via op run.
+PR OPENED 2026-10-06: GrooveHQ/axis#1624 (commit 81af8647a). Also fixed before PR: bake derives listing tree from full tree (treeMemoActive), prefetchContent skips collection ids. NEXT: CI + Sonar on #1624; user adds CLOUDFLARE_API_TOKEN/ACCOUNT_ID secrets; rollout = worker first (falls through w/o v6 data), backend, then `kb:artifact-bake --all` via op run.
 
 ## The problem being solved
 - Every artifact embeds presentation. `template/{locale}.html` inlines ALL of `kb-reader.css` + prose CSS (`READER_BASE_CSS`, `apps/backend/src/modules/kb-public/application/kb-reader-styles.ts`) plus header/footer chrome, so ANY reader CSS/markup deploy makes every KB stale. #1597 (2026-10-02, kb-reader.css) caused the 10-KB template drift found 2026-10-05.
