@@ -1,21 +1,22 @@
 ---
 name: project_kb_settings_live_preview
-description: "KB settings live preview (unsaved edits) — BUILT on ys/feat/kb-settings-live-preview (2026-10-07), uncommitted, awaiting user visual check + commit permission"
+description: "KB settings live preview + /search page removal — PR GrooveHQ/axis#1648 opened 2026-10-07 from ys/feat/kb-settings-live-preview; awaiting CI, screenshots (user's), review"
 metadata:
   node_type: memory
   type: project
   originSessionId: 4339431e-433d-4efe-89ab-6d716a453cb6
-  modified: 2026-10-07T13:04:55.279Z
+  modified: 2026-10-07T15:37:19.598Z
 ---
 
-Live preview panel on KB settings showing unsaved edits. Built 2026-10-07 on branch `ys/feat/kb-settings-live-preview` (uncommitted). Wiki: `wiki/pages/kb-settings-live-preview.md`.
+Live preview panel on KB settings showing unsaved edits, plus removal of the SSR `/search` results page. PR GrooveHQ/axis#1648 (single commit, rebased on master fd14b710d). Wiki: `wiki/pages/kb-settings-live-preview.md`.
 
 **Why:** GitBook/Shopify round-trip each change to a server renderer; ours already runs in workerd, so the browser renders with `kb-public/reader/renderPage` into double-buffered `srcDoc` iframes.
 
 **How to apply:**
-- Draft = what Save writes (`settingsDraft(next)` / Logo / Text kinds) published by `KbSettingsCard` `preview`+`region` props into `preview/kb-preview-store.ts`; preview = `diffSettings` + shared `mergeKbSettingsPatch` + schema, so preview equals save.
-- Server only for routing: `GET .../settings/preview` via `KbReaderService.withSettingsPatch` (`KbSettingsOverlayData` overrides `kbShell`; `KbShell` now carries parsed `settings`). Audience = `publishedAudience` (shared with baker).
-- `RenderContext.preview` is now `KbPreviewKind` (ArticleDraft gets the banner; any preview skips custom code + analytics).
-- `/_kb/*` served on app host; app CSP allows Google Fonts (srcDoc inherits CSP).
-- Remaining: user's visual check, commit/PR with permission, react-doctor diff gate after commit. Lazy chunk 507 KB/135 KB gzip. Web build needs NODE_OPTIONS=--max-old-space-size=8192 locally (CI sets it).
+- Store `preview/kb-preview-store.ts` holds `unsaved: Record<cardId, KbPreviewDraft | null>` — one registration per `KbSettingsCard` (by-value draft key); drives both the preview and `hasUnsavedSettings` (leave-page guard in the settings shell).
+- Preview = `diffSettings` + shared `mergeKbSettingsPatch` + schema, so preview equals save. Server only for routing: `GET .../settings/preview` via `KbReaderService.withSettingsPatch` (`KbSettingsOverlayData`); audience = `publishedAudience`.
+- Frame swaps go through the `frame-buffer.ts` reducer (only the wanted, loaded page is shown) — fixed the "stuck after toggling back" bug the user hit.
+- Web imports the backend reader ONLY via `features/knowledge-base/lib/kb-reader.ts`.
+- /search removed with 4 microcopy labels; no artifact bump (old worker falls back to default labels). `search` is no longer a reserved URL segment.
+- Remaining: CI green, user's screenshots, review. React Doctor diff warnings left are pre-existing lines in kb-link-list-card / kb-social-card.
 Related: [[project_kb_article_prepublish_preview]], [[project_kb_edge_render_redesign]].
