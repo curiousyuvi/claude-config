@@ -3,8 +3,8 @@
 ## KB edge render redesign (ACTIVE, resume here)
 - [Bake data, render at the edge — full handoff](project_kb_edge_render_redesign.md) — spike passed (171 KB gzip, 0.4–53 ms/render); next: strict plan review, then ONE PR on ys/fix/kb-template-rebake-on-deploy
 
-## KB settings live preview (planning)
-- [Settings live preview plan](project_kb_settings_live_preview.md) — client-side render via edge reader into srcDoc; full scope; awaiting plan review
+## KB settings live preview (built, uncommitted)
+- [Settings live preview](project_kb_settings_live_preview.md) — BUILT, uncommitted on ys/feat/kb-settings-live-preview; awaiting visual check + commit OK
 
 ## Recorder apps (active)
 - [Helply recorder repos + axis API contract](project_helply_recorder_repos.md) — GrooveHQ/helply-recorder-{extension,app}, R2 update bucket, /recorder/* endpoints pending in axis
