@@ -5,3 +5,4 @@
 - [Axis prod DB access](axis-prod-db-access.md) — prod Postgres is PlanetScale (not Railway), reached via `op run`; the role is read-only by default so writes need `SET default_transaction_read_only = off`.
 - [Recorder app macOS testing](recorder-app-macos-testing.md) — unsigned builds need re-sign + tccutil + lsregister after every package (full recipe in the repo's AGENTS.md); dev mode can't log in; release/app is source.
 - [Recorder pipeline status](recorder-pipeline-status.md) — recorder-to-article shipped 2026-09-18; 2026-09-25 snapshot render findings (proxy removed, Lambda chunking pinned, site deploy workflow, unmergeable PRs get no CI) in there too.
+- [Ferndesk eval setup](ferndesk-eval-setup.md) — 2026-10-08 hands-on test: accounts, evidence folder, Playwright driver, headline findings (capture works, no-code verification checks public site only).
