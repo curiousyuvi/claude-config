@@ -12,7 +12,7 @@ Ferndesk eval (competitor for the docs agent feature) ran on 2026-10-08. Evidenc
 
 Accounts: Ferndesk workspace on ysgaur9919@gmail.com (Pro trial, password login, user resets it and copies via pbcopy). InstantDocs test workspace "Groove Eval Docs" on yuvraj+idtest@groovehq.com, password in `~/ferndesk-eval/notes/creds.env` (600, never in chat). InstantDocs signup silently rejects gmail addresses. Fake ticket endpoint is a secret gist, answer key in `notes/ticket-answer-key.csv`.
 
-Headline findings: screenshot capture via demo login works reliably; verification on the no-code track checks the public website, not the dashboard (1 of 5 planted errors caught); ticket clustering strong, theme-to-article mapping weak; a human Publish click marks an article "Verified as accurate".
+Headline findings: screenshot capture via demo login works reliably; verification caught 1 of 5 planted errors and used the public website because Settings > General had Website URL = instantdocs.com (now cleared); the dashboard was never listed as a verification source; a paid re-run is needed to settle whether the app is used. Trial expired 2026-10-08 evening; ticket clustering strong, theme-to-article mapping weak; a human Publish click marks an article "Verified as accurate".
 
 **Why:** Tirth asked for a deep dive; future sessions may extend the test (code track, more scenarios) and should reuse the driver (`scripts/lib.mjs`, `send-task.mjs`, `poll-task.mjs`) rather than rebuild it.
 
