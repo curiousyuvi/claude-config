@@ -3,8 +3,11 @@
 ## KB edge render redesign (ACTIVE, resume here)
 - [Bake data, render at the edge — full handoff](project_kb_edge_render_redesign.md) — spike passed (171 KB gzip, 0.4–53 ms/render); next: strict plan review, then ONE PR on ys/fix/kb-template-rebake-on-deploy
 
-## KB settings live preview (PR open)
-- [Settings live preview + /search removal](project_kb_settings_live_preview.md) — PR #1648 open; awaiting CI, screenshots, review
+## KB settings preview redesign (NEXT, resume here)
+- [New Figma design: Preview mode dialog with side settings](project_kb_settings_preview_redesign.md) — not started; Figma node ids inside
+
+## KB settings live preview (merged)
+- [Settings live preview + /search removal](project_kb_settings_live_preview.md) — PR #1648 MERGED
 
 ## Recorder apps (active)
 - [Helply recorder repos + axis API contract](project_helply_recorder_repos.md) — GrooveHQ/helply-recorder-{extension,app}, R2 update bucket, /recorder/* endpoints pending in axis

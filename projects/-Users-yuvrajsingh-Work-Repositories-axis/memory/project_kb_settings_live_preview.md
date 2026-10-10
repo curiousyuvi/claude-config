@@ -1,6 +1,6 @@
 ---
 name: project_kb_settings_live_preview
-description: "KB settings live preview + /search page removal — PR GrooveHQ/axis#1648 opened 2026-10-07 from ys/feat/kb-settings-live-preview; awaiting CI, screenshots (user's), review"
+description: "KB settings live preview + /search page removal — PR GrooveHQ/axis#1648 MERGED (by 2026-10-10)"
 metadata:
   node_type: memory
   type: project
