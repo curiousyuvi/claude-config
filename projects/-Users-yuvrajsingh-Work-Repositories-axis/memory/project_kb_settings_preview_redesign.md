@@ -22,3 +22,5 @@ PR #1648 (settings live preview + /search removal) is MERGED. Next: redesign the
 - Figma MCP is `mcp__claude_ai_Figma__*` (get_design_context / get_screenshot / get_metadata); load via ToolSearch.
 
 **Existing code to reuse:** `apps/web/src/features/knowledge-base/components/kb-settings/preview/` (renderer, frame-buffer, use-kb-preview, store with `unsaved` drafts, browser chrome) + backend `GET .../settings/preview`. See [[project_kb_settings_live_preview]].
+
+**Figma read (2026-10-10):** dialog 1312x852; header 76px; left preview in a rounded bordered panel with NO browser chrome; right panel 320px: Device select + Page select, fields, footer Cancel + "Save changes" (disabled until dirty). "Preview mode" button only on Header & Footer, Layout, Labels, Branding (not General/Domains). Panel contents: H&F = CTA fields + notice "Adding header, footer, and social media links through preview mode is not supported."; Layout = layout cards + Alignment; Labels = first 5 label fields; Branding = Logo (has "Logo background"/"Logo descriptor" toggles that don't exist in the schema). Plan sent to user for review; awaiting answers.
