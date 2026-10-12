@@ -30,3 +30,5 @@ PR #1648 (settings live preview + /search removal) is MERGED. Next: redesign the
 **BUILT (2026-10-10), uncommitted on `ys/feat/kb-settings-preview-mode`:** tsgo web+backend clean, biome clean, web KB tests 215 pass, backend kb-public/knowledge-base 743 pass. 31 files, +453/-732. Waiting on the user's visual check before commit/PR.
 
 **2026-10-12:** corner bleed at the frame's top-right was `.kb-doc-topnav`'s `backdrop-filter: blur(12px)` escaping the iframe's rounded clip under GPU compositing (clip-path did NOT fix it; headless Chrome doesn't reproduce). Removed the declaration from kb-reader.css (bg is opaque, so no visual change); 12 goldens regenerated. User confirmed fixed. Still uncommitted.
+
+**PR GrooveHQ/axis#1683 opened 2026-10-12** (2 commits: d4f9e37ff + surface-context refactor). React Doctor diff clean.

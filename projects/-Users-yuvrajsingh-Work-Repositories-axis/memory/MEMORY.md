@@ -4,7 +4,7 @@
 - [Bake data, render at the edge — full handoff](project_kb_edge_render_redesign.md) — spike passed (171 KB gzip, 0.4–53 ms/render); next: strict plan review, then ONE PR on ys/fix/kb-template-rebake-on-deploy
 
 ## KB settings preview redesign (NEXT, resume here)
-- [Preview mode dialog with side settings](project_kb_settings_preview_redesign.md) — BUILT, uncommitted on ys/feat/kb-settings-preview-mode; awaiting visual check
+- [Preview mode dialog with side settings](project_kb_settings_preview_redesign.md) — PR #1683 open (ys/feat/kb-settings-preview-mode)
 
 ## KB settings live preview (merged)
 - [Settings live preview + /search removal](project_kb_settings_live_preview.md) — PR #1648 MERGED
