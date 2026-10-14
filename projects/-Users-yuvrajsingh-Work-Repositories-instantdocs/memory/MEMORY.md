@@ -20,3 +20,4 @@
 - [project_voiceover_requeue_recovery.md](project_voiceover_requeue_recovery.md) — Re-dispatching stuck AI_AUDIO_GENERATE tasks; stale PENDING rows block the user's own retries
 - [feedback_vendor_language_codes_explicit.md](feedback_vendor_language_codes_explicit.md) — Vendor language codes (AssemblyAI/ElevenLabs) are explicit per-entry overrides, never generic region stripping
 - [project_publish_sfn_debugging.md](project_publish_sfn_debugging.md) — Broken published snapshot images: check PublishedSnapshot rows, then the PublishVideoAndArticleTaskProd execution history via aws cli; null locale input is the known failure
+- [reference_sentry_api_via_cli_token.md](reference_sentry_api_via_cli_token.md) — Sentry MCP OAuth flaky; curl the API with the ~/.sentryclirc token; crawler filter + dedupe make absence weak evidence
