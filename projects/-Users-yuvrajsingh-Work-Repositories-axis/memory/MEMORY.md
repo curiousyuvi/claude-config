@@ -123,3 +123,4 @@
 - [CI skips packages/shared tests](project_ci_skips_shared_tests.md) — put shared unit tests in the backend
 - [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
 - [Local react-doctor MUST use @latest](project_react_doctor_version.md)
+- [Knowledge gaps feature (starting 2026-10-20)](project_knowledge_gaps_feature.md) — me=gaps, JJ=topics, GitHub deferred, screenshot agent + changelog in scope
