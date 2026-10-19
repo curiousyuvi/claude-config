@@ -1,17 +1,15 @@
 ---
 name: family-health-insurance-search
-description: "Sept 2026 search for Indian family health insurance; father has prostate cancer, Yuvraj has AS/uveitis, so PED underwriting drives the plan choice"
+description: "Oct 2026 search for an Indian family floater (father as proposer; father, mother, two sisters); Yuvraj excluded for HLA-B27; no HDFC ERGO or Aditya Birla"
 metadata:
   node_type: memory
   type: project
   originSessionId: ba3d37f6-cf45-468c-aee6-e5b744a668b9
-  modified: 2026-10-19T11:21:00.242Z
+  modified: 2026-10-19T11:25:53.637Z
 ---
 
-Started 2026-09-30. Family: father 53 (prostate cancer, on meds), mother 41, two sisters 23 (healthy), Yuvraj (HLA-B27, ankylosing spondylitis, uveitis, recent flare).
+Started 2026-10-19 (user said to disregard the earlier 2026-09-30 session; those family details were wrong). Floater in father's name covering father, mother, two sisters, all stated to have no PED. Yuvraj is HLA-B27 positive and buys nothing for himself so he doesn't affect the family policy. Family lives in Kanpur, possibly Delhi NCR.
 
-**Why:** Wants widest hospital network, minimal PED waiting, and OPD/pharmacy cover. Retail insurers will not give day-1 cover for existing cancer or AS, so the recommendation split father off (employer group cover, Star Cancer Care Platinum, PM-JAY if eligible) from the rest (HDFC Optima Secure+ or Care Supreme / Activ One MAX with PED-reduction rider).
+**Why:** Wants a plan that passes every clause in the "DON'T Buy Health Insurance" video (no sub-limits, no room cap, no co-pay/zonal co-pay, same-illness restore, daycare, super top-up, wide cashless network) and works at the most hospitals. Do not recommend HDFC ERGO or Aditya Birla (user's rule, reason not given).
 
-2026-10-19 update: Yuvraj is now buying one floater with father as proposer covering father, mother, two sisters; Yuvraj excluded. Do not recommend HDFC ERGO or Aditya Birla (user's rule, reason not given). User said none of the four have any PED, which conflicts with the cancer note above; asked them to confirm.
-
-**How to apply:** Web search engines block curl here; fetch joinditto.in pages directly (sitemap at joinditto.in/sitemap-0.xml). Insist on fresh data, not training data. See [[yuvraj-profile]].
+**How to apply:** Insist on fresh web data, not training data. joinditto.in plan pages fetch fine; careinsurance.com returns 403. See [[yuvraj-profile]].
