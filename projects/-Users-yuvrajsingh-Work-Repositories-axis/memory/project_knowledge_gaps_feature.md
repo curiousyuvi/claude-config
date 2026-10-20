@@ -30,5 +30,7 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
   8. Models still open.
   9. Inbound email via Resend Inbound on screenshotagentlogin.helply.com: receiving verified 2026-10-20 (MX live, sending off). Webhook + signing secret not set up yet, do it when the endpoint exists.
 
+- Progress lives in plan section 8 (phase 1 done 2026-10-20 on branch ys/feat/knowledge-gaps, uncommitted).
+
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
 **How to apply:** open decisions are listed in section 7 of the plan; check which the user answered before building. GitHub source stays deferred.
