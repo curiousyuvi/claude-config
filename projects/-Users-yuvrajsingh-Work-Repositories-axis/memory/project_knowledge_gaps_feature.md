@@ -30,7 +30,7 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
   8. Models still open.
   9. Inbound email via Resend Inbound on screenshotagentlogin.helply.com: receiving verified 2026-10-20 (MX live, sending off). Webhook + signing secret not set up yet, do it when the endpoint exists.
 
-- JJ's Topics+Gaps contract (v1.4, 2026-10-20): ~/.axis/knowledge-gaps/jj-final-plan-reference.md. Gaps must read per-subtopic counts via the Topics signals service (not own ticket SQL); gaps OWN coverage + product-issue state and expose them to Topics; Topics emits archive/restore/merge events. Purple "Yuvraj to fill" boxes are mine. Deadlines: Y1 coverage read by Nov 3, Y2 event consumers Nov 17-24, Y3 gap creation from Topics by Dec 1, Y4 signals with flags by Dec 15.
+- JJ's Topics+Gaps contract (v1.4, 2026-10-20): ~/.axis/knowledge-gaps/jj-final-plan-reference.md. Gaps must read per-subtopic counts via the Topics signals service (not own ticket SQL); gaps OWN coverage + product-issue state and expose them to Topics; Topics emits archive/restore/merge events. Purple "Yuvraj to fill" boxes are mine. Its dates/timeline are AI slop per JJ (2026-10-20): ignore them, answer without dates.
 - Progress lives in plan section 8 (phase 1 done 2026-10-20 on branch ys/feat/knowledge-gaps, uncommitted).
 
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
