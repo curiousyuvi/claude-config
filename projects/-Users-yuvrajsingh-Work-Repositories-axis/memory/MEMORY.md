@@ -124,3 +124,4 @@
 - [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
 - [Local react-doctor MUST use @latest](project_react_doctor_version.md)
 - [Knowledge gaps + screenshot agent (ACTIVE)](project_knowledge_gaps_feature.md) — plan in repo-root KNOWLEDGE-GAPS-PLAN.md; me=gaps+screenshots, JJ=topics, GitHub deferred
+- [Notion page comes back as `<<ccr:>>`](reference_notion_fetch_headroom_workaround.md) — refetch with include_file_urls + instructions_version, parse the spilled file
