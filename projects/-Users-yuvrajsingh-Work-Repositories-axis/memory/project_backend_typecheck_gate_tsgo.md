@@ -1,27 +1,17 @@
 ---
 name: project-backend-typecheck-gate-tsgo
-description: "The backend typecheck gate is `tsgo -b`, which covers bin/ — `tsc -p tsconfig.json` only covers src/ and gives false clean"
-metadata: 
+description: "Typecheck = `tsc -b` (TS 7 native) per package incl. bin/; as of 2026-10-20 `pnpm typecheck` dies on an unknown `--checkers` flag, run `../../node_modules/.bin/tsc -b --noEmit` instead"
+metadata:
   node_type: memory
   type: project
-  originSessionId: 7cc61853-fad8-4679-9603-21f16494f649
-  modified: 2026-08-09T10:02:54.839Z
+  originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
+  modified: 2026-10-20T14:37:46.072Z
 ---
 
-`apps/backend/package.json` defines `"typecheck": "tsgo -b --noEmit"`, and lefthook's pre-commit runs `pnpm -s typecheck` (root: `pnpm -r --filter backend --filter web typecheck`). That covers `bin/` as well as `src/`.
+`scripts/typecheck.mjs` runs `tsc -b --noEmit` over each package's project references (covers `bin/` as well as `src/`). Root `node_modules/.bin/tsc` is TypeScript 7.0.2 (native); there is no `tsgo` binary any more.
 
-Running `pnpm --filter backend exec tsc --noEmit -p tsconfig.json` covers **only `src/`**. It reports clean while `bin/*.ts` is broken, so a commit then fails the hook — and if you don't read the hook output carefully, the commit silently doesn't happen while `git push` still "succeeds" by pushing an unchanged branch.
+As of 2026-10-20 the backend script passes `--checkers 2`, which tsc 7.0.2 rejects (`error TS5072: Unknown build option '--checkers'`), so `pnpm --filter backend typecheck` fails before checking anything. Workaround: `cd apps/<pkg> && ../../node_modules/.bin/tsc -b --noEmit` (backend takes ~30s). Note this when reporting checks; don't "fix" the script silently.
 
-Two traps that compound it:
+`tsc -p tsconfig.json` covers only `src/` and gives a false clean when `bin/*.ts` is broken.
 
-- **Grepping tsgo output for `error TS` matches nothing.** tsgo emits ANSI colour codes between `error` and `TS`, so `grep "error TS"` returns empty and reads as success. Grep the `pnpm -r` runner's output for `error|Failed|ERR_PNPM`, or check `$?`.
-- **`tsgo -b` is incremental.** After deleting build info or changing project refs, use `--force` to be sure.
-
-Verify with the exit code, not the absence of matched output:
-```
-pnpm -s typecheck; echo "exit=$?"
-```
-
-After pushing, confirm the remote actually moved (`git log origin/<branch> -1`) rather than trusting that push printed something.
-
-Related: [[feedback_run_lint_typecheck]], [[feedback_diff_checks_after_commit]]
+Verify with the exit code, not by grepping output: the compiler colours `error` and `TS` separately, so `grep "error TS"` can match nothing on a failing run. `-b` is incremental; use `--force` after changing project refs.
