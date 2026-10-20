@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
-  modified: 2026-10-20T12:41:49.595Z
+  modified: 2026-10-20T12:48:46.134Z
 ---
 
 Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for real in axis, final mature version, no "fix later" shortcuts. JJ builds Topics.
@@ -18,6 +18,8 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
 - Missing infra: help-center search logging, "was this helpful" votes, changelog ingestion, digests, any browser automation.
 - References: GrooveHQ/knowledge-gap (Jared, InstantDocs; judge saw only the question, no clustering/scoring/ledger), kroto-learn/screenshot-agent (user's spike; prompt invited destructive actions).
 - Demo: demo.helply.com (password from user, don't store).
+
+- Decision 1 settled 2026-10-20: JJ agreed to a separate knowledge-gaps module + GapTopicsPort (JJ implements Topics side; we stub), old topic-insights gap bits get dropped.
 
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
 **How to apply:** open decisions are listed in section 7 of the plan; check which the user answered before building. GitHub source stays deferred.
