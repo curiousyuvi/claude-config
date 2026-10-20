@@ -1,17 +1,12 @@
 ---
 name: project-backend-typecheck-gate-tsgo
-description: "Typecheck = `tsc -b` (TS 7 native) per package incl. bin/; as of 2026-10-20 `pnpm typecheck` dies on an unknown `--checkers` flag, run `../../node_modules/.bin/tsc -b --noEmit` instead"
+description: "Typecheck = `tsc -b` (root @typescript/native 7.x) per package; a stale apps/backend/node_modules/.bin/tsc (TS 5.9 shim) shadows it and fails with `Unknown build option '--checkers'`"
 metadata:
-  node_type: memory
   type: project
-  originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
-  modified: 2026-10-20T14:37:46.072Z
 ---
 
-`scripts/typecheck.mjs` runs `tsc -b --noEmit` over each package's project references (covers `bin/` as well as `src/`). Root `node_modules/.bin/tsc` is TypeScript 7.0.2 (native); there is no `tsgo` binary any more.
+`scripts/typecheck.mjs` spawns `tsc -b --noEmit` from PATH; pnpm puts the package's own `node_modules/.bin` first. Root `tsc` is TypeScript 7 native (`@typescript/native`), which accepts `--checkers`.
 
-As of 2026-10-20 the backend script passes `--checkers 2`, which tsc 7.0.2 rejects (`error TS5072: Unknown build option '--checkers'`), so `pnpm --filter backend typecheck` fails before checking anything. Workaround: `cd apps/<pkg> && ../../node_modules/.bin/tsc -b --noEmit` (backend takes ~30s). Note this when reporting checks; don't "fix" the script silently.
+On 2026-10-20 `pnpm --filter backend typecheck` (and the lefthook pre-commit) failed with `error TS5072: Unknown build option '--checkers'`. Cause: a leftover `apps/backend/node_modules/.bin/tsc` and `tsserver` shim from Sep pointing at `typescript@5.9.3`, which the backend no longer depends on, so pnpm never pruned it. Fix: delete those two shims (check `grep typescript@5.9.3 node_modules/.bin/tsc` first). Not a master bug.
 
-`tsc -p tsconfig.json` covers only `src/` and gives a false clean when `bin/*.ts` is broken.
-
-Verify with the exit code, not by grepping output: the compiler colours `error` and `TS` separately, so `grep "error TS"` can match nothing on a failing run. `-b` is incremental; use `--force` after changing project refs.
+`tsc -p tsconfig.json` covers only `src/` and gives a false clean when `bin/*.ts` is broken. Verify with the exit code, not by grepping for `error TS` (colour codes split it). `-b` is incremental; use `--force` after changing project refs.

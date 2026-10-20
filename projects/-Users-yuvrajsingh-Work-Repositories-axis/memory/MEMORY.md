@@ -93,7 +93,7 @@
 - [/watch skill ready with Groq key; Loom needs Whisper](project_watch_skill_loom_transcripts.md) — yt-dlp Loom subs 400; re-run on downloaded mp4 with `--detail transcript`
 - [claude-config repo misses symlinked skills](project_claude_config_repo_symlinked_skills.md) — ~/.claude/skills/* mostly point into ~/.agents/skills, git stores only the link
 - [Backend full suite needs streaming output](project_backend_full_suite_needs_streaming_output.md) — ~145s; redirecting only to a file gets the bg job killed at 120s
-- [Typecheck = `tsc -b` per package; `pnpm typecheck` broken by `--checkers`](project_backend_typecheck_gate_tsgo.md) — run ../../node_modules/.bin/tsc -b --noEmit
+- [`--checkers` typecheck error = stale local TS 5.9 shim](project_backend_typecheck_gate_tsgo.md) — delete apps/backend/node_modules/.bin/tsc + tsserver
 - [`railway variables` is not the full env](project_railway_vars_incomplete_op_run.md) — deploy also injects .env.production via op run
 - [`pnpm deploy` is shadowed by pnpm](project_pnpm_run_deploy_shadowed.md) — use `pnpm run deploy` in kb-edge
 - [Sonar PR gate flags pre-existing issues](project_sonar_pr_attributes_old_issues.md) — check master + git blame before "fixing"
