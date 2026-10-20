@@ -28,7 +28,7 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
   6. Browsers via Firecrawl Interact (`cdpUrl` + our Playwright, profiles, interactive live view for SSO login). Konrad suggested it; no new vendor.
   7. Screenshots use the user's own Remotion elements editor for normal images (separate PR, a dependency).
   8. Models still open.
-  9. Inbound email via Resend Inbound subdomain, catch-all, per-connection address; DNS owner and subdomain name pending.
+  9. Inbound email via Resend Inbound on screenshotagentlogin.helply.com (user adds DNS), catch-all, per-connection address.
 
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
 **How to apply:** open decisions are listed in section 7 of the plan; check which the user answered before building. GitHub source stays deferred.
