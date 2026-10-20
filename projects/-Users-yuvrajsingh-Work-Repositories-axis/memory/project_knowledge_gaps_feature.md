@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
-  modified: 2026-10-20T12:48:46.134Z
+  modified: 2026-10-20T13:04:44.082Z
 ---
 
 Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for real in axis, final mature version, no "fix later" shortcuts. JJ builds Topics.
@@ -19,7 +19,16 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
 - References: GrooveHQ/knowledge-gap (Jared, InstantDocs; judge saw only the question, no clustering/scoring/ledger), kroto-learn/screenshot-agent (user's spike; prompt invited destructive actions).
 - Demo: demo.helply.com (password from user, don't store).
 
-- Decision 1 settled 2026-10-20: JJ agreed to a separate knowledge-gaps module + GapTopicsPort (JJ implements Topics side; we stub), old topic-insights gap bits get dropped.
+- Decisions 2026-10-20 (full text in plan section 7):
+  1. JJ agreed: separate knowledge-gaps module + GapTopicsPort (JJ owns Topics side, we stub), old topic-insights gap bits get dropped.
+  2. One queue per workspace; each gap targets a KB.
+  3. Tirth: demo app wins on behaviour, Notion doc for terminology. Detection timing is ours: nightly 03:00 workspace timezone, no schedule setting.
+  4. AI handoffs stay a separate source switch.
+  5. Auto-publish blocked when the KB requires review, and the UI must say so.
+  6. Browsers via Firecrawl Interact (`cdpUrl` + our Playwright, profiles, interactive live view for SSO login). Konrad suggested it; no new vendor.
+  7. Screenshots use the user's own Remotion elements editor for normal images (separate PR, a dependency).
+  8. Models still open.
+  9. Inbound email via Resend Inbound subdomain, catch-all, per-connection address; DNS owner and subdomain name pending.
 
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
 **How to apply:** open decisions are listed in section 7 of the plan; check which the user answered before building. GitHub source stays deferred.
