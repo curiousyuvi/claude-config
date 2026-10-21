@@ -1,15 +1,19 @@
 ---
 name: reference-notion-fetch-headroom-workaround
-description: "Large Notion pages come back as a `<<ccr:...>>` placeholder through the Headroom proxy; refetch with include_file_urls + instructions_version so the result spills to a file instead"
+description: "Notion tool results arrived as `<<ccr:...>>` placeholders because the Headroom proxy compressed them; fixed 2026-10-21 via ~/.headroom/settings.json protect_tool_results"
 metadata:
   node_type: memory
   type: reference
   originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
-  modified: 2026-10-20T15:54:29.935Z
+  modified: 2026-10-21T14:32:48.700Z
 ---
 
-Through the Headroom proxy, `notion-fetch` (and even short search highlights) can return only `<<ccr:HASH,html,NKB>>`, and `headroom_retrieve(HASH)` sometimes returns the placeholder itself (worked once on 2026-10-20, failed later the same day).
+Root cause: the Headroom proxy (`headroom proxy --port 8787`, started detached by `headroom wrap claude`) lossy-compresses MCP tool results, so Notion pages and comments came back as `<<ccr:HASH,...>>` and `headroom_retrieve` often returned the placeholder again.
 
-Workaround that worked 2026-10-20: call `notion-fetch` with `include_file_urls: true` and `instructions_version: "0.0.2"`. The result exceeded the token cap and Claude Code saved it to a `tool-results/*.txt` file uncompressed. Parse it with a script file (inline `node -e` / python heredocs are blocked by lean-ctx): the file is JSON whose `text` field holds the page markdown. Script used: scratchpad `extract-notion.mjs` (JSON.parse, take `.text`, JSON.parse again for `.text`).
+Fix (2026-10-21): `~/.headroom/settings.json` = `{"protect_tool_results": "mcp__claude_ai_Notion__*"}` (glob patterns are supported, see `is_tool_excluded` in headroom/config.py). Setting is read only at proxy startup, so the proxy must be restarted after editing (it is not a managed service, `headroom install status` says no deployment; restarting cuts the running Claude session's API connection, so the user does it).
+
+Verify: `curl -s http://127.0.0.1:8787/settings` shows the stored value; after a restart a Notion fetch returns plain text.
+
+Fallbacks if it regresses: `notion-search` scoped with `page_url` returns short highlights that survive; comments cannot be searched; ask the user for screenshots.
 
 Saved copies: `~/.axis/knowledge-gaps/jj-final-plan-reference.md` (JJ's Topics + Gaps plan, v1.4).

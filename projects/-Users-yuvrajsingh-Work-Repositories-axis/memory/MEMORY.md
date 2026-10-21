@@ -124,6 +124,6 @@
 - [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
 - [Local react-doctor MUST use @latest](project_react_doctor_version.md)
 - [Knowledge gaps + screenshot agent (ACTIVE)](project_knowledge_gaps_feature.md) — plan in repo-root KNOWLEDGE-GAPS-PLAN.md; me=gaps+screenshots, JJ=topics, GitHub deferred
-- [Notion page comes back as `<<ccr:>>`](reference_notion_fetch_headroom_workaround.md) — refetch with include_file_urls + instructions_version, parse the spilled file
+- [Notion results came back as `<<ccr:>>`](reference_notion_fetch_headroom_workaround.md) — Headroom compressed them; fixed by protect_tool_results in ~/.headroom/settings.json, needs a proxy restart
 - [Track JJ's Topics merges on master](feedback_track_jj_topics_merges.md) — fetch + merge master into ys/feat/knowledge-gaps before each work block/commit
 - [Demo app is the UI north star for gaps](feedback_demo_app_is_ui_north_star.md) — match helply-prototype components/gaps exactly until Tirth sends Figma
