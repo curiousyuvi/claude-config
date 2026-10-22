@@ -5,12 +5,12 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-22T19:39:36.560Z
+  modified: 2026-10-22T20:40:04.375Z
 ---
 
 Set up 2026-10-23 while #1792 (knowledge gaps) waits on Jared's review. #1803 (KB AI format) is merged.
 
-- `ys/feat/screenshot-agent` (phase 7) branches from `ys/feat/knowledge-gaps`, checked out in the main folder `~/Work/Repositories/axis`. Its draft PR targets `ys/feat/knowledge-gaps`, not master; open it after the first commit.
+- `ys/feat/screenshot-agent` (phase 7) branches from `ys/feat/knowledge-gaps`, checked out in the main folder `~/Work/Repositories/axis`. Its draft PR is #1810 (opened 2026-10-23), base `ys/feat/knowledge-gaps`, not master.
 - Worktree `~/Work/Repositories/axis-gaps` stays on `ys/feat/knowledge-gaps` (pnpm install done). Every #1792 review fix happens there: commit, push, then in the main folder `git merge ys/feat/knowledge-gaps` into the phase 7 branch. Fixes only flow upward.
 - When #1792 squash-merges (repo deletes the branch, GitHub retargets the stacked PR to master): merge origin/master into the phase 7 branch; if that conflicts, `git rebase --onto origin/master ys/feat/knowledge-gaps`.
 - The worktree needs no dev server; tests and typecheck only.
