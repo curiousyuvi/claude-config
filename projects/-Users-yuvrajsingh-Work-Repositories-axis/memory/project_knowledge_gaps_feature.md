@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 95ec2c73-358c-4e03-a22e-92cff3042ffc
-  modified: 2026-10-20T13:04:44.082Z
+  modified: 2026-10-22T13:02:47.801Z
 ---
 
 Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for real in axis, final mature version, no "fix later" shortcuts. JJ builds Topics.
@@ -33,6 +33,8 @@ Started 2026-10-20. Build Knowledge Gaps + screenshot agent ("App access") for r
 - JJ's Topics+Gaps contract (v1.4, 2026-10-20): ~/.axis/knowledge-gaps/jj-final-plan-reference.md. Gaps must read per-subtopic counts via the Topics signals service (not own ticket SQL); gaps OWN coverage + product-issue state and expose them to Topics; Topics emits archive/restore/merge events. Purple "Yuvraj to fill" boxes are mine. Its dates/timeline are AI slop per JJ (2026-10-20): ignore them, answer without dates.
 - Filled JJ's doc boxes + commented 2026-10-20; positions summarised in plan "JJ contract" section. Search/feedback sources wait for JJ's yes.
 - Progress lives in plan section 8 (phase 1 done 2026-10-20 on branch ys/feat/knowledge-gaps, uncommitted).
+
+- 2026-10-22: the KB AI format (Markdown + tags, `knowledge-base/application/ai-format/`) goes to master in its own PR `ys/feat/kb-ai-format` with the recorder writer moved onto it; then master is merged into #1792. The old topic-insights draft (`topic-gap-draft.service.ts`) stays on HTML on purpose: delete it with the old gaps page in phase 8, don't convert it.
 
 **Why:** two devs split one prototype; the Topics contract is the coupling point.
 **How to apply:** open decisions are listed in section 7 of the plan; check which the user answered before building. GitHub source stays deferred.
