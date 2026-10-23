@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-22T20:40:04.375Z
+  modified: 2026-10-23T13:54:10.278Z
 ---
 
 Set up 2026-10-23 while #1792 (knowledge gaps) waits on Jared's review. #1803 (KB AI format) is merged.
@@ -14,6 +14,8 @@ Set up 2026-10-23 while #1792 (knowledge gaps) waits on Jared's review. #1803 (K
 - Worktree `~/Work/Repositories/axis-gaps` stays on `ys/feat/knowledge-gaps` (pnpm install done). Every #1792 review fix happens there: commit, push, then in the main folder `git merge ys/feat/knowledge-gaps` into the phase 7 branch. Fixes only flow upward.
 - When #1792 squash-merges (repo deletes the branch, GitHub retargets the stacked PR to master): merge origin/master into the phase 7 branch; if that conflicts, `git rebase --onto origin/master ys/feat/knowledge-gaps`.
 - The worktree needs no dev server; tests and typecheck only.
+
+Phase 7 progress (2026-10-23): slices 7a-7f committed on #1810 (browser + guard, connections + sign-in, email codes via Resend polling, live-view SSO, capture agent, planner, screenshots into drafts). Next: 7i web screens (recommended), then 7g recipes, 7h outdated detection. Full state, live-test scripts and test-account details are in repo-root KNOWLEDGE-GAPS-PLAN.md (section "23 Oct: phase 7"); live specs and Firecrawl key live in ~/.claude/jobs/5297b585/tmp.
 
 **Why:** the user didn't want to wait on review, and an accidental checkout in the main folder once interrupted work; two folders mean nobody switches branches under the other.
 **How to apply:** never commit #1792 fixes on the phase 7 branch; never switch the main folder back to knowledge-gaps. Related: [[project-knowledge-gaps-feature]].
