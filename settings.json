@@ -392,5 +392,6 @@
       "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
     ]
   },
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "model": "claude-fable-5-1[1m]"
 }
