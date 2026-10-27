@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-26T22:05:48.726Z
+  modified: 2026-10-27T13:25:49.491Z
 ---
 
 Set up 2026-10-23 while #1792 (knowledge gaps) waits on Jared's review. #1803 (KB AI format) is merged.
@@ -22,6 +22,8 @@ Phase 7 progress (2026-10-24): slices 7a-7g and 7i committed on #1810 (7g = reci
 Second review round (2026-10-27): Konrad approved; JJ (jswietoniowski) review all fixed in 425f51cca (due-clock scheduler on knowledge_gap_settings, server-side Yjs merge + reattach pull, findability out of auto-publish, revert refuses over unpublished edits, holding baseline stored, per-subtopic fingerprint, writer retry, outbox drafts, migrations squashed to Migration20261020144754_KnowledgeGaps + the permissions data migration). Merged up as e6486da12 (screenshots job also moved to the outbox). Local dev DB bookkeeping was patched by hand (old migration rows deleted, new columns added). Replies posted on #1792.
 
 27 Oct work block done except the final 1:1 UI match (user asked me to STOP before it; they have something to do first). #1792 head b7fd4cba9 (one article plan d0224aba3 + gap metrics). #1810 head b86e99cc7 (screenshots per step, snapshot look, replacement + release checks, tips, cap, metrics). Status lives in KNOWLEDGE-GAPS-PLAN.md "27 Oct" sections.
+
+2026-10-27: #1792 SQUASH-MERGED to master (a93f591f6), flag KNOWLEDGE_GAPS_ENABLED off in prod. #1810 now based on master; linked history by merging the squash's parent normally then `git merge -s ours <squash>` after proving tree(squash) == merge-tree(kg tip, squash^). The axis-gaps worktree is no longer needed. Next: end-to-end test run on a fresh KB + InstantDocs with recorded evidence, then the 1:1 UI match.
 
 **Why:** the user didn't want to wait on review, and an accidental checkout in the main folder once interrupted work; two folders mean nobody switches branches under the other.
 **How to apply:** never commit #1792 fixes on the phase 7 branch; never switch the main folder back to knowledge-gaps. Related: [[project-knowledge-gaps-feature]].
