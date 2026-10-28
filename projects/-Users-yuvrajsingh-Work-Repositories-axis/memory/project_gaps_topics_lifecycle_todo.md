@@ -5,10 +5,13 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-28T16:52:06.223Z
+  modified: 2026-10-28T18:03:57.040Z
 ---
 
 STATUS 2026-10-28: steps 1-6 DONE in 1fda301af (#1845 and #1863 both merged; master merged into #1810). Still to do: step 7, the runtime check, which needs the dev stack restarted after that commit. Then tell JJ to re-enable the "Gaps" option.
+
+REMINDER for the user: when #1810 merges, remind them to send JJ this message:
+"Gaps now listens for topic.subtopic_archived, subtopic_restored, subtopics_merged and subtopic_deleted (in #1810, now on master). It archives or reopens the ticked gaps on stop and restore, moves them to the target on a merge, and archives them for good on delete. So the "Gaps" option in the selection bar and merge dialog can come back."
 
 Recorded 2026-10-28. The user asked me to remember this through compactions; they will tell me when JJ's PR merges. Fixes go on #1810 (ys/feat/screenshot-agent); the user wants no extra PRs.
 

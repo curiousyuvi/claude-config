@@ -124,7 +124,7 @@
 - [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
 - [Local react-doctor MUST use @latest](project_react_doctor_version.md)
 - [Knowledge gaps + screenshot agent (ACTIVE)](project_knowledge_gaps_feature.md) — plan in repo-root KNOWLEDGE-GAPS-PLAN.md; me=gaps+screenshots, JJ=topics, GitHub deferred
-- [Gaps TODO when JJ's #1845/#1863 merge](project_gaps_topics_lifecycle_todo.md) — subscribe 4 topic lifecycle events, fix merged()/deleted(), queue filter, adapter conflict; user will say when merged
+- [Gaps x Topics lifecycle: built in 1fda301af](project_gaps_topics_lifecycle_todo.md) — runtime check pending; REMIND user to message JJ (text inside) once #1810 merges
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
 - [Plain-words explainer in ~/Downloads](project_knowledge_gaps_explainer_doc.md) — update knowledge-gaps-explained.md on every feature change
 - [Notion results came back as `<<ccr:>>`](reference_notion_fetch_headroom_workaround.md) — Headroom compressed them; fixed by protect_tool_results in ~/.headroom/settings.json, needs a proxy restart
