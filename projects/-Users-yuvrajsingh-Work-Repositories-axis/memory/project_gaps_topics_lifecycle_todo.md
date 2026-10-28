@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-28T13:20:49.154Z
+  modified: 2026-10-28T14:05:59.220Z
 ---
 
 Recorded 2026-10-28. The user asked me to remember this through compactions; they will tell me when JJ's PR merges. Fixes go on #1810 (ys/feat/screenshot-agent); the user wants no extra PRs.
@@ -26,6 +26,10 @@ To build when #1845 + #1863 are on master:
 4. **Decide:** `subtopicIdsForTopic` (TableGapTopicsAdapter) includes deleted and merged-away subtopics, so the topic-scoped gaps queue shows gaps left on them. Probably filter `deleted_at IS NULL`.
 5. **Merge conflict in table-gap-topics.adapter.ts:** keep both sides, `state: stateOf(row)` from JJ's PR and `archivedAt: stoppedAt(row.archived_at, row.topic_archived_at)` from ours.
 6. **SubtopicDeletedEvent:** I asked JJ in review to export it from the topic-insights barrel. If he hasn't, do it.
+   - Update 28 Oct: JJ exported it in 31f550077; I approved #1863.
+   - Also in 31f550077, a heads-up for us: Topic and Subtopic now have a default ORM filter, `excludeDeleted`, so ORM reads skip deleted rows. Pass `filters: { excludeDeleted: false }` when gaps needs a deleted or merged row.
+   - Also: JJ hid the "Gaps" option in Topics' selection bar and merge dialog "until the gaps side subscribes". Once we subscribe, tell him so he can bring it back.
+   - `tickets.topic_id` now goes stale after a move. Gaps only reads `subtopics.topic_id`, so nothing changes for us.
 7. **Afterwards:** re-run eval case TOP-09 (harness ~/Downloads/gaps-e2e, output ~/Downloads/gaps-e2e-rerun), plus merge/delete variants. Mark BUG-07 fixed in ~/Downloads/gaps-e2e-rerun/SUMMARY.md.
 
 **Why:** the user called all of these important.
