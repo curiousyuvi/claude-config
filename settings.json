@@ -126,7 +126,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "claude-fable-5-1[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -358,6 +358,7 @@
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "autoCompactEnabled": false,
+  "switchModelsOnFlag": false,
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
   "autoMode": {
@@ -393,6 +394,5 @@
       "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
     ]
   },
-  "voiceEnabled": true,
-  "switchModelsOnFlag": false
+  "voiceEnabled": true
 }
