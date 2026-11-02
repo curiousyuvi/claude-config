@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-11-02T13:03:27.917Z
+  modified: 2026-11-02T15:32:04.603Z
 ---
 
 STATUS 2026-10-30: all steps done and runtime-checked in evals 4 and 5. JJ approved #1810 on 2026-10-30.
@@ -14,6 +14,8 @@ FOLLOW-UPS AGREED WITH JJ, after #1810 merges:
 - A stopped subtopic leaves a published fix measuring "after" = 0, so it reads as holding. 5f7fb6d18 covered merge and delete but not stop, because `reconcile()` only touches queued gaps. Pick one with JJ: unmeasure on stop and remeasure on restore, or keep measuring and show "not measured".
 - Topics "Needs fix" for quiet subtopics (eval IMP-15) was reverted from #1810 in b81ead58a. It's JJ's call on the Topics side.
 - `table-gap-topics.adapter.ts` still reads Topics tables directly. Switch it to a Topics read once the barrel exports subtopic state.
+
+MERGED 2026-11-02 20:58 IST as 1abffa875. JJ reminder delivered to user that day. Prod flag is KNOWLEDGE_GAPS_ENABLED (Railway var, not in .env.production).
 
 STATUS 2026-11-02: Konrad approved #1810 at 44d765922 (head now 2e4d7f4cb). JJ approved. Jared (Precog) still shows changes requested; all answered, user to re-request.
 
