@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-10-30T13:57:16.080Z
+  modified: 2026-11-02T13:03:27.917Z
 ---
 
 STATUS 2026-10-30: all steps done and runtime-checked in evals 4 and 5. JJ approved #1810 on 2026-10-30.
@@ -14,6 +14,18 @@ FOLLOW-UPS AGREED WITH JJ, after #1810 merges:
 - A stopped subtopic leaves a published fix measuring "after" = 0, so it reads as holding. 5f7fb6d18 covered merge and delete but not stop, because `reconcile()` only touches queued gaps. Pick one with JJ: unmeasure on stop and remeasure on restore, or keep measuring and show "not measured".
 - Topics "Needs fix" for quiet subtopics (eval IMP-15) was reverted from #1810 in b81ead58a. It's JJ's call on the Topics side.
 - `table-gap-topics.adapter.ts` still reads Topics tables directly. Switch it to a Topics read once the barrel exports subtopic state.
+
+STATUS 2026-11-02: Konrad approved #1810 at 44d765922 (head now 2e4d7f4cb). JJ approved. Jared (Precog) still shows changes requested; all answered, user to re-request.
+
+FOLLOW-UPS AGREED WITH KONRAD (one later PR):
+- Split CaptureAgentRun: CaptureBook / RecipeTrail, shared capture-agent.types.ts, drop the tools() cast, a blockedSince counter instead of watching blockedRequests.length, worker RPC into worker-socket-guard.ts.
+- Split ArticleScreenshotsService.run at shootAndCompare: removes docs[0] / no-op planner, dead RetakeOutcome.change, NO_APP <-> null round trip; CaptureReport as a ran/not-ran union.
+- Move placement (ArticleService.create with after-placement), the live-collection read and collection-chain translation into KB.
+- PATCH route for app-access switches + memory (drop savedFields).
+- Fold gap-holding.service.ts "after" count into unansweredIn.
+- Worker WebSocket startup race (user chose option B: known limit): close by turning dedicated/service workers off in capture sessions.
+
+OPEN: local dev DB has 19 gaps with old-format screenshot_report (pre-codes), which now crash the web note. User hasn't answered whether to null them.
 
 REMINDER for the user: when #1810 merges, remind them to send JJ this message:
 "Gaps now listens for topic.subtopic_archived, subtopic_restored, subtopics_merged and subtopic_deleted (in #1810, now on master). It archives or reopens the ticked gaps on stop and restore, moves them to the target on a merge, and archives them for good on delete. So the "Gaps" option in the selection bar and merge dialog can come back."
