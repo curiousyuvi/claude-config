@@ -1,0 +1,1 @@
+- [Multi-platform status](multi-platform-status.md) — which platforms the agent covers, account states, known limits
