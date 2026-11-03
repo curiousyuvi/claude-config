@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-11-02T15:32:04.603Z
+  modified: 2026-11-03T13:37:17.055Z
 ---
 
 STATUS 2026-10-30: all steps done and runtime-checked in evals 4 and 5. JJ approved #1810 on 2026-10-30.
@@ -15,6 +15,7 @@ FOLLOW-UPS AGREED WITH JJ, after #1810 merges:
 - Topics "Needs fix" for quiet subtopics (eval IMP-15) was reverted from #1810 in b81ead58a. It's JJ's call on the Topics side.
 - `table-gap-topics.adapter.ts` still reads Topics tables directly. Switch it to a Topics read once the barrel exports subtopic state.
 
+2026-11-03: KNOWLEDGE_GAPS_ENABLED set on BOTH prod Railway services (api AND workers; workers runs the queue, it was missing). First InstantDocs run: 4 candidates, 2 gaps. PR #1935 (ys/feat/gaps-manual-run) adds `knowledge-gaps:run -- --org-name X --days N [--max-subtopics] [--max-drafts]` + expiry now greatest(last_hit_at, created_at); needs deploy before use. Posted CHANGES_REQUESTED review on JJ's #1933 (dead arming code, team plumbing, dispatcher email bypass). Trigger a nightly by hand: update knowledge_gap_settings set next_run_at=now() via op run psql (user runs).
 MERGED 2026-11-02 20:58 IST as 1abffa875. JJ reminder delivered to user that day. Prod flag is KNOWLEDGE_GAPS_ENABLED (Railway var, not in .env.production).
 
 STATUS 2026-11-02: Konrad approved #1810 at 44d765922 (head now 2e4d7f4cb). JJ approved. Jared (Precog) still shows changes requested; all answered, user to re-request.
