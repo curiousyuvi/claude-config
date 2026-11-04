@@ -28,3 +28,5 @@ the search/AI steps be<concealed by 1Password> are what repairs them
 
 Not reproducible locally when `op` isn't signed in (the script runs without `op run` at all — see
 [[project-run-app-context-bin-without-op]]).
+
+**Also psql JSON (2026-11-04):** a prod export through `op run ... psql` came back with every JSON `true` as `<concealed by 1Password>` (bare, so the JSON no longer parses), `1` masked in `1.5`, and `low` masked inside "followed"/"dofollow". Repair before `jq`: `sed -E 's/: <concealed by 1Password>/: true/g'`, then fix `: true5`-style numbers back to `1.5`. Masks inside strings stay valid JSON.

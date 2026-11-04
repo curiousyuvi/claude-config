@@ -124,6 +124,7 @@
 - [React Doctor CI headline = whole-app baseline](project_react_doctor_ci_baseline_score.md) — the gate is the diff scan
 - [Local react-doctor MUST use @latest](project_react_doctor_version.md)
 - [Knowledge gaps + screenshot agent (ACTIVE)](project_knowledge_gaps_feature.md) — plan in repo-root KNOWLEDGE-GAPS-PLAN.md; me=gaps+screenshots, JJ=topics, GitHub deferred
+- [Screenshot agent stuck runs: causes, PR #1954, local A/B recipe](project_capture_agent_stuck_runs.md) — count chat spans in SigNoz traces; E2E orgs locally hit the real InstantDocs app
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
 - [GitHub integration plan (next)](project_github_integration_plan.md) — no long-lived repo copies; Albato token ask; PDF via PK
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
