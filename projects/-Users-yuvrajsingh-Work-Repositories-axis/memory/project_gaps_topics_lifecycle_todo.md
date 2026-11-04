@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 5297b585-30e3-414e-8e5f-0ed29a5a3fce
-  modified: 2026-11-04T14:52:32.456Z
+  modified: 2026-11-04T17:45:05.195Z
 ---
 
 STATUS 2026-10-30: all steps done and runtime-checked in evals 4 and 5. JJ approved #1810 on 2026-10-30.
@@ -31,7 +31,7 @@ FOLLOW-UPS AGREED WITH KONRAD (one later PR):
 - Fold gap-holding.service.ts "after" count into unansweredIn.
 - Worker WebSocket startup race (user chose option B: known limit): close by turning dedicated/service workers off in capture sessions.
 
-OPEN: local dev DB has 19 gaps with old-format screenshot_report (pre-codes), which now crash the web note. User hasn't answered whether to null them.
+DONE 2026-11-04: nulled the 8 remaining local gaps whose screenshot_report used pre-code reason strings (they crashed the web note with "REASON_TEXT[reason] is not a function"). Prod reports all use codes.
 
 REMINDER for the user: when #1810 merges, remind them to send JJ this message:
 "Gaps now listens for topic.subtopic_archived, subtopic_restored, subtopics_merged and subtopic_deleted (in #1810, now on master). It archives or reopens the ticked gaps on stop and restore, moves them to the target on a merge, and archives them for good on delete. So the "Gaps" option in the selection bar and merge dialog can come back."
