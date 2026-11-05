@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-05T15:50:48.625Z
+  modified: 2026-11-05T16:31:21.402Z
 ---
 
 Context: after #1962/#1965 merged, a deep study of 16 prod capture runs (InstantDocs + Helply, SigNoz logs `body CONTAINS 'capture run (gap_fix) ended'`) found:
@@ -21,5 +21,7 @@ USER DECISIONS: write freedom default = "reversible changes" (per-connection set
 
 PLAN (order agreed): 1) explore-before-write: agent walks the relevant app area first, builds a UI map (screens, controls, real labels, paths) in app memory; drafter writes against it; capture mostly replays found paths; map compounds across gaps. 2) repeat guard: refuse same action from same screen fingerprint (describePageElements) until a record/skip resets; covers loops/cycles/repeat failures. 3) perception layers: CDP accessibility tree names/roles/states; layout-based context naming (same row text, column header, legend, row of an icon); set-of-marks numbers drawn on screenshot; one cheap vision call per screen to name leftovers, cached in app memory; multi-signal ElementRef (role, own name, context name, icon, anchor-relative position) matched by score, replacing "every step named"; coordinate fallback for canvas. 4) write freedom: agent declares write-capable actions (kind + undo plan); constructive/low-stakes allowed no undo; critical-reversible allowed but journaled and must be undone before run ends; irreversible-critical skipped; hard code lines (DELETE unless undoing own, payments/checkout confirm, external sends). 5) revise-after-capture: per-step observations (real label, path, extra steps, unsupported/plan-gated) feed a revision pass on the draft; reviewer sees diff.
 Eval: fixed set of real gaps (InstantDocs 6, Helply 3 via local org) measuring pictures/needed, turns, cost per gap.
+
+REVISED after code check (2026-11-05 22:00 IST, user said "lets start"): drafter (gap-draft.service fixFor) gets NO app knowledge today; app memory = connection.routes (crawl 15 pages, 150 max, 30d) + gotchas, only capture agent reads it. Order now: PR1 repeat guard (branch ys/feat/capture-repeat-guard: CaptureAgentRun.repeated(), screen = describePageElements, 3rd identical step/go_to from same screen refused, wait exempt, resets when an intent resolves; test + wiki done, NOT committed). PR2 survey job between gap creation and draft (cheap "needs app UI?" gate; survey agent writes field notes: labels, paths, empty, gated, blocked-write, NOT FOUND; recipes for reached states; notes on gap jsonb; draft from notes; failure falls back to text-only; survey+shots = one cap charge per gap). PR3 capture replays survey recipes; routes gain landmarks + recipes for non-URL states (compounding, no new store). Then perception, write freedom, revise-after-capture.
 
 Next step after compaction: produce the broader human-like-agent plan (user asked), then build in phases. Related: [[capture-agent-stuck-runs]], [[project-knowledge-gaps-feature]].
