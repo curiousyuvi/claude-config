@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-06T15:23:52.615Z
+  modified: 2026-11-06T16:43:16.788Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -25,6 +25,19 @@ A Mac restart (2026-11-06 ~19:19 IST) wiped /private/tmp: the scratchpad scripts
 Round 2 (2026-11-06, 18:16 IST) findings, not fixed yet: (1) the access block misses tRPC/REST JSON bodies, and the agent saved a password on the live test KB acme.instantdocsbase.com (kb/updateKBWebSharing) plus SEO; user told to turn it off; (2) reversible allows writes to other sites (Stripe checkout init seen); (3) the app's own background writes count as agent changes, 8 of 29 mark_screen refused; (4) an empty editor line is unnamed, so the agent can't type into a new doc (numbered list); (5) a drifting screen fingerprint defeats the repeat guard (20 alternating clicks); (6) cross-origin iframes (support widgets) aren't listed; (7) the "Send" label block conflicts with the playground-chat prompt; (8) shots taken before async content renders (blank Chats list, blank sidebar); (9) planner pictures "absence" statements and disabled Save buttons. Firecrawl 429 (100 concurrent jobs, account-wide) also seen.
 
 2026-11-06 evening, uncommitted on #1980's branch (origin/master merged locally): user rejected word lists for safety ("strings that in many contexts are harmless"), so (1)(2)(3)(7) were replaced by a write judge. `decideRequest` keeps a floor: reads, sign-in, prefixes, no DELETE, no other site; else CHECK, then `WriteGate` (application/browser/write-gate.ts). Idle writes (>5 s after an action) are housekeeping. Writes an action caused go to a model judge (domain/write-check.prompt.ts, subfeature `guard`), cached per write shape plus onSample; bookkeeping verdicts are learned. Only label check left: `endsSession` (sign-out GET). Still to do: (4) (5) (6) (8) (9). Other word-matching found but NOT changed: `pressedStepKey` parses "press X" from step text (capture-recipe.ts); app-sign-in.ts finds sign-in buttons, paths and fields by English words.
+
+STATE 2026-11-06 ~22:40 IST (resume here). On ys/fix/capture-survey-followups, ALL uncommitted, with origin/master merged locally (two merge commits, not pushed). Done and green locally (306 app-capture + telemetry tests, typecheck, lint):
+- Write judge: capture-safety.ts floor returns CHECK; application/browser/write-gate.ts holds the verdicts and refusals; domain/write-check.prompt.ts; subfeature `guard`; deps.checkWrite in capture-model.service agentDeps.
+- `endsSession` sign-out check is the only label check left.
+- Fixes for items 4-7 and 9:
+  - 'empty text area' fallback label in page-elements labelOf;
+  - repeat guard keys on path plus role/name of each control, element by name (`repeated(tool, args)`);
+  - `CaptureSession.networkQuiet` before shots, plus `networkMoved` listeners in open();
+  - child frames listed after the page's (`PageElement.frame`, `ReadPageOptions.firstIndex`, `elementLocator` by frame url, first frame per url);
+  - planner prompt skips absence statements and contact-support steps, and never targets Save on review steps.
+- Wiki updated. A thermo-nuclear review was done and its fixes applied.
+
+PENDING: (a) the user restarts the server with `pnpm dev 2>&1 | tee ~/Work/kg-eval/dev.log` (after `op` sign-in); (b) run `~/Work/kg-eval/eval-round.sh r3` (lean-ctx allow may be needed); (c) deep-analyse round 3: logs, actions, hints, screenshots viewed (render via a Pillow script like the old render_shots.py: download img.url into a raw folder, then view the PNGs); (d) then commit and push to #1980 when the user is satisfied. Also pending: the user's answer on replacing pressedStepKey with the validator. Separately: PR #1994 (kb natural size not an edit) MERGED; after deploy, run `kb:recompute-unpublished-changes -- --apply` on prod; the user must turn off the password protection the agent set on acme.instantdocsbase.com.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
 
