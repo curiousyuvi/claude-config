@@ -115,6 +115,17 @@ Because this one keeps slipping, it is also enforced by the harness:
 comment into a code or config file. When that reminder appears, act on it before
 submitting the edit. Do not disable it.
 
+## "Close this PR and open a fresh one" means no link between them
+
+When I ask to close a PR and recreate it on a fresh branch, the two must not
+reference each other anywhere. No "Replaces #N" or "Replaced by #N" in either
+PR's description, comments, commit message, or close comment. Close the old one
+with no comment at all.
+
+Any `#N` mention creates a "mentioned this pull request" event that GitHub keeps
+even after the comment is deleted, and closed PRs can't be deleted. Once it's
+there, it can't be undone.
+
 ## PR comments, review replies, and issue replies
 
 Answer the substance and stop. These are working notes between engineers, not
