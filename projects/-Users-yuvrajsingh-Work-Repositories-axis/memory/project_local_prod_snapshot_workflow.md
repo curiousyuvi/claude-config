@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-06T13:43:08.740Z
+  modified: 2026-11-06T14:48:18.366Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -23,6 +23,8 @@ Helply sign-in: legacy Helply has invisible reCAPTCHA v3 (score-based), so live 
 Eval harness: scratchpad eval-round.sh <label> [title regex] saves, clears and re-queues the gaps. It also clears finished kg-survey-* jobs (same job id or the re-ask is dropped) and the per-day cap key app_capture:runs:day:<org>:<date>. The server must run as `pnpm dev 2>&1 | tee <scratchpad>/dev.log` so the logs can be read. Finished picture = img.url (already cropped and framed); edit.sourceUrl plus crop/elements (percent of source height, origin = centre) are only for re-editing.
 
 Round 2 (2026-11-06, 18:16 IST) findings, not fixed yet: (1) the access block misses tRPC/REST JSON bodies, and the agent saved a password on the live test KB acme.instantdocsbase.com (kb/updateKBWebSharing) plus SEO; user told to turn it off; (2) reversible allows writes to other sites (Stripe checkout init seen); (3) the app's own background writes count as agent changes, 8 of 29 mark_screen refused; (4) an empty editor line is unnamed, so the agent can't type into a new doc (numbered list); (5) a drifting screen fingerprint defeats the repeat guard (20 alternating clicks); (6) cross-origin iframes (support widgets) aren't listed; (7) the "Send" label block conflicts with the playground-chat prompt; (8) shots taken before async content renders (blank Chats list, blank sidebar); (9) planner pictures "absence" statements and disabled Save buttons. Firecrawl 429 (100 concurrent jobs, account-wide) also seen.
+
+2026-11-06 evening, uncommitted on #1980's branch (origin/master merged locally): user rejected word lists for safety ("strings that in many contexts are harmless"), so (1)(2)(3)(7) were replaced by a write judge. `decideRequest` keeps a floor: reads, sign-in, prefixes, no DELETE, no other site; else CHECK, then `WriteGate` (application/browser/write-gate.ts). Idle writes (>5 s after an action) are housekeeping. Writes an action caused go to a model judge (domain/write-check.prompt.ts, subfeature `guard`), cached per write shape plus onSample; bookkeeping verdicts are learned. Only label check left: `endsSession` (sign-out GET). Still to do: (4) (5) (6) (8) (9). Other word-matching found but NOT changed: `pressedStepKey` parses "press X" from step text (capture-recipe.ts); app-sign-in.ts finds sign-in buttons, paths and fields by English words.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
 
