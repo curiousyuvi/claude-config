@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-06T14:48:18.366Z
+  modified: 2026-11-06T15:23:52.615Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -20,7 +20,7 @@ Local ids: InstantDocs 019f84ef-f398-7939-88ba-63d1c28cd07a, Helply 019f84f0-1be
 
 Helply sign-in: legacy Helply has invisible reCAPTCHA v3 (score-based), so live sign-in from a Firecrawl browser fails at random ("Verification failed"). Cindy will exempt yuvraj+screenshotagent@groovehq.com on Mon 2026-11-09. Customers with reCAPTCHA will hit this too, so look into Firecrawl stealth/proxy options. The local Helply connection is on profile generation 9 after the user's successful local sign-in.
 
-Eval harness: scratchpad eval-round.sh <label> [title regex] saves, clears and re-queues the gaps. It also clears finished kg-survey-* jobs (same job id or the re-ask is dropped) and the per-day cap key app_capture:runs:day:<org>:<date>. The server must run as `pnpm dev 2>&1 | tee <scratchpad>/dev.log` so the logs can be read. Finished picture = img.url (already cropped and framed); edit.sourceUrl plus crop/elements (percent of source height, origin = centre) are only for re-editing.
+A Mac restart (2026-11-06 ~19:19 IST) wiped /private/tmp: the scratchpad scripts, the snapshot CSVs and dev.log were lost. The DB, Redis and Qdrant (Docker volumes) survived. Eval scripts now live in ~/Work/kg-eval/ (eval-round.sh), and the server log goes to ~/Work/kg-eval/dev.log. Eval harness: eval-round.sh <label> [title regex] saves, clears and re-queues the gaps. It also clears finished kg-survey-* jobs (same job id or the re-ask is dropped) and the per-day cap key app_capture:runs:day:<org>:<date>. The server must run as `pnpm dev 2>&1 | tee <scratchpad>/dev.log` so the logs can be read. Finished picture = img.url (already cropped and framed); edit.sourceUrl plus crop/elements (percent of source height, origin = centre) are only for re-editing.
 
 Round 2 (2026-11-06, 18:16 IST) findings, not fixed yet: (1) the access block misses tRPC/REST JSON bodies, and the agent saved a password on the live test KB acme.instantdocsbase.com (kb/updateKBWebSharing) plus SEO; user told to turn it off; (2) reversible allows writes to other sites (Stripe checkout init seen); (3) the app's own background writes count as agent changes, 8 of 29 mark_screen refused; (4) an empty editor line is unnamed, so the agent can't type into a new doc (numbered list); (5) a drifting screen fingerprint defeats the repeat guard (20 alternating clicks); (6) cross-origin iframes (support widgets) aren't listed; (7) the "Send" label block conflicts with the playground-chat prompt; (8) shots taken before async content renders (blank Chats list, blank sidebar); (9) planner pictures "absence" statements and disabled Save buttons. Firecrawl 429 (100 concurrent jobs, account-wide) also seen.
 
