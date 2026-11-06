@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-06T16:43:16.788Z
+  modified: 2026-11-06T21:53:01.051Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -38,6 +38,14 @@ STATE 2026-11-06 ~22:40 IST (resume here). On ys/fix/capture-survey-followups, A
 - Wiki updated. A thermo-nuclear review was done and its fixes applied.
 
 PENDING: (a) the user restarts the server with `pnpm dev 2>&1 | tee ~/Work/kg-eval/dev.log` (after `op` sign-in); (b) run `~/Work/kg-eval/eval-round.sh r3` (lean-ctx allow may be needed); (c) deep-analyse round 3: logs, actions, hints, screenshots viewed (render via a Pillow script like the old render_shots.py: download img.url into a raw folder, then view the PNGs); (d) then commit and push to #1980 when the user is satisfied. Also pending: the user's answer on replacing pressedStepKey with the validator. Separately: PR #1994 (kb natural size not an edit) MERGED; after deploy, run `kb:recompute-unpublished-changes -- --apply` on prod; the user must turn off the password protection the agent set on acme.instantdocsbase.com.
+
+ROUND 3 (2026-11-06 22:52-23:47 IST, all 17 gaps): 23 pictures added (r2 22, prod 25). Safety held: the only write was one playground chat; no access writes. Chats 1 to 5 pictures. Editor gaps (numbered list, HTML blocks) still 0. Overnight probes r3b..r3l (user asleep, said keep going) on those two gaps found and fixed, uncommitted:
+- the judge prompt blocked untitled new items (now: creating a new item is allowed) and editing-lock housekeeping on customer pages (now allowed on any page);
+- SampleEdits rewritten: Firecrawl's remote browser gives NO response body for guarded requests (`Network.getResponseBody: No data found`), so a sample = a page the app moved to within 30 s of a POST change sent from another page (or whose id the request carried) that no earlier listing link or app memory pointed to; `CaptureSession.sentFrom` keeps {page, at};
+- CUSTOMER_TEXT now tells the agent to create a new sample; an ON_SAMPLE line is appended to the page description on a sample;
+- logs: `was refused N writes: reasons`, `blocked N requests: kinds`, and an action outcome of `+blocked`;
+- pointerTip puts the ring at the start of an empty editor line.
+Other round 3 findings, not fixed: a stale dropdown left open in a picture (4-10, 3-4), the downloads toast is transient, and the export wizard needs OAuth (should skip sooner). Analysis tooling: ~/Work/kg-eval/shots.mjs (needs NODE_EXTRA_CA_CERTS=$HOME/.portless/ca.pem), trace.mjs and subfeatures.mjs (local Jaeger :16686). eval-round.sh labels r3b..r3l are saved in kg_eval_runs.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
 
