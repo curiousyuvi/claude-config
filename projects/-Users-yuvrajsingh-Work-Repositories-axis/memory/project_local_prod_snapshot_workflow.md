@@ -1,0 +1,23 @@
+---
+name: local-prod-snapshot-workflow
+description: "Helply + InstantDocs prod workspaces copied into the local DB (2026-11-06) so the screenshot agent and gaps are tested locally, then shipped in one PR"
+metadata:
+  node_type: memory
+  type: project
+  originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
+  modified: 2026-11-06T10:03:33.435Z
+---
+
+User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
+
+How the copy was made, with no PR and no deploy:
+- Export: user runs a read-only psql file in their own terminal: `cd apps/backend && op run --env-file=.env.production -- sh -c 'PGPASSWORD="$DB_PASSWORD" psql "host=$DB_HOST port=$DB_PORT user=$DB_USER dbname=$DB_NAME sslmode=prefer" -X -q -f <export.sql>'`. It picks the orgs that have an app_capture_connections row (prod: exactly InstantDocs + Helply; the names don't match exactly by `name in (...)`). One repeatable-read read-only transaction. Every table with org_id, plus organizations, ba_organizations, ba_members and ba_users, written to CSV. Skips scheduled_messages, slack_workspace_settings, %backup% tables and all credential tables.
+- Import: a bash script stages each CSV as text in schema `snap`, fakes emails and phones (@snapshot.test), deletes those orgs' local rows, inserts only the columns the local table has (`on conflict do nothing`) under session_replication_role=replica, and prints staged/inserted counts. outbox_events fails on partitions, which is wanted (don't replay old events).
+- Then: local migrations via `MIKRO_ORM_MIGRATIONS_SNAPSHOT=false node --env-file=.env.local --import @swc-node/register/esm-register ./node_modules/@mikro-orm/cli/cli.js migration:up` (the pnpm scripts use op). db-objects and `bin/search-reindex.ts --org-id=<id>` run the same way.
+- The scripts lived in session f52b7cfa's scratchpad (snapshot-export.sql, snapshot-import.sh, hash-password.mjs). Re-create them if that's gone.
+
+Local ids: InstantDocs 019f84ef-f398-7939-88ba-63d1c28cd07a, Helply 019f84f0-1be2-70fb-8ce4-d7951d764b93. Login: yuvraj@snapshot.test / password (the imported Yuvraj user, admin in both; hash made with better-auth/crypto hashPassword).
+
+**Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
+
+**How to apply:** local app connections use profile_generation +1000, so they never share prod's Firecrawl browser profile. Their saved password and TOTP were cleared, so sign-in is redone in the local UI. The target apps are test workspaces, per the user, so writes there are accepted. Related: [[capture-agent-smarter-plan]], [[project-knowledge-gaps-feature]].
