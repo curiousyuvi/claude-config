@@ -21,6 +21,7 @@
 - [Never attribute AI as author anywhere](feedback_no_claude_author.md)
 - [Always run prose through the humanizer skill](feedback_always_use_humanizer_skill.md) — PRs, reviews, docs, PDFs; draft then humanize
 - [Never commit/push/merge without explicit permission](feedback_no_git_writes_without_permission.md) — finish + run checks, then stop
+- [Never force-resolve CodeRabbit](feedback_no_coderabbit_force_resolve.md) — read every review incl. outside-diff section, fix, then `@coderabbitai review`
 - [Never visually verify UI myself](feedback_no_visual_verification.md) — user does the looking; measuring via headless browser is fine
 - [Minimum comments in code, usually zero](feedback_minimal_comments.md)
 - [Comment budget is hook-enforced](feedback_comment_budget_hook.md) — PreToolUse guard re-injects the rule
