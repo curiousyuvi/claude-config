@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-06T10:03:33.435Z
+  modified: 2026-11-06T11:00:52.009Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -17,6 +17,8 @@ How the copy was made, with no PR and no deploy:
 - The scripts lived in session f52b7cfa's scratchpad (snapshot-export.sql, snapshot-import.sh, hash-password.mjs). Re-create them if that's gone.
 
 Local ids: InstantDocs 019f84ef-f398-7939-88ba-63d1c28cd07a, Helply 019f84f0-1be2-70fb-8ce4-d7951d764b93. Login: yuvraj@snapshot.test / password (the imported Yuvraj user, admin in both; hash made with better-auth/crypto hashPassword).
+
+Helply sign-in: legacy Helply has invisible reCAPTCHA v3 (score-based), so live sign-in from a Firecrawl browser fails at random ("Verification failed"). Cindy will exempt yuvraj+screenshotagent@groovehq.com on Mon 2026-11-09. Customers with reCAPTCHA will hit this too, so look into Firecrawl stealth/proxy options. The local Helply connection is on profile generation 9 after the user's successful local sign-in.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
 
