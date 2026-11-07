@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-07T01:08:01.255Z
+  modified: 2026-11-07T09:24:46.657Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -50,6 +50,7 @@ Later that night (to 06:10 IST 2026-11-07), also uncommitted:
 - runs remember the samples they made (CaptureRun.samples becomes known screens with sample:true, named "Sample <title> made for an article"), and the known-screens list marks "(sample)";
 - validator prompt: fail a menu left open, and fail a box on the step's result ("Select Export. The wizard opens").
 Round r4 (all 17, 03:45-04:42): 23 pictures (HTML blocks 3, export 4, downloads 1; numbered list 0 that run, 2 in r3l/r4b). r5 was queued 05:08, but OrbStack hung about 05:42 (docker ps hangs, Redis not answering), so r5 never ran. Unit tests hang while Docker is down; the last edit (the "(sample)" marker) passed typecheck and lint but not tests. Next: the user restarts OrbStack, then rerun tests and `eval-round.sh r5`.
+2026-11-07 afternoon: round r5b (all 17 gaps, 13:57-14:50 IST) gave 21 pictures; the validator's open-menu rule held; export found the real KB export dialog (4). After that, mergeScreens dedupes by path (startUrl plus steps without boxes) as well as by name, because the 60-screen memory was full of near-duplicates. Eval gotchas: reusing an eval label dedupes the draft jobs (use a new label); force-killed servers leak BullMQ Pro group slots (fix: `hdel bull:knowledge_gaps:groups:active:count <org>`, `zrem ...:groups:max <org>`); eval-round's `del` of queued survey hashes leaves orphan ids; overnight nightly_due backlog clogs the groups.
 Other round 3 findings, not fixed: a stale dropdown left open in a picture (4-10, 3-4), the downloads toast is transient, and the export wizard needs OAuth (should skip sooner). Analysis tooling: ~/Work/kg-eval/shots.mjs (needs NODE_EXTRA_CA_CERTS=$HOME/.portless/ca.pem), trace.mjs and subfeatures.mjs (local Jaeger :16686). eval-round.sh labels r3b..r3l are saved in kg_eval_runs.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
