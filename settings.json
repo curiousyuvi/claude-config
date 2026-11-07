@@ -109,16 +109,6 @@
             "statusMessage": "Enriching with GitNexus graph context..."
           }
         ]
-      },
-      {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"/Users/yuvrajsingh/.claude/hooks/comment-budget-guard.cjs\"",
-            "timeout": 5
-          }
-        ]
       }
     ],
     "Stop": [
