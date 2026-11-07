@@ -24,4 +24,4 @@ Production SigNoz: https://signoz-signoz-production-420d.up.railway.app (Railway
 
 **Metric name facts:** CloudWatch series arrive verbatim as `amazonaws.com/AWS/Lambda/Errors` etc. and `amazonaws.com/AWS/Usage/CallCount` (all Gauge). OTel histograms are stored split: `axis.recorder.snapshot.render_ms.{bucket,count,sum,max,min}`.
 
-Scripts from 2026-09-30 in the session scratchpad: `signoz-query.sh <minutes>` (names + series summary). The lean-ctx shell guard blocks inline `$(date …)`; put such logic in a script file.
+Scripts from 2026-09-30 in the session scratchpad: `signoz-query.sh <minutes>` (names + series summary).

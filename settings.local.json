@@ -74,19 +74,5 @@
       "Bash(pnpm exec *)",
       "Bash(pnpm build *)"
     ]
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "startup|resume",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/yuvrajsingh/.local/bin/headroom wrap selfheal --marker headroom-wrap-selfheal",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
   }
 }

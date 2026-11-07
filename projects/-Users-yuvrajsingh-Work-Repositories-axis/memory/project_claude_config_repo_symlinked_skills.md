@@ -15,7 +15,7 @@ full-output-enforcement, high-end-visual-design, image-to-code,
 imagegen-frontend-{web,mobile}, industrial-brutalist-ui, minimalist-ui,
 redesign-existing-projects, stitch-design-taste). Git stores the link, not the
 target, so those skills are **not actually backed up** by that repo. Only the
-real directories are: copywriting, lean-ctx, gitnexus-*,
+real directories are: copywriting, gitnexus-*,
 thermo-nuclear-code-quality-review.
 
 **Why:** `~/.agents/` is outside the repo root, so no gitignore whitelist can

@@ -132,6 +132,5 @@
 - [GitHub integration plan (next)](project_github_integration_plan.md) — no long-lived repo copies; Albato token ask; PDF via PK
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
 - [Plain-words explainer in ~/Downloads](project_knowledge_gaps_explainer_doc.md) — update knowledge-gaps-explained.md on every feature change
-- [Notion results came back as `<<ccr:>>`](reference_notion_fetch_headroom_workaround.md) — Headroom compressed them; fixed by protect_tool_results in ~/.headroom/settings.json, needs a proxy restart
 - [Track JJ's Topics merges on master](feedback_track_jj_topics_merges.md) — fetch + merge master into ys/feat/knowledge-gaps before each work block/commit
 - [Demo app is the UI north star for gaps](feedback_demo_app_is_ui_north_star.md) — match helply-prototype components/gaps exactly until Tirth sends Figma

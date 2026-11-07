@@ -16,4 +16,4 @@ Headline findings: capture via demo login is strong (dark mode, hover menus, err
 
 **Why:** Tirth asked for a deep dive; future sessions may extend the test and should reuse the driver (`scripts/lib.mjs`, `send-task.mjs`, `poll-task.mjs`, `50-fd-task-review.mjs`, `63-dump.mjs`) rather than rebuild it.
 
-**How to apply:** Run steps with `node scripts/<step>.mjs` from `~/ferndesk-eval`; use `PROFILE=profile2` or `profile3` for concurrent browsers (poll-task.mjs honours PROFILE). Task output images: open each artifact chip on the task page, not just the first. Kill local test servers by port (`lsof -ti:PORT | xargs kill`), pkill by script name misses them. Headroom hides ToolSearch in this setup, see [[headroom-toolsearch]].
+**How to apply:** Run steps with `node scripts/<step>.mjs` from `~/ferndesk-eval`; use `PROFILE=profile2` or `profile3` for concurrent browsers (poll-task.mjs honours PROFILE). Task output images: open each artifact chip on the task page, not just the first. Kill local test servers by port (`lsof -ti:PORT | xargs kill`), pkill by script name misses them.
