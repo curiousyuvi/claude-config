@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-07T09:24:46.657Z
+  modified: 2026-11-07T14:29:03.547Z
 ---
 
 User decided (2026-11-06): stop testing the gaps and screenshot agent in prod with PR after PR. Test locally on a prod copy, then ship one PR once satisfied. #1980 is the branch under test. It has origin/master merged locally, not pushed.
@@ -52,6 +52,8 @@ Later that night (to 06:10 IST 2026-11-07), also uncommitted:
 Round r4 (all 17, 03:45-04:42): 23 pictures (HTML blocks 3, export 4, downloads 1; numbered list 0 that run, 2 in r3l/r4b). r5 was queued 05:08, but OrbStack hung about 05:42 (docker ps hangs, Redis not answering), so r5 never ran. Unit tests hang while Docker is down; the last edit (the "(sample)" marker) passed typecheck and lint but not tests. Next: the user restarts OrbStack, then rerun tests and `eval-round.sh r5`.
 2026-11-07 afternoon: round r5b (all 17 gaps, 13:57-14:50 IST) gave 21 pictures; the validator's open-menu rule held; export found the real KB export dialog (4). After that, mergeScreens dedupes by path (startUrl plus steps without boxes) as well as by name, because the 60-screen memory was full of near-duplicates. Eval gotchas: reusing an eval label dedupes the draft jobs (use a new label); force-killed servers leak BullMQ Pro group slots (fix: `hdel bull:knowledge_gaps:groups:active:count <org>`, `zrem ...:groups:max <org>`); eval-round's `del` of queued survey hashes leaves orphan ids; overnight nightly_due backlog clogs the groups.
 Other round 3 findings, not fixed: a stale dropdown left open in a picture (4-10, 3-4), the downloads toast is transient, and the export wizard needs OAuth (should skip sooner). Analysis tooling: ~/Work/kg-eval/shots.mjs (needs NODE_EXTRA_CA_CERTS=$HOME/.portless/ca.pem), trace.mjs and subfeatures.mjs (local Jaeger :16686). eval-round.sh labels r3b..r3l are saved in kg_eval_runs.
+
+2026-11-07 evening state (all uncommitted): r7 gave 25 pictures and r8 gave 24 (the first round with the reader's view). Since then: three too-specific rules reverted (empty-line ring position, stray-menu rejection, "pick the line not the editor"); eval-specific examples stripped from the prompts; samples are fresh per run and never remembered (KnownScreen.sample is gone); the validator gets two pictures (the screen with a red box, plus the reader crop from CaptureSession.checkViews), and a rejection retakes on the same screen; `record` takes an optional ring (small|large) stored on CaptureRecipe.ring. Thermo-nuclear review of the whole PR is done: CaptureSession.changed is one RunChange {method,url,body,from,at} list (the sentFrom WeakMap and SampleEdits.made are gone), there is a shared pointingAt overlay helper, and replayRecipe returns target. Biome, typecheck and the 315 app-capture and telemetry tests are green. NEXT: the user okays round r9 (new label), then commit and push #1980 once approved. capture-browser-socket.spec can fail under parallel load (real Chromium) but passes on its own.
 
 **Why:** prod fix-forward loops cost the user several PRs a day. Local copy, fix, eval, then one PR.
 
