@@ -22,9 +22,19 @@ This rule wins.
 Do not work around it with a substitute either: no initials, no bot emoji, no
 "pair programmed with", no signature of any kind.
 
-## Write like a person
+## Project repos: never commit, push, or merge without asking
 
-Everything listed above should read as though a developer typed it.
+In any project repository, do not commit, push, merge, or open a pull request
+unless I ask for it in that conversation. Approval for one step is not approval
+for the next. The only standing exception is my own config repo, described at
+the end of this file.
+
+## Prose other people read
+
+Commits, PR titles and descriptions, review comments, issue text, docs,
+changelogs, READMEs, design docs, RFCs, runbooks, drafted emails and Slack
+messages, and generated documents (PDF, slides, reports) must read as though a
+developer typed them.
 
 - No em dashes anywhere in prose. Use a comma, a colon, parentheses, or split
   the sentence in two.
@@ -40,50 +50,28 @@ Everything listed above should read as though a developer typed it.
 - Plain past tense for what changed and why. Say what was broken and what fixed
   it. Skip the summary of the summary.
 - Vary sentence length. Short sentences are good.
+- Length should match the change. A one-line fix does not need a structured PR
+  description with sections.
 
-Length should match the change. A one-line fix does not need a structured PR
-description with sections.
-
-The same style applies to other durable prose written for people: design docs,
-RFCs, runbooks, and messages drafted for someone else to send.
-
-## Always run prose through the humanizer skill
-
-Any prose a person will read gets the `humanizer` skill applied before I hand it
-over. Not optional, not only when I suspect it reads badly.
-
-Covers: PR titles and descriptions, review comments and replies, issue text,
-commit message bodies, docs, changelogs, READMEs, design docs, RFCs, runbooks,
-wiki pages, drafted emails and Slack messages, and generated documents (PDF,
-slides, reports).
-
-Does not cover: code, comments, config, test names, shell output, or short
-factual answers to me in chat.
-
-Workflow: draft it, invoke the skill on the draft, ship the humanized version.
-It layers on top of "Write like a person" above; where they overlap, both apply.
+Workflow: draft it, run the `humanizer` skill on the draft, ship the humanized
+version. Not optional, not only when it reads badly. Code, comments, config,
+test names, shell output, and chat answers to me are exempt.
 
 ## Talk to me in Simplified Technical English (asd-ste100)
 
-Until I say otherwise, every message addressed to me goes through the
-`asd-ste100` skill (`~/.claude/skills/asd-ste100`). This covers all of it:
-explaining code, reporting what changed, answering questions, status updates,
-recaps, plans, and any other chat text I read.
+Every message addressed to me goes through the `asd-ste100` skill at
+`~/.claude/skills/asd-ste100`: explanations, reports, answers, status updates,
+recaps, plans, any chat text I read.
 
 - Load the skill at the start of every session and keep it active. Do not
   wait for me to say "STE" or "disambiguate".
-- Use STE-flavored mode for chat: active voice, simple tenses, one idea per
-  sentence, sentences at or under 25 words, no phrasal verbs, no semicolons,
-  no nominalizations, no marketing adjectives, no synonym rotation.
 - Keep every hedge at its original strength. "May have failed" stays "may
   have failed". Never promote a guess to a fact to make a sentence shorter.
 - Output the rewritten text only. No mode announcement, no rule table, no
   note that STE was applied.
 - Code, commands, file paths, error text, and quoted output stay verbatim.
   STE applies to the prose around them, not to them.
-- This stacks with "Write like a person" and the humanizer rule above. For
-  chat to me, STE wins on sentence shape. For durable prose other people
-  read, humanizer still runs last.
+- STE shapes chat to me. The section above governs prose other people read.
 
 Turn it off only when I explicitly say so ("stop STE", "normal talk").
 
@@ -107,29 +95,27 @@ sha or file:line reference. One or two sentences is usually the whole reply.
 If the reviewer is right, say what changed. If they are wrong or working from a
 wrong assumption, say so plainly and give the evidence. Neither case needs
 softening ritual around it.
+
 ## My Claude Code config lives in git, push it after every change
 
-`~/.claude` is a git repo pushed to `curiousyuvi/claude-config` (private). It
-tracks a whitelist: this file, `settings.json`, `settings.local.json`,
-`toolboxes.json`, `skill-system-config.json`, `agents/`, `commands/`, `hooks/`,
-`skills/`, and `projects/*/memory/`. Everything else in `~/.claude` (transcripts,
-sessions, caches, plugin checkouts, logs) is gitignored and stays local.
+`~/.claude` is a git repo pushed to `curiousyuvi/claude-config` (private).
+`~/.claude/.gitignore` is a whitelist of what it tracks; everything else in
+`~/.claude` (transcripts, sessions, caches, plugin checkouts, logs) stays local.
 
-The rule: any change to those files gets committed and pushed. Do not leave my
-config dirty.
+The rule: any change to a tracked file gets committed and pushed. Do not leave
+my config dirty.
 
 - A Stop hook runs `hooks/sync-config.sh` at the end of every turn, so routine
   edits sync themselves. You do not need to push by hand.
-- When you edit one of those files deliberately, still verify it landed:
+- When you edit a tracked file deliberately, still verify it landed:
   `git -C ~/.claude log --oneline -1` and `git -C ~/.claude status --short`. If
   the tree is dirty, commit and push it yourself with a real message rather than
   waiting for the hook's dated one.
 - The permission I gave for this push is standing, and it is scoped to this repo
-  only. It never extends to project repos: those still follow "never commit,
-  push, or merge without asking".
+  only. Project repos follow the no-commit-without-asking rule above.
 - The script aborts and warns instead of pushing if the staged diff looks like it
   contains a secret. If you see that warning, tell me. Never work around it, and
   never put a literal key, token, or password in a `~/.claude` file: this repo is
   private but it is still off my machine.
-- Adding a new tracked path means editing `~/.claude/.gitignore`, since the
-  ignore file is a whitelist and a new top-level file is invisible by default.
+- Adding a new tracked path means editing `~/.claude/.gitignore`, since a new
+  top-level file is invisible to the whitelist by default.
