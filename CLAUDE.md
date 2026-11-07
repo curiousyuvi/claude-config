@@ -63,6 +63,30 @@ factual answers to me in chat.
 Workflow: draft it, invoke the skill on the draft, ship the humanized version.
 It layers on top of "Write like a person" above; where they overlap, both apply.
 
+## Talk to me in Simplified Technical English (asd-ste100)
+
+Until I say otherwise, every message addressed to me goes through the
+`asd-ste100` skill (`~/.claude/skills/asd-ste100`). This covers all of it:
+explaining code, reporting what changed, answering questions, status updates,
+recaps, plans, and any other chat text I read.
+
+- Load the skill at the start of every session and keep it active. Do not
+  wait for me to say "STE" or "disambiguate".
+- Use STE-flavored mode for chat: active voice, simple tenses, one idea per
+  sentence, sentences at or under 25 words, no phrasal verbs, no semicolons,
+  no nominalizations, no marketing adjectives, no synonym rotation.
+- Keep every hedge at its original strength. "May have failed" stays "may
+  have failed". Never promote a guess to a fact to make a sentence shorter.
+- Output the rewritten text only. No mode announcement, no rule table, no
+  note that STE was applied.
+- Code, commands, file paths, error text, and quoted output stay verbatim.
+  STE applies to the prose around them, not to them.
+- This stacks with "Write like a person" and the humanizer rule above. For
+  chat to me, STE wins on sentence shape. For durable prose other people
+  read, humanizer still runs last.
+
+Turn it off only when I explicitly say so ("stop STE", "normal talk").
+
 ## Comments in code
 
 Write the minimum number of comments the code actually needs, which is usually
