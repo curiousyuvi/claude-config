@@ -17,3 +17,13 @@ Then eval (same 4 gaps: Chats, billing on Helply; password links, HTML embed on 
 Also found: shared markTrailingCacheBreakpoint (copilot, background agent) marks only the new end, so OpenAI cache reads likely miss there too; outside this PR, report to user.
 
 STATE 2026-11-09 ~23:00 IST: all of 0,2,3,1 BUILT on ys/feat/capture-agent-models, UNCOMMITTED (on top of local commits 0fe2d975d, d31bf4ebc). Green: app-capture+gaps+ai+config suites (1582), typecheck, biome (2 pre-existing complexity warnings: configuration.ts configurationWith, triage file), web report-note test. Local DB: saved screens cleared on Helply+InstantDocs connections. Key names: AgentBrowser.trailOnSample, survey ON_SAMPLE refusal; existingPictures + capturePlanPrompt pictures list; ArticleScreenshotsService.review (role 'review', AI_APP_CAPTURE_REVIEW_MODEL); capture tool report_wrong_step (reason WRONG_STEP, REVIEW_REMOVED); GapCorrectionService + GapScreenshotService.correctionRound; CaptureReport.corrections shown in ScreenshotReportNote (web change: user should look at it). Next: eval same 4 gaps, then commit/push/PR.
+
+ROUND 2 (2026-11-09 ~23:55 IST, after r19). r19: Chats 3/6t, billing 3/13t, password correction round ran (review flagged SEO lines, user confirmed CORRECT: SEO moved out of Share dialog), HTML 0 (slow-create bug). User feedback + agreed build, in order:
+F. late create POST (arrives after click's during() window but gate attributes it) must count for SampleEdits (tag writes with the causing action).
+G2. recheck of a person's picture whose step control is gone: agent must picture the screen as it is + report wrong step, judge compares, replace (today: skip -> old picture kept unchecked). G3. correction's 2nd run must recheck old pictures in corrected steps. Unreadable old picture should report as UNCHECKED, not kept. Only pictures showing the changed screen get replaced, not all.
+B. picture slots at ANY nesting depth (accordion items etc.).
+A. planner + review see picture previews (low detail, cost effective but smart).
+D. agent + validator get the whole article's steps (user: issue is it didn't see the rest of the article; NOT a "no ring when step names no control" rule).
+C. review = full article editor: any action on any block (text, pictures, move/remove/add, ask for new picture), replaces remove-only review + separate correction.
+E. connected apps are TEST accounts: remove restrictive rules (theme etc.), keep only: payments/plan changes, deletes of data run didn't make, reaching real people, signed-in account's own access. Agent matches theme of article's old pictures, no switch back.
+Then eval Chats, billing, password (skip HTML). Prod assets of password article copied to helply-staging bucket locally (6 ids).
