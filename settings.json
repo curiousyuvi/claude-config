@@ -58,6 +58,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5-1",
   "hooks": {
     "PostToolUse": [
       {
@@ -220,6 +221,5 @@
       "routine under GrooveHQ/axis prefix qualifiers: git push/PR actions scoped to the origin remote only"
     ]
   },
-  "voiceEnabled": true,
-  "model": "claude-fable-5-1"
+  "voiceEnabled": true
 }
