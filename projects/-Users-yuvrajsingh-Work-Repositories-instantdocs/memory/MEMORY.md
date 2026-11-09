@@ -23,3 +23,4 @@
 - [reference_sentry_api_via_cli_token.md](reference_sentry_api_via_cli_token.md) — Sentry MCP OAuth flaky; curl the API with the ~/.sentryclirc token; crawler filter + dedupe make absence weak evidence
 - [reference_running_checks_without_yarn.md](reference_running_checks_without_yarn.md) — yarn/corepack unavailable in Claude shells; use `npx tsc -p tsconfig.json` and `npx next lint --quiet`
 - [project_regional_kb_404.md](project_regional_kb_404.md) — Region-specific published KB 404 = per-region Vercel data cache with cached null; revalidate entire-kb tag for quick fix
+- [Local BlockNote render repro](reference_local_blocknote_render_repro.md) — tsx + CSS loader stub + globalThis.React to rerun ServerBlockNoteEditor on saved block JSON; user runs the prod DB read
