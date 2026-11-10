@@ -128,6 +128,7 @@
 - [Screenshot agent stuck runs: causes, PR #1954, local A/B recipe](project_capture_agent_stuck_runs.md) — count chat spans in SigNoz traces; E2E orgs locally hit the real InstantDocs app
 - [Local prod snapshot of Helply + InstantDocs (ACTIVE)](project_local_prod_snapshot_workflow.md) — test #1980 locally on the prod copy, one PR at the end; login yuvraj@snapshot.test / password
 - [Article review + wrong-step + planner-sees-pictures design (ACTIVE, resume here)](project_capture_article_review_design.md) — same PR as model config, build order 0,2,3,1
+- [Unified KB block model for capture (FOLLOW-UP PR, designed)](project_capture_unified_block_model.md) — reviewer point 1 on #2026; options on kbMdxBlocks, mdast `<block>` wrap, needs full eval
 - [Screenshot agent smarter plan (NEXT, resume here)](project_capture_agent_smarter_plan.md) — explore-before-write FIRST, repeat guard, perception layers, write freedom (default reversible), revise-after-capture; user wants a broader human-like plan before building
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
 - [GitHub integration plan (next)](project_github_integration_plan.md) — no long-lived repo copies; Albato token ask; PDF via PK
