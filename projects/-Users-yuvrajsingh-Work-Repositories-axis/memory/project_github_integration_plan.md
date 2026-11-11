@@ -27,5 +27,7 @@ Decisions locked 2026-11-11 (grill session), PR 1 = GitHub base, no AI, branch `
 
 PR 1 opened 2026-11-11 as draft GrooveHQ/axis#2048 (commit af8dd5244). Blocked on Jared (CTO) registering the 3 apps and creating 1Password item `GitHub App` (fields app_id, slug, client_id, client_secret, private_key, webhook_secret) in Axis Dev/Staging/Production; setup doc artifact https://claude.ai/artifact/5x4S8uz8Jjyqc6zATUJFBz. Staging host https://next.helplystaging.com unconfirmed. Screenshots still owed. Local `tsc --checkers 2` shows a TS2859 in scheduled-message-list.service.spec.ts on this branch only (passes with 1 or 4 checkers; CI uses bun check).
 
+2026-11-12: Jared registered the DEV app. Webhooks go GitHub > Hookdeck (verifies GitHub secret, retries) > app; provider trusts only hookdeck sourceVerified (like Slack). App has NO GitHub webhook secret; delivery reconciler REMOVED (user agreed). 1Password item now 5 fields (no webhook_secret). Local dev: `hookdeck listen https://api.inbox.helply.localhost github`. Staging/prod apps still pending.
+
 **Why:** user wants the GitHub plumbing complete and reviewed separately before any AI work.
 **How to apply:** keep PR 1 free of AI and of tables nothing uses; don't re-ask settled points. Related: [[project-knowledge-gaps-feature]].
