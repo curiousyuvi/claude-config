@@ -1,24 +1,29 @@
 ---
 name: project-github-integration-plan
-description: Next gaps feature = GitHub integration via Albato; decided no long-lived customer repo copies; Albato requirements PDF sent via PK
+description: "GitHub integration for gaps/capture: own GitHub App (Albato dropped); PR 1 = GitHub base only, decisions locked 2026-11-11 via grill session"
 metadata:
   node_type: memory
   type: project
-  originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-02T16:35:08.433Z
+  originSessionId: ba864d9c-3e4d-41f5-aee8-0b4e06cc8e27
+  modified: 2026-11-11T11:14:14.063Z
 ---
 
-Started 2026-11-02, after #1810 merged. GitHub feeds: scheduled article verification, gaps citing real code, PR merge leads to gap + article update (+ screenshot rerun), code hints for the screenshot agent.
+Started 2026-11-02. Albato route dropped 2026-11-06 (no GitHub connector, polls). Research brief: Notion "Code-aware knowledge base: research brief" (app.notion.com/p/410b7d82b70781938e63e3a459e55c33). Handoff: `.claude/handoffs/github-integration.md` in the main checkout (git-ignored; also a copy in ~/Work/Repositories2/axis). Work happens in ~/Work/Repositories/axis, NOT Repositories2.
 
-Decided: no long-lived copy of customer repos (user's call). Model is Ferndesk/Promptless/CodeRabbit style: diff-first on merge, agent reads GitHub live pinned to a commit SHA, store only anchors {repo, path, blob_sha} + PR refs + summaries, tree-SHA change detection for scheduled checks, ephemeral shallow/sparse clone only for deep audits, blob-SHA cache with hours TTL. No GitHub code search API (10/min, default branch only).
+Decisions locked 2026-11-11 (grill session), PR 1 = GitHub base, no AI, branch `ys/feat/github-integration` off origin/master:
+- Module `src/modules/github/`, GitHub only (no provider abstraction), github.com only (no GHES/GHE.com).
+- One workspace <-> one GitHub org (both unique). User does not care about multi-org now.
+- Links: repo (by GitHub repo id) -> help center (KB), many-to-many, optional plain folder prefixes (no globs). Store repo id, full name, default branch; keep current via webhooks.
+- 3 apps: "Helply" (prod, public), "Helply Staging", "Helply Dev" (private to GrooveHQ). I write form values, an org owner registers; keys in 1Password op:// refs.
+- Permissions: Contents/Pull requests/Metadata read only. Events: installation, installation_repositories, repository, pull_request, push, release. User wants everything GitHub-side done in PR 1.
+- pull_request/push/release in PR 1: verify, store in webhook_events, mark ignored. No unused tables (user rejected a merged-PR table in PR 1).
+- Install flow verifies install via user OAuth + state; "waiting for GitHub admin approval" state auto-completes.
+- Disconnect in Helply also uninstalls on GitHub. Uninstall/suspend stop access, keep links off; reinstall/unsuspend restores; separate Delete removes links.
+- Permission key `knowledge_base.manage_code_sources` (admin+owner; migration grants to custom roles holding manage_gap_settings).
+- UI under Settings > Integrations, link from gap settings. NO feature flag (user said no need to hide).
+- Metering: same as all other AI features (AiAttribution + axis.ai.actions), no separate billing ever planned.
+- Later PRs: merged PR = row in knowledge_gap_releases with new `source` column; new GapSource `code`; Chatwoot offline eval before tuning triage; no symbol graph stored.
+- Open on purpose: order of later PRs, sandbox host, Agent SDK/ZDR spike, deep-pass cadence.
 
-Ask to Albato (PDF ~/Downloads/helply-github-integration-requirements.pdf, source HTML in job tmp): GitHub App install, read-only token exposed via credential API (main ask); fallback = raw passthrough action; webhooks pull_request, push, delete, installation(_repositories); MCP lowest. User sends via PK, who talks to Albato.
-
-Deep research 2026-11-02 (non-PR code reading), recommended design:
-- Fetch tiers: 1-10 files REST raw by commit SHA; 10-300 files trees API + GraphQL alias batches (~50/query, text cut at 512KB, check isTruncated); whole-repo = git binary `clone --depth 1 --filter=blob:none --no-checkout --single-branch` + sparse/backfill into tmp, delete after. isomorphic-git/nodegit lack partial clone. Fresh token per git cmd (1h expiry), serialize clones per repo, hooks/LFS off.
-- Agent: grep/glob/ranged reads with hard caps (SWE-agent ACI), no embeddings (Cursor turned them off Jul 2026, Claude Code dropped RAG), no LSP/SCIP per job. Seeds from locale/i18n files, routes, OpenAPI, flags, e2e titles. Cheap model scouts (<=16 calls) and writes <=2k handoff; strong model judges handoff only. Target < $0.10 per article check.
-- Scheduled verification funnel: rolling 1/30 per day, tree-SHA gate, deterministic checks (quoted UI strings vs locale files, schemas, limits), LLM only on claims whose anchored span changed (span_hash, not just blob_sha), re-anchor fallback. Tables article_claim / claim_anchor / repo_state.
-- Privacy: keep paths, SHAs, symbol names, i18n keys, HMAC'd hashes; never code embeddings (Vec2Text inverts); treat AI summaries of code as code.
-
-**Why:** prod scale + customer trust; Ferndesk's security page promises no persistent code index.
-**How to apply:** design the integration around these choices; don't propose indexing/embedding customer code unless live reads prove too slow. Related: [[project-knowledge-gaps-feature]].
+**Why:** user wants the GitHub plumbing complete and reviewed separately before any AI work.
+**How to apply:** keep PR 1 free of AI and of tables nothing uses; don't re-ask settled points. Related: [[project-knowledge-gaps-feature]].
