@@ -1,19 +1,20 @@
 ---
 name: project-capture-signin-dead-hold
-description: "Decided 2026-11-10 — when a connected app's sign-in dies, hold gap work (no drafting) until re-sign-in or disconnect, no time limit; plus 2 small fixes found from Groove's prod run"
+description: "Sign-in hold SHIPPED (PR #2046, merged+deployed 2026-11-11); Groove still signs out ~75 min after sign-in — root cause NOT confirmed, user wants it confirmed and fixed before any more Groove runs"
 metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-10T18:11:24.684Z
+  modified: 2026-11-11T11:48:54.461Z
 ---
 
-Groove prod redraft (2026-11-10, org 019edaf0-b76c-770a-bd5a-ece5bd417a92) ran every survey on `/logout`. Likely cause (from logs, not proven): the write guard's ACCESS_PATH floor blocked the app's `POST /oauth/token` refresh once the morning token expired, so the app revoked and logged itself out; `isSignedIn` then missed `/logout`. Groove gap group is PAUSED via BullMQ Pro `pauseGroup` (script ~/Work/kg-eval/prod/gap-group.mjs over `railway ssh --service workers`); resume after fixes deploy, then requeue the ~8 gaps surveyed logged out (22:56–23:03 IST).
+PR #2046 (merged, deployed 2026-11-11): refresh-token POSTs pass the guard (token endpoint + grant fields only), log-out/session-expired pages count as signed out (incl. hosted signInOrigins, after last turn), a refused sign-in HOLDS gap work (capture_held_at, knowledge_gap_releases.held_screens) with bell notice `app_sign_in_needed` + banner; re-sign-in/new details/disconnect publishes `app_capture.sign_in_hold_lifted` -> GapCaptureReleaseService requeues. "Sign-in did not finish" does not hold.
 
-Plan agreed with the user:
-1. Allow OAuth `grant_type=refresh_token` POSTs through the guard (keeps the session alive); revoke/logout/credential changes stay blocked.
-2. `isSignedIn` treats log-out pages as signed out — done on `ys/fix/capture-signed-out-page` (uncommitted).
-3. Detect a signed-out page mid-run and stop the run with a sign-in error.
-4. Feature: connection state "sign-in needed"; survey/screenshot/draft jobs for that workspace HOLD (no daily runs spent, no drafts without notes); banner on gaps page + connected-app settings and admin notification ("sign in again or disconnect"); re-sign-in resumes held gaps; disconnect drafts them without screenshots.
+Groove prod (org 019edaf0-b76c-770a-bd5a-ece5bd417a92, password sign-in graham@tropicaltees.store, app tropical-tees.groovehq.com):
+- 2026-11-11 15:20 IST re-signed in (fresh profile, gen 2). Reset top 20 signed-out gaps (g7, backup CSV in ~/Work/kg-eval/prod), cleared survey jobs, resumed group, removed 9 stale shots jobs.
+- 8 gaps finished well; 13 now HELD: at 16:35 IST (11:05 UTC) Groove's own page called POST /oauth/revoke + /api/v1/widget/session/logout (guard blocked both), run landed on /logout, hold + notice fired. Day's 20 runs were spent at 10:59 UTC.
+- No /oauth/token was ever blocked. Hypothesis (UNPROVEN): refresh-token rotation + reuse detection; back-to-back Firecrawl sessions open the profile before the previous session's save lands (code waits only PROFILE_SAVE_SETTLE_MS=3s in one place), so a stale refresh token is reused and Groove revokes the family. Alternative: fixed session lifetime.
+- Gap found: password connections can't self-heal because a dead session lands on /logout (no form) and signIn stops ("No sign-in form was found at .../logout"). Fix idea: sign-in from a log-out page goes to the app's sign-in page; password connections re-sign-in instead of holding.
+- Remaining: 9 signed-out gaps not yet reset (g7 batch, surveyed_at 2026-11-10 17:00-24:00 UTC). Cap reset idea: delete Redis key app_capture:runs:day:<org>:<UTC date> (user rejected writing the script for now).
 
-**Why:** users assume drafts get screenshots; a dead sign-in silently produced weak drafts and burned daily runs. **How to apply:** user decided NO time limit on the hold — never draft while sign-in is dead, only after re-sign-in or full disconnect. See [[project-capture-article-review-design]].
+**Why:** user said "first really confirm the actual cause if possible and we need to fix it first, before continuing groove runs". **How to apply:** next step was investigating via SigNoz traces/logs (workers, 10:45-11:06 UTC), worker log run timeline, and Groove's public front-end JS (what triggers /oauth/revoke, how refresh works, where tokens live). No repo git changes while another chat works on master; scripts go in ~/Work/kg-eval/prod; user runs op/psql/railway ssh commands. See [[project-capture-article-review-design]].
