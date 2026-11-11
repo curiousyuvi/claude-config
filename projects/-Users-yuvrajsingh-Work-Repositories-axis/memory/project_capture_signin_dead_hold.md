@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f52b7cfa-40e4-4905-aaed-8f32ce04ad40
-  modified: 2026-11-11T13:09:42.764Z
+  modified: 2026-11-11T13:43:12.862Z
 ---
 
 PR #2046 (merged, deployed 2026-11-11): refresh-token POSTs pass the guard (token endpoint + grant fields only), log-out/session-expired pages count as signed out (incl. hosted signInOrigins, after last turn), a refused sign-in HOLDS gap work (capture_held_at, knowledge_gap_releases.held_screens) with bell notice `app_sign_in_needed` + banner; re-sign-in/new details/disconnect publishes `app_capture.sign_in_hold_lifted` -> GapCaptureReleaseService requeues. "Sign-in did not finish" does not hold.
@@ -22,5 +22,7 @@ Investigation 2026-11-11 (Groove JS in scratchpad/groove/js, trace c8ff2b017f39c
 - Groove refresh: every GraphQL call + a 5-min timer call doRefreshIfNecessary; fires when localStorage groove-auth.expiresAt < now+30min; POST https://api.groovehq.com/oauth/token JSON {grant_type, client_id, subdomain}, refresh token in cookie. expiresAt comes from GET oauth/token/info (Doorkeeper).
 - No run ever logged POST /oauth/token (blocked or changed), and the already-signed-in load is guarded, so the page never tried a refresh: the server rejected a token the page thought had >30 min left. Server-side reason UNKNOWN; Groove is our own company, so its backend logs can say why.
 - Definite bug anyway: isTokenRefresh refuses Groove's refresh because of the extra `subdomain` field, so near expiry every refresh would be blocked.
+
+RESOLVED (Matt, Groove dev, 2026-11-11): Groove tokens last 24h, the page auto-refreshes, and signing out signs out ALL of that user's sessions. Today's 16:34 IST sign-out = someone (likely Graham, who uses that test account) signed out; not our bug. Yesterday's (10 Nov 22:56 IST) = 24h refresh blocked by our guard (`subdomain` field); fix handed to another agent as PR on ys/fix/capture-token-refresh-fields. Suggest a dedicated Groove test user for the agent.
 
 **Why:** user said "first really confirm the actual cause if possible and we need to fix it first, before continuing groove runs". **How to apply:** next step was investigating via SigNoz traces/logs (workers, 10:45-11:06 UTC), worker log run timeline, and Groove's public front-end JS (what triggers /oauth/revoke, how refresh works, where tokens live). No repo git changes while another chat works on master; scripts go in ~/Work/kg-eval/prod; user runs op/psql/railway ssh commands. See [[project-capture-article-review-design]].
