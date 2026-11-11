@@ -132,7 +132,7 @@
 - [Unified KB block model for capture (FOLLOW-UP PR, designed)](project_capture_unified_block_model.md) — reviewer point 1 on #2026; options on kbMdxBlocks, mdast `<block>` wrap, needs full eval
 - [Screenshot agent smarter plan (NEXT, resume here)](project_capture_agent_smarter_plan.md) — explore-before-write FIRST, repeat guard, perception layers, write freedom (default reversible), revise-after-capture; user wants a broader human-like plan before building
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
-- [GitHub integration (ACTIVE, PR 1 building)](project_github_integration_plan.md) — own GitHub App, PR 1 = base only, decisions locked 2026-11-11; branch ys/feat/github-integration
+- [GitHub integration (ACTIVE, PR 1 = GrooveHQ/axis#2048 draft)](project_github_integration_plan.md) — own GitHub App, decisions locked 2026-11-11; blocked on Jared registering apps + 1Password "GitHub App" items
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
 - [Plain-words explainer in ~/Downloads](project_knowledge_gaps_explainer_doc.md) — update knowledge-gaps-explained.md on every feature change
 - [Track JJ's Topics merges on master](feedback_track_jj_topics_merges.md) — fetch + merge master into ys/feat/knowledge-gaps before each work block/commit
