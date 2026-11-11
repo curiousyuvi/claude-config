@@ -29,5 +29,7 @@ PR 1 opened 2026-11-11 as draft GrooveHQ/axis#2048 (commit af8dd5244). Blocked o
 
 2026-11-12: Jared registered the DEV app. Webhooks go GitHub > Hookdeck (verifies GitHub secret, retries) > app; provider trusts only hookdeck sourceVerified (like Slack). App has NO GitHub webhook secret; delivery reconciler REMOVED (user agreed). 1Password item now 5 fields (no webhook_secret). Local dev: `hookdeck listen https://api.inbox.helply.localhost github`. Staging/prod apps still pending.
 
+2026-11-12: local test passed on `pnpm dev` (not bin/sandbox: sandbox host api-inbox-<id> does not match the Dev app callback). Dev app installed on GrooveHQ org, connection active, repos synced, Hookdeck delivered installation.created (ignored: arrived 2s before callback bound it, expected). UI changed (uncommitted): GitHub is a card under Developer on Integrations; Connect goes straight to GitHub; Manage opens GithubSettingsSheet; the /settings/integrations/github route is gone; the callback returns to Integrations and useGithubInstallResult toasts. Local DB was rebuilt 2026-11-11 (prod Helply snapshot gone, only Seed org). DEFERRED until the AI PRs need it: import the prod Helply help center into the local Seed org (read-only prod export of KB_TABLES from bin/_kb-move-org.ts, user runs it) and link it to the Helply repo in GrooveHQ.
+
 **Why:** user wants the GitHub plumbing complete and reviewed separately before any AI work.
 **How to apply:** keep PR 1 free of AI and of tables nothing uses; don't re-ask settled points. Related: [[project-knowledge-gaps-feature]].
