@@ -39,5 +39,7 @@ PR 1 opened 2026-11-11 as draft GrooveHQ/axis#2048 (commit af8dd5244). Blocked o
 
 2026-11-12: user ACCEPTED fix A's repo-admin limit (a repo admin may install on their repos; later repo additions are an org owner's choice); no Members: read permission. Replied on 4543855603. CodeRabbit thread 4548062203 stays unresolved by us.
 
+2026-11-12 ~14:45 IST: new flow VERIFIED locally by the user: uninstall + reinstall bound install 181182974 (GrooveHQ) via the stored installation.created sender, first repo load done (repos_synced_at set). Head 646474037 (adds reinstall_required for an existing install with no stored installer).
+
 **Why:** user wants the GitHub plumbing complete and reviewed separately before any AI work.
 **How to apply:** keep PR 1 free of AI and of tables nothing uses; don't re-ask settled points. Related: [[project-knowledge-gaps-feature]].
