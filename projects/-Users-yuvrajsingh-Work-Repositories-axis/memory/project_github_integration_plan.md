@@ -41,5 +41,15 @@ PR 1 opened 2026-11-11 as draft GrooveHQ/axis#2048 (commit af8dd5244). Blocked o
 
 2026-11-12 ~14:45 IST: new flow VERIFIED locally by the user: uninstall + reinstall bound install 181182974 (GrooveHQ) via the stored installation.created sender, first repo load done (repos_synced_at set). Head 646474037 (adds reinstall_required for an existing install with no stored installer).
 
+2026-11-12 evening: PR 1 review loop DONE. Head cf660c74e; all CodeRabbit threads resolved, CodeRabbit check green, Sonar gate passes, CI green except a pending shard at last look. Only blocker: Jared's 4 threads + his CHANGES_REQUESTED (he must re-review). Design now (supersedes the pendingInstall/webhook_events notes above):
+- Status `confirming` (installed, waiting for webhook) with claimant_github_user_id + claimant_user_id (Helply member); `requested` = waiting for owner approval, finish via "Finish connecting". Check constraints enforce each status's shape.
+- Installers recorded in `github_installation_origins` at verified intake (webhook_events index removed). Only live rows (active/suspended) hold an install/account (partial unique indexes); waits hold nothing; different claimants on one install => delivery unbound.
+- Callback requires the Helply session to be the state's baUserId (WRONG_SESSION) — fixes install-link takeover. confirm rechecks GithubManagerAuthority and reads the install from GitHub (suspension/404).
+- Repo events all go through refreshOne; selection changes > 20 or all<->selected switch (repository_selection stored) => full resync; first loads deduped per connection+install (BullMQ deduplication, not jobId: GITHUB queue keeps 1000 completed jobs); repos_synced_at cleared on bind/unsuspend/selection change; API exposes repositoriesLoaded.
+- ONE schema migration Migration20261112115827_GithubIntegration (regenerated from the branch-point snapshot each time; local DB rows backed up + restored). Permission data migration 20261111113500 unchanged.
+- Personal GitHub accounts are SUPPORTED on purpose (user choice); copy says "GitHub account".
+- Org FKs intentionally have no cascade (orgs are soft-deleted; repo convention).
+NEXT (user, after compact): start the next phase (AI PRs on top of PR 1) with a grill round.
+
 **Why:** user wants the GitHub plumbing complete and reviewed separately before any AI work.
 **How to apply:** keep PR 1 free of AI and of tables nothing uses; don't re-ask settled points. Related: [[project-knowledge-gaps-feature]].
