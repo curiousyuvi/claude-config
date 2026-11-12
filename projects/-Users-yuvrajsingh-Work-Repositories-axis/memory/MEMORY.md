@@ -26,6 +26,7 @@
 - [Minimum comments in code, usually zero](feedback_minimal_comments.md)
 - [Comment budget is hook-enforced](feedback_comment_budget_hook.md) — PreToolUse guard re-injects the rule
 - [Branch names prefixed ys/](feedback_branch_naming.md) — `ys/feat/<slug>`
+- [Backend tests NEVER with DB_NAME=axis](feedback_backend_tests_never_dev_db_name.md) — test setup DROPs its base DB; wiped the dev DB twice
 - [Run pnpm check + typecheck after significant changes](feedback_run_lint_typecheck.md) — note pre-existing failures, don't fix silently
 - [Run diff-based gates AFTER committing](feedback_diff_checks_after_commit.md) — react-doctor/Sonar diff committed refs, not working tree
 - [Never reference instantdocs code as precedent](feedback_no_instantdocs_precedent.md) — "precedent" = GrooveHQ repos; report what I checked
