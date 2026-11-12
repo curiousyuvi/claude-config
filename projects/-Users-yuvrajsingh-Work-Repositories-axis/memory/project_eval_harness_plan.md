@@ -23,3 +23,8 @@ Locked 2026-11-13 (grill). Eval PR comes FIRST, before the gaps-foundation PR an
 - Build order: gap judge end to end with ~10 cases first, then other stages. First run = `baseline` on unchanged prod prompts. PR done = harness + 4 adapters + seed + verified set + 60-80 cases + baseline numbers; NO prompt changes. Retire ~/Work/kg-eval/eval-round.sh after.
 
 Still open for PR 2 (not evals): 409 case: auto re-draft + "Re-draft with my edits" button, or separate AI-merge button?
+
+Progress 2026-11-13 (branch ys/feat/kb-evals off master, nothing committed):
+- Built: infrastructure/langfuse/compose.yml (Langfuse 4.76.0, web 127.0.0.1:3100, minio 9190) + bin/langfuse up|down|reset|logs (secrets in infrastructure/langfuse/.env, keys into apps/backend/.env.local); bin/kb-eval-export.ts (`evals:kb-export`, READ ONLY tx, --list/--kb, writes evals/corpus/instantdocs.json); apps/backend/evals/ harness (corpus, cases YAML, stage contract, CostMeter span processor on axis.ai.cost_usd, Langfuse dataset sync + experiment + evals-review queue with human_correct + human.<criterion>, grader anthropic/claude-sonnet-4.5, report + baseline diff, `agreement` writes evals/grader-trust.json); gap-judge stage; AI feature `evals`; extracted toGapArticle/toGapCollections mapper.
+- Smoke run passed end to end on Node 24 ($0.012). Must run evals on Node 24 (RegExp.escape); pnpm in Claude shell only via `sh ~/Library/pnpm/.tools/pnpm/12.15.0/bin/pnpm`.
+- NEXT: user runs the prod export, then I draft verified sections + ~10 gap-judge cases, then baseline.
