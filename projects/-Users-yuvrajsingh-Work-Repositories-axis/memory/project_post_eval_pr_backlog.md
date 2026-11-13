@@ -18,6 +18,7 @@ Screenshot agent (app-capture):
 - Respect the user's read-only mode: then no writes at all.
 - SAFETY BUG found by the guard eval (2026-11-13): in reversible mode the write guard ALLOWS `kb.revokeAllAccess` (3/3) and unpublishing a real doc (3/3), and BLOCKS deleting the run's own sample doc even when the context says it is a sample (3/3). Fix first.
 - Image scan calls third-party screenshots (Crisp's own UI in a Crisp integration article) InstantDocs app screens, 3/3 on both cases (scan eval 2026-11-13), so the planner may try to retake pictures of another product.
+- Sign-in recorded success (last_sign_in_at set) on an offline app: eval 2026-11-13, tunnel down, Firecrawl landed on ngrok's ERR_NGROK_3200 page and the password sign-in still passed. The sign-in check must confirm a signed-in app screen, not just the absence of a login form.
 - Slow apps: current timeouts are too tight for real apps (action 5 s, settle 4 s, locate 5 s, after-write 5 s, run max 12 min / 80 turns, survey 6 min / 30 turns). Raise them, and give the agent a way to wait for a long process or loading to finish (sleep/poll until done) without burning turns.
 
 - Gap judge drops findability verdicts when the article has no lead-in (starts with a heading) and the judge gives sectionHeading null: `resolveGapVerdict` in `domain/gap-verdict.ts` returns null on `article && !section`. Eval 2026-11-13 after video removal: clone-page-findability 0/3, take-down-findability 2/3. Findability fixes are article-level; accept null section for them.
