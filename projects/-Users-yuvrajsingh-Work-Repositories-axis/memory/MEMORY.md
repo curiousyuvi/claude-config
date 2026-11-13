@@ -135,6 +135,7 @@
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
 - [GitHub integration (ACTIVE, PR 1 MERGED 2026-11-12)](project_github_integration_plan.md) — prod app "Helply - Github Integration" set up by Jared; staging app still missing (staging deploys fail op run until it exists); AI phase = eval PR, gaps-foundation PR, GitHub AI PR
 - [Eval harness plan (NEXT, locked 2026-11-13)](project_eval_harness_plan.md) — self-hosted Langfuse + InstantDocs verified set; build gap-judge stage first
+- [Backlog for the PR after the eval PR](project_post_eval_pr_backlog.md) — screenshot restore + context guard + slow-app waits, PR 2 gap action kinds; user wants them in one PR
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
 - [Plain-words explainer in ~/Downloads](project_knowledge_gaps_explainer_doc.md) — update knowledge-gaps-explained.md on every feature change
 - [Track JJ's Topics merges on master](feedback_track_jj_topics_merges.md) — fetch + merge master into ys/feat/knowledge-gaps before each work block/commit
