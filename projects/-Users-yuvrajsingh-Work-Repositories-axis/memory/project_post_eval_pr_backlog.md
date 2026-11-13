@@ -20,6 +20,8 @@ Screenshot agent (app-capture):
 - Image scan calls third-party screenshots (Crisp's own UI in a Crisp integration article) InstantDocs app screens, 3/3 on both cases (scan eval 2026-11-13), so the planner may try to retake pictures of another product.
 - Slow apps: current timeouts are too tight for real apps (action 5 s, settle 4 s, locate 5 s, after-write 5 s, run max 12 min / 80 turns, survey 6 min / 30 turns). Raise them, and give the agent a way to wait for a long process or loading to finish (sleep/poll until done) without burning turns.
 
+- Gap judge drops findability verdicts when the article has no lead-in (starts with a heading) and the judge gives sectionHeading null: `resolveGapVerdict` in `domain/gap-verdict.ts` returns null on `article && !section`. Eval 2026-11-13 after video removal: clone-page-findability 0/3, take-down-findability 2/3. Findability fixes are article-level; accept null section for them.
+
 Knowledge gaps (PR 2 scope, from the first grill):
 - New KB action kinds as proposals: new collection, move, delete, merge gaps, multi-change groups per gap/PR; fixes may touch content outside the target section, judged by the grader, not blocked.
 - Combined actions are normal (correction + retake, missing + new collection, findability + correction, release touching several articles, + translation).
