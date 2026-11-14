@@ -41,3 +41,7 @@ Knowledge gaps (PR 2 scope, from the first grill):
 - Help-center filter on gap search; OCR image scan for every image (dry run of cost, time and size first); never-published articles are invisible to gaps today.
 
 GitHub (PR 3): more PR types welcome (UI label, behaviour, limit/price, new/removed feature, rename, bug fix with and without doc impact, refactor, dependency bump, copy-only, revert, multi-feature, feature-flagged).
+
+PROGRESS on branch ys/feat/capture-agent-backlog (from master 61e77d034, 2026-11-14, nothing committed):
+- DONE write guard: write-check.prompt.ts rates critical/medium/low, medium allowed only when a screen the article title needs exists only after the write. Guard eval full: tune 48/48, holdout 39/39 (run guard-severity-v3). Case role-change-needed relabelled (user agreed the role menu can be pictured without the change) and renamed role-change-members-article.
+- NEXT: planner TL;DR, reviewer over-edits, survey hover-only menus, screenshot no_progress, restore + context guard + slow-app waits, gap action kinds.
