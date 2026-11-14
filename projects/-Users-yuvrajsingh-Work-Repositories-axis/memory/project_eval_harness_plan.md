@@ -8,6 +8,8 @@ metadata:
   modified: 2026-11-12T19:15:49.738Z
 ---
 
+**STATUS: MERGED 2026-11-14 as GrooveHQ/axis#2124 (merge 61e77d034).** Next work = [[project-post-eval-pr-backlog]]. Human review fields in Langfuse are readable now ("Answer is right", "How bad is the worst problem", "Main mistake (<stage>)", "<Criterion> (<stage>)"); 3 survey traces reviewed so far; grader-trust.json is local only (not committed). Type check with `pnpm --filter backend typecheck` (tsc), NOT tsgo: tsgo is not installed and fails silently in a pipe.
+
 Locked 2026-11-13 (grill). Eval PR comes FIRST, before the gaps-foundation PR and the GitHub AI PR ([[project-github-integration-plan]]).
 
 - Platform: self-hosted Langfuse (MIT, kept after ClickHouse bought it Jan 2026), own pinned compose under `infrastructure/langfuse/`, `bin/langfuse up` with headless init; keys in apps/backend/.env.local. Local only; production tracing to Langfuse is a later decision. Jared fine with it; DeepEval rejected (human review + dashboard are paid Confident AI).
