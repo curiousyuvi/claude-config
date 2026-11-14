@@ -6,4 +6,4 @@
 - [Recorder app macOS testing](recorder-app-macos-testing.md) — unsigned builds need re-sign + tccutil + lsregister after every package (full recipe in the repo's AGENTS.md); dev mode can't log in; release/app is source.
 - [Recorder pipeline status](recorder-pipeline-status.md) — recorder-to-article shipped 2026-09-18; 2026-09-25 snapshot render findings (proxy removed, Lambda chunking pinned, site deploy workflow, unmergeable PRs get no CI) in there too.
 - [Ferndesk eval setup](ferndesk-eval-setup.md) — 2026-10-08 trial, 2026-10-13 Pro re-run and code-track test on a stand-in app (Lumen Docs, personal GitHub and Vercel): capture strong, verification never uses the app without code, with code the PR-to-draft loop closes in five minutes.
-- [Groove auth vs app capture](groove-app-capture-auth.md) — Groove login reuses a shared 24h web token and rotates on refresh; LIVE capture runs don't save the profile, so the next run signs out.
+- [Groove auth vs app capture](groove-app-capture-auth.md) — Groove capture sign-outs Nov 2026: fixes shipped in PRs 2111/2112/2120/2123, a full reconnect stopped it, root cause unproven; how to debug a recurrence.
