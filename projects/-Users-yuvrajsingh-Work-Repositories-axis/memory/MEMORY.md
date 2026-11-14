@@ -140,3 +140,4 @@
 - [Plain-words explainer in ~/Downloads](project_knowledge_gaps_explainer_doc.md) — update knowledge-gaps-explained.md on every feature change
 - [Track JJ's Topics merges on master](feedback_track_jj_topics_merges.md) — fetch + merge master into ys/feat/knowledge-gaps before each work block/commit
 - [Demo app is the UI north star for gaps](feedback_demo_app_is_ui_north_star.md) — match helply-prototype components/gaps exactly until Tirth sends Figma
+- [pnpm 12 tool install leaves a placeholder bin](project_pnpm12_native_binary_placeholder.md) — ENOEXEC on pnpm switch; run its install.js, keep the _tmp folder
