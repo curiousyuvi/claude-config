@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 0c25d5a6-97aa-413b-ac9c-0b06e96245af
-  modified: 2026-11-13T13:11:40.737Z
+  modified: 2026-11-16T14:34:17.732Z
 ---
 
 User 2026-11-13: "after the eval PR the next PR we will cover all these together, along with any small work for later github work, like adding new action/gap types". Measure every item against the eval suite from [[project-eval-harness-plan]]. Order of PRs: [[project-github-integration-plan]].
@@ -118,3 +118,13 @@ ROUND 4 PROGRESS (2026-11-16 ~03:20 IST, user asleep, said keep working; keep as
 - Secrets for evals WITHOUT op: user made ~/.config/axis/eval-env.sh (mode 600). Run evals in a terminal tab (Bash sandbox can't reach DB): set -a; source <(grep -E '^[A-Z0-9_]+=' .env | grep -v '=op://'); source ~/.config/axis/eval-env.sh; set +a; KNOWLEDGE_GAPS_EVAL_MODE=true pnpm run esm ./evals/run.ts ... REMIND user to delete the file in the morning.
 - Before-baseline worktree for Q8: ../axis-before (round-3 state, round-4 capture files reverted, node_modules symlinked). Remove with git worktree remove when done.
 - Morning items for user: gitnexus detect_changes (ask), screenshots upload, PR body, commit/push ask, delete eval-env.sh.
+STATE 2026-11-16 20:05 IST (before compact):
+- Q8 done. Survey: before 12/24, all round-4 9/24, without Q4-survey-rule+reminder and Q5 13/24 -> REMOVED Q4 survey rule, menu reminder (unopenedMenusIn) and Q5 (trailBeforeStop) from code; kept Q1 stall explain, Q2 NOT_IN_APP, Q3 hover sweep (+ re-list after a sweep that found something), select options / "(opens a menu)" in page description. Screenshot 27/40 -> 30/42.
+- Judge: user chose option B: merge line in prompt (HEAD + move hint on otherChanges collectionRef + merge sign line); export-transcript accepts missing (article check skips a missing outcome); groove + knowledge-hub merge cases no longer require the merge (forbid retire). Full judge 60/60 tune, 46/46 holdout. Page: https://claude.ai/artifact/Rw3mDxYZAwa3E1MsWAbaQz. The round-3 newCollection description reword was what dropped export-transcript; reverted.
+- CodeRabbit review on #2126 (19 inline + outside-diff + nitpick): fixed via 3 subagents + me (restore on failure: withPutBack/putBackAfter in capture-agent.ts). NOT applied: outside-diff replay-only restore (recipes never save), nitpick split of article-screenshots.service (imageNode shared). PENDING USER DECISION: 4578709387 write-check "making content public" is medium vs CHANGE_RULES "publishing to the public" blocked (3 guard cases expect medium). Reply drafts in scratchpad cr-replies.md (post nothing without yes). Delete rule now stricter (last path id + every body id must be a sample); restore v7 run checks samples still get deleted.
+- Restore v7 run (user approved ~$0.20) in terminal tab c4, log evals/runs/round4-restore-v7.log, started 19:37. seo-description/indexing-switch cases have a 2nd "saved" intent (page opened again); trash-restore-dialog names Gift cards.
+- Full backend suite 19919 passed after the CodeRabbit fixes; web knowledge-gaps 50 passed; lint + typecheck clean.
+- PR text draft: scratchpad pr-body-v2.md (RESTORE_RESULT placeholder; humanize before posting). Screenshots 6, 7 not uploaded yet.
+- Eval spend: round3 ~$27, round4 ~$21. Hook ~/.claude/hooks/eval-cost-guard.cjs blocks any shell text naming the eval runner or the peek script unless it carries EVAL_APPROVED_USD=<n>; use the Edit tool for notes that mention them.
+- Cleanup later: worktree ../axis-before (git worktree remove), ~/.config/axis/eval-env.sh (user deletes), evals/grader-trust.json is local (never commit), scratchpad peek script.
+- Remaining for user: write-check decision, CodeRabbit replies, gitnexus detect_changes (ask first), screenshot upload, PR body, then ask to commit + push.
