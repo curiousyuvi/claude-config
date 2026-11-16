@@ -128,3 +128,5 @@ STATE 2026-11-16 20:05 IST (before compact):
 - Eval spend: round3 ~$27, round4 ~$21. Hook ~/.claude/hooks/eval-cost-guard.cjs blocks any shell text naming the eval runner or the peek script unless it carries EVAL_APPROVED_USD=<n>; use the Edit tool for notes that mention them.
 - Cleanup later: worktree ../axis-before (git worktree remove), ~/.config/axis/eval-env.sh (user deletes), evals/grader-trust.json is local (never commit), scratchpad peek script.
 - Remaining for user: write-check decision, CodeRabbit replies, gitnexus detect_changes (ask first), screenshot upload, PR body, then ask to commit + push.
+
+STATE 2026-11-16 22:10 IST: restore v7 full 3/7 ($0.18); turns/item raised 8 to 12, rerun of 5 failing cases 2/5 ($0.13), now stops on the 4-min cap. Create that opened a sample no longer listed as a separate restore change (SampleEdits.madeBy). CHANGE_RULES dropped "publishing to the public" (user: guard is right). PR body humanized at scratchpad pr-body-v3.md; cr-replies.md final. Left: user approves posting replies, screenshots 6/7 (user takes), commit/push on yes.
