@@ -17,6 +17,7 @@
 - [Timezone is IST, UTC+5:30](user_timezone_ist.md) — report times in IST; logs/Railway/GitHub are UTC, convert first
 
 ## How I work (feedback)
+- [Ask before ANY eval run, with a cost estimate](feedback_ask_before_any_eval_run.md) — user decides; use --no-grader/--only for A/B
 - [Run `op` myself via the terminal tab, user approves with Touch ID](feedback_op_commands_user_runs.md) — changed 2026-11-15; ask first, never print secrets
 - [Never attribute AI as author anywhere](feedback_no_claude_author.md)
 - [Always run prose through the humanizer skill](feedback_always_use_humanizer_skill.md) — PRs, reviews, docs, PDFs; draft then humanize
