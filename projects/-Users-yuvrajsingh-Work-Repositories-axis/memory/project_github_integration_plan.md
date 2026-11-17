@@ -73,3 +73,11 @@ GRILL 2026-11-17 (code features, branch ys/feat/github-pr-gaps from master 7c261
 - Limit: 50 agent runs/day/workspace (all kinds), over -> next day; hints exempt (capture cap bounds them). Read log per run (files, why, when) in GitHub sheet, 30 days, paths only.
 - Evals: InstantDocs (repo kroto-learn/instantdocs, local checkout; JSX text, no locale files; 3,908 PR merges) for everything + live eval app; small Chatwoot holdout (~10) for verify + PR-merge.
 - Staging GitHub app: ignore for now (user).
+
+SPIKE DONE 2026-11-17 (scratchpad code-spike/: proxy.mjs, run.mjs, lambda/Dockerfile+handler.mjs; not in repo; spent ~$0.07):
+- Agent SDK 0.3.325 TS works via ANTHROPIC_BASE_URL=proxy, ANTHROPIC_AUTH_TOKEN=job token, ANTHROPIC_API_KEY='' ; proxy forwards to https://openrouter.ai/api + /v1/messages?beta=true, injects body provider {zdr:true,data_collection:'deny'}, user, session_id, HTTP-Referer/X-Title. Served by Google Vertex (generation lookup), app attribution + session reached OpenRouter. Response usage has real `cost` + `cost_details`; header x-generation-id (msg id is NOT the generation id).
+- Options used: tools+allowedTools [Read,Grep,Glob], permissionMode dontAsk, settingSources [], outputFormat json_schema, maxTurns, maxBudgetUsd, env replaced (HOME per job, DISABLE_* + CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC). PreToolUse deny-path hook + PostToolUse updatedToolOutput secret withholding (onFailure:'block') worked: planted key never reached model/proxy log/output.
+- Costs: Haiku 5.5 $0.002-0.008/run, 10-31 s, 6-15 turns; Sonnet 5.5 $0.05/run ~23 s. Answers correct (InstantDocs More > Download; Chatwoot "Add contact", "Conversation Routing").
+- Output leak seen: Haiku wrote "Ellipsis button" (code icon name) in user steps; notes mentioned the secret's existence + vendor names -> output check needed on steps AND notes.
+- Lambda image (public.ecr.aws/lambda/nodejs:22 + git, arm64): 1.82 GB (linux-arm64 CLI binary 348 MB); RIE run OK; clone blobless+sparse 3-4 s; peak mem ~550 MB; works with DNS only for github.com + proxy (no other outbound host needed). CLI leaves empty /tmp/claude-0 and /tmp/cc-socks: wipe /tmp per job (warm reuse).
+- NOT done: real AWS deploy (needs user yes: ECR + function; egress allowlist needs VPC+NAT+firewall/proxy, cost decision).
