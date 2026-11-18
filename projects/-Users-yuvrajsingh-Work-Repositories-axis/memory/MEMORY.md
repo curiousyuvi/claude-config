@@ -134,7 +134,7 @@
 - [Unified KB block model for capture (FOLLOW-UP PR, designed)](project_capture_unified_block_model.md) — reviewer point 1 on #2026; options on kbMdxBlocks, mdast `<block>` wrap, needs full eval
 - [Screenshot agent smarter plan (NEXT, resume here)](project_capture_agent_smarter_plan.md) — explore-before-write FIRST, repeat guard, perception layers, write freedom (default reversible), revise-after-capture; user wants a broader human-like plan before building
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
-- [GitHub integration (ACTIVE: PR #2181 in review by Konrad, infra #171 applied, no Lambda function yet)](project_github_integration_plan.md) — merged-PR gaps + verify + hints + code-agent evals; user owes UI screenshots; next tuning round after
+- [GitHub integration (ACTIVE: PR #2181 in review by Konrad, infra #171 only half applied (prod IAM), no ECR or function yet)](project_github_integration_plan.md) — merged-PR gaps + verify + hints + code-agent evals; user owes UI screenshots; next tuning round after
 - [Eval harness (MERGED 2026-11-14, #2124)](project_eval_harness_plan.md) — self-hosted Langfuse + InstantDocs set; next is the backlog PR; typecheck with tsc not tsgo
 - [Backlog PR #2126 (MERGED 2026-11-17)](project_post_eval_pr_backlog.md) — capture backlog + multi-article gap fixes; leftovers and cleanup list at the end
 - [Gaps stacked branches](project_gaps_stacked_branches.md) — phase 7 on ys/feat/screenshot-agent (stacked on #1792); #1792 fixes in worktree ../axis-gaps then merge upward
