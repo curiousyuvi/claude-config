@@ -102,3 +102,6 @@ SPIKE DONE 2026-11-17 (scratchpad code-spike/: proxy.mjs, run.mjs, lambda/Docker
 
 ## 2026-11-18
 Rebased onto master 0104f5653 (took master version of tick processor + gap-change.repository, #2168 fixed the same TS2589) as b99224a0a, pushed, opened PR https://github.com/GrooveHQ/axis/pull/2181. tsc/biome/web tsc pass, 448 module tests pass. Screenshots still owed by user.
+
+## 2026-11-18 later
+PR #2181: Sonar gate passes (fixes 16618174b, a65d65944). Review requested from Konrad (jdarnok). Infra GrooveHQ/infrastructure#171 MERGED+APPLIED by Matt: ECR repo `code-agent`, roles, invoker users only; NO functions (image tags null in code-agent/locals.tf). Remaining to go live: build+push arm64 image to ECR (needs AWS access, not mine), follow-up infra PR setting staging tag, invoker keys into 1Password, then CODE_AGENT_FUNCTION_NAME/REGION/AWS_ACCESS_KEY_ID/SECRET + CALLBACK_ORIGIN op:// refs in apps/backend/.env.staging/.env.production. Without CODE_AGENT_FUNCTION_NAME the runner reports not configured, features off.
