@@ -108,3 +108,6 @@ PR #2181: Sonar gate passes (fixes 16618174b, a65d65944). Review requested from 
 
 ## 2026-11-18 Konrad review (thermo-nuclear, 16 inline)
 All 16 addressed in 77e1f0c29, replied (no AI footer, per user) and resolved. Key changes: KB controller -> knowledge-gaps via CodeAgentJobAuth; CodeHintService -> app-capture; retention job code.retention_sweep in code-sources; runner stores output + reuse_key (new migration Migration20261118092541, NOT applied to local dev DB yet), records AI action gated on spend; PR findings carry pullNumber; GapCodeDetail.pullRequest (release changelog-only); github publishes github.pull_request_merged / github.repository_linked; shared/utc-day.ts. Item 7 transaction folding deliberately skipped (writer has own tx + retry).
+
+## RESUME POINT (2026-11-18, before compact)
+User asked: address all genuine findings from Konrad's NEW review on #2181; CONFIRM WITH USER any genuine finding that would require re-running evals (prompt/schema/model behavior changes) before doing it. First fetch found only the old review 5953310863 (08:48Z) and no new inline comments after 10:00Z, so re-check reviews, issue comments and inline comments (no time filter) after compact. Replies: no AI footer.
