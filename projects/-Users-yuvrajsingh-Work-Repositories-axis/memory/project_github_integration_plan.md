@@ -117,3 +117,11 @@ Eval code-tuning1 ($2.21, tune+holdout): 3 verify prompt rules (true-but-incompl
 
 ## 2026-11-19 infra fully applied by Matt
 code-agent/ root + src/ staging applied. 1Password `Code Agent Lambda` now in Axis Staging AND Axis Production (copied from S3 state). .env.staging refs committed 4f75ca8e4, .env.production 8227f08d9. Image code-agent:68a0881d7 (arm64, single OCI manifest) pushed to 147889171041.dkr.ecr.us-east-1.amazonaws.com/code-agent with `--provenance=false`. Infra PR GrooveHQ/infrastructure#173 sets BOTH tags (user wants one PR, not to ask Matt repeatedly). After Matt applies #173: add CODE_AGENT_FUNCTION_NAME=code-agent-staging to .env.staging (features turn on), test staging, then code-agent-production in .env.production. PowerUser SSO can push ECR + read state, cannot iam:GetRole.
+
+## RESUME HERE (2026-11-20)
+- PR #2181 APPROVED by Konrad, mergeable; latest head c39d789e1 (master merged twice; topic-trend-time.ts now = master). Screenshots in PR description (user dragged them; screenshots release is full at 1000 assets). PR body infra/eval lines corrected.
+- Infra #173 (both image tags 68a0881d7) waits for Matt. After apply: add CODE_AGENT_FUNCTION_NAME=code-agent-staging to apps/backend/.env.staging, test staging, then production.
+- Jared doc (Claude Docs): https://claude.ai/artifact/QfzfxtG5ynxXsGQN4RqP9Q "AWS for the GitHub code features" (private until user shares).
+- Scaling check: prod `workers` service 2 replicas run all queues (api skips). Worst case 12 code jobs + 10 capture hints = 22 > Lambda reserved 20; user chose to LEAVE concurrency at 6.
+- Offered, not built: no-cost eval replay into local axis UI (load corpus KB into a local workspace + write stored Langfuse outputs via CodeFindingsWriter). User may ask.
+- Local app may still run in terminal tab c15 (pnpm dev); stop when done. Flaky master test gap-changes.service.spec "waits for a publish holding the gap" (unhandled rejection) — not ours; reran.
