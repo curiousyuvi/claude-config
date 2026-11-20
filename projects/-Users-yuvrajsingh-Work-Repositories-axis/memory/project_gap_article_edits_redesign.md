@@ -1,0 +1,31 @@
+---
+name: project-gap-article-edits-redesign
+description: "ACTIVE 2026-11-20 — knowledge gaps redesign to whole-article block edits (no sections, no main section); user approved; goes into PR #2181; full plan inside"
+metadata:
+  node_type: memory
+  type: project
+  originSessionId: 4cfbb9d1-da3f-43ed-8568-7f1b64dc2708
+  modified: 2026-11-20T13:31:52.426Z
+---
+
+**Status 2026-11-20 ~20:00 IST:** user approved the approach and asked to compact before building. Plan written (below). Not started. Two owner questions still open (end).
+
+**Why:** user found on a real InstantDocs draft (Exporting a Doc gap): drafting animation never ended (no poll while `drafting`; locally Ably outbox never drains: 149 rows), each section shown twice + "Publishing this fix also" card (own section in place, edit_section appended again), diff drops bold/line breaks/numbered lists (plain-text line diff in plate-lines.ts/line-diff.ts/section-diff.tsx), screenshot step only pictured gap.fixContent (TL;DR) so the stale step-2 image in the other section stayed. Root: "own/main section" stored on the gap vs knowledge_gap_changes, ~20 asymmetric paths; plus format assumptions (h2-only sections, house style on edits, picture placement heuristics). User rejected heuristic format fixes ("detect heading level / picture placement" = more assumptions) and demanded a researched general approach.
+
+**How to apply (decided design, do not re-litigate):**
+- Gap = problem + list of changes. Text changes are per-article BLOCK EDITS via existing kb-mdx-edits.ts (kbMdxBlocks numbering, replace/insert_before/insert_after/delete, applyKbMdxEdits keeps assets) — same as article review (app-capture article-review). Drafter sees WHOLE article + pictures as images + evidence; returns only edits the evidence supports; untouched blocks byte-identical = format preserved by construction. Per-edit validation, rejected edits retried once.
+- Drafter also emits picture marks (retake existing asset / new picture after a block); ONE capture run across all edited articles shoots exactly those (keep gapShotsRunKey cap/charge). Capture planner leaves production.
+- Edits store target block fingerprints (sha256 of as-written nodes + index); `locateEdit` used by publish/outdated/write-back/page. Outdated per change → targeted redraft. Dedup/already-fixed/revert-rival by touched-block overlap (advisory lock replaces uq_knowledge_gaps_live_section).
+- Undo = top-level hunks stored at write time.
+- Judge / release-scan / code agent give a `quote` instead of sectionHeading → focus blocks.
+- New articles (MISSING): `new_article` change, recorder pipeline + KB presets (kbArticleWritingGuide, writeArticlePlan, compileArticlePlan, presets.articleStructure/snapshot); delete NEW_ARTICLE_RULES; drop withoutLoneStep + withoutStepAnnouncements (fight presets); move withoutEchoedFaqAnswers + stepHeadingProblems into kb-article-plan.ts.
+- Web: KbDiffContent extracted from KB version history (kb-version-preview.tsx DiffContent + KbVersionDiffPlugin) exported via knowledge-base barrel; server sends `segments` per article; each edit once in place with reason, editable per edit (KbDocumentEditor keyed change:edit); changes card only non-text actions; poll detail while drafting. Delete section-diff.tsx, line-diff.ts, plate-lines.ts.
+- Schema: knowledge_gap_changes kind edit_section→edit_article, +new_article; article nullable; add edits jsonb, touched_hashes text[], base_hash, fix_title, description jsonb, picture_marks jsonb, screenshot_report jsonb, outdated_since, asset_ids (kbAssetIdsProperty fix_content/edits/undo); drop section_heading, before_content. knowledge_gaps drop section_heading, section_hash (dead), before_content, fix_title, fix_description, fix_content, before_description, fix_edited_at, screenshot_report, asset_ids, uq index; keep article_id (subject only), drafted_at (= drafted), outdated_since (earliest), draft_failure. Enums: EDIT_SECTION→EDIT_ARTICLE, +NEW_ARTICLE, SECTION_GONE→ARTICLE_GONE, SECTION_CHANGED→BLOCKS_CHANGED, delete GAP_LEAD_IN_HEADING.
+- Migration: release A = expand (deprecated props kept, generated migration + kind/failure renames, drop uq index) + idempotent backfill bin `bin/knowledge-gaps-article-edits-backfill.ts` (rows helper `_knowledge-gaps-article-edits-rows.ts` + spec; editsFromDocuments; published gaps applied_at+undo hunks; unsafe undecided → drafted_at null for nightly redraft). Release B (later PR) = drop columns.
+- Evals: drafter stage → draftArticleEdits, checks format_preserved / edits_valid / pictures_expected, 21 cases section→focus, 6 new format cases (no-headings-prose, prose-steps, images-before-text, table-limits, single-long-section, numbered-h3-steps); gap-judge/release-scan section→near + quote_resolves (53+17 cases, rebaseline); capture-plan stage deleted; ASK COST before every eval run.
+- Build sequence (12 steps): 1 KB helpers (applyBlockEdits, applyKbMdxEditsEach, hashes, topLevelHunks) → 2 gap domain (article-edits.ts, article-quote.ts, picture-marks.ts) → 3 shared enums/protocol/entities/migration/db:entities → 4 repository/writer/verdict/judge/release-scan/code-findings → 5 drafter → 6 screenshots multi-doc pictureMarked → 7 publish/undo/changes/auto-publish/triage/controller → 8 outdated/release pictures/lifecycle/query/mapper → 9 backfill → 10 web → 11 evals → 12 release B later. Tests: DB_HOST=localhost DB_NAME=axis_test, projects unit/integration.
+- Full plan text: subagent report saved at /private/tmp/claude-501/-Users-yuvrajsingh-Work-Repositories-axis/4cfbb9d1-da3f-43ed-8568-7f1b64dc2708/tasks/aa10395acfef2e6e3.output (scratch, may vanish; re-derive from code if gone).
+
+**Open owner questions:** (1) auto-publish across several articles: plan refuses (needs a person); (2) delete capture-plan eval stage + 13 cases since planner leaves prod.
+
+**Uncommitted in working tree (keep):** article-code-check.tsx refresh of article gaps when a check finishes (useEffect invalidating knowledgeGapKeys.article) — commit with this work. NOT to commit: github-repository-access.service.ts LOCAL_ONLY_FILE_REPOS patch, bin/_eval-replay.ts, bin/_connect-eval-app-seed.ts, evals/grader-trust.json. Related: [[project-github-integration-plan]].

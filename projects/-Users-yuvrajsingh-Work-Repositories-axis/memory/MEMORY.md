@@ -1,5 +1,8 @@
 # Memory index
 
+## Knowledge gaps article-edits redesign (ACTIVE, resume here)
+- [Gap redesign: whole-article block edits, no sections (ACTIVE, resume here)](project_gap_article_edits_redesign.md) — user approved 2026-11-20; plan + 12-step build order + 2 open questions inside; goes into PR #2181
+
 ## KB edge render redesign (ACTIVE, resume here)
 - [Bake data, render at the edge — full handoff](project_kb_edge_render_redesign.md) — spike passed (171 KB gzip, 0.4–53 ms/render); next: strict plan review, then ONE PR on ys/fix/kb-template-rebake-on-deploy
 
