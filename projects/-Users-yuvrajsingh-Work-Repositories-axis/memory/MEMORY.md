@@ -1,7 +1,7 @@
 # Memory index
 
 ## Knowledge gaps article-edits redesign (ACTIVE, resume here)
-- [Cleanup PR #2245 review (NEXT, resume here after compact)](project_gap_legacy_cleanup_pr.md) — #2181 merged+deployed+backfilled; run thermo review of #2245 in fresh agent, fix, push
+- [Cleanup PR #2245 MERGED; prod GitHub testing next](project_gap_legacy_cleanup_pr.md) — all 3 GitHub Apps private (blocks customers); PR replay bin script offered
 - [Gap redesign: whole-article block edits, no sections (ACTIVE, resume here)](project_gap_article_edits_redesign.md) — user approved 2026-11-20; plan + 12-step build order + 2 open questions inside; goes into PR #2181
 
 ## KB edge render redesign (ACTIVE, resume here)
