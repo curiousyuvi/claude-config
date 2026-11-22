@@ -1,7 +1,6 @@
 # Memory index
 
 ## Knowledge gaps article-edits redesign (ACTIVE, resume here)
-- [Gap diff view fix plan (NEXT, resume here after compact)](project_gap_diff_view_fix_plan.md) — random ids from withListNumbers, published view shows only hunks, collapsed accordions; plan inside
 - [Gap redesign: whole-article block edits, no sections (ACTIVE, resume here)](project_gap_article_edits_redesign.md) — user approved 2026-11-20; plan + 12-step build order + 2 open questions inside; goes into PR #2181
 
 ## KB edge render redesign (ACTIVE, resume here)
