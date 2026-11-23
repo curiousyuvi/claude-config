@@ -1,6 +1,6 @@
 ---
 name: project-gap-edit-screenshots-regression
-description: "PR GrooveHQ/axis#2260 OPEN 2026-11-23 (ys/fix/gap-edit-screenshots): edit fixes ask for screenshots again (EDIT_PICTURES), drafter eval runs capture on, Copilot code-check card refetch, signed-out banner redesign"
+description: "PR GrooveHQ/axis#2260 MERGED 2026-11-23 (deploying); next: redraft an edit gap on Groove prod to confirm screenshots: edit fixes ask for screenshots again (EDIT_PICTURES), drafter eval runs capture on, Copilot code-check card refetch, signed-out banner redesign"
 metadata:
   node_type: memory
   type: project
@@ -9,6 +9,8 @@ metadata:
 ---
 
 Cause (found 2026-11-23 on Groove prod): #2181 deleted the capture planner; the new-article prompt got a "when to add a picture" rule, the edit prompt only got the tag format, so edit drafts asked for 0 screenshots (prod: 21/26 edit fixes had screenshots before, 0 after). Missed because the drafter eval was hard-coded `capture: false`, the capture-plan eval was deleted with the planner, local checks looked at the UI only, and the backfill kept old screenshot reports until a redraft.
+
+PR #2260 (MERGED 2026-11-23) also fixed a prod bug CodeRabbit found: draftNewArticle lifted picture paths before withoutSentences dropped blocks, so new-article pictures landed one step late; now cleanup runs first.
 
 PR #2260 contents:
 - `EDIT_PICTURES` in gap-draft.prompt.ts, shared `NO_PICTURE_FOR` line; "happens off screen" dropped (contradicted `outside=`).
