@@ -1,6 +1,6 @@
 ---
 name: project-gap-edit-screenshots-regression
-description: "PR GrooveHQ/axis#2260 MERGED 2026-11-23 (deploying); next: redraft an edit gap on Groove prod to confirm screenshots: edit fixes ask for screenshots again (EDIT_PICTURES), drafter eval runs capture on, Copilot code-check card refetch, signed-out banner redesign"
+description: "RESUME: prod GitHub tests on Groove mostly done (see body, 2026-11-24); PR GrooveHQ/axis#2260 MERGED 2026-11-23 (deploying); next: redraft an edit gap on Groove prod to confirm screenshots: edit fixes ask for screenshots again (EDIT_PICTURES), drafter eval runs capture on, Copilot code-check card refetch, signed-out banner redesign"
 metadata:
   node_type: memory
   type: project
@@ -24,6 +24,8 @@ Running drafter evals: `--only` needs full variant ids (`case--real-notes`, `--n
 Local banner preview trick: app DB is postgres.axis.orb.local (unreachable from my shell); patch window.fetch in the page to add `signInNeeded: true` to /api/knowledge-gaps/app-access, banner appears within 60s.
 
 Follow-up PR GrooveHQ/axis#2261 MERGED+deployed 2026-11-24: CodeRoutesService.learn had mergeRoutes args swapped (crawl filled 150-route list, code routes dropped: Groove lost 9 of 65); mergeRoutes now variadic newest-first. Open decision: a later crawl can still evict code routes (priority or reserved share?). Prod checks 2026-11-23: both redrafts asked for screenshots (01a1b41a: 2 new; 01a1b41b: 2 new + 1 retake, all done) but NO capture_hint run ever happened for Groove (hints fire only when the agent is stuck); Groove routes refresh only on the next routes run.
+
+Prod GitHub test state 2026-11-24 03:22 IST (Groove): PR #2262 merged+deployed (workers 02:29 IST). mobile-frontend linked (it draws the real settings/billing/Insights UI; GrooveHQ/Groove only has old Backbone views, so hints from it said "not found"). Replays via base64 REPL (terminal tool refuses parens/lone r): Groove #14695 + mobile-frontend #7753/#7752 (#7752 found nothing). PR run opened NEW gap 01a20a3d "Panel button now named Insights" with code guidance steps; drafted 03:11 (25 edits, 8 retakes). Screenshot agent reached the Insights panel but it shows "Authentication failed: Failed to fetch" in the capture test account, so all 6 retakes unchecked. Code hints have fired (01:28, 02:08, 02:46, 03:16), all found:false. code_routes: 48 pages from mobile-frontend, 0 from Groove. Next: fix Insights auth for the capture account (or pick a non-Insights screen) then redraft 01a20a3d; replay script bin still not written.
 
 Also open: GitHub Apps all private (Slack ask to Jared drafted). PR replay script not written.
 
