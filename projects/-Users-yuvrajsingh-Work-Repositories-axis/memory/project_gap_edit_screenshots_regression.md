@@ -23,6 +23,8 @@ Running drafter evals: `--only` needs full variant ids (`case--real-notes`, `--n
 
 Local banner preview trick: app DB is postgres.axis.orb.local (unreachable from my shell); patch window.fetch in the page to add `signInNeeded: true` to /api/knowledge-gaps/app-access, banner appears within 60s.
 
+Follow-up PR GrooveHQ/axis#2261 MERGED+deployed 2026-11-24: CodeRoutesService.learn had mergeRoutes args swapped (crawl filled 150-route list, code routes dropped: Groove lost 9 of 65); mergeRoutes now variadic newest-first. Open decision: a later crawl can still evict code routes (priority or reserved share?). Prod checks 2026-11-23: both redrafts asked for screenshots (01a1b41a: 2 new; 01a1b41b: 2 new + 1 retake, all done) but NO capture_hint run ever happened for Groove (hints fire only when the agent is stuck); Groove routes refresh only on the next routes run.
+
 Also open: GitHub Apps all private (Slack ask to Jared drafted). PR replay script not written.
 
 See [[project-gap-legacy-cleanup-pr]] and [[project-gap-article-edits-redesign]].
