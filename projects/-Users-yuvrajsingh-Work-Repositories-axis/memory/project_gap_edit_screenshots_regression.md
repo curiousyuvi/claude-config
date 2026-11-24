@@ -29,4 +29,6 @@ Prod GitHub test state 2026-11-24 03:22 IST (Groove): PR #2262 merged+deployed (
 
 Production GitHub App made public 2026-11-23 (user said so 2026-11-24); staging/dev apps may still be private. PR replay script not written. Prod 2026-11-24: redraft of 01a1be67 (Billing Overview plan management) took all 3 screenshots; hints on 01a20a3d found screens but the test account lacks the Insights add-on. Still unseen on prod: hint that leads to a taken screenshot, a real (not replayed) merged PR, manual verify that finds a mistake, Insights sign-in via write prefix, GrooveHQ/Groove 0 code pages.
 
+Branch ys/fix/code-check-freshness (built 2026-11-24, NOT committed): verify Check again returned the stale result after mobile-frontend was linked (shortcut compared only evidence blob SHAs). Fix: `scope` column (hash of reachable repos + verifier prompts), one rule `codeCheckStaleReason` (article/sources/code/age 30d) in knowledge-gaps/domain/code-check-freshness.ts used by button, Copilot, weekly; UI `staleReason`; knownRoutes filters code pages to linked repos; app connect/origin change queues routes learn. Tests/lint/typecheck pass; migration Migration20261124145751_CodeCheckScope. After deploy: Check again on 'Copilot: Groove's AI Assistant' should run fresh.
+
 See [[project-gap-legacy-cleanup-pr]] and [[project-gap-article-edits-redesign]].
