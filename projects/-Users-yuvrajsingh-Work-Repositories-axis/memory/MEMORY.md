@@ -1,7 +1,7 @@
 # Memory index
 
 ## Knowledge gaps article-edits redesign (ACTIVE, resume here)
-- [Gap fixes: #2288 merged; invisible-draft fix #2292 open+green; NEXT = GitHub normal-integration PR (points 1-4)](project_gap_edit_screenshots_regression.md) — resume GitHub PR B from the NEXT block inside
+- [Gap fixes: #2288, #2292, GitHub PR #2295 merged; NEXT = note-plan middle-path PR](project_gap_edit_screenshots_regression.md) — resume from the last NEXT block inside (rethink first)
 - [Cleanup PR #2245 MERGED; prod GitHub testing next](project_gap_legacy_cleanup_pr.md) — prod GitHub App public since 2026-11-23; PR replay bin script offered
 - [Gap redesign: whole-article block edits, no sections (ACTIVE, resume here)](project_gap_article_edits_redesign.md) — user approved 2026-11-20; plan + 12-step build order + 2 open questions inside; goes into PR #2181
 
