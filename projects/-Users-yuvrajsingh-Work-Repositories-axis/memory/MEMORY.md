@@ -139,7 +139,7 @@
 - [Unified KB block model for capture (FOLLOW-UP PR, designed)](project_capture_unified_block_model.md) — reviewer point 1 on #2026; options on kbMdxBlocks, mdast `<block>` wrap, needs full eval
 - [Screenshot agent smarter plan (NEXT, resume here)](project_capture_agent_smarter_plan.md) — explore-before-write FIRST, repeat guard, perception layers, write freedom (default reversible), revise-after-capture; user wants a broader human-like plan before building
 - [Gaps x Topics lifecycle + #1810 follow-ups](project_gaps_topics_lifecycle_todo.md) — JJ+Konrad approved; Konrad/JJ follow-up list inside; REMIND user to message JJ (text inside) once #1810 merges
-- [Shared writer for code articles + missing gaps: BUILT, commit 9fcc618c5 not pushed; NEXT = propose fixes (resume here)](project_code_article_shared_writer_plan.md) — state + problem list in handoff "2026-11-28 night"
+- [Shared writer for code articles + missing gaps: fix proposal BUILT, uncommitted; NEXT = evals (ask), user test, commit (resume here)](project_code_article_shared_writer_plan.md) — state in handoff "2026-11-28 end of day"
 - [GitHub integration: features 1-3 merged; NOW feature 4 generate-from-code, article level first (resume here)](project_github_integration_plan.md) — decisions + designs in .claude/handoffs/github-integration.md "Feature 4"
 - [Eval harness (MERGED 2026-11-14, #2124)](project_eval_harness_plan.md) — self-hosted Langfuse + InstantDocs set; next is the backlog PR; typecheck with tsc not tsgo
 - [Backlog PR #2126 (MERGED 2026-11-17)](project_post_eval_pr_backlog.md) — capture backlog + multi-article gap fixes; leftovers and cleanup list at the end
