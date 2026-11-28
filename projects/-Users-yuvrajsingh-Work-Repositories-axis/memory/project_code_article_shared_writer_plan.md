@@ -1,13 +1,18 @@
 ---
 name: project-code-article-shared-writer-plan
-description: Approved 2026-11-27 plan to merge code-article and missing-gap article writing into one shared writer + picture pipeline, all in the article-from-code PR; build after compact
+description: "Shared writer for code articles + missing gaps is BUILT and committed (9fcc618c5, not pushed); open work = propose solid fixes for the problems found in app testing (resume from handoff \"2026-11-28 night\")"
 metadata:
+  node_type: memory
   type: project
+  originSessionId: 4cfbb9d1-da3f-43ed-8568-7f1b64dc2708
+  modified: 2026-11-28T16:08:04.590Z
 ---
 
-Approved 2026-11-27 (user: "all in this PR", "first we compact then start building"). Full plan and state: section "2026-11-27 evening" at the end of `.claude/handoffs/github-integration.md` in the main checkout. Work is in worktree ~/Work/Repositories/axis-gh-integration, uncommitted.
+The plan approved 2026-11-27 is built: commit 9fcc618c5 on `ys/feat/article-from-code` in worktree ~/Work/Repositories/axis-gh-integration, not pushed. More work sits uncommitted on top (picture rule, upload retry, picture report + migration, article-id check); the user wants to test, then commit all together.
 
-Key decisions: code articles use the gaps plan writer (no streaming; loader option 1 already built); Stop keeps current state (before text: delete draft, no charge; during pictures: keep text); writer model per caller (code: Sonnet 5.5 ZDR); review ON; no per-article 5 cap; missing-article gaps with a linked repo run the same code research. Open: cap 12 counting taken pictures instead of planned.
+Resume point: section "2026-11-28 night: state before compact (RESUME HERE)" at the end of `.claude/handoffs/github-integration.md` in the main checkout. It lists what is committed, what is uncommitted, eval results, debug recipes and the open problem list.
 
-**Why:** user wants one system for both features, no parallel copies, code-judo not hacks.
-**How to apply:** gap prompts must stay byte-identical (zero-regression proof); ask eval cost before running. Related: [[project-github-integration-plan]].
+Current ask from the user (2026-11-28): deep dive, then PROPOSE proper fixes for all open problems before building anything: the open editor missing the final picture fill, the capture agent repeating a saving action and skipping its clean-up, slow picture runs, scope drift, pictures in bullet lists.
+
+**Why:** user wants one system for both features, code-judo not hacks, and a proposal before code.
+**How to apply:** propose first and wait for approval; gap prompts stay byte-identical unless a shared rule changes on purpose; ask eval cost before any run. Related: [[project-github-integration-plan]], [[feedback-ask-before-any-eval-run]].
